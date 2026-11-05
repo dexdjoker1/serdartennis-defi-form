@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
+<style>
+:root{--dark:#3D3A36;--olive:#5E6D55;--cream:#F3E8D8;--sand:#D9CDB8;--tan:#B39B72;--grey:#7A746C;--err:#A9714B}
+*{box-sizing:border-box;margin:0;padding:0}
+body,html{background:var(--cream);color:var(--dark);font-family:'Avenir Next',Avenir,'Segoe UI',Montserrat,Helvetica,Arial,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;
+height:100%;scrollbar-width:none;-ms-overflow-style:none}
+body::-webkit-scrollbar,html::-webkit-scrollbar{display:none;width:0;height:0}
+.wrap{max-width:960px;margin:0 auto;padding:12px 16px;min-height:100%;display:flex;flex-direction:column}
+.box{flex:1;display:grid;grid-template-columns:300px minmax(0,1fr);background:#fff;border:1px solid var(--sand);border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(61,58,54,.08)}
+.side{background:var(--olive);color:#fff;padding:28px 26px;display:flex;flex-direction:column}
+.eyebrow{font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--tan)}
+.side .eyebrow{color:#e9dcc4}
+.side h3{font-family:Poppins,sans-serif;font-weight:600;font-size:22px;line-height:1.25;margin-top:6px}
+.side h3:after{content:"";display:block;width:40px;height:2px;background:var(--cream);margin-top:10px}
+.side ul{list-style:none;margin-top:18px}
+.side li{font-size:15px;line-height:1.45;padding-left:22px;position:relative;margin-bottom:10px}
+.side li:before{content:"";position:absolute;left:2px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--tan)}
+.pts{margin-top:auto;background:rgba(255,255,255,.12);border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.5;min-height:72px}
+.pts b{font-family:Poppins,sans-serif;font-weight:600}
+.pts .rl{font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;opacity:.8;margin-bottom:2px}
+.main{padding:22px 28px;min-width:0}
+.tabs{display:flex;gap:8px;background:var(--cream);border:1px solid var(--sand);border-radius:10px;padding:4px;margin-bottom:16px}
+.tabs button{flex:1;font:inherit;font-family:Poppins,sans-serif;font-weight:600;font-size:15px;color:var(--dark);background:0 0;border:0;border-radius:7px;height:42px;cursor:pointer;
+transition:.2s}
+.tabs button.on{background:var(--olive);color:#fff;box-shadow:0 2px 6px rgba(61,58,54,.15)}
+.tabs button:focus-visible{outline:0;box-shadow:0 0 0 3px rgba(94,109,85,.3)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 14px}
+.f{display:flex;flex-direction:column;min-width:0}
+.f label,.lab{font-size:13.5px;font-weight:400;color:var(--grey);margin-bottom:5px;height:18px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+input[type=date],input[type=email],input[type=number],input[type=text],select{font:inherit;font-size:15px;font-weight:400;color:var(--dark);background:#fff;border:1px solid var(--sand);
+border-radius:8px;height:42px;padding:0 12px;width:100%;min-width:0;-moz-appearance:textfield}
+input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+input:focus{outline:0;border-color:var(--olive);box-shadow:0 0 0 3px rgba(94,109,85,.15)}
+input.bad{border-color:var(--err);box-shadow:0 0 0 3px rgba(169,113,75,.15)}
+.mt{margin-top:12px}
+.chk{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:400;line-height:1.4;cursor:pointer;color:var(--dark)}
+.chk input{appearance:none;-webkit-appearance:none;flex:0 0 20px;width:20px;height:20px;border:1.5px solid var(--sand);border-radius:5px;background:#fff;margin-top:0;cursor:pointer;
+position:relative}
+.chk input:checked{background:var(--olive);border-color:var(--olive)}
+.chk input:checked:after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.chk input.bad{border-color:var(--err)}
+.chk a{color:var(--olive);text-decoration:underline}
+.sets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 14px}
+.score{display:flex;align-items:center;gap:6px}
+.score input{text-align:center;padding:0 2px;flex:1 1 0;min-width:0}
+.mo{display:none}
+.score span{font-family:Poppins,sans-serif;font-weight:600;color:var(--grey)}
+select{appearance:none;-webkit-appearance:none;padding-right:34px;cursor:pointer;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23777' stroke-width='1.6'/%3E%3C/svg%3E");
+background-repeat:no-repeat;background-position:right 12px center}
+select.bad{border-color:var(--err)}
+.note{font-size:12.5px;line-height:1.4;color:var(--grey);margin-top:10px}
+.hint{font-size:12.5px;color:var(--grey);margin-top:6px;height:16px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seg{display:flex;gap:8px}
+.seg button{flex:1;min-width:0;font:inherit;font-size:14px;font-weight:400;color:var(--dark);background:var(--cream);border:1px solid var(--sand);border-radius:8px;height:42px;
+cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 8px;transition:.2s}
+.seg button.on{background:var(--olive);border-color:var(--olive);color:#fff;font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px}
+.seg.bad button{border-color:var(--err)}
+.msg{height:20px;line-height:20px;font-size:13.5px;font-weight:400;color:var(--err);margin:10px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{display:block;width:100%;font:inherit;font-family:Poppins,sans-serif;font-weight:600;font-size:15px;letter-spacing:.5px;color:#fff;background:var(--olive);border:0;border-radius:8px;
+height:48px;cursor:pointer;transition:.2s}
+.btn:hover{background:#4f5d47;transform:translateY(-1px)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.btn.light{background:var(--cream);color:var(--dark);border:1px solid var(--sand);width:auto;padding:0 22px;display:inline-block}
+.hide{display:none!important}
+.hp{position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden}
+.done{text-align:center;padding:40px 10px 10px}
+.done .ok{width:64px;height:64px;border-radius:50%;background:var(--olive);margin:0 auto 16px;position:relative}
+.done .ok:after{content:"";position:absolute;left:24px;top:14px;width:13px;height:26px;border:solid #fff;border-width:0 4px 4px 0;transform:rotate(45deg)}
+.done h4{font-family:Poppins,sans-serif;font-weight:600;font-size:22px;margin-bottom:8px}
+.done p{font-size:16px;line-height:1.5;color:var(--grey);max-width:420px;margin:0 auto 22px}
+.mnote{display:none}
+@media (max-width:640px){.wrap{padding:10px 8px}
+.box{grid-template-columns:1fr}
+.side{display:none}
+.main{padding:16px 14px 18px}
+.mnote{display:block;font-size:13.5px;font-weight:400;line-height:1.4;color:var(--dark);background:var(--cream);border-radius:8px;padding:9px 12px;margin-bottom:12px;min-height:56px}
+.mnote b{font-family:Poppins,sans-serif;font-weight:600;color:var(--olive)}
+.tabs{margin-bottom:12px}
+.tabs button{font-size:14px;height:40px}
+.grid2{gap:10px 8px}
+.grid2.one{grid-template-columns:minmax(0,1fr)}
+.grid2.eg{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+.d{display:none}
+.mo{display:inline}
+.sets{gap:8px}
+.f label,.lab{font-size:13px}
+input[type=date],input[type=email],input[type=number],input[type=text],select{font-size:16px;height:44px}
+.score{gap:3px}
+.score input{font-size:16px}
+.seg button,.seg button.on{font-size:13.5px;height:44px}
+.chk{font-size:13.5px}
+.mt{margin-top:10px}
+.msg{white-space:normal;height:36px;line-height:18px;margin:8px 0 6px}
+.btn{height:50px}
+.done{padding:30px 6px 6px}}
+.main{display:flex;flex-direction:column}
+#formA{flex:1;display:flex;flex-direction:column;padding-bottom:29px}
+#formA .grow{flex:1 1 auto;min-height:0}
+textarea{font:inherit;font-size:15px;font-weight:400;color:var(--dark);background:#fff;border:1px solid var(--sand);border-radius:8px;padding:10px 12px;width:100%;min-height:42px;
+flex:1 1 auto;resize:none}
+textarea:focus{outline:0;border-color:var(--olive);box-shadow:0 0 0 3px rgba(94,109,85,.15)}
+@media (max-width:640px){#formA{padding-bottom:43px}
+textarea{font-size:16px;min-height:44px}}
+</style>
+ </head><body><div class="wrap" id="app"><div class="box"><aside class="side"><div id="sideA"><div class="eyebrow">Defi Liga 2027</div><h3>Mach mit!</h3><ul>
+<li>Für Mitglieder vom Heerdter TV ab 18 Jahren.</li><li>Startgeld: 50 €.</li><li>Die Liga geht von Mai bis Juli 2027.</li><li>Ich melde mich per E-Mail bei dir.</li></ul></div>
+<div id="sideE" class="hide" style="display:flex;flex-direction:column;flex:1"><div class="eyebrow">Defi Liga 2027</div><h3>Ergebnis melden</h3><ul><li>Der Gewinner meldet das Ergebnis.</li>
+<li>3 Punkte für einen Sieg, 1 Punkt für eine Niederlage.</li><li>Du hast gefordert und gewinnst? Dann bekommst du 4 Punkte.</li></ul><div class="pts" id="ptsSide">
+<div class="rl">Punkte für dieses Match</div><div class="pv">Trag das Ergebnis ein.</div></div></div></aside><main class="main"><div class="tabs" role="tablist">
+<button type="button" role="tab" data-tab="e" class="on" aria-selected="true">Ergebnis<span class="d"> melden</span></button>
+<button type="button" role="tab" data-tab="a" aria-selected="false">Anmelden</button></div><form id="formA" novalidate autocomplete="on">
+<div class="mnote">Für Mitglieder vom Heerdter TV ab 18 Jahren. Startgeld: <b>50 €</b>. Ich melde mich per E-Mail bei dir.</div><div class="grid2"><div class="f"><label for="a_vn">Vorname
+</label><input type="text" id="a_vn" name="vorname" autocomplete="given-name" maxlength="60"></div><div class="f"><label for="a_nn">Nachname</label>
+<input type="text" id="a_nn" name="nachname" autocomplete="family-name" maxlength="60"></div></div><div class="grid2 eg mt"><div class="f"><label for="a_em">E-Mail</label>
+<input type="email" id="a_em" name="email" autocomplete="email" maxlength="120"></div><div class="f"><label for="a_gj">Geburtsjahr</label>
+<input type="number" id="a_gj" name="geburtsjahr" inputmode="numeric" placeholder="z. B. 1990" min="1920" max="2010"></div></div><div class="f mt grow">
+<label for="a_an">Anmerkungen (freiwillig)</label><textarea id="a_an" name="anmerkungen" maxlength="300"></textarea></div><label class="chk mt"><input type="checkbox" id="a_mg">
+<span>Ich bin Mitglied im Heerdter TV.</span></label><label class="chk mt"><input type="checkbox" id="a_ds"><span>Ich habe die 
+<a href="https://akdagserdar47.wixsite.com/serdartennis/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
+<div class="hp" aria-hidden="true"><input type="text" id="a_hp" tabindex="-1" autocomplete="off"></div><div class="msg" id="a_msg" role="alert"></div>
+<button class="btn" type="submit" id="a_btn">Jetzt anmelden</button></form><form id="formE" class="hide" novalidate autocomplete="on"><div class="mnote" id="ptsMob"><b>Punkte:</b>
+<span class="pv">Trag das Ergebnis ein.</span></div><div class="grid2 one"><div class="f"><label for="e_fo">Forderer<span class="d"> (hat gefordert)</span></label><select id="e_fo">
+<option value="">Bitte wählen</option></select></div><div class="f"><label for="e_ge">Gegner</label><select id="e_ge"><option value="">Bitte wählen</option></select></div></div>
+<div class="grid2 mt"><div class="f"><label for="e_da">Datum vom Match</label><input type="date" id="e_da" min="2026-01-01"></div><div class="f"><span class="lab">&nbsp;</span>
+<label class="chk" style="height:auto;margin:auto 0;white-space:normal;overflow:visible"><input type="checkbox" id="e_ng"><span>Gegner ist nicht gekommen</span></label></div></div>
+<div id="setsBox" class="mt"><div class="sets"><div class="f"><span class="lab">1. Satz</span><div class="score">
+<input type="number" inputmode="numeric" min="0" max="7" id="s1a" aria-label="1. Satz Forderer"><span>:</span>
+<input type="number" inputmode="numeric" min="0" max="7" id="s1b" aria-label="1. Satz Gegner"></div></div><div class="f"><span class="lab">2. Satz</span><div class="score">
+<input type="number" inputmode="numeric" min="0" max="7" id="s2a" aria-label="2. Satz Forderer"><span>:</span>
+<input type="number" inputmode="numeric" min="0" max="7" id="s2b" aria-label="2. Satz Gegner"></div></div><div class="f"><span class="lab"><span class="d">Match-</span>Tiebreak</span>
+<div class="score"><input type="number" inputmode="numeric" min="0" max="40" id="s3a" aria-label="Match-Tiebreak Forderer"><span>:</span>
+<input type="number" inputmode="numeric" min="0" max="40" id="s3b" aria-label="Match-Tiebreak Gegner"></div></div></div><div class="hint">Links Forderer, rechts Gegner.
+<span class="d"> Match-Tiebreak nur bei 1:1 Sätzen.</span></div></div><div class="f mt"><span class="lab">Sieger</span><div class="seg" id="e_si"><button type="button" data-v="a">Forderer
+</button><button type="button" data-v="b">Gegner</button></div></div><div class="f mt"><label for="e_em">Deine E-Mail</label>
+<input type="email" id="e_em" autocomplete="email" maxlength="120"></div>
+<div class="note mt">Nur in der WhatsApp-Gruppe angekündigte Matches zählen. Alle Ergebnisse werden vor der Wertung geprüft.</div><label class="chk" style="margin-top:8px">
+<input type="checkbox" id="e_wa"><span>Das Match wurde vorher in der WhatsApp-Gruppe angekündigt.</span></label><label class="chk mt"><input type="checkbox" id="e_ds"><span>Ich habe die 
+<a href="https://akdagserdar47.wixsite.com/serdartennis/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
+<div class="hp" aria-hidden="true"><input type="text" id="e_hp" tabindex="-1" autocomplete="off"></div><div class="msg" id="e_msg" role="alert"></div>
+<button class="btn" type="submit" id="e_btn">Ergebnis senden</button></form><div class="done hide" id="done"><div class="ok"></div><h4 id="doneH">Danke!</h4><p id="doneP"></p>
+<button class="btn light" type="button" id="again">Zurück</button></div></main></div></div> 
+<script>
+!function(){var e=function(e){return document.getElementById(e)},t="e",n="",a=null,r=null,i=2027;function s(e){try{window.parent.postMessage(e,"*")}catch(e){}}function o(t){
+return(e(t).value||"").trim()}function u(e){var t=o(e);return""===t?null:Number(t)}function l(e){return/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)}function c(){
+var e=new Date,t=function(e){return(e<10?"0":"")+e};return e.getFullYear()+"-"+t(e.getMonth()+1)+"-"+t(e.getDate())}function d(t,n){return e(t).classList.toggle("bad",!!n),!n}
+function f(n){t=n,document.querySelectorAll(".tabs button").forEach(function(e){var t=e.getAttribute("data-tab")===n;e.classList.toggle("on",t),e.setAttribute("aria-selected",t)}),
+e("formA").classList.toggle("hide","a"!==n),e("formE").classList.toggle("hide","e"!==n),e("sideA").classList.toggle("hide","a"!==n),e("sideE").classList.toggle("hide","e"!==n),
+e("done").classList.add("hide")}function g(){return{a:o("e_fo"),b:o("e_ge")}}function b(){var e=[];return[["s1a","s1b"],["s2a","s2b"],["s3a","s3b"]].forEach(function(t){
+var n=u(t[0]),a=u(t[1]);e.push(null===n&&null===a?null:[n,a])}),e}function m(){if(e("e_ng").checked)return"a";for(var t=b(),n=0,a=0,r=0;r<2;r++){var i=t[r]
+;if(!i||null===i[0]||null===i[1]||i[0]===i[1])return"";i[0]>i[1]?n++:a++}if(2===n)return"a";if(2===a)return"b";var s=t[2]
+;return s&&null!==s[0]&&null!==s[1]&&s[0]!==s[1]?s[0]>s[1]?"a":"b":""}function h(){var t=g();if(!n)return null
+;var a="a"===n?t.a:t.b,r="a"===n?t.b:t.a,i=3+("a"===n?1:0),s=e("e_ng").checked?0:1;return{w:a||("a"===n?"Forderer":"Gegner"),wp:i,l:r||("a"===n?"Gegner":"Forderer"),lp:s}}
+function v(e){return String(e).replace(/[&<>"']/g,function(e){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[e]})}function p(){
+var t=g(),a=e("e_si").querySelectorAll("button");a[0].textContent=t.a||"Forderer",a[1].textContent=t.b||"Gegner";var r=m();r&&(n=r),a.forEach(function(e){
+var t=e.getAttribute("data-v")===n;e.classList.toggle("on",t),e.setAttribute("aria-pressed",t)}),e("setsBox").style.visibility=e("e_ng").checked?"hidden":"visible"
+;var i=h(),s=i?"<b>"+v(i.w)+"</b>: "+i.wp+" Punkte &nbsp;·&nbsp; "+v(i.l)+": "+i.lp+(1===i.lp?" Punkt":" Punkte"):"Trag das Ergebnis ein."
+;document.querySelectorAll(".pv").forEach(function(e){e.innerHTML=s})}function _(){var t=!0,n="";t=d("a_vn",!o("a_vn"))&&t,t=d("a_nn",!o("a_nn"))&&t,t=d("a_em",!l(o("a_em")))&&t
+;var a=u("a_gj");return t=d("a_gj",!function(e){return null!==e&&e>=1920&&e<=2009&&Math.floor(e)===e}(a))&&t,
+t||(n=null!==a&&a>2009&&a<=i?"Die Defi Liga ist für Spieler ab 18 Jahren.":"Bitte füll alle Felder richtig aus."),t&&!e("a_mg").checked&&(d("a_mg",!0),t=!1,
+n="Die Defi Liga ist für Mitglieder vom Heerdter TV."),t&&!e("a_ds").checked&&(d("a_ds",!0),t=!1,n="Bitte bestätige die Datenschutzerklärung."),e("a_msg").textContent=n,t}
+function k(e,t,n,i){var o="r"+Date.now()+Math.floor(1e3*Math.random());a={rid:o,kind:e,btn:n,msgEl:i,label:n.textContent},n.disabled=!0,n.textContent="Wird gesendet …",
+i.textContent="",s({type:"defiSubmit",kind:e,rid:o,data:t}),clearTimeout(r),r=setTimeout(function(){E({rid:o,ok:!1})},15e3)}function E(t){if(a&&t.rid===a.rid){clearTimeout(r)
+;var i=a;a=null,i.btn.disabled=!1,i.btn.textContent=i.label,t.ok?(e("anmeldung"===i.kind?"formA":"formE").reset(),n="",y(),p(),e("formA").classList.add("hide"),
+e("formE").classList.add("hide"),e("doneH").textContent="anmeldung"===i.kind?"Danke für deine Anmeldung!":"Danke, dein Ergebnis ist da!",
+e("doneP").textContent="anmeldung"===i.kind?"Ich melde mich per E-Mail bei dir.":"Ich prüfe das Ergebnis. Danach steht es in der Rangliste.",
+e("again").textContent="anmeldung"===i.kind?"Zurück":"Noch ein Ergebnis melden",
+e("done").classList.remove("hide")):i.msgEl.textContent="Das hat leider nicht geklappt. Bitte versuch es später noch einmal."}}
+document.querySelector(".tabs").addEventListener("click",function(e){var t=e.target.closest("button");t&&f(t.getAttribute("data-tab"))}),f("e"),["e_fo","e_ge"].forEach(function(t){
+e(t).addEventListener("change",function(){y(),p()})}),["s1a","s1b","s2a","s2b","s3a","s3b"].forEach(function(t){e(t).addEventListener("input",p)}),
+e("e_ng").addEventListener("change",function(){this.checked&&(n="a"),p()}),e("e_si").addEventListener("click",function(t){var a=t.target.closest("button")
+;a&&!e("e_ng").checked&&(n=a.getAttribute("data-v"),e("e_si").classList.remove("bad"),p())}),document.querySelectorAll("input,select").forEach(function(e){
+e.addEventListener("input",function(){e.classList.remove("bad")}),e.addEventListener("change",function(){if(e.classList.remove("bad"),"checkbox"===e.type&&e.checked&&e.form){
+var t=e.form.querySelector(".msg");t&&(t.textContent="")}})});var L=[];function y(){var t=e("e_fo").value,n=e("e_ge").value
+;Array.prototype.forEach.call(e("e_ge").options,function(e){e.disabled=!!e.value&&e.value===t}),Array.prototype.forEach.call(e("e_fo").options,function(e){
+e.disabled=!!e.value&&e.value===n})}e("again").addEventListener("click",function(){f(t)}),e("formA").addEventListener("submit",function(t){t.preventDefault(),
+a||o("a_hp")||_()&&k("anmeldung",{vorname:o("a_vn"),nachname:o("a_nn"),email:o("a_em"),geburtsjahr:u("a_gj"),anmerkungen:o("a_an"),mitglied:!0,datenschutz:!0
+},e("a_btn"),e("a_msg"))}),e("formE").addEventListener("submit",function(t){if(t.preventDefault(),!a&&!o("e_hp")&&(p(),function(){var t=!0,a="",r=g(),i=e("e_ng").checked
+;t=d("e_fo",!r.a)&&t,t=d("e_ge",!r.b||r.a.toLowerCase()===r.b.toLowerCase())&&t;var s=o("e_da"),u=c()
+;if((t=d("e_da",!s||s>u)&&t)||(a=r.a&&r.b&&r.a.toLowerCase()===r.b.toLowerCase()?"Forderer und Gegner müssen zwei verschiedene Spieler sein.":"Bitte wähle beide Spieler und das Datum."),
+t&&!i){var f=b(),h=!1;if([0,1].forEach(function(e){var t=f[e],n=[["s1a","s1b"],["s2a","s2b"]][e],a=!t||null===t[0]||null===t[1]||t[0]===t[1]||t[0]>7||t[1]>7||t[0]<0||t[1]<0
+;d(n[0],a),d(n[1],a),h=h||a}),!h){var v=f[0][0]>f[0][1]!=f[1][0]>f[1][1],p=f[2],_=v&&(!p||null===p[0]||null===p[1]||p[0]===p[1]);d("s3a",_),d("s3b",_),h=_,!v&&p&&(d("s3a",!0),
+d("s3b",!0),h=!0,a="Ein Match-Tiebreak gibt es nur bei 1:1 Sätzen.")}h&&(t=!1,a=a||"Bitte das Ergebnis Satz für Satz eintragen.")}if(t){var k=m()
+;(!n||k&&k!==n)&&(e("e_si").classList.add("bad"),t=!1,a="Bitte wähle den Sieger passend zum Ergebnis.")}
+return t&&((t=d("e_em",!l(o("e_em"))))||(a="Bitte deine E-Mail richtig eintragen.")),t&&!e("e_wa").checked&&(d("e_wa",!0),t=!1,
+a="Nur in der WhatsApp-Gruppe angekündigte Matches zählen."),t&&!e("e_ds").checked&&(d("e_ds",!0),t=!1,a="Bitte bestätige die Datenschutzerklärung."),e("e_msg").textContent=a,t
+}())){var r=g(),i=e("e_ng").checked,s=h();k("ergebnis",{forderer:r.a,gegner:r.b,datum:o("e_da"),
+ergebnis:e("e_ng").checked?"kampflos (Gegner nicht gekommen)":b().filter(function(e){return e&&null!==e[0]&&null!==e[1]}).map(function(e){return e[0]+":"+e[1]}).join(" "),
+sieger:"a"===n?r.a:r.b,nichtGekommen:i?r.b:"",punkte:s.w+" "+s.wp+", "+s.l+" "+s.lp,email:o("e_em"),whatsapp:e("e_wa").checked,datenschutz:!0},e("e_btn"),e("e_msg"))}}),
+window.addEventListener("message",function(t){var n,a,r=t.data
+;r&&"object"==typeof r&&("defiSubmitResult"===r.type?E(r):"defiPlayers"===r.type&&Array.isArray(r.players||r.names)?(n=r.players||r.names,a={},L=n.map(function(e){
+return String(e||"").trim().slice(0,80)}).filter(function(e){var t=e.toLowerCase();return!(!e||a[t]||(a[t]=1,0))}),["e_fo","e_ge"].forEach(function(t){var n=e(t).value
+;e(t).innerHTML='<option value="">Bitte wählen</option>'+L.map(function(e){return'<option value="'+v(e)+'">'+v(e)+"</option>"}).join(""),L.indexOf(n)>=0&&(e(t).value=n)}),y(),
+p()):"defiTab"!==r.type||"a"!==r.tab&&"e"!==r.tab||f(r.tab))}),e("e_da").max=c(),p(),s({type:"defiFormReady"})}();
+</script>
+ </body></html> 
