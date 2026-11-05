@@ -6,17 +6,18 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:transparent;font-family:Avenir,Montserrat,Helvetica,sans-serif;color:#fff}
-.grid{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;row-gap:0;width:100%;max-width:960px;margin:0;padding:0}
-@media (max-width:640px){.grid{grid-template-columns:1fr;column-gap:0}}
-.item{padding:14px 0 16px;border-bottom:1px solid rgba(255,255,255,.18)}
+.wrap{background:rgba(28,26,24,.78);border-radius:12px;padding:18px 22px 10px;width:100%;max-width:960px}
+.grid{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;row-gap:0;width:100%}
+@media (max-width:640px){.grid{grid-template-columns:1fr;column-gap:0}.wrap{padding:14px 16px 6px}}
+.item{padding:12px 0 14px;border-bottom:1px solid rgba(255,255,255,.16)}
 .item:nth-last-child(-n+2){border-bottom:none}
-@media (max-width:640px){.item{border-bottom:1px solid rgba(255,255,255,.18)}.item:last-child{border-bottom:none}}
-.num{font-family:Montserrat,sans-serif;font-weight:500;font-size:13px;letter-spacing:.04em;line-height:1;color:rgba(255,255,255,.55);margin-bottom:6px}
-.title{font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;line-height:1.25;color:#fff;margin-bottom:6px}
+@media (max-width:640px){.item{border-bottom:1px solid rgba(255,255,255,.16)}.item:last-child{border-bottom:none}}
+.num{font-family:Montserrat,sans-serif;font-weight:500;font-size:12px;letter-spacing:.06em;line-height:1;color:rgba(255,255,255,.55);margin-bottom:5px}
+.title{font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;line-height:1.25;color:#fff;margin-bottom:5px}
 .body{font-family:Avenir,sans-serif;font-weight:300;font-size:14px;line-height:1.45;color:rgba(255,255,255,.78)}
 </style>
 </head><body>
-<div class="grid">
+<div class="wrap"><div class="grid">
 <div class="item"><div class="num">01</div><div class="title">Wer darf mitmachen?</div><div class="body">Alle Mitglieder vom Heerdter TV ab 18 Jahren.</div></div>
 <div class="item"><div class="num">02</div><div class="title">Startgeld</div><div class="body">50 €.</div></div>
 <div class="item"><div class="num">03</div><div class="title">Start</div><div class="body">Alle starten mit 0 Punkten. Die Reihenfolge am Anfang wird ausgelost.</div></div>
@@ -31,5 +32,5 @@ html,body{background:transparent;font-family:Avenir,Montserrat,Helvetica,sans-se
 <div class="item"><div class="num">12</div><div class="title">Rangliste</div><div class="body">Die Tabelle auf der Website wird live aktualisiert.</div></div>
 <div class="item"><div class="num">13</div><div class="title">Gleiche Punkte</div><div class="body">Zuerst zählen mehr Siege. Danach zählt der direkte Vergleich. Ist es dann immer noch gleich, oder habt ihr noch nicht gegeneinander gespielt? Dann spielt ihr ein Match gegeneinander.</div></div>
 <div class="item"><div class="num">14</div><div class="title">Später dabei</div><div class="body">Du kommst während der Saison neu dazu? Dann startest du auf dem letzten Platz.</div></div>
-</div>
+</div></div>
 </body></html>
