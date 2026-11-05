@@ -6,28 +6,30 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:transparent;font-family:Avenir,Montserrat,Helvetica,sans-serif;color:#fff}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;width:100%;max-width:960px;margin:0 auto;padding:4px 0 8px}
-@media (max-width:640px){.grid{grid-template-columns:1fr;gap:12px}}
-.card{background:rgba(20,18,16,.72);border:1px solid rgba(179,155,114,.35);border-radius:10px;padding:16px 18px 18px;min-height:110px}
-.num{font-family:Montserrat,sans-serif;font-weight:700;font-size:28px;line-height:1;color:#b39b72;margin-bottom:6px}
-.title{font-family:Montserrat,sans-serif;font-weight:700;font-size:17px;line-height:1.25;color:#fff;margin-bottom:6px}
-.body{font-family:Avenir,sans-serif;font-weight:300;font-size:14px;line-height:1.45;color:#cfc8be}
+.grid{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;row-gap:0;width:100%;max-width:960px;margin:0;padding:0}
+@media (max-width:640px){.grid{grid-template-columns:1fr;column-gap:0}}
+.item{padding:14px 0 16px;border-bottom:1px solid rgba(255,255,255,.18)}
+.item:nth-last-child(-n+2){border-bottom:none}
+@media (max-width:640px){.item{border-bottom:1px solid rgba(255,255,255,.18)}.item:last-child{border-bottom:none}}
+.num{font-family:Montserrat,sans-serif;font-weight:500;font-size:13px;letter-spacing:.04em;line-height:1;color:rgba(255,255,255,.55);margin-bottom:6px}
+.title{font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;line-height:1.25;color:#fff;margin-bottom:6px}
+.body{font-family:Avenir,sans-serif;font-weight:300;font-size:14px;line-height:1.45;color:rgba(255,255,255,.78)}
 </style>
 </head><body>
 <div class="grid">
-<div class="card"><div class="num">01</div><div class="title">Wer darf mitmachen?</div><div class="body">Alle Mitglieder vom Heerdter TV ab 18 Jahren.</div></div>
-<div class="card"><div class="num">02</div><div class="title">Startgeld</div><div class="body">50 €.</div></div>
-<div class="card"><div class="num">03</div><div class="title">Start</div><div class="body">Alle starten mit 0 Punkten. Die Reihenfolge am Anfang wird ausgelost.</div></div>
-<div class="card"><div class="num">04</div><div class="title">Fordern</div><div class="body">Du darfst Spieler fordern, die bis zu 2 Plätze über dir stehen.</div></div>
-<div class="card"><div class="num">05</div><div class="title">Antwort</div><div class="body">Der geforderte Spieler antwortet innerhalb von 2 Tagen.</div></div>
-<div class="card"><div class="num">06</div><div class="title">Spielen</div><div class="body">Ihr spielt das Match innerhalb von 14 Tagen. Tag und Uhrzeit macht ihr selbst aus.</div></div>
-<div class="card"><div class="num">07</div><div class="title">Spielform</div><div class="body">2 Sätze. Bei 1:1 Sätzen spielt ihr einen Match-Tiebreak.</div></div>
-<div class="card"><div class="num">08</div><div class="title">Absagen</div><div class="body">Du darfst höchstens 2 Mal pro Monat eine Forderung absagen. Jede weitere Absage zählt als Niederlage ohne Spiel (0 Punkte).</div></div>
-<div class="card"><div class="num">09</div><div class="title">Matches</div><div class="body">Höchstens 4 Matches pro Monat.</div></div>
-<div class="card"><div class="num">10</div><div class="title">Gegner</div><div class="body">Gegen den gleichen Gegner spielst du höchstens 2 Mal pro Saison.</div></div>
-<div class="card"><div class="num">11</div><div class="title">Ergebnis</div><div class="body">Der Gewinner meldet das Ergebnis über das Online-Formular. Nur angekündigte Matches zählen: Jedes Match muss vorher in der WhatsApp-Gruppe angekündigt werden. Stimmt etwas nicht, kann der andere Spieler innerhalb von 2 Tagen widersprechen.</div></div>
-<div class="card"><div class="num">12</div><div class="title">Rangliste</div><div class="body">Die Tabelle auf der Website wird live aktualisiert.</div></div>
-<div class="card"><div class="num">13</div><div class="title">Gleiche Punkte</div><div class="body">Zuerst zählen mehr Siege. Danach zählt der direkte Vergleich. Ist es dann immer noch gleich, oder habt ihr noch nicht gegeneinander gespielt? Dann spielt ihr ein Match gegeneinander.</div></div>
-<div class="card"><div class="num">14</div><div class="title">Später dabei</div><div class="body">Du kommst während der Saison neu dazu? Dann startest du auf dem letzten Platz.</div></div>
+<div class="item"><div class="num">01</div><div class="title">Wer darf mitmachen?</div><div class="body">Alle Mitglieder vom Heerdter TV ab 18 Jahren.</div></div>
+<div class="item"><div class="num">02</div><div class="title">Startgeld</div><div class="body">50 €.</div></div>
+<div class="item"><div class="num">03</div><div class="title">Start</div><div class="body">Alle starten mit 0 Punkten. Die Reihenfolge am Anfang wird ausgelost.</div></div>
+<div class="item"><div class="num">04</div><div class="title">Fordern</div><div class="body">Du darfst Spieler fordern, die bis zu 2 Plätze über dir stehen.</div></div>
+<div class="item"><div class="num">05</div><div class="title">Antwort</div><div class="body">Der geforderte Spieler antwortet innerhalb von 2 Tagen.</div></div>
+<div class="item"><div class="num">06</div><div class="title">Spielen</div><div class="body">Ihr spielt das Match innerhalb von 14 Tagen. Tag und Uhrzeit macht ihr selbst aus.</div></div>
+<div class="item"><div class="num">07</div><div class="title">Spielform</div><div class="body">2 Sätze. Bei 1:1 Sätzen spielt ihr einen Match-Tiebreak.</div></div>
+<div class="item"><div class="num">08</div><div class="title">Absagen</div><div class="body">Du darfst höchstens 2 Mal pro Monat eine Forderung absagen. Jede weitere Absage zählt als Niederlage ohne Spiel (0 Punkte).</div></div>
+<div class="item"><div class="num">09</div><div class="title">Matches</div><div class="body">Höchstens 4 Matches pro Monat.</div></div>
+<div class="item"><div class="num">10</div><div class="title">Gegner</div><div class="body">Gegen den gleichen Gegner spielst du höchstens 2 Mal pro Saison.</div></div>
+<div class="item"><div class="num">11</div><div class="title">Ergebnis</div><div class="body">Der Gewinner meldet das Ergebnis über das Online-Formular. Nur angekündigte Matches zählen: Jedes Match muss vorher in der WhatsApp-Gruppe angekündigt werden. Stimmt etwas nicht, kann der andere Spieler innerhalb von 2 Tagen widersprechen.</div></div>
+<div class="item"><div class="num">12</div><div class="title">Rangliste</div><div class="body">Die Tabelle auf der Website wird live aktualisiert.</div></div>
+<div class="item"><div class="num">13</div><div class="title">Gleiche Punkte</div><div class="body">Zuerst zählen mehr Siege. Danach zählt der direkte Vergleich. Ist es dann immer noch gleich, oder habt ihr noch nicht gegeneinander gespielt? Dann spielt ihr ein Match gegeneinander.</div></div>
+<div class="item"><div class="num">14</div><div class="title">Später dabei</div><div class="body">Du kommst während der Saison neu dazu? Dann startest du auf dem letzten Platz.</div></div>
 </div>
 </body></html>
