@@ -96,21 +96,30 @@
     return p(d.getDate())+'.'+p(d.getMonth()+1)+'.'+d.getFullYear();
   }
   function post(msg){ try{ window.parent.postMessage(msg, '*'); }catch(e){} }
-  function sendHeight(){ post({ type:'height', h: Math.ceil(app.getBoundingClientRect().height) }); }
+  var lastH = 0, heightTimer = null;
+  function sendHeight(force){
+    var h = Math.ceil(app.getBoundingClientRect().height);
+    if(!force && Math.abs(h - lastH) < 8) return;
+    lastH = h;
+    post({ type:'height', h: h });
+  }
+  function sendHeightSoon(){
+    if(heightTimer) clearTimeout(heightTimer);
+    heightTimer = setTimeout(function(){ sendHeight(true); }, 120);
+  }
 
   function renderEmpty(){ app.innerHTML = '<div class="empty">'+EMPTY+'</div>'; sendHeight(); }
 
   function renderMatches(){
     var list = state.matches.filter(function(m){ return state.round === 'all' || (m.runde||'').trim() === state.round; });
     var el = document.getElementById('cards');
-    if(!list.length){ el.innerHTML = '<div class="none">Keine Spiele in dieser Runde.</div>'; sendHeight(); return; }
+    if(!list.length){ el.innerHTML = '<div class="none">Keine Spiele in dieser Runde.</div>'; return; }
     el.innerHTML = list.map(function(m){
       return '<div class="card"><div class="meta"><span>'+fmtDate(m.datum)+'</span>'+(m.runde?'<span class="tag">'+esc(m.runde)+'</span>':'')+'</div>'+
         '<div class="vs">'+esc(m.spieler1)+'<span>vs.</span>'+esc(m.spieler2)+'</div>'+
         '<div class="res">'+esc(m.ergebnis)+'</div>'+
         (m.sieger?'<div class="win">Sieger: '+esc(m.sieger)+'</div>':'')+'</div>';
     }).join('');
-    sendHeight();
   }
 
   function render(){
@@ -135,7 +144,7 @@
     var menu = document.getElementById('rundeMenu');
     if(btn && menu){
       function close(){ menu.hidden = true; btn.setAttribute('aria-expanded','false'); }
-      function open(){ menu.hidden = false; btn.setAttribute('aria-expanded','true'); sendHeight(); }
+      function open(){ menu.hidden = false; btn.setAttribute('aria-expanded','true'); }
       btn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); if(menu.hidden) open(); else close(); });
       menu.addEventListener('click', function(e){
         var t = e.target.closest('.dd-opt'); if(!t) return;
@@ -147,7 +156,8 @@
       });
       document.addEventListener('click', function(){ if(!menu.hidden) close(); });
       renderMatches();
-    } else sendHeight();
+      sendHeightSoon();
+    } else sendHeightSoon();
   }
 
   window.onmessage = function(ev){
@@ -163,8 +173,9 @@
 
   var DEMO = {"type": "defiData", "standings": [{"platz": 1, "name": "Player A", "spiele": "3", "siege": "3", "niederlagen": "0", "punkte": "10"}, {"platz": 2, "name": "Player B", "spiele": "3", "siege": "3", "niederlagen": "0", "punkte": "9"}, {"platz": 3, "name": "Player C", "spiele": "3", "siege": "2", "niederlagen": "1", "punkte": "9"}, {"platz": 4, "name": "Player D", "spiele": "4", "siege": "2", "niederlagen": "2", "punkte": "8"}, {"platz": 5, "name": "Player E", "spiele": "3", "siege": "2", "niederlagen": "1", "punkte": "8"}, {"platz": 6, "name": "Player F", "spiele": "3", "siege": "2", "niederlagen": "1", "punkte": "7"}, {"platz": 7, "name": "Player G", "spiele": "3", "siege": "1", "niederlagen": "2", "punkte": "6"}, {"platz": 8, "name": "Player H", "spiele": "3", "siege": "1", "niederlagen": "2", "punkte": "6"}, {"platz": 9, "name": "Player I", "spiele": "3", "siege": "1", "niederlagen": "2", "punkte": "5"}, {"platz": 10, "name": "Player J", "spiele": "2", "siege": "1", "niederlagen": "1", "punkte": "4"}, {"platz": 11, "name": "Player K", "spiele": "3", "siege": "0", "niederlagen": "3", "punkte": "3"}, {"platz": 12, "name": "Player L", "spiele": "3", "siege": "0", "niederlagen": "3", "punkte": "2"}], "matches": [{"datum": "2027-07-25", "spieler1": "Player D", "spieler2": "Player A", "ergebnis": "3:6 7:5 8:10", "sieger": "Player A", "runde": "8. Finale"}, {"datum": "2027-07-20", "spieler1": "Player K", "spieler2": "Player F", "ergebnis": "3:6 6:4 5:10", "sieger": "Player F", "runde": "7. Halbfinale"}, {"datum": "2027-07-15", "spieler1": "Player C", "spieler2": "Player G", "ergebnis": "6:3 6:2", "sieger": "Player C", "runde": "7. Halbfinale"}, {"datum": "2027-07-10", "spieler1": "Player D", "spieler2": "Player B", "ergebnis": "1:6 6:7", "sieger": "Player B", "runde": "6. Viertelfinale"}, {"datum": "2027-07-05", "spieler1": "Player L", "spieler2": "Player I", "ergebnis": "4:6 6:3 6:10", "sieger": "Player I", "runde": "6. Viertelfinale"}, {"datum": "2027-06-30", "spieler1": "Player E", "spieler2": "Player H", "ergebnis": "6:4 6:3", "sieger": "Player E", "runde": "6. Viertelfinale"}, {"datum": "2027-06-26", "spieler1": "Player F", "spieler2": "Player B", "ergebnis": "6:7 6:4 5:10", "sieger": "Player B", "runde": "6. Viertelfinale"}, {"datum": "2027-06-21", "spieler1": "Player E", "spieler2": "Player D", "ergebnis": "6:7 0:6", "sieger": "Player D", "runde": "5. September"}, {"datum": "2027-06-16", "spieler1": "Player H", "spieler2": "Player L", "ergebnis": "kampflos", "sieger": "Player H", "runde": "5. September"}, {"datum": "2027-06-11", "spieler1": "Player A", "spieler2": "Player G", "ergebnis": "7:6 6:3", "sieger": "Player A", "runde": "4. August"}, {"datum": "2027-06-06", "spieler1": "Player I", "spieler2": "Player J", "ergebnis": "6:7 2:6", "sieger": "Player J", "runde": "4. August"}, {"datum": "2027-06-01", "spieler1": "Player C", "spieler2": "Player K", "ergebnis": "6:2 6:3", "sieger": "Player C", "runde": "3. Juli"}, {"datum": "2027-05-28", "spieler1": "Player H", "spieler2": "Player B", "ergebnis": "1:6 2:6", "sieger": "Player B", "runde": "3. Juli"}, {"datum": "2027-05-23", "spieler1": "Player C", "spieler2": "Player E", "ergebnis": "5:7 7:5 7:10", "sieger": "Player E", "runde": "3. Juli"}, {"datum": "2027-05-18", "spieler1": "Player J", "spieler2": "Player A", "ergebnis": "4:6 6:4 10:12", "sieger": "Player A", "runde": "2. Juni"}, {"datum": "2027-05-13", "spieler1": "Player G", "spieler2": "Player K", "ergebnis": "6:1 6:0", "sieger": "Player G", "runde": "2. Juni"}, {"datum": "2027-05-08", "spieler1": "Player L", "spieler2": "Player F", "ergebnis": "6:7 7:5 10:12", "sieger": "Player F", "runde": "1. Mai"}, {"datum": "2027-05-04", "spieler1": "Player I", "spieler2": "Player D", "ergebnis": "3:6 6:3 8:10", "sieger": "Player D", "runde": "1. Mai"}], "rounds": ["1. Mai", "2. Juni", "3. Juli", "4. August", "5. September", "6. Viertelfinale", "7. Halbfinale", "8. Finale"]};
   window.onmessage({data:DEMO});
-  window.addEventListener('resize', sendHeight);
-  if(document.fonts && document.fonts.ready) document.fonts.ready.then(sendHeight);
+  window.addEventListener('resize', sendHeightSoon);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ sendHeight(true); });
+  setTimeout(function(){ sendHeight(true); }, 50);
   post({ type:'ready' });
 })();
 </script>
