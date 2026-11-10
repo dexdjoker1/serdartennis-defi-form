@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Anmelden – Serdar Tennis (Prototyp)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Farben/Schriften wie Preisrechner & Saisonkalender (season20) */
+  :root{--dark:#3D3A36;--olive:#5E6D55;--olive2:#4F5D47;--cream:#F3E8D8;--cream2:#E9DCC4;--sand:#D9CDB8;--tan:#B39B72;--grey:#7A746C;--err:#A9714B}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--dark);font-family:'Avenir Next','Avenir','Segoe UI',Montserrat,Helvetica,Arial,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+  body{min-height:100vh;padding-bottom:env(safe-area-inset-bottom)}
+  button{font:inherit;color:inherit}
+  .P{font-family:Poppins,sans-serif;font-weight:600}
+  .proto{position:sticky;top:0;z-index:20;background:var(--dark);color:var(--cream);font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:8px;height:34px;padding:0 12px;letter-spacing:.3px}
+  .proto b{font-family:Poppins,sans-serif;font-weight:500;background:var(--tan);color:#fff;border-radius:20px;padding:2px 9px;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  .wrap{max-width:720px;margin:0 auto;padding:22px 16px 40px}
+  header{text-align:left;margin-bottom:18px}
+  .eyebrow{font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--tan)}
+  h1{font-family:Poppins,sans-serif;font-weight:600;font-size:30px;line-height:1.15;margin-top:4px}
+  h1:after,h2.u:after{content:"";display:block;width:40px;height:2px;background:var(--olive);margin-top:10px}
+  .sub{margin-top:10px;font-size:15px;color:var(--grey);line-height:1.45}
+  /* Stepper */
+  .steps{display:flex;gap:6px;margin:18px 0 22px}
+  .steps div{flex:1;min-width:0}
+  .steps i{display:block;height:3px;border-radius:3px;background:var(--sand);transition:background .25s}
+  .steps span{display:block;margin-top:6px;font-size:11.5px;color:var(--grey);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .steps .on i{background:var(--olive)} .steps .cur span{color:var(--dark);font-family:Poppins,sans-serif;font-weight:500}
+  h2{font-family:Poppins,sans-serif;font-weight:600;font-size:21px;line-height:1.25}
+  .hint{font-size:14px;color:var(--grey);margin-top:6px;line-height:1.45}
+  .back{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:var(--grey);font-size:14px;cursor:pointer;padding:6px 0;margin-bottom:8px}
+  .back:hover{color:var(--dark)}
+  .view{animation:fi .25s ease}
+  @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  /* Karten */
+  .card{background:#fff;border:1px solid var(--sand);border-radius:14px;box-shadow:0 4px 18px rgba(61,58,54,.06)}
+  .clubs{display:grid;gap:12px;margin-top:16px}
+  .club{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:18px;cursor:pointer;transition:all .2s}
+  .club:hover{border-color:var(--olive);transform:translateY(-1px)}
+  .mono{flex:0 0 52px;height:52px;border-radius:50%;background:var(--cream);border:1px solid var(--sand);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:600;font-size:15px;color:var(--olive)}
+  .club .t{font-family:Poppins,sans-serif;font-weight:600;font-size:17px}
+  .club .d{font-size:13.5px;color:var(--grey);margin-top:3px;line-height:1.4}
+  .club .free{font-size:13px;color:var(--olive);margin-top:6px;font-weight:500}
+  .chev{margin-left:auto;flex:0 0 auto;color:var(--tan);font-size:22px;line-height:1}
+  .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .facts span{font-size:12.5px;background:var(--cream2);border-radius:20px;padding:6px 11px;color:var(--dark)}
+  /* Slots */
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:12.5px;color:var(--grey)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .day{margin-top:20px}
+  .day h3{font-family:Poppins,sans-serif;font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--tan);margin-bottom:8px}
+  .slots{display:grid;gap:10px}
+  .slot{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:14px 16px;cursor:pointer;transition:all .2s;min-height:66px}
+  .slot:hover:not(:disabled){border-color:var(--olive);transform:translateY(-1px)}
+  .slot .tm{font-family:Poppins,sans-serif;font-weight:600;font-size:16px;white-space:nowrap}
+  .slot .st{font-size:13.5px;color:var(--grey);margin-top:2px}
+  .slot .st.good{color:var(--olive);font-weight:500}
+  .slot .r{margin-left:auto;display:flex;align-items:center;gap:10px;flex:0 0 auto}
+  .dots{display:flex;gap:5px}
+  .dot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--olive);background:transparent}
+  .dot.x{background:var(--olive)}
+  .slot:disabled{cursor:not-allowed;background:#EFE7DA;box-shadow:none;border-color:var(--cream2)}
+  .slot:disabled .tm,.slot:disabled .st{color:#A39C92}
+  .slot:disabled .dot{border-color:#BDB4A6}.slot:disabled .dot.x{background:#BDB4A6}
+  .tag{font-size:11px;font-family:Poppins,sans-serif;font-weight:500;letter-spacing:.6px;text-transform:uppercase;border-radius:20px;padding:4px 9px;white-space:nowrap}
+  .tag.full{background:var(--sand);color:var(--grey)}
+  .tag.ex{background:var(--dark);color:var(--cream)}
+  .tag.new{background:var(--olive);color:#fff}
+  /* Auswahl */
+  .chosen{display:flex;align-items:center;gap:12px;padding:14px 16px;margin-top:14px}
+  .chosen .tm{font-family:Poppins,sans-serif;font-weight:600;font-size:16px}
+  .chosen .st{font-size:13px;color:var(--grey);margin-top:2px}
+  .modes{display:grid;gap:12px;margin-top:16px}
+  .mode{width:100%;text-align:left;padding:16px;cursor:pointer;transition:all .2s;position:relative}
+  .mode .h{display:flex;align-items:center;gap:10px}
+  .radio{flex:0 0 20px;height:20px;border-radius:50%;border:1.5px solid var(--sand);display:flex;align-items:center;justify-content:center}
+  .mode.on{border-color:var(--olive);box-shadow:0 0 0 2px rgba(94,109,85,.18)}
+  .mode.on .radio{border-color:var(--olive)} .mode.on .radio:after{content:"";width:10px;height:10px;border-radius:50%;background:var(--olive)}
+  .mode .t{font-family:Poppins,sans-serif;font-weight:600;font-size:16px}
+  .mode .d{font-size:13.5px;color:var(--grey);margin:6px 0 0 30px;line-height:1.45}
+  .mode.dis{cursor:not-allowed;background:#EFE7DA;box-shadow:none;border-color:var(--cream2)}
+  .mode.dis .t,.mode.dis .d{color:#A39C92}
+  .stepper{display:flex;align-items:center;gap:12px;margin:12px 0 0 30px}
+  .stepper button{width:40px;height:40px;border-radius:50%;border:1px solid var(--sand);background:var(--cream);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .stepper button:disabled{opacity:.35;cursor:default}
+  .stepper .n{min-width:92px;text-align:center;font-family:Poppins,sans-serif;font-weight:600;font-size:15px}
+  .q{margin-top:18px}
+  .lbl{font-size:14px;font-weight:400;color:var(--grey);margin-bottom:8px}
+  .seg{display:flex;gap:8px}
+  .seg button{flex:1;font-size:15px;font-weight:400;color:var(--dark);background:#fff;border:1px solid var(--sand);border-radius:8px;height:44px;cursor:pointer;transition:all .2s;white-space:nowrap;padding:0 6px}
+  .seg button:hover{border-color:var(--olive)}
+  .seg button.on{background:var(--olive);border-color:var(--olive);color:#fff;font-family:Poppins,sans-serif;font-weight:600;font-size:14px}
+  /* Preis-Panel wie Preisrechner */
+  .price{background:var(--olive);color:#fff;border-radius:14px;padding:18px;margin-top:18px}
+  .price .rl{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;opacity:.8;font-family:Poppins,sans-serif;font-weight:600}
+  .price .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:8px;font-size:14px}
+  .price .row span:first-child{opacity:.85}
+  .price .row b{font-family:Poppins,sans-serif;font-weight:600;font-size:15px;white-space:nowrap}
+  .price .line{height:1px;background:rgba(255,255,255,.25);margin:12px 0}
+  .price .tot{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .price .tot b{font-family:Poppins,sans-serif;font-weight:600;font-size:26px;white-space:nowrap}
+  .price .note{margin-top:10px;background:rgba(255,255,255,.14);border-radius:10px;padding:8px 11px;font-size:12.5px;line-height:1.4}
+  .ph{display:inline-block;margin-top:8px;font-size:11px;letter-spacing:.6px;text-transform:uppercase;border:1px dashed rgba(255,255,255,.6);border-radius:20px;padding:3px 9px;font-family:Poppins,sans-serif;font-weight:500}
+  .btn{display:block;width:100%;font-family:Poppins,sans-serif;font-weight:600;font-size:15px;letter-spacing:.5px;color:#fff;background:var(--olive);border:0;border-radius:8px;height:50px;cursor:pointer;transition:all .2s;margin-top:18px}
+  .btn:hover{background:var(--olive2);transform:translateY(-1px)}
+  .btn.light{background:#fff;color:var(--dark);border:1px solid var(--sand)}
+  /* Formular */
+  .form{padding:18px;margin-top:16px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .f{margin-top:14px}.grid2 .f{margin-top:0}
+  .f label{display:block;font-size:13.5px;color:var(--grey);margin-bottom:6px;font-weight:400}
+  .f input{font:inherit;font-size:16px;font-weight:400;color:var(--dark);background:#fff;border:1px solid var(--sand);border-radius:8px;height:46px;padding:0 12px;width:100%;min-width:0;outline:none;transition:border .2s,box-shadow .2s}
+  .f input:focus{border-color:var(--olive);box-shadow:0 0 0 3px rgba(94,109,85,.18)}
+  .f input.bad{border-color:var(--err);box-shadow:0 0 0 3px rgba(169,113,75,.15)}
+  .opt{font-size:12px;color:#A39C92}
+  .chk{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:14px;line-height:1.45;cursor:pointer}
+  .chk input{flex:0 0 20px;width:20px;height:20px;margin-top:1px;accent-color:var(--olive)}
+  .chk a{color:var(--olive)}
+  .chk.bad span{color:var(--err)}
+  .err{margin-top:12px;color:var(--err);font-size:14px;min-height:0}
+  /* Bestätigung */
+  .done{text-align:center;padding:26px 18px}
+  .ok{width:64px;height:64px;border-radius:50%;background:var(--olive);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .sum{margin-top:16px;text-align:left;border-top:1px solid var(--cream2)}
+  .sum div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--cream2);font-size:14px}
+  .sum div span:first-child{color:var(--grey)} .sum div span:last-child{text-align:right;font-weight:500}
+  footer{margin-top:30px;text-align:center;font-size:12.5px;color:var(--grey)}
+  footer a{color:var(--grey)}
+  /* Admin */
+  .adm table{width:100%;border-collapse:collapse;font-size:13px}
+  .adm th,.adm td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--cream2);vertical-align:top}
+  .adm th{font-weight:500;color:var(--grey);font-size:12px}
+  .adm .slotbox{padding:14px 14px 8px;margin-top:10px}
+  .adm .sh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .adm .sh .tm{font-family:Poppins,sans-serif;font-weight:600;font-size:15px}
+  .adm .empty{font-size:13px;color:#A39C92;padding:6px 0 8px}
+  .adm .scroll{overflow-x:auto;margin-top:6px}
+  .adm .bk{padding:10px 0;border-top:1px solid var(--cream2);font-size:13.5px;line-height:1.45}
+  .adm .bk1{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}.adm .bk1 b{font-weight:500}
+  .adm .pub{color:#A39C92;font-size:12.5px}.adm .bk2{color:var(--grey);overflow-wrap:anywhere}
+  .adm .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .adm .kpi{padding:12px}.adm .kpi b{display:block;font-family:Poppins,sans-serif;font-weight:600;font-size:20px}.adm .kpi span{font-size:12px;color:var(--grey)}
+  @media (min-width:700px){
+    .wrap{padding:36px 24px 50px}
+    h1{font-size:36px}
+    .clubs{grid-template-columns:1fr 1fr}
+    .club{flex-direction:column;align-items:flex-start;padding:22px}
+    .club .chev{display:none}
+    .daysgrid{display:grid;grid-template-columns:1fr 1fr;column-gap:16px}
+  }
+  @media (max-width:360px){h1{font-size:26px}.grid2{grid-template-columns:1fr}.grid2 .f+.f{margin-top:14px}.steps span{font-size:10.5px}}
+</style>
+</head>
+<body>
+<div class="proto"><b>Prototyp</b> Beispielzeiten – keine echte Buchung</div>
+<div class="wrap" id="app"></div>
+<script>
+(function(){
+  /* ===== Preislogik 1:1 aus preisrechner-heerdt.html / preisrechner-wetten.html (season20) =====
+     Preis pro Person und Training in Cent, abhängig von der Gruppengröße (max. 4).
+     MEMBER = Mitglied im Heerdter TV (ohne Platzgebühr)
+     GUEST  = Nicht-Mitglied Heerdter TV und alle in SV Union Wetten (inkl. 10 € Platzgebühr, geteilt durch die Gruppe) */
+  var MEMBER = {1:5000, 2:2500, 3:1667, 4:1250};
+  var GUEST  = {1:6000, 2:3000, 3:2000, 4:1500};
+  var WEEKS = 20, MAX = 4;
+  var CLUBS = {
+    htv:{name:'Heerdter TV', short:'HTV'},
+    wet:{name:'SV Union Wetten', short:'SVW'}
+  };
+  /* ===== BEISPIEL-Termine (noch keine echten Zeiten von Serdar) ===== */
+  var DAYS = {1:'Montag',2:'Dienstag',3:'Mittwoch',4:'Donnerstag',5:'Freitag',6:'Samstag'};
+  var DS = {1:'Mo',2:'Di',3:'Mi',4:'Do',5:'Fr',6:'Sa'};
+  var SLOTS = [
+    {id:'htv-mo-17', club:'htv', d:1, t:'17:00–18:00'},
+    {id:'htv-mo-18', club:'htv', d:1, t:'18:00–19:00'},
+    {id:'htv-di-17', club:'htv', d:2, t:'17:00–18:00'},
+    {id:'htv-di-18', club:'htv', d:2, t:'18:00–19:00'},
+    {id:'htv-do-17', club:'htv', d:4, t:'17:00–18:00'},
+    {id:'htv-do-18', club:'htv', d:4, t:'18:00–19:00'},
+    {id:'wet-mi-16', club:'wet', d:3, t:'16:00–17:00'},
+    {id:'wet-mi-17', club:'wet', d:3, t:'17:00–18:00'},
+    {id:'wet-mi-18', club:'wet', d:3, t:'18:00–19:00'},
+    {id:'wet-fr-16', club:'wet', d:5, t:'16:00–17:00'},
+    {id:'wet-fr-17', club:'wet', d:5, t:'17:00–18:00'},
+    {id:'wet-sa-10', club:'wet', d:6, t:'10:00–11:00'}
+  ];
+  function seed(){
+    var n = 0;
+    function b(slot, mode, persons, first, member){ n++; return {id:'seed'+n, slot:slot, mode:mode, persons:persons, vorname:'Player', nachname:first, email:'player.'+first.toLowerCase()+'@example.com', tel:'0151 0000000'+n, level:n%2?'Anfänger':'Fortgeschritten', member:member, seed:true, ts:Date.UTC(2026,10,1+n,9,0)}; }
+    return [
+      b('htv-mo-17','group',1,'A',true), b('htv-mo-17','group',1,'B',false),
+      b('htv-di-17','group',1,'C',true),
+      b('htv-di-18','group',2,'D',true), b('htv-di-18','group',2,'E',false),
+      b('htv-do-17','excl',2,'F',true),
+      b('htv-do-18','group',3,'G',false),
+      b('wet-mi-17','group',2,'H',false),
+      b('wet-mi-18','group',3,'I',false), b('wet-mi-18','group',1,'J',false),
+      b('wet-fr-16','group',1,'K',false),
+      b('wet-fr-17','excl',2,'L',false)
+    ];
+  }
+  var KEY = 'serdartennis_proto_anmelden_v1';
+  function load(){ try{ var x = JSON.parse(localStorage.getItem(KEY)); if(Array.isArray(x)) return x; }catch(e){} var s = seed(); save(s); return s; }
+  function save(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
+  var BOOK = load();
+  window.__reset = function(){ localStorage.removeItem(KEY); BOOK = load(); };
+
+  function slotById(id){ for(var i=0;i<SLOTS.length;i++) if(SLOTS[i].id===id) return SLOTS[i]; }
+  function occ(id){
+    var taken = 0, excl = false;
+    BOOK.forEach(function(b){ if(b.slot===id){ taken += b.persons; if(b.mode==='excl') excl = true; } });
+    return {taken:taken, free: excl ? 0 : Math.max(0, MAX-taken), excl:excl};
+  }
+  function eur(c){ c = Math.round(c); var e = Math.floor(c/100), r = c%100; return String(e).replace(/\B(?=(\d{3})+(?!\d))/g,'.') + ',' + (r<10?'0':'') + r + ' €'; }
+  function table(club, member){ return (club==='htv' && member) ? MEMBER : GUEST; }
+  /* Preis für eine Buchung */
+  function quote(st){
+    var o = occ(st.slot), T = table(st.club, st.member);
+    if(st.mode==='excl'){
+      var pt = MAX * T[MAX]; // Platzhalter-Regel: volle Gruppe = 4 × Preis pro Person bei 4er-Gruppe
+      return {perTraining:pt, total:pt*WEEKS, groupSize:MAX, pp:null};
+    }
+    var g = Math.min(MAX, o.taken + st.persons);
+    var pp = T[g];
+    return {pp:pp, groupSize:g, perTraining:pp*st.persons, total:pp*st.persons*WEEKS, ppFull:T[MAX]};
+  }
+  function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function dots(taken, excl){ var h='<span class="dots" aria-hidden="true">'; for(var i=0;i<MAX;i++) h+='<i class="dot'+((excl||i<taken)?' x':'')+'"></i>'; return h+'</span>'; }
+  function shortName(b){ return b.vorname + ' ' + (b.nachname ? b.nachname.charAt(0).toUpperCase()+'.' : ''); }
+
+  /* ===== Zustand & Navigation ===== */
+  var S = {step:1, club:null, slot:null, mode:'group', persons:1, member:true, level:'', f:{vorname:'',nachname:'',email:'',tel:''}, ds:false, last:null};
+  var app = document.getElementById('app');
+  function go(step, push){
+    S.step = step;
+    if(push!==false){ try{ history.pushState({step:step}, '', '#schritt-'+step); }catch(e){} }
+    render(); window.scrollTo(0,0);
+  }
+  window.addEventListener('popstate', function(e){
+    var st = (e.state && e.state.step) || 1;
+    if(st>=2 && !S.club) st = 1;
+    if(st>=3 && !S.slot) st = 2;
+    if(st===5) st = 2;           // nach Buchung zurück = Terminübersicht
+    if(S.step===5 && st===4) st = 2;
+    S.step = st; render(); window.scrollTo(0,0);
+  });
+  window.__go = go; window.__S = S;
+
+  function header(){
+    var labels = ['Verein','Termin','Buchung','Daten'];
+    var h = '<header><div class="eyebrow">Sommersaison 2027</div><h1>Anmelden</h1>'+
+      '<p class="sub">26. April – 7. Oktober 2027 · 20 Trainingswochen · ein fester Termin pro Woche</p></header>';
+    if(S.step<5){
+      h += '<nav class="steps" aria-label="Fortschritt">';
+      labels.forEach(function(l,i){ var n=i+1; h += '<div class="'+(n<=S.step?'on ':'')+(n===S.step?'cur':'')+'"><i></i><span>'+n+'. '+l+'</span></div>'; });
+      h += '</nav>';
+    }
+    return h;
+  }
+  function footer(){ return '<footer><a href="#" id="reset">Demo zurücksetzen</a></footer>'; }
+  function backBtn(to, txt){ return '<button class="back" data-back="'+to+'">← '+txt+'</button>'; }
+
+  function vClub(){
+    var h = '<section class="view"><h2>Wo möchtest du spielen?</h2><p class="hint">Wähle deinen Verein. Danach siehst du alle freien Trainingszeiten.</p><div class="clubs">';
+    ['htv','wet'].forEach(function(c){
+      var free = 0; SLOTS.forEach(function(s){ if(s.club===c) free += occ(s.id).free; });
+      var price = c==='htv' ? 'Mitglieder ab 12,50 €, Gäste ab 15,00 € pro Person und Training' : 'ab 15,00 € pro Person und Training';
+      h += '<button class="card club" data-club="'+c+'"><span class="mono">'+CLUBS[c].short+'</span><span><span class="t" style="display:block">'+CLUBS[c].name+'</span><span class="d" style="display:block">'+price+'</span><span class="free" style="display:block">'+free+' freie Plätze diese Saison</span></span><span class="chev">›</span></button>';
+    });
+    h += '</div><div class="facts"><span>Gruppen bis 4 Personen</span><span>20 Wochen fest</span><span>Rechnung per E-Mail</span></div></section>';
+    return h;
+  }
+  function vSlots(){
+    var h = '<section class="view">'+backBtn(1,'Verein ändern')+'<h2>'+CLUBS[S.club].name+'</h2><p class="hint">Wähle deinen festen Termin. Er gilt jede Woche für die ganze Saison.</p>'+
+      '<div class="legend"><span><span class="dots"><i class="dot x"></i></span> belegt</span><span><span class="dots"><i class="dot"></i></span> frei</span></div><div class="daysgrid">';
+    var byDay = {};
+    SLOTS.forEach(function(s){ if(s.club===S.club){ (byDay[s.d]=byDay[s.d]||[]).push(s); } });
+    Object.keys(byDay).sort().forEach(function(d){
+      h += '<div class="day"><h3>'+DAYS[d]+'</h3><div class="slots">';
+      byDay[d].forEach(function(s){
+        var o = occ(s.id), dis = o.free===0, mine = BOOK.some(function(b){return b.slot===s.id && !b.seed;});
+        var st, tag='';
+        if(o.excl){ st='Exklusiv gebucht'; tag='<span class="tag ex">Exklusiv</span>'; }
+        else if(o.free===0){ st='Ausgebucht'; tag='<span class="tag full">Voll</span>'; }
+        else if(o.taken===0){ st='Alle '+MAX+' Plätze frei'; }
+        else st = o.free+' von '+MAX+' Plätzen frei';
+        if(mine) tag = '<span class="tag new">Deine Buchung</span>' + (dis?'':'');
+        h += '<button class="card slot" data-slot="'+s.id+'"'+(dis?' disabled aria-disabled="true"':'')+'><span><span class="tm" style="display:block">'+DS[s.d]+' '+s.t+'</span><span class="st'+(dis?'':' good')+'" style="display:block">'+st+'</span></span><span class="r">'+(o.excl?'':dots(o.taken,false))+tag+'</span></button>';
+      });
+      h += '</div></div>';
+    });
+    return h + '</div></section>';
+  }
+  function priceBox(){
+    var q = quote(S), h = '<div class="price" id="price">';
+    if(S.mode==='excl'){
+      h += '<div class="rl">Gruppe exklusiv</div>'+
+        '<div class="row"><span>Pro Training (ganze Gruppe)</span><b>'+eur(q.perTraining)+'</b></div>'+
+        '<div class="line"></div><div class="tot"><span>Saison gesamt<br><small style="opacity:.8">20 Trainingswochen</small></span><b>'+eur(q.total)+'</b></div>'+
+        '<div class="ph">Platzhalter-Regel · noch zu bestätigen</div>'+
+        '<div class="note">Exklusivpreis = volle 4er-Gruppe ('+MAX+' × '+eur(table(S.club,S.member)[MAX])+') · '+(S.club==='htv'&&S.member?'ohne Platzgebühr':'inkl. 10 € Platzgebühr')+'</div>';
+    } else {
+      h += '<div class="rl">Pro Person und Training</div>'+
+        '<div class="row"><span>Gruppe mit '+q.groupSize+(q.groupSize===1?' Person':' Personen')+'</span><b>'+eur(q.pp)+'</b></div>'+
+        (S.persons>1?'<div class="row"><span>'+S.persons+' Personen pro Training</span><b>'+eur(q.perTraining)+'</b></div>':'')+
+        '<div class="line"></div><div class="tot"><span>Saison gesamt<br><small style="opacity:.8">20 Trainingswochen'+(S.persons>1?', '+S.persons+' Personen':'')+'</small></span><b>'+eur(q.total)+'</b></div>'+
+        (q.groupSize<MAX?'<div class="note">Wird die Gruppe voller, sinkt der Preis – bei 4 Personen '+eur(q.ppFull)+' pro Person. '+(S.club==='htv'&&S.member?'ohne Platzgebühr':'inkl. 10 € Platzgebühr, geteilt durch die Gruppe')+'</div>':
+          '<div class="note">'+(S.club==='htv'&&S.member?'ohne Platzgebühr':'inkl. 10 € Platzgebühr, geteilt durch die Gruppe')+'</div>');
+    }
+    return h + '</div>';
+  }
+  function chosen(){
+    var s = slotById(S.slot), o = occ(S.slot);
+    return '<div class="card chosen"><span><span class="tm" style="display:block">'+DAYS[s.d]+' '+s.t+'</span><span class="st" style="display:block">'+CLUBS[S.club].name+' · '+(o.taken===0?'noch leer':o.free+' von '+MAX+' Plätzen frei')+'</span></span><span class="r" style="margin-left:auto">'+dots(o.taken,false)+'</span></div>';
+  }
+  function stepper(o){ return '<span class="stepper"><button type="button" data-p="-1"'+(S.persons<=1?' disabled':'')+' aria-label="weniger">−</button><span class="n">'+S.persons+(S.persons===1?' Person':' Personen')+'</span><button type="button" data-p="1"'+(S.persons>=o.free?' disabled':'')+' aria-label="mehr">+</button></span>'; }
+  function vMode(){
+    var o = occ(S.slot), canEx = o.taken===0;
+    if(!canEx && S.mode==='excl') S.mode='group';
+    if(S.persons>o.free) S.persons=o.free;
+    if(S.persons<1) S.persons=1;
+    var h = '<section class="view">'+backBtn(2,'Anderen Termin wählen')+'<h2>Wie möchtest du buchen?</h2>'+chosen()+'<div class="modes">';
+    h += '<div role="radio" tabindex="0" aria-checked="'+(S.mode==='group')+'" class="card mode'+(S.mode==='group'?' on':'')+'" data-mode="group"><span class="h"><span class="radio"></span><span class="t">Platz in der Gruppe</span></span>'+
+      '<span class="d" style="display:block">Du trainierst mit anderen Spielern. Noch '+o.free+(o.free===1?' Platz':' Plätze')+' frei.</span>'+
+      (S.mode==='group'?stepper(o):'')+
+      '</div>';
+    h += '<div role="radio" tabindex="'+(canEx?0:-1)+'" aria-checked="'+(S.mode==='excl')+'" class="card mode'+(S.mode==='excl'?' on':'')+(canEx?'':' dis')+'" data-mode="excl"'+(canEx?'':' aria-disabled="true"')+'><span class="h"><span class="radio"></span><span class="t">Gruppe exklusiv buchen</span></span>'+
+      '<span class="d" style="display:block">'+(canEx?'Der Termin wird für andere geschlossen. Ideal, wenn ihr z. B. zu zweit allein trainieren wollt.':'Nicht mehr möglich – hier hat schon jemand gebucht. Exklusiv geht nur bei leeren Terminen.')+'</span>'+(S.mode==='excl'?stepper(o):'')+'</div>';
+    h += '</div>';
+    if(S.club==='htv'){
+      h += '<div class="q"><div class="lbl">Bist du Mitglied im Heerdter TV?</div><div class="seg" data-k="member"><button data-v="1" class="'+(S.member?'on':'')+'">Ja</button><button data-v="0" class="'+(!S.member?'on':'')+'">Nein</button></div></div>';
+    }
+    h += priceBox() + '<button class="btn" id="toDetails">Weiter zu deinen Daten</button></section>';
+    return h;
+  }
+  function vDetails(){
+    var s = slotById(S.slot), q = quote(S);
+    function inp(id,label,type,ac,opt){ return '<div class="f"><label for="'+id+'">'+label+(opt?' <span class="opt">(optional)</span>':'')+'</label><input id="'+id+'" type="'+type+'" autocomplete="'+ac+'" value="'+esc(S.f[id]||'')+'"></div>'; }
+    var h = '<section class="view">'+backBtn(3,'Zurück zur Buchung')+'<h2>Deine Daten</h2><p class="hint">Fast geschafft. Wir brauchen nur deine Kontaktdaten.</p>'+
+      '<div class="card form"><div class="grid2">'+inp('vorname','Vorname','text','given-name')+inp('nachname','Nachname','text','family-name')+'</div>'+
+      inp('email','E-Mail','email','email')+inp('tel','Telefon','tel','tel')+
+      '<div class="q"><div class="lbl">Spielniveau <span class="opt">(optional)</span></div><div class="seg" data-k="level"><button data-v="Anfänger" class="'+(S.level==='Anfänger'?'on':'')+'">Anfänger</button><button data-v="Fortgeschritten" class="'+(S.level==='Fortgeschritten'?'on':'')+'">Fortgeschritten</button></div></div>'+
+      '<label class="chk" id="dsl"><input type="checkbox" id="ds"'+(S.ds?' checked':'')+'> <span>Ich habe die <a href="https://akdagserdar47.wixsite.com/serdartennis/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label></div>';
+    h += '<div class="price"><div class="rl">Deine Anmeldung</div>'+
+      '<div class="row"><span>Termin</span><b>'+DS[s.d]+' '+s.t+'</b></div>'+
+      '<div class="row"><span>Verein</span><b>'+CLUBS[S.club].name+'</b></div>'+
+      '<div class="row"><span>Art</span><b>'+(S.mode==='excl'?'Gruppe exklusiv':'Platz in der Gruppe')+'</b></div>'+
+      (S.mode==='group'?'<div class="row"><span>Personen</span><b>'+S.persons+'</b></div><div class="row"><span>Pro Person und Training</span><b>'+eur(q.pp)+'</b></div>':'<div class="row"><span>Pro Training</span><b>'+eur(q.perTraining)+'</b></div>')+
+      '<div class="line"></div><div class="tot"><span>Saison gesamt<br><small style="opacity:.8">20 Trainingswochen</small></span><b>'+eur(q.total)+'</b></div>'+
+      (S.mode==='excl'?'<div class="ph">Platzhalter-Regel · noch zu bestätigen</div>':'')+'</div>';
+    h += '<div class="err" id="err" role="alert"></div><button class="btn" id="submit">Jetzt anmelden</button>'+
+      '<p class="hint" style="text-align:center;margin-top:10px">Die Rechnung kommt per E-Mail. Du bezahlst vor dem ersten Training.</p></section>';
+    return h;
+  }
+  function vDone(){
+    var b = S.last, s = slotById(b.slot), o = occ(b.slot);
+    var h = '<section class="view"><div class="card done"><div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>'+
+      '<h2>Danke, '+esc(b.vorname)+'!</h2><p class="hint">Dein Platz ist reserviert. In der echten Version bekommst du jetzt eine Bestätigung per E-Mail und Serdar wird benachrichtigt.</p>'+
+      '<div class="sum"><div><span>Termin</span><span>'+DAYS[s.d]+' '+s.t+'</span></div><div><span>Verein</span><span>'+CLUBS[b.club].name+'</span></div>'+
+      '<div><span>Art</span><span>'+(b.mode==='excl'?'Gruppe exklusiv':'Platz in der Gruppe · '+b.persons+(b.persons===1?' Person':' Personen'))+'</span></div>'+
+      '<div><span>Saison</span><span>26.04. – 07.10.2027 · 20 Wochen</span></div><div><span>Saison gesamt</span><span>'+eur(b.total)+'</span></div>'+
+      '<div><span>Termin jetzt</span><span>'+(o.excl?'Exklusiv gebucht':o.free===0?'Ausgebucht':o.free+' von '+MAX+' Plätzen frei')+'</span></div></div>'+
+      '<p class="hint" style="margin-top:14px">Die Rechnung kommt per E-Mail. Du kannst per Überweisung, PayPal oder bar bezahlen.</p></div>'+
+      '<button class="btn" id="again">Zur Terminübersicht</button></section>';
+    return h;
+  }
+  function render(){
+    var v = S.step===1?vClub():S.step===2?vSlots():S.step===3?vMode():S.step===4?vDetails():vDone();
+    app.innerHTML = header() + v + footer();
+  }
+  function grab(){ ['vorname','nachname','email','tel'].forEach(function(k){ var el=document.getElementById(k); if(el) S.f[k]=el.value.trim(); }); var d=document.getElementById('ds'); if(d) S.ds=d.checked; }
+
+  app.addEventListener('keydown', function(e){ if((e.key==='Enter'||e.key===' ') && e.target.matches('[data-mode]')){ e.preventDefault(); e.target.click(); } });
+  app.addEventListener('click', function(e){
+    var t = e.target;
+    var bk = t.closest('[data-back]'); if(bk){ if(S.step===4) grab(); go(+bk.getAttribute('data-back')); return; }
+    if(t.closest('#reset')){ e.preventDefault(); window.__reset(); S.club=null; S.slot=null; S.last=null; go(1); return; }
+    var c = t.closest('[data-club]'); if(c){ if(S.club!==c.getAttribute('data-club')){ S.slot=null; } S.club=c.getAttribute('data-club'); go(2); return; }
+    var sl = t.closest('[data-slot]'); if(sl && !sl.disabled){ S.slot=sl.getAttribute('data-slot'); S.mode='group'; S.persons=1; go(3); return; }
+    var p = t.closest('[data-p]'); if(p){ e.stopPropagation(); if(!p.disabled){ S.persons += +p.getAttribute('data-p'); render(); } return; }
+    var m = t.closest('[data-mode]'); if(m && !m.classList.contains('dis')){ S.mode=m.getAttribute('data-mode'); render(); return; }
+    var sb = t.closest('.seg button'); if(sb){ var k = sb.parentNode.getAttribute('data-k'), v = sb.getAttribute('data-v');
+      if(k==='member') S.member = v==='1';
+      if(k==='level'){ grab(); S.level = S.level===v ? '' : v; }
+      render(); return; }
+    if(t.closest('#toDetails')){ go(4); return; }
+    if(t.closest('#again')){ go(2); return; }
+    if(t.closest('#submit')){ submit(); return; }
+  });
+  function submit(){
+    grab();
+    var bad = [], msg = '';
+    ['vorname','nachname'].forEach(function(k){ if(!S.f[k]) bad.push(k); });
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(S.f.email)) bad.push('email');
+    if(S.f.tel.replace(/\D/g,'').length<6) bad.push('tel');
+    ['vorname','nachname','email','tel'].forEach(function(k){ document.getElementById(k).classList.toggle('bad', bad.indexOf(k)>-1); });
+    document.getElementById('dsl').classList.toggle('bad', !S.ds);
+    if(bad.length) msg = 'Bitte prüfe die markierten Felder.';
+    else if(!S.ds) msg = 'Bitte bestätige die Datenschutzerklärung.';
+    var o = occ(S.slot);
+    if(!msg && (S.mode==='excl' ? o.taken>0 : o.free<S.persons)) msg = 'Dieser Termin ist leider gerade voll geworden. Bitte wähle einen anderen.';
+    if(msg){ document.getElementById('err').textContent = msg; var f=document.querySelector('.bad input, input.bad'); if(f) f.focus(); return; }
+    var q = quote(S);
+    var b = {id:'b'+Date.now(), slot:S.slot, club:S.club, mode:S.mode, persons:S.persons, vorname:S.f.vorname, nachname:S.f.nachname, email:S.f.email, tel:S.f.tel, level:S.level, member:S.club==='htv'&&S.member, perTraining:q.perTraining, total:q.total, ts:Date.now()};
+    BOOK.push(b); save(BOOK); S.last = b;
+    S.f = {vorname:'',nachname:'',email:'',tel:''}; S.ds=false; S.level='';
+    go(5);
+  }
+
+  /* ===== Admin-Ansicht (?admin=1) ===== */
+  function admin(){
+    document.title = 'Buchungen – Admin (Prototyp)';
+    var h = '<header><div class="eyebrow">Admin · nur für Serdar</div><h1>Buchungen</h1><p class="sub">Sommersaison 2027 · Beispieldaten aus diesem Gerät (localStorage)</p></header><div class="adm">';
+    ['htv','wet'].forEach(function(c){
+      var slots = SLOTS.filter(function(s){return s.club===c;}), pers=0, cap=0, cnt=0;
+      slots.forEach(function(s){ var o=occ(s.id); pers+=o.excl?MAX:o.taken; cap+=MAX; });
+      BOOK.forEach(function(b){ if(slotById(b.slot).club===c) cnt++; });
+      h += '<h2 class="u" style="margin-top:26px">'+CLUBS[c].name+'</h2><div class="kpis"><div class="card kpi"><b>'+cnt+'</b><span>Anmeldungen</span></div><div class="card kpi"><b>'+pers+'/'+cap+'</b><span>Plätze belegt</span></div><div class="card kpi"><b>'+slots.filter(function(s){return occ(s.id).free===0;}).length+'/'+slots.length+'</b><span>Termine voll</span></div></div>';
+      slots.forEach(function(s){
+        var o = occ(s.id), list = BOOK.filter(function(b){return b.slot===s.id;});
+        var g = o.taken;
+        h += '<div class="card slotbox"><div class="sh"><span class="tm">'+DS[s.d]+' '+s.t+'</span>'+(o.excl?'<span class="tag ex">Exklusiv</span>':dots(o.taken,false))+'<span class="st" style="font-size:13px;color:var(--grey)">'+(o.excl?'geschlossen':o.free===0?'voll':o.free+' frei')+'</span></div>';
+        if(!list.length) h += '<div class="empty">Noch keine Anmeldung</div>';
+        else {
+          list.forEach(function(b){
+            var T = table(c, b.member), pp = b.mode==='excl' ? eur(MAX*T[MAX])+' / Training (Gruppe)' : eur(T[Math.min(MAX,Math.max(1,g))])+' p. P. / Training';
+            h += '<div class="bk"><div class="bk1"><b>'+esc(b.vorname+' '+b.nachname)+'</b>'+(b.seed?'':'<span class="tag new">neu</span>')+'<span class="pub">öffentlich: '+esc(shortName(b))+'</span></div>'+
+              '<div class="bk2">'+b.persons+(b.persons===1?' Person':' Personen')+' · '+(b.mode==='excl'?'Exklusiv':'Gruppe')+(c==='htv'?' · '+(b.member?'Mitglied':'Gast'):'')+(b.level?' · '+esc(b.level):'')+'</div>'+
+              '<div class="bk2">'+esc(b.email)+' · '+esc(b.tel)+'</div><div class="bk2">'+pp+'*</div></div>';
+          });
+        }
+        h += '</div>';
+      });
+    });
+    h += '<p class="hint" style="margin-top:14px">* Preis pro Person und Training bei der aktuellen Gruppengröße (Logik aus dem Preisrechner).</p></div>';
+    h += '<footer><a href="?">Zur Anmeldeseite</a> · <a href="#" id="reset">Demo zurücksetzen</a></footer>';
+    app.innerHTML = h;
+    app.addEventListener('click', function(e){ if(e.target.closest('#reset')){ e.preventDefault(); window.__reset(); admin(); } });
+  }
+
+  if(/[?&]admin=1/.test(location.search)) admin();
+  else { try{ history.replaceState({step:1}, '', location.pathname+location.search); }catch(e){} render(); }
+})();
+</script>
+</body>
+</html>
