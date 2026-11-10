@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Anmelden – Serdar Tennis (Prototyp v4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ===== Design-Variablen (zum späteren Restyling) ===== */
+  :root{
+    --bg:#F3E9DC; --ink:#2E2B28; --muted:#7A746C; --faint:#A39C92;
+    --hair:rgba(46,43,40,.22); --line:#2E2B28; --accent:#5E6D55; --err:#9A4E2E;
+    --btn-bg:var(--ink); --btn-ink:#F3E9DC; --btn-hover:var(--accent);
+    --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:Inter,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    --w:680px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;border-radius:0;box-shadow:none}
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+  button,input,select{font:inherit;color:inherit}
+  a{color:inherit}
+  .proto{border-bottom:1px solid var(--hair);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center;padding:8px 12px}
+  .wrap{max-width:var(--w);margin:0 auto;padding:28px 20px 56px}
+  .lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  h1{font-family:var(--serif);font-weight:500;font-size:46px;line-height:1.02;letter-spacing:-.01em;margin-top:8px}
+  h2{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.1}
+  .meta{margin-top:10px;color:var(--muted);font-size:14px}
+  .rule{border:0;border-top:1px solid var(--line);margin:22px 0 0}
+  .stepline{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--hair)}
+  .back{background:none;border:0;cursor:pointer;color:var(--muted);font-size:14px;padding:6px 0}
+  .back:hover{color:var(--ink)}
+  .sec{margin-top:28px}
+  .small{font-size:13px;color:var(--muted)}
+  .tiny{font-size:12px;color:var(--faint)}
+  /* Liste (Vereine, Termine, Auswahl) */
+  .list{border-top:1px solid var(--line);margin-top:14px}
+  .row{display:flex;align-items:center;gap:16px;width:100%;background:none;border:0;border-bottom:1px solid var(--hair);padding:18px 0;text-align:left;cursor:pointer}
+  .row:hover .big,.row:hover .rt{color:var(--accent)}
+  .row .big{font-family:var(--serif);font-size:28px;font-weight:500;line-height:1.1;white-space:nowrap}
+  .row .sub{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+  .row .end{margin-left:auto;text-align:right;flex:0 0 auto}
+  .row .rt{font-size:14px;font-weight:500}
+  .row.off{cursor:default}.row.off .big,.row.off .rt{color:var(--faint)}
+  .row.off:hover .big{color:var(--faint)}
+  .arrow{font-family:var(--serif);font-size:26px;color:var(--muted);margin-left:auto}
+  .sq{display:inline-flex;gap:3px;vertical-align:middle;margin-left:8px}
+  .sq i{width:9px;height:9px;border:1px solid var(--ink)}
+  .sq i.x{background:var(--ink)}
+  .row.off .sq i{border-color:var(--faint)}.row.off .sq i.x{background:var(--faint)}
+  .tag{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .linkbtn{background:none;border:0;border-bottom:1px solid currentColor;cursor:pointer;font-size:13px;padding:0;color:var(--ink)}
+  .wl{display:flex;gap:12px;align-items:flex-end;padding:0 0 18px;border-bottom:1px solid var(--hair)}
+  .wl .f{flex:1;margin:0}
+  /* Tabs */
+  .tabs{display:flex;gap:22px;border-bottom:1px solid var(--hair);margin-top:18px;overflow-x:auto;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{background:none;border:0;border-bottom:2px solid transparent;padding:10px 0;margin-bottom:-1px;cursor:pointer;font-size:15px;color:var(--muted);white-space:nowrap}
+  .tab.on{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
+  .parthead{margin-top:22px}
+  /* Auswahl */
+  .opt{display:flex;gap:14px;align-items:flex-start;width:100%;background:none;border:0;border-bottom:1px solid var(--hair);padding:18px 0;text-align:left;cursor:pointer}
+  .box{flex:0 0 18px;width:18px;height:18px;border:1px solid var(--ink);margin-top:5px;display:flex;align-items:center;justify-content:center}
+  .opt.on .box:after{content:"";width:10px;height:10px;background:var(--ink)}
+  .opt .t{font-family:var(--serif);font-size:24px;font-weight:500;line-height:1.15;display:block}
+  .opt .d{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+  .opt.dis{cursor:default}.opt.dis .t,.opt.dis .d{color:var(--faint)}.opt.dis .box{border-color:var(--faint)}
+  .seg{display:flex;border:1px solid var(--ink);margin-top:10px}
+  .seg button{flex:1;min-width:0;background:none;border:0;border-left:1px solid var(--ink);height:44px;cursor:pointer;font-size:14px;white-space:nowrap;padding:0 4px}
+  .seg button:first-child{border-left:0}
+  .seg button.on{background:var(--ink);color:var(--btn-ink)}
+  /* Preis */
+  .price{margin-top:28px;border-top:1px solid var(--line);padding-top:16px}
+  .num{font-family:var(--serif);font-weight:500;font-size:56px;line-height:1;margin-top:6px;letter-spacing:-.01em}
+  .num small{font-family:var(--sans);font-size:14px;color:var(--muted);letter-spacing:0;margin-left:6px}
+  details{margin-top:10px;font-size:13px;color:var(--muted)}
+  details summary{cursor:pointer;display:inline-block;border-bottom:1px solid currentColor;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details[open] summary{margin-bottom:8px}
+  details p{margin-top:4px}
+  /* Button */
+  .btn{display:block;width:100%;height:56px;line-height:56px;background:var(--btn-bg);color:var(--btn-ink);border:0;cursor:pointer;font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-align:center;text-decoration:none;margin-top:30px;transition:background .15s}
+  .btn:hover{background:var(--btn-hover)}
+  .btn.sec2{background:none;color:var(--ink);border:1px solid var(--ink);line-height:54px}
+  /* Formular */
+  .f{margin-top:20px}
+  .f label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .f input,.f select{display:block;width:100%;min-width:0;background:transparent;border:0;border-bottom:1px solid var(--ink);height:44px;padding:0;font-size:17px;outline:none;-webkit-appearance:none;appearance:none}
+  .f select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%232E2B28' stroke-width='1.3'/%3E%3C/svg%3E") no-repeat right 2px center;padding-right:20px}
+  .f select.empty{color:var(--faint)}
+  .f input:focus,.f select:focus{border-bottom:2px solid var(--ink)}
+  .f .bad,.f input.bad,.f select.bad{border-bottom:2px solid var(--err)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+  .chk{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--hair);font-size:14px;cursor:pointer}
+  .chk input{flex:0 0 18px;width:18px;height:18px;margin-top:2px;border:1px solid var(--ink);-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer}
+  .chk input:checked{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10'%3E%3Cpath d='M1 5l3.5 3.5L11 1' fill='none' stroke='%23F3E9DC' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat center}
+  .chk.bad span{color:var(--err)}.chk.bad input{border-color:var(--err)}
+  .legal{margin-top:28px;border-top:1px solid var(--line)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .err{color:var(--err);font-size:14px;margin-top:16px}
+  .err:empty{display:none}
+  .sumline{margin-top:24px;font-size:14px;color:var(--muted)}
+  .sumline b{color:var(--ink);font-weight:500}
+  /* Bestätigung */
+  .steps{list-style:none;border-top:1px solid var(--line);margin-top:14px;counter-reset:s}
+  .steps li{counter-increment:s;display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--hair);font-size:15px}
+  .steps li:before{content:counter(s);font-family:var(--serif);font-size:24px;line-height:1;width:18px;flex:0 0 18px}
+  .steps li.done{color:var(--muted);text-decoration:line-through}
+  .kv{border-top:1px solid var(--line);margin-top:14px}
+  .kv div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--hair);font-size:15px}
+  .kv div span:first-child{color:var(--muted)}
+  .kv div span:last-child{text-align:right}
+  .links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:12px;font-size:15px}
+  .code{font-family:var(--serif);font-size:34px;letter-spacing:.12em;margin-top:4px}
+  .url{font-size:13px;color:var(--muted);overflow-wrap:anywhere;margin-top:6px}
+  .status{display:inline-block;margin-top:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);padding:5px 10px}
+  footer{margin-top:44px;padding-top:14px;border-top:1px solid var(--hair);display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted)}
+  /* Admin */
+  .adm .slot{border-bottom:1px solid var(--hair);padding:14px 0}
+  .adm .slot .h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .adm .slot .h b{font-family:var(--serif);font-size:22px;font-weight:500}
+  .adm .bk{margin-top:10px;padding-left:12px;border-left:1px solid var(--hair);font-size:13.5px;line-height:1.55;overflow-wrap:anywhere}
+  .adm .bk b{font-weight:500}
+  .adm .bk .m{color:var(--muted)}
+  .adm .acts{display:flex;gap:16px;margin-top:6px}
+  .adm .pend{color:var(--muted);font-style:italic}
+  .adm .gone{opacity:.5}
+  @media (min-width:700px){ .wrap{padding:44px 24px 64px} h1{font-size:60px} h2{font-size:34px} }
+  @media (max-width:400px){ .seg button{font-size:13px} }
+  @media (max-width:360px){ h1{font-size:40px} .row .big{font-size:24px} .two{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="proto" id="proto">Prototyp v4 · Beispieldaten</div>
+<div class="wrap" id="app"></div>
+<script>
+(function(){
+  'use strict';
+  /* ===== Konstanten ===== */
+  const BASE_URL = 'https://akdagserdar47.wixsite.com/serdartennis';   // später: https://serdartennis.com
+  const AGB_URL = BASE_URL + '/agb', DS_URL = BASE_URL + '/datenschutz';
+  const PHONE = '+4915901007838', PHONE_TXT = '+49 1590 100 7838', MAIL = 'info.serdartennis@gmail.com';
+  /* Preise 1:1 aus preisrechner-heerdt.html / preisrechner-wetten.html (Cent pro Person und Training) */
+  const MEMBER = {1:5000, 2:2500, 3:1667, 4:1250};
+  const GUEST  = {1:6000, 2:3000, 3:2000, 4:1500};
+  const WEEKS = 20, MAX = 4, HOUR = 36e5, DAY = 864e5;
+  /* Saison aus saisonkalender.html */
+  const SEASON_START = Date.UTC(2027,3,26), SEASON_END = Date.UTC(2027,9,7), BREAK_FROM = Date.UTC(2027,6,19), BREAK_TO = Date.UTC(2027,7,15);
+  const CLOSE_TS = new Date(2027,3,26,0,0,0).getTime();          // Anmeldeschluss = Saisonstart
+  const CLUBS = {
+    htv:{name:'Heerdter TV', days:[3,4,5,6], addr:'Am Heerdter Hof 38, 40549 Düsseldorf'},
+    wet:{name:'SV Union Wetten', days:[1,2], addr:'Kapellener Straße 29, 47625 Kevelaer-Wetten'}
+  };
+  const DAYS = {1:'Montag',2:'Dienstag',3:'Mittwoch',4:'Donnerstag',5:'Freitag',6:'Samstag'};
+  const DS = {1:'Mo',2:'Di',3:'Mi',4:'Do',5:'Fr',6:'Sa'};
+  const LEVELS = ['Anfänger','Mittel','Fortgeschritten'];
+  /* Demo-Datum per ?today=YYYY-MM-DD */
+  const TODAY = (location.search.match(/[?&]today=(\d{4}-\d{2}-\d{2})/)||[])[1];
+  const now = () => TODAY ? new Date(TODAY+'T12:00:00').getTime() : Date.now();
+  const closed = () => now() >= CLOSE_TS;
+  const pad = n => (n<10?'0':'')+n;
+  const fmt = ts => { const d = new Date(ts); return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear(); };
+  const fmtU = ts => { const d = new Date(ts); return pad(d.getUTCDate())+'.'+pad(d.getUTCMonth()+1)+'.'+d.getUTCFullYear(); };
+  const cn = c => `<span translate="no">${CLUBS[c].name}</span>`;
+  const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const eur = c => { c = Math.round(c); const e = Math.floor(c/100), r = c%100; return String(e).replace(/\B(?=(\d{3})+(?!\d))/g,'.') + ',' + pad(r) + ' €'; };
+  const eurS = c => c%100 ? eur(c) : String(c/100).replace(/\B(?=(\d{3})+(?!\d))/g,'.') + ' €';
+  const T = (club, member) => (club==='htv' && member) ? MEMBER : GUEST;
+  const minor = jahr => jahr && (2027 - (+jahr)) < 18;
+  const short = b => b.vorname + ' ' + (b.nachname||'').charAt(0).toUpperCase() + '.';
+
+  /* ===== Termine (60 Min.) ===== */
+  const SLOTS = [];
+  const add = (club, d, hours) => hours.forEach(h => SLOTS.push({id:`${club}-${d}-${h}`, club, d, h, t:`${pad(h)}:00–${pad(h+1)}:00`, part: h<12?'Vormittag':'Nachmittag'}));
+  const PM = [14,15,16,17,18,19,20];
+  [1,2].forEach(d => add('wet', d, PM));
+  [3,4,5,6].forEach(d => add('htv', d, [10,11].concat(PM)));
+  const slotById = id => SLOTS.find(s => s.id===id);
+  /* Trainingstermine eines Wochentags (ohne Sommerpause) */
+  function trainingDates(d){ const out = []; for(let t = SEASON_START + (d-1)*DAY; t <= SEASON_END; t += 7*DAY){ if(t >= BREAK_FROM && t <= BREAK_TO) continue; out.push(t); } return out; }
+
+  /* ===== Demo-Daten (Player A–L) ===== */
+  function seed(){
+    const n0 = now(); let n = 0;
+    const b = (slot, L, jahr, level, extra) => { n++; const s = slotById(slot);
+      return Object.assign({id:'seed'+n, slot, club:s.club, mode:'group', vorname:'Player', nachname:L, email:`player.${L.toLowerCase()}@example.com`, tel:'0151 000000'+pad(n), jahr, level, member:s.club==='htv', confirmed:true, seed:true, ts:n0-(10+n)*DAY}, extra||{}); };
+    const kid = {parent:'Elternteil Demo', parentEmail:'eltern@example.com'};
+    return [
+      b('htv-3-10','A',1985,'Mittel'),
+      b('htv-3-17','B',2015,'Anfänger',kid), b('htv-3-17','C',2014,'Anfänger',kid), b('htv-3-17','D',2016,'Anfänger',kid), b('htv-3-17','E',2015,'Anfänger',kid),
+      b('htv-3-18','F',1990,'Mittel',{mode:'excl', groupSize:3, code:'DEMO26', approved:false, ts:n0-2*DAY}), b('htv-3-18','G',1992,'Mittel',{mode:'invite', code:'DEMO26', ts:n0-1*DAY}),
+      b('htv-4-15','H',1978,'Fortgeschritten'),
+      b('htv-6-10','I',1969,'Anfänger',{mode:'excl', groupSize:1, code:'PRIV01', approved:true}),
+      b('wet-1-16','J',1988,'Mittel'), b('wet-1-16','K',1991,'Mittel'),
+      b('wet-1-17','L',1983,'Fortgeschritten',{confirmed:false, ts:n0-30*HOUR})    // E-Mail nie bestätigt → nach 24 h frei
+    ];
+  }
+  const KEY = 'serdartennis_proto_anmelden_v4';
+  function load(){ try{ const x = JSON.parse(localStorage.getItem(KEY)); if(x && Array.isArray(x.book)) return x; }catch(e){} const d = {book:seed(), wait:[{slot:'htv-3-17', email:'warteliste@example.com', ts:now()-DAY}]}; save(d); return d; }
+  function save(d){ try{ localStorage.setItem(KEY, JSON.stringify(d||DB)); }catch(e){} }
+  let DB = load();
+  const reset = () => { try{ localStorage.removeItem(KEY); }catch(e){} DB = load(); };
+
+  /* ===== Regeln ===== */
+  const expired = b => !b.confirmed && now() - b.ts > 24*HOUR;          // unbestätigt > 24 h
+  const active = b => !expired(b) && !b.released;
+  const deadline = lead => Math.min(lead.ts + 7*DAY, CLOSE_TS);         // Einladungsfrist
+  function occ(id){
+    const list = DB.book.filter(b => b.slot===id && active(b)), lead = list.find(b => b.mode==='excl');
+    const taken = list.length;
+    if(lead){
+      const pending = Math.max(0, lead.groupSize - list.filter(b => b.code===lead.code).length);
+      if(pending && now() > deadline(lead)) return {list, lead, taken, free:MAX-taken, pending:0, released:true};
+      return {list, lead, taken, free:0, pending, excl:true};
+    }
+    return {list, taken, free:MAX-taken, pending:0};
+  }
+  function groupTag(list){
+    if(!list.length) return '';
+    const kids = list.filter(b => minor(b.jahr)).length, age = kids*2 > list.length ? 'Kinder' : 'Erwachsene';
+    const cnt = {}; list.forEach(b => { if(b.level) cnt[b.level] = (cnt[b.level]||0)+1; });
+    const lvl = Object.keys(cnt).sort((a,b) => cnt[b]-cnt[a])[0];
+    return (lvl ? lvl+' · ' : '') + age;
+  }
+  const byCode = code => { const lead = DB.book.find(b => b.mode==='excl' && b.code===code && active(b)); if(!lead) return null; const o = occ(lead.slot); return {lead, s:slotById(lead.slot), o, members:o.list.filter(b => b.code===code)}; };
+  function genCode(){ const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let c; do{ c=''; for(let i=0;i<6;i++) c += A[Math.floor(Math.random()*A.length)]; }while(DB.book.some(b => b.code===c)); return c; }
+  const base = () => location.href.split('#')[0].split('?')[0];
+  const keep = () => TODAY ? '&today='+TODAY : '';
+  const inviteUrl = code => base() + '?invite=' + code + keep();
+  const sqs = (filled, total) => '<span class="sq" aria-hidden="true">' + Array.from({length:total||MAX}, (_,i) => `<i class="${i<filled?'x':''}"></i>`).join('') + '</span>';
+  const mapUrl = c => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(CLUBS[c].addr);
+
+  /* ===== Zustand ===== */
+  const blank = () => ({vorname:'',nachname:'',email:'',tel:'',jahr:'',parent:'',parentEmail:''});
+  const S = {step:1, club:null, day:null, slot:null, mode:'group', size:2, member:true, level:'', f:blank(), agb:false, ds:false, pc:false, last:null, wl:null, wlDone:null};
+  const INVITE = (location.search.match(/[?&]invite=([A-Za-z0-9]+)/)||[])[1];
+  const ADMIN = /[?&]admin=1/.test(location.search);
+  const IV = {code: INVITE ? INVITE.toUpperCase() : null, member:true, level:'', f:blank(), agb:false, ds:false, pc:false, done:null};
+  const app = document.getElementById('app');
+  if(TODAY) document.getElementById('proto').textContent = 'Prototyp v4 · Beispieldaten · Demo-Datum ' + fmt(now());
+  window.__S = S; window.__IV = IV;
+
+  function go(step){ S.step = step; try{ history.pushState({step}, '', '#'+step); }catch(e){} render(); window.scrollTo(0,0); }
+  window.addEventListener('popstate', e => {
+    if(INVITE || ADMIN) return;
+    let st = (e.state && e.state.step) || 1;
+    if(st>=2 && !S.club) st = 1;
+    if(st>=3 && (!S.slot || occ(S.slot).free===0)) st = Math.min(st,2);
+    if(st===5 || S.step===5) st = 2;
+    S.step = st; render(); window.scrollTo(0,0);
+  });
+
+  /* ===== Ansichten ===== */
+  const head = (lab, title, meta) => `<div class="lab">${lab}</div><h1>${title}</h1>${meta?`<p class="meta">${meta}</p>`:''}`;
+  const SEASON_META = '26. April – 7. Oktober 2027 · 20 Trainingswochen à 60 Min.<br>Sommerpause: 19. Juli – 15. August';
+  const STEPS = ['Verein','Termin','Buchung','Daten'];
+  const stepline = back => `<div class="stepline"><span>${back?`<button class="back" data-back="${back}">← Zurück</button>`:'&nbsp;'}</span><span class="lab">${S.step} / 4 · ${STEPS[S.step-1]}</span></div>`;
+  const footer = () => `<footer><span>Serdar Tennis</span><a href="#" data-act="reset">Demo zurücksetzen</a></footer>`;
+  const contact = () => `<div class="sec"><div class="lab">Fragen? Wir antworten schnell</div><div class="links"><a href="https://wa.me/${PHONE.slice(1)}" target="_blank" rel="noopener">WhatsApp</a><a href="tel:${PHONE}">Anrufen</a><a href="mailto:${MAIL}">E-Mail</a></div></div>`;
+
+  function vClosed(){
+    return `<div class="sec"><h2>Die Anmeldung ist geschlossen.</h2><p class="meta">Anmeldungen waren bis zum Saisonstart am ${fmt(CLOSE_TS)} möglich.</p></div>${contact()}`;
+  }
+  function vClub(){
+    return stepline() + `<div class="sec"><h2>Wo möchtest du spielen?</h2><div class="list">` + ['htv','wet'].map(c => {
+      const free = SLOTS.filter(s => s.club===c).reduce((a,s) => a+occ(s.id).free, 0);
+      return `<button class="row" data-club="${c}"><span><span class="big">${cn(c)}</span><span class="sub">${CLUBS[c].days.map(d => DS[d]).join(', ')} · ${free} Plätze frei</span></span><span class="arrow">→</span></button>`;
+    }).join('') + `</div></div>`;
+  }
+  function slotRow(s){
+    const o = occ(s.id), tag = groupTag(o.list);
+    const left = `<span><span class="big">${s.t.slice(0,5)}</span>${tag?`<span class="tag">${tag}</span>`:''}</span>`;
+    if(o.excl) return `<div class="row off" aria-label="${s.t} exklusiv">${left}<span class="end"><span class="rt">Exklusiv</span></span></div>`;
+    if(o.free===0){
+      let h = `<div class="row off">${left}<span class="end"><span class="rt">Voll</span>${sqs(4)}<br>${S.wlDone===s.id?'<span class="small">Auf der Warteliste</span>':`<button class="linkbtn" data-wl="${s.id}">Warteliste</button>`}</span></div>`;
+      if(S.wl===s.id) h += `<div class="wl"><div class="f"><label for="wlmail">E-Mail für die Warteliste</label><input id="wlmail" type="email" inputmode="email" autocomplete="email"></div><button class="linkbtn" data-act="wlsave">Eintragen</button></div>`;
+      return h;
+    }
+    return `<button class="row" data-slot="${s.id}">${left}<span class="end"><span class="rt">${o.free} frei</span>${sqs(o.taken)}</span></button>`;
+  }
+  function vSlots(){
+    const days = CLUBS[S.club].days; if(days.indexOf(S.day)<0) S.day = days[0];
+    let h = stepline(1) + `<div class="sec"><h2>${cn(S.club)}</h2><div class="tabs" role="tablist">` +
+      days.map(d => `<button class="tab${d===S.day?' on':''}" role="tab" aria-selected="${d===S.day}" data-day="${d}">${DAYS[d]}</button>`).join('') + '</div>';
+    const parts = {}; SLOTS.filter(s => s.club===S.club && s.d===S.day).forEach(s => (parts[s.part] = parts[s.part]||[]).push(s));
+    Object.keys(parts).forEach(p => { h += `<div class="parthead lab">${p}</div><div class="list">` + parts[p].map(slotRow).join('') + '</div>'; });
+    return h + '</div>';
+  }
+  function priceBlock(st, size, excl){
+    const tab = T(st.club, st.member), pp = tab[size], fee = (st.club==='htv'&&st.member) ? 'ohne Platzgebühr (Mitglied)' : 'inkl. 10 € Platzgebühr, geteilt durch die Gruppe';
+    const line = excl ? (size===1 ? 'Privatstunde · 20 Wochen' : `pro Person · ${size} Personen · 20 Wochen`) : (size<MAX ? `Sinkt, wenn die Gruppe wächst – bis ${eurS(tab[MAX]*WEEKS)}.` : 'Die Gruppe ist dann voll.');
+    const more = excl ? `${eurS(tab[1])} pro Training${size>1?` ÷ ${size} Personen = ${eur(pp)} pro Person`:''}, ${fee}. Jede Person zahlt selbst.` :
+      `Jetzt ${size} ${size===1?'Person':'Personen'} in der Gruppe: ${eur(pp)} pro Training, ${fee}. Der endgültige Preis richtet sich nach der Gruppengröße zum Saisonstart.`;
+    return `<div class="price"><div class="lab">Saisonpreis pro Person</div><div class="num">${eurS(pp*WEEKS)}</div><p class="small" style="margin-top:6px">${line}</p><details><summary>Mehr Infos</summary><p>${more}</p></details></div>`;
+  }
+  function memberBlock(st, k){
+    return `<div class="sec"><div class="lab">Mitglied im <span translate="no">Heerdter TV</span>?</div><div class="seg" data-k="${k}"><button data-v="1" class="${st.member?'on':''}">Ja</button><button data-v="0" class="${!st.member?'on':''}">Nein</button></div><p class="tiny" style="margin-top:6px">Wird geprüft.</p></div>`;
+  }
+  function vMode(){
+    const s = slotById(S.slot), o = occ(S.slot), canEx = o.taken===0;
+    if(!canEx) S.mode = 'group';
+    let h = stepline(2) + `<div class="sec"><h2>${DAYS[s.d]}, ${s.t}</h2><p class="meta">${cn(s.club)}</p><div class="list">`;
+    h += `<button class="opt${S.mode==='group'?' on':''}" data-mode="group"><span class="box"></span><span><span class="t">In der Gruppe</span><span class="d">Ein Platz für dich · ${o.free} von 4 frei</span></span></button>`;
+    h += `<button class="opt${S.mode==='excl'?' on':''}${canEx?'':' dis'}" data-mode="excl"${canEx?'':' aria-disabled="true"'}><span class="box"></span><span><span class="t">Exklusiv</span><span class="d">${canEx?'Nur für dich und deine Leute':'Nur bei freien Terminen'}</span></span></button></div>`;
+    if(S.mode==='excl') h += `<div class="sec"><div class="lab">Wie viele seid ihr?</div><div class="seg" data-k="size">${[1,2,3,4].map(n => `<button data-v="${n}" class="${S.size===n?'on':''}">${['Allein','Zu zweit','Zu dritt','Zu viert'][n-1]}</button>`).join('')}</div></div>`;
+    h += '</div>';
+    if(S.club==='htv') h += memberBlock(S,'member');
+    const size = S.mode==='excl' ? S.size : Math.min(MAX, o.taken+1);
+    return h + priceBlock(S, size, S.mode==='excl') + `<button class="btn" data-act="toDetails">Weiter</button>`;
+  }
+  function form(st){
+    const inp = (id,label,type,ac,extra) => `<div class="f"><label for="${id}">${label}</label><input id="${id}" type="${type}" autocomplete="${ac}" ${extra||''} value="${esc(st.f[id])}"></div>`;
+    const years = []; for(let y=2022;y>=1930;y--) years.push(y);
+    const kid = minor(st.f.jahr);
+    let h = `<div class="two">${inp('vorname','Vorname','text','given-name','autocapitalize="words"')}${inp('nachname','Nachname','text','family-name','autocapitalize="words"')}</div>`+
+      inp('email','E-Mail','email','email','inputmode="email" autocapitalize="off"')+
+      `<div class="two">${inp('tel','Telefon','tel','tel','inputmode="tel"')}<div class="f"><label for="jahr">Geburtsjahr</label><select id="jahr" autocomplete="bday-year" class="${st.f.jahr?'':'empty'}"><option value="">Wählen</option>${years.map(y => `<option${String(y)===String(st.f.jahr)?' selected':''}>${y}</option>`).join('')}</select></div></div>`;
+    if(kid) h += `<div class="sec"><div class="lab">Unter 18 – Angaben eines Elternteils</div>${inp('parent','Name Elternteil','text','name','autocapitalize="words"')}${inp('parentEmail','E-Mail Elternteil','email','email','inputmode="email" autocapitalize="off"')}</div>`;
+    h += `<div class="sec"><div class="lab">Spielniveau</div><div class="seg" data-k="level">${LEVELS.map(l => `<button data-v="${l}" class="${st.level===l?'on':''}">${l}</button>`).join('')}</div></div>`;
+    h += `<p class="tiny" style="margin-top:18px">Regen: Es gelten die Nachhol-Regeln der <a href="${AGB_URL}" target="_blank" rel="noopener">AGB</a>.</p>`;
+    h += `<div class="hp" aria-hidden="true"><label>Website<input id="website" tabindex="-1" autocomplete="off"></label></div>`;
+    h += `<div class="legal"><label class="chk" id="c-agb"><input type="checkbox" id="agb"${st.agb?' checked':''}><span>Ich akzeptiere die <a href="${AGB_URL}" target="_blank" rel="noopener">AGB</a>.</span></label>`+
+      `<label class="chk" id="c-ds"><input type="checkbox" id="ds"${st.ds?' checked':''}><span>Ich habe die <a href="${DS_URL}" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen.</span></label>`+
+      (kid ? `<label class="chk" id="c-pc"><input type="checkbox" id="pc"${st.pc?' checked':''}><span>Ich bin erziehungsberechtigt und einverstanden.</span></label>` : '') + '</div>';
+    return h;
+  }
+  function vDetails(){
+    const s = slotById(S.slot), o = occ(S.slot), ex = S.mode==='excl', size = ex ? S.size : Math.min(MAX, o.taken+1);
+    const pp = T(S.club, S.member)[size]*WEEKS;
+    return stepline(3) + `<div class="sec"><h2>Deine Daten</h2>${form(S)}<p class="sumline"><b>${DS[s.d]} ${s.t}</b> · ${cn(s.club)} · ${ex?(S.size===1?'Privatstunde':'Exklusiv zu '+S.size):'Gruppe'} · <b>${eurS(pp)}</b> p. P.</p>`+
+      `<div class="err" id="err" role="alert"></div><button class="btn" data-act="submit">Zahlungspflichtig anmelden</button></div>`;
+  }
+  function icsHref(b){
+    const s = slotById(b.slot), dates = trainingDates(s.d), stamp = new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
+    const dt = (t,h) => { const d = new Date(t); return `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(h)}0000`; };
+    const ev = dates.map((t,i) => ['BEGIN:VEVENT',`UID:${b.id}-${i}@serdartennis`,`DTSTAMP:${stamp}`,`DTSTART:${dt(t,s.h)}`,`DTEND:${dt(t,s.h+1)}`,`SUMMARY:Tennistraining Serdar Tennis`,`LOCATION:${CLUBS[s.club].name}\\, ${CLUBS[s.club].addr.replace(/,/g,'\\,')}`,'END:VEVENT'].join('\r\n'));
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Serdar Tennis//Anmeldung//DE','CALSCALE:GREGORIAN'].concat(ev).concat(['END:VCALENDAR']).join('\r\n');
+    return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+  }
+  function inviteBlock(g){
+    const s = g.s, url = inviteUrl(g.lead.code);
+    const text = `Hallo! Ich habe bei Serdar Tennis einen festen Termin für uns gebucht: ${DAYS[s.d]} ${s.t} Uhr, ${CLUBS[s.club].name}. Bitte melde dich bis ${fmt(deadline(g.lead))} hier an: ${url}`;
+    return `<div class="sec"><div class="lab">Mitspieler einladen · ${g.members.length} von ${g.lead.groupSize} angemeldet</div><div class="code">${g.lead.code}</div><p class="url">${esc(url)}</p>`+
+      `<a class="btn" href="https://wa.me/?text=${encodeURIComponent(text)}" target="_blank" rel="noopener" data-act="wa">Per WhatsApp teilen</a>`+
+      `<div class="links"><button class="linkbtn" data-act="copy" data-url="${esc(url)}">Link kopieren</button><a href="${esc(url)}">Einladung ansehen</a></div>`+
+      `<p class="small" style="margin-top:12px">Offene Plätze bleiben bis ${fmt(deadline(g.lead))} reserviert. Danach sind sie für alle frei.</p></div>`;
+  }
+  function confirmation(b, opts){
+    const s = slotById(b.slot), first = trainingDates(s.d)[0], ex = b.mode==='excl', g = (ex||b.mode==='invite') ? byCode(b.code) : null;
+    const steps = [`<li class="${b.confirmed?'done':''}">E-Mail bestätigen</li>`];
+    if(ex && b.groupSize>1) steps.push('<li>Serdar bestätigt eure Gruppe</li>');
+    if(ex && b.groupSize===1) steps.push('<li>Serdar bestätigt deine Privatstunde</li>');
+    steps.push('<li>Rechnung per E-Mail</li>', `<li>Erstes Training: ${DAYS[s.d]}, ${fmtU(first)}, ${pad(s.h)}:00 Uhr</li>`);
+    let h = `<div class="lab">Anmeldung eingegangen</div><h1>Danke, ${esc(b.vorname)}.</h1>`+
+      `<p class="meta">${DAYS[s.d]}, ${s.t} · ${cn(s.club)}</p><span class="status">${b.confirmed?'E-Mail bestätigt':'Vorläufig'}</span>`+
+      (b.confirmed ? '' : `<p class="small" style="margin-top:10px">Wir haben dir eine E-Mail geschickt. Ohne Bestätigung wird der Platz nach 24 Stunden frei. <button class="linkbtn" data-act="confirm">E-Mail bestätigen (Demo)</button></p>`)+
+      `<div class="sec"><div class="lab">Nächste Schritte</div><ol class="steps">${steps.join('')}</ol></div>`;
+    if(g && ex && g.o.pending && opts.share) h += inviteBlock(g);
+    h += `<div class="sec"><div class="lab">Ort</div><p style="margin-top:8px">${cn(s.club)}<br>${CLUBS[s.club].addr}</p><div class="links"><a href="${mapUrl(s.club)}" target="_blank" rel="noopener">Karte öffnen</a><a href="${icsHref(b)}" download="serdar-tennis-training.ics">Zum Kalender hinzufügen</a></div>`+
+      `<details><summary>Mehr Infos</summary><p>Was mitbringen: Sportkleidung, Tennisschuhe, Getränk, Schläger.</p><p>Sommerpause: 19. Juli – 15. August 2027.</p></details></div>` + contact();
+    return h;
+  }
+  function vDone(){ return confirmation(S.last, {share:true}) + `<button class="btn sec2" data-act="again">Zur Terminübersicht</button>`; }
+
+  function vInvite(){
+    if(IV.done) return confirmation(IV.done, {share:false}) + footer();
+    const g = byCode(IV.code||'');
+    let h = '<div class="lab">Einladung</div>';
+    if(!g) return h + `<h1>Einladung nicht gefunden.</h1><p class="meta">Prototyp: Eigene Einladungen funktionieren nur im selben Browser. Demo-Code: DEMO26.</p><a class="btn" href="${base()}">Zur Anmeldung</a>` + footer();
+    const s = g.s, size = g.lead.groupSize, line = `<p class="meta">${DAYS[s.d]}, ${s.t} · ${cn(s.club)}</p>`;
+    if(closed()) return h + `<h1>Anmeldung geschlossen.</h1>${line}${contact()}` + footer();
+    if(g.o.released) return h + `<h1>Einladung abgelaufen.</h1>${line}<p class="meta">Die offenen Plätze sind jetzt für alle frei.</p><a class="btn" href="${base()}${TODAY?'?today='+TODAY:''}">Freie Termine ansehen</a>` + footer();
+    if(!g.o.pending) return h + `<h1>Die Gruppe ist voll.</h1>${line}<a class="btn" href="${base()}${TODAY?'?today='+TODAY:''}">Andere Termine ansehen</a>` + footer();
+    h += `<h1>${esc(short(g.lead))} lädt dich ein.</h1>${line}<p class="small" style="margin-top:14px">${g.members.length} von ${size} angemeldet ${sqs(g.members.length,size)} · Anmeldung bis ${fmt(deadline(g.lead))}</p>`;
+    if(s.club==='htv') h += memberBlock(IV,'ivmember');
+    h += priceBlock({club:s.club, member:IV.member}, size, true);
+    return h + `<div class="sec"><h2>Deine Daten</h2>${form(IV)}<div class="err" id="err" role="alert"></div><button class="btn" data-act="ivsubmit">Zahlungspflichtig anmelden</button></div>` + footer();
+  }
+
+  function vAdmin(){
+    if(sessionStorage.getItem('st_admin')!=='1') return head('Admin','Anmelden') + `<div class="sec"><div class="f"><label for="pw">Passwort</label><input id="pw" type="password" autocomplete="current-password"></div><p class="tiny" style="margin-top:8px">Demo-Passwort: demo (nur Platzhalter, kein echter Schutz)</p><div class="err" id="err"></div><button class="btn" data-act="login">Öffnen</button></div>`;
+    let h = head('Admin · Sommersaison 2027','Buchungen', `Stand ${fmt(now())}`) + '<div class="adm">';
+    ['htv','wet'].forEach(c => {
+      h += `<div class="sec"><h2>${cn(c)}</h2><div class="list">`;
+      const emptyL = [];
+      SLOTS.filter(s => s.club===c).forEach(s => {
+        const all = DB.book.filter(b => b.slot===s.id), o = occ(s.id);
+        if(!all.length){ emptyL.push(`${DS[s.d]} ${s.t.slice(0,5)}`); return; }
+        h += `<div class="slot"><div class="h"><b>${DS[s.d]} ${s.t}</b><span class="small">${o.excl?'Exklusiv · ':''}${o.taken}/${o.excl?o.lead.groupSize:MAX}${groupTag(o.list)?' · '+groupTag(o.list):''}</span></div>`;
+        all.forEach(b => {
+          const gone = !active(b), kid = minor(b.jahr);
+          const st = b.released ? 'freigegeben' : expired(b) ? 'verfallen (E-Mail nicht bestätigt)' : b.confirmed ? 'E-Mail bestätigt' : `vorläufig · E-Mail offen (noch ${Math.max(0,Math.ceil((b.ts+24*HOUR-now())/HOUR))} h)`;
+          let role = b.mode==='group' ? 'Gruppe' : b.mode==='invite' ? 'eingeladen ('+b.code+')' : (b.groupSize===1 ? 'Privatstunde' : `Exklusiv für ${b.groupSize} · Code ${b.code}`);
+          h += `<div class="bk${gone?' gone':''}"><b>${esc(b.vorname+' '+b.nachname)}</b> <span class="m">· öffentlich ${esc(short(b))}</span><br>`+
+            `<span class="m">${role} · Jg. ${esc(b.jahr)} (${kid?'Kind':'Erw.'})${b.level?' · '+esc(b.level):''}${c==='htv'?' · '+(b.member?'Mitglied (prüfen)':'Gast'):''}</span><br>`+
+            `<span class="m">${esc(b.email)} · ${esc(b.tel)}${kid&&b.parent?` · Eltern: ${esc(b.parent)}, ${esc(b.parentEmail)}`:''}</span><br>`+
+            `<span>${st}${b.mode==='excl'?(b.approved?' · von Serdar bestätigt':' · <b>Freigabe durch Serdar offen</b>'):''}</span>`+
+            (gone ? '' : `<div class="acts">${b.mode==='excl'&&!b.approved?`<button class="linkbtn" data-adm="approve" data-id="${b.id}">Bestätigen</button>`:''}<button class="linkbtn" data-adm="release" data-id="${b.id}">Platz freigeben</button></div>`)+'</div>';
+        });
+        if(o.lead && !o.released) for(let i=0;i<o.pending;i++) h += `<div class="bk pend">Reserviert für Einladung · bis ${fmt(deadline(o.lead))}</div>`;
+        if(o.released) h += `<div class="bk pend">Einladungsfrist abgelaufen · offene Plätze freigegeben</div>`;
+        h += '</div>';
+      });
+      h += `</div><p class="small" style="margin-top:12px">Ohne Anmeldung: ${emptyL.join(' · ')}</p>`;
+      const w = DB.wait.filter(x => slotById(x.slot).club===c);
+      h += `<div class="sec"><div class="lab">Warteliste</div><div class="list">${w.length ? w.map(x => { const s = slotById(x.slot); return `<div class="slot"><div class="h"><span>${DS[s.d]} ${s.t}</span><span class="small">${esc(x.email)} · ${fmt(x.ts)}</span></div></div>`; }).join('') : '<p class="small" style="padding:12px 0">Leer</p>'}</div></div></div>`;
+    });
+    return h + `</div><footer><a href="${base()}">Zur Anmeldeseite</a><span><a href="#" data-act="logout">Abmelden</a> · <a href="#" data-act="reset">Demo zurücksetzen</a></span></footer>`;
+  }
+
+  function render(){
+    if(ADMIN){ app.innerHTML = vAdmin(); return; }
+    if(INVITE){ app.innerHTML = vInvite(); return; }
+    let v;
+    if(S.step===5) v = vDone();
+    else v = head('Sommersaison 2027','Anmelden',SEASON_META) + '<hr class="rule">' + (closed() ? vClosed() : S.step===1?vClub():S.step===2?vSlots():S.step===3?vMode():vDetails());
+    app.innerHTML = v + footer();
+  }
+
+  /* ===== Formular-Logik ===== */
+  const FIELDS = ['vorname','nachname','email','tel','jahr','parent','parentEmail'];
+  function grab(st){ FIELDS.forEach(k => { const el = document.getElementById(k); if(el) st.f[k] = el.value.trim(); }); ['agb','ds','pc'].forEach(k => { const el = document.getElementById(k); if(el) st[k] = el.checked; }); }
+  const mailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  function validate(st){
+    grab(st);
+    const bad = [], y = +st.f.jahr, kid = minor(st.f.jahr);
+    if(st.f.vorname.length<2) bad.push('vorname'); if(st.f.nachname.length<2) bad.push('nachname');
+    if(!mailOk(st.f.email)) bad.push('email');
+    if(st.f.tel.replace(/\D/g,'').length<6) bad.push('tel');
+    if(!(y>=1930 && y<=2022)) bad.push('jahr');
+    if(kid){ if(st.f.parent.length<3) bad.push('parent'); if(!mailOk(st.f.parentEmail)) bad.push('parentEmail'); }
+    FIELDS.forEach(k => { const el = document.getElementById(k); if(el) el.classList.toggle('bad', bad.indexOf(k)>-1); });
+    const chk = ['agb','ds'].concat(kid?['pc']:[]).filter(k => !st[k]);
+    ['agb','ds','pc'].forEach(k => { const el = document.getElementById('c-'+k); if(el) el.classList.toggle('bad', chk.indexOf(k)>-1); });
+    let msg = '';
+    if(bad.length) msg = 'Bitte prüfe die markierten Felder.';
+    else if(chk.length) msg = 'Bitte bestätige ' + (chk.length>1 ? 'die Kästchen.' : 'das markierte Kästchen.');
+    document.getElementById('err').textContent = msg;
+    if(msg){ const f = document.querySelector('.bad input, input.bad, select.bad'); if(f) f.focus(); return false; }
+    return true;
+  }
+  const person = st => { const kid = minor(st.f.jahr); return {vorname:st.f.vorname, nachname:st.f.nachname, email:st.f.email.toLowerCase(), tel:st.f.tel, jahr:+st.f.jahr, level:st.level, parent:kid?st.f.parent:'', parentEmail:kid?st.f.parentEmail:''}; };
+  const honeypot = () => { const el = document.getElementById('website'); return el && el.value; };
+  function submit(){
+    if(closed()) { render(); return; }
+    if(!validate(S)) return;
+    const o = occ(S.slot), err = document.getElementById('err'), p = person(S);
+    if(S.mode==='excl' ? o.taken>0 : o.free<1){ err.textContent = 'Dieser Termin wurde gerade belegt. Bitte wähle einen anderen.'; return; }
+    if(S.mode==='excl' && DB.book.some(b => b.mode==='excl' && active(b) && b.email===p.email)){ err.textContent = 'Mit dieser E-Mail gibt es schon eine exklusive Buchung.'; return; }
+    const size = S.mode==='excl' ? S.size : Math.min(MAX, o.taken+1);
+    const b = Object.assign({id:'b'+Date.now(), slot:S.slot, club:S.club, mode:S.mode, member:S.club==='htv'&&S.member, confirmed:false, ts:now(), pp:T(S.club,S.member)[size]}, p);
+    if(S.mode==='excl'){ b.groupSize = S.size; b.code = genCode(); b.approved = false; }
+    if(!honeypot()){ DB.book.push(b); save(); }        // Honeypot: Bots sehen Erfolg, es wird nichts gespeichert
+    S.last = b; S.f = blank(); S.agb = S.ds = S.pc = false; S.level = '';
+    go(5);
+  }
+  function ivSubmit(){
+    if(!validate(IV)) return;
+    const g = byCode(IV.code);
+    if(!g || !g.o.pending || g.o.released || closed()){ render(); return; }
+    const b = Object.assign({id:'b'+Date.now(), slot:g.lead.slot, club:g.s.club, mode:'invite', code:g.lead.code, member:g.s.club==='htv'&&IV.member, confirmed:false, ts:now(), pp:T(g.s.club,IV.member)[g.lead.groupSize]}, person(IV));
+    if(!honeypot()){ DB.book.push(b); save(); }
+    IV.done = b; render(); window.scrollTo(0,0);
+  }
+  function copy(url, el){
+    const ok = () => { el.textContent = 'Kopiert'; setTimeout(() => { el.textContent = 'Link kopieren'; }, 2000); };
+    const fb = () => { const ta = document.createElement('textarea'); ta.value = url; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); ok(); };
+    if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(ok, fb); else fb();
+  }
+
+  app.addEventListener('change', e => {
+    const t = e.target;
+    if(t.id==='jahr'){ const st = INVITE?IV:S; const was = minor(st.f.jahr); grab(st); if(minor(st.f.jahr)!==was) render(); else { t.classList.toggle('empty', !t.value); t.classList.remove('bad'); } }
+    if(t.type==='checkbox' && t.checked){ const l = t.closest('.chk'); if(l) l.classList.remove('bad'); }
+  });
+  app.addEventListener('input', e => { if(e.target.classList.contains('bad')) e.target.classList.remove('bad'); });
+  app.addEventListener('click', e => {
+    const t = e.target, a = t.closest('[data-act]'), act = a && a.getAttribute('data-act');
+    if(act==='reset'){ e.preventDefault(); reset(); IV.done=null; S.club=S.slot=S.last=S.wl=S.wlDone=null; if(ADMIN||INVITE) render(); else go(1); return; }
+    if(act==='login'){ if(document.getElementById('pw').value==='demo'){ sessionStorage.setItem('st_admin','1'); render(); } else document.getElementById('err').textContent = 'Falsches Passwort.'; return; }
+    if(act==='logout'){ e.preventDefault(); sessionStorage.removeItem('st_admin'); render(); return; }
+    if(act==='copy'){ copy(a.getAttribute('data-url'), a); return; }
+    if(act==='wa') return;
+    if(act==='confirm'){ const b = INVITE ? IV.done : S.last; b.confirmed = true; const x = DB.book.find(y => y.id===b.id); if(x){ x.confirmed = true; save(); } render(); return; }
+    const adm = t.closest('[data-adm]'); if(adm){ const b = DB.book.find(x => x.id===adm.getAttribute('data-id')); if(b){ if(adm.getAttribute('data-adm')==='approve') b.approved = true; else { b.released = true; if(b.mode==='excl') DB.book.forEach(x => { if(x.code===b.code) x.released = true; }); } save(); render(); } return; }
+    const bk = t.closest('[data-back]'); if(bk){ if(S.step===4) grab(S); go(+bk.getAttribute('data-back')); return; }
+    const c = t.closest('[data-club]'); if(c){ const v = c.getAttribute('data-club'); if(S.club!==v){ S.slot=null; S.day=null; } S.club=v; go(2); return; }
+    const dy = t.closest('[data-day]'); if(dy){ S.day = +dy.getAttribute('data-day'); S.wl=null; render(); return; }
+    const wl = t.closest('[data-wl]'); if(wl){ S.wl = wl.getAttribute('data-wl'); render(); const i = document.getElementById('wlmail'); if(i) i.focus(); return; }
+    if(act==='wlsave'){ const i = document.getElementById('wlmail'); if(!mailOk(i.value.trim())){ i.classList.add('bad'); return; } DB.wait.push({slot:S.wl, email:i.value.trim().toLowerCase(), ts:now()}); save(); S.wlDone = S.wl; S.wl = null; render(); return; }
+    const sl = t.closest('[data-slot]'); if(sl){ S.slot = sl.getAttribute('data-slot'); S.mode='group'; S.size=2; go(3); return; }
+    const sb = t.closest('.seg button'); if(sb){ const k = sb.parentNode.getAttribute('data-k'), v = sb.getAttribute('data-v'), st = INVITE?IV:S;
+      if(k==='member') S.member = v==='1';
+      if(k==='ivmember'){ grab(IV); IV.member = v==='1'; }
+      if(k==='size') S.size = +v;
+      if(k==='level'){ grab(st); st.level = st.level===v ? '' : v; }
+      render(); return; }
+    const m = t.closest('[data-mode]'); if(m && !m.classList.contains('dis')){ S.mode = m.getAttribute('data-mode'); render(); return; }
+    if(act==='toDetails'){ go(4); return; }
+    if(act==='again'){ go(2); return; }
+    if(act==='submit'){ submit(); return; }
+    if(act==='ivsubmit'){ ivSubmit(); return; }
+  });
+  app.addEventListener('keydown', e => { if(e.key==='Enter' && e.target.id==='pw'){ e.preventDefault(); document.querySelector('[data-act=login]').click(); } });
+
+  if(!ADMIN && !INVITE){ try{ history.replaceState({step:1}, '', location.pathname+location.search); }catch(e){} }
+  render();
+})();
+</script>
+</body>
+</html>
