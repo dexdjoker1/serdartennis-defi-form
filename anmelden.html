@@ -10,25 +10,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
-  :root{--dark:#3D3A36;--olive:#5E6D55;--olive2:#4F5D47;--cream:#F3E8D8;--cream2:#E9DCC4;--sand:#D9CDB8;--tan:#B39B72;--grey:#7A746C;--mute:#A39C92;--err:#A9714B}
+  :root{--dark:#3D3A36;--olive:#5E6D55;--olive2:#4F5D47;--cream:#F3E8D8;--cream2:#E9DCC4;--sand:#D9CDB8;--tan:#B39B72;--grey:#7A746C;--mute:#A39C92;--err:#A9714B;--sans:Poppins,'Noto Sans JP','Noto Sans SC','PingFang SC','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic','Noto Sans','Segoe UI',sans-serif;--body:'Avenir Next','Avenir',Poppins,'Noto Sans JP','Noto Sans SC','PingFang SC','Hiragino Sans','Noto Sans','Segoe UI',Helvetica,Arial,sans-serif}
   *{box-sizing:border-box;margin:0;padding:0}
   html{background:transparent}
-  body{background:var(--cream);color:var(--dark);font-family:'Avenir Next','Avenir','Segoe UI',Montserrat,Helvetica,Arial,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;min-height:0;padding-bottom:env(safe-area-inset-bottom)}
+  body{background:var(--cream);color:var(--dark);font-family:var(--body);font-weight:300;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;min-height:0;padding-bottom:env(safe-area-inset-bottom)}
   button{font:inherit;color:inherit}
   .proto{position:sticky;top:0;z-index:20;background:var(--dark);color:var(--cream);font-size:12px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 8px;min-height:34px;padding:6px 12px;letter-spacing:.2px;text-align:center;line-height:1.3}
-  .proto b{font-family:Poppins,sans-serif;font-weight:500;background:var(--tan);color:#fff;border-radius:20px;padding:2px 9px;font-size:10.5px;letter-spacing:1px;text-transform:uppercase}
+  .proto b{font-family:var(--sans);font-weight:500;background:var(--tan);color:#fff;border-radius:20px;padding:2px 9px;font-size:10.5px;letter-spacing:1px;text-transform:uppercase}
   .wrap{max-width:720px;margin:0 auto;padding:22px 16px 40px}
   header{margin-bottom:18px}
-  .eyebrow{font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--tan)}
-  h1{font-family:Poppins,sans-serif;font-weight:600;font-size:30px;line-height:1.15;margin-top:4px}
+  .eyebrow{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--tan)}
+  h1{font-family:var(--sans);font-weight:600;font-size:30px;line-height:1.15;margin-top:4px}
   h1:after,h2.u:after{content:"";display:block;width:40px;height:2px;background:var(--olive);margin-top:10px}
   .sub{margin-top:10px;font-size:15px;color:var(--grey);line-height:1.5}
   .steps{display:flex;gap:6px;margin:18px 0 22px}
   .steps div{flex:1;min-width:0}
   .steps i{display:block;height:3px;border-radius:3px;background:var(--sand);transition:background .25s}
   .steps span{display:block;margin-top:6px;font-size:11.5px;color:var(--grey);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .steps .on i{background:var(--olive)} .steps .cur span{color:var(--dark);font-family:Poppins,sans-serif;font-weight:500}
-  h2{font-family:Poppins,sans-serif;font-weight:600;font-size:21px;line-height:1.25}
+  .steps .on i{background:var(--olive)} .steps .cur span{color:var(--dark);font-family:var(--sans);font-weight:500}
+  h2{font-family:var(--sans);font-weight:600;font-size:21px;line-height:1.25}
   .hint{font-size:14px;color:var(--grey);margin-top:6px;line-height:1.5}
   .back{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:var(--grey);font-size:14px;cursor:pointer;padding:8px 0;margin-bottom:6px}
   .back:hover{color:var(--dark)}
@@ -38,8 +38,8 @@
   .clubs{display:grid;gap:12px;margin-top:16px}
   .club{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:18px;cursor:pointer;transition:all .2s}
   .club:hover{border-color:var(--olive);transform:translateY(-1px)}
-  .mono{flex:0 0 52px;height:52px;border-radius:50%;background:var(--cream);border:1px solid var(--sand);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:600;font-size:15px;color:var(--olive)}
-  .club .t{display:block;font-family:Poppins,sans-serif;font-weight:600;font-size:17px}
+  .mono{flex:0 0 52px;height:52px;border-radius:50%;background:var(--cream);border:1px solid var(--sand);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-weight:600;font-size:15px;color:var(--olive)}
+  .club .t{display:block;font-family:var(--sans);font-weight:600;font-size:17px}
   .club .d{display:block;font-size:13.5px;color:var(--grey);margin-top:3px;line-height:1.45}
   .club .free{display:block;font-size:13px;color:var(--olive);margin-top:6px;font-weight:500}
   .chev{margin-left:auto;flex:0 0 auto;color:var(--tan);font-size:22px;line-height:1}
@@ -48,18 +48,18 @@
   /* Tage */
   .days{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:8px;margin-top:16px}
   .dayb{background:#fff;border:1px solid var(--sand);border-radius:12px;padding:9px 4px;cursor:pointer;text-align:center;transition:all .2s;min-width:0}
-  .dayb .n{display:block;font-family:Poppins,sans-serif;font-weight:600;font-size:15px}
+  .dayb .n{display:block;font-family:var(--sans);font-weight:600;font-size:15px}
   .dayb .c{display:block;font-size:11.5px;color:var(--grey);margin-top:2px;white-space:nowrap}
   .dayb.on{background:var(--olive);border-color:var(--olive);color:#fff}.dayb.on .c{color:rgba(255,255,255,.85)}
   .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:14px;font-size:12.5px;color:var(--grey)}
   .legend span{display:inline-flex;align-items:center;gap:6px}
   .part{margin-top:18px}
-  .part h3{font-family:Poppins,sans-serif;font-weight:600;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--tan);margin-bottom:8px;display:flex;align-items:baseline;gap:8px}
+  .part h3{font-family:var(--sans);font-weight:600;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--tan);margin-bottom:8px;display:flex;align-items:baseline;gap:8px}
   .part h3 small{font-family:inherit;font-weight:400;letter-spacing:0;text-transform:none;color:var(--mute);font-size:12px}
   .slots{display:grid;gap:8px}
   .slot{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 14px;cursor:pointer;transition:all .2s;min-height:60px}
   .slot:hover:not(:disabled){border-color:var(--olive);transform:translateY(-1px)}
-  .tm{display:block;font-family:Poppins,sans-serif;font-weight:600;font-size:16px;white-space:nowrap}
+  .tm{display:block;font-family:var(--sans);font-weight:600;font-size:16px;white-space:nowrap}
   .st{display:block;font-size:13.5px;color:var(--grey);margin-top:2px}
   .st.good{color:var(--olive);font-weight:500}
   .r{margin-left:auto;display:flex;align-items:center;gap:10px;flex:0 0 auto}
@@ -70,7 +70,7 @@
   .slot:disabled{cursor:not-allowed;background:#EFE7DA;box-shadow:none;border-color:var(--cream2)}
   .slot:disabled .tm,.slot:disabled .st{color:var(--mute)}
   .slot:disabled .dot{border-color:#BDB4A6}.slot:disabled .dot.x{background:#BDB4A6}
-  .tag{font-size:10.5px;font-family:Poppins,sans-serif;font-weight:500;letter-spacing:.6px;text-transform:uppercase;border-radius:20px;padding:4px 9px;white-space:nowrap;display:inline-block}
+  .tag{font-size:10.5px;font-family:var(--sans);font-weight:500;letter-spacing:.6px;text-transform:uppercase;border-radius:20px;padding:4px 9px;white-space:nowrap;display:inline-block}
   .tag.full{background:var(--sand);color:var(--grey)}
   .tag.ex{background:var(--dark);color:var(--cream)}
   .tag.new{background:var(--olive);color:#fff}
@@ -82,7 +82,7 @@
   .radio{flex:0 0 20px;height:20px;border-radius:50%;border:1.5px solid var(--sand);display:flex;align-items:center;justify-content:center}
   .mode.on{border-color:var(--olive);box-shadow:0 0 0 2px rgba(94,109,85,.18)}
   .mode.on .radio{border-color:var(--olive)} .mode.on .radio:after{content:"";width:10px;height:10px;border-radius:50%;background:var(--olive)}
-  .mode .t{font-family:Poppins,sans-serif;font-weight:600;font-size:16px}
+  .mode .t{font-family:var(--sans);font-weight:600;font-size:16px}
   .mode .d{display:block;font-size:13.5px;color:var(--grey);margin:6px 0 0 30px;line-height:1.45}
   .mode.dis{cursor:not-allowed;background:#EFE7DA;box-shadow:none;border-color:var(--cream2)}
   .mode.dis .t,.mode.dis .d{color:var(--mute)}
@@ -91,26 +91,26 @@
   .stepper{display:flex;align-items:center;gap:12px}
   .stepper button{width:40px;height:40px;border-radius:50%;border:1px solid var(--sand);background:var(--cream);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
   .stepper button:disabled{opacity:.35;cursor:default}
-  .stepper .n{min-width:92px;text-align:center;font-family:Poppins,sans-serif;font-weight:600;font-size:15px}
+  .stepper .n{min-width:92px;text-align:center;font-family:var(--sans);font-weight:600;font-size:15px}
   .q{margin-top:18px}
   .lbl{font-size:14px;font-weight:400;color:var(--grey);margin-bottom:8px}
   .seg{display:flex;gap:8px}
   .seg button{flex:1;min-width:0;font-size:15px;font-weight:400;color:var(--dark);background:#fff;border:1px solid var(--sand);border-radius:8px;height:44px;cursor:pointer;transition:all .2s;white-space:nowrap;padding:0 4px}
   .seg button:hover{border-color:var(--olive)}
-  .seg button.on{background:var(--olive);border-color:var(--olive);color:#fff;font-family:Poppins,sans-serif;font-weight:600;font-size:14px}
+  .seg button.on{background:var(--olive);border-color:var(--olive);color:#fff;font-family:var(--sans);font-weight:600;font-size:14px}
   .inner .seg{gap:6px}.inner .seg button{font-size:14px;height:42px}.inner .seg button.on{font-size:13.5px}
   .price{background:var(--olive);color:#fff;border-radius:14px;padding:18px;margin-top:18px}
-  .price .rl{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;opacity:.8;font-family:Poppins,sans-serif;font-weight:600}
+  .price .rl{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;opacity:.8;font-family:var(--sans);font-weight:600}
   .price .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:8px;font-size:14px}
   .price .row span:first-child{opacity:.85}
-  .price .row b{font-family:Poppins,sans-serif;font-weight:600;font-size:15px;white-space:nowrap;text-align:right}
+  .price .row b{font-family:var(--sans);font-weight:600;font-size:15px;white-space:nowrap;text-align:right}
   .price .line{height:1px;background:rgba(255,255,255,.25);margin:12px 0}
   .price .tot{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
   .price .tot small{display:block;opacity:.8;font-size:12.5px;margin-top:2px}
-  .price .tot b{font-family:Poppins,sans-serif;font-weight:600;font-size:26px;white-space:nowrap}
+  .price .tot b{font-family:var(--sans);font-weight:600;font-size:26px;white-space:nowrap}
   .price .note{margin-top:12px;background:rgba(255,255,255,.14);border-radius:10px;padding:8px 11px;font-size:12.5px;line-height:1.45}
-  .price .ph{display:inline-block;margin-top:6px;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;border:1px dashed rgba(255,255,255,.6);border-radius:20px;padding:3px 9px;font-family:Poppins,sans-serif;font-weight:500}
-  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;font-family:Poppins,sans-serif;font-weight:600;font-size:15px;letter-spacing:.4px;color:#fff;background:var(--olive);border:0;border-radius:8px;height:50px;cursor:pointer;transition:all .2s;margin-top:18px;text-decoration:none}
+  .price .ph{display:inline-block;margin-top:6px;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;border:1px dashed rgba(255,255,255,.6);border-radius:20px;padding:3px 9px;font-family:var(--sans);font-weight:500}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:.2px;color:#fff;background:var(--olive);border:0;border-radius:8px;min-height:50px;height:auto;padding:10px 12px;line-height:1.3;white-space:normal;text-align:center;cursor:pointer;transition:all .2s;margin-top:18px;text-decoration:none}
   .btn:hover{background:var(--olive2);transform:translateY(-1px)}
   .btn.light{background:#fff;color:var(--dark);border:1px solid var(--sand)}
   .form{padding:18px;margin-top:16px}
@@ -128,7 +128,7 @@
   .chk.bad span{color:var(--err)}
   .ptab{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
   .ptab div{background:rgba(255,255,255,.12);border-radius:8px;padding:7px 2px;text-align:center;font-size:11.5px;line-height:1.35;transition:all .2s;min-width:0}
-  .ptab div b{display:block;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;white-space:nowrap}
+  .ptab div b{display:block;font-family:var(--sans);font-weight:600;font-size:14px;white-space:nowrap}
   .ptab div.on{background:var(--cream);color:var(--dark)}
   .price .tot+.tot{margin-top:8px}
   .price .tot.sm b{font-size:18px}
@@ -149,7 +149,7 @@
   .share{padding:18px;margin-top:16px;text-align:left}
   .share .code{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;background:var(--cream);border-radius:10px;padding:10px 12px}
   .share .code span{font-size:13px;color:var(--grey)}
-  .share .code b{font-family:Poppins,sans-serif;font-weight:600;font-size:18px;letter-spacing:2px}
+  .share .code b{font-family:var(--sans);font-weight:600;font-size:18px;letter-spacing:2px}
   .linkbox{margin-top:10px;font-size:13px;color:var(--grey);background:#fff;border:1px solid var(--sand);border-radius:8px;padding:10px 12px;overflow-wrap:anywhere;line-height:1.4}
   .btn.wa{background:#3E7D57}.btn.wa:hover{background:#346a4a}
   .btns2{display:grid;grid-template-columns:1fr;gap:0}
@@ -158,7 +158,7 @@
   .notice b{font-weight:500}
   .prog{margin-top:14px;padding:14px 16px}
   .prog .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .prog .top b{font-family:Poppins,sans-serif;font-weight:600;font-size:15px}
+  .prog .top b{font-family:var(--sans);font-weight:600;font-size:15px}
   .bar{height:6px;border-radius:6px;background:var(--cream2);margin-top:10px;overflow:hidden}
   .bar i{display:block;height:100%;background:var(--olive);border-radius:6px}
   .names{margin-top:10px;font-size:13px;color:var(--grey);line-height:1.5}
@@ -167,7 +167,7 @@
   footer a{color:var(--grey)}
   /* Admin */
   .adm .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
-  .adm .kpi{padding:12px}.adm .kpi b{display:block;font-family:Poppins,sans-serif;font-weight:600;font-size:20px}.adm .kpi span{font-size:12px;color:var(--grey)}
+  .adm .kpi{padding:12px}.adm .kpi b{display:block;font-family:var(--sans);font-weight:600;font-size:20px}.adm .kpi span{font-size:12px;color:var(--grey)}
   .adm .slotbox{padding:14px 14px 6px;margin-top:10px}
   .adm .sh{display:flex;align-items:center;gap:8px 10px;flex-wrap:wrap}
   .adm .sh .tm{font-size:15px}
@@ -210,23 +210,23 @@
   details.more p{margin-top:4px}
   .price details.more,.price details.more summary{color:#fff}
   .price details.more summary{border-bottom-color:rgba(255,255,255,.55)}
-  .price .pnum{font-family:Poppins,sans-serif;font-weight:600;font-size:28px;white-space:nowrap}
+  .price .pnum{font-family:var(--sans);font-weight:600;font-size:28px;white-space:nowrap}
   .price .line-txt{margin-top:8px;font-size:13.5px;line-height:1.45;opacity:.9}
   .nsteps{list-style:none;margin:8px 0 0;padding:0;counter-reset:s;text-align:left}
   .nsteps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--cream2);font-size:14.5px;line-height:1.4}
-  .nsteps li:before{content:counter(s);flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:var(--cream2);color:var(--olive);font-family:Poppins,sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .nsteps li:before{content:counter(s);flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:var(--cream2);color:var(--olive);font-family:var(--sans);font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px}
   .nsteps li.done{color:var(--mute);text-decoration:line-through}
-  .status{display:inline-block;margin-top:10px;font-size:11px;font-family:Poppins,sans-serif;font-weight:500;letter-spacing:.6px;text-transform:uppercase;border-radius:20px;padding:4px 10px;background:var(--cream2);color:var(--grey)}
+  .status{display:inline-block;margin-top:10px;font-size:11px;font-family:var(--sans);font-weight:500;letter-spacing:.6px;text-transform:uppercase;border-radius:20px;padding:4px 10px;background:var(--cream2);color:var(--grey)}
   .status.ok{background:var(--olive);color:#fff}
   .links{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:12px;font-size:14.5px}
   .links a,.links .linkbtn{color:var(--olive);text-decoration:none;font-size:14.5px;border-bottom:1px solid currentColor}
   .block{padding:18px;margin-top:16px;text-align:left}
-  .block h3{font-family:Poppins,sans-serif;font-weight:600;font-size:16px;margin-bottom:6px}
+  .block h3{font-family:var(--sans);font-weight:600;font-size:16px;margin-bottom:6px}
   .adm .acts{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:6px}
   .adm .acts .linkbtn{font-size:13px}
   .adm .gone{opacity:.55}
   .parentbox{margin-top:16px;padding-top:14px;border-top:1px dashed var(--sand)}
-  .parentbox .lab{margin-bottom:4px;color:var(--tan);font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+  .parentbox .lab{margin-bottom:4px;color:var(--tan);font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:1px;text-transform:uppercase}
   .legal{margin-top:4px}
   .rain{margin-top:16px;font-size:12.5px;color:var(--mute);line-height:1.45}
   .rain a{color:var(--olive)}
@@ -246,8 +246,24 @@
   .addr:hover{color:var(--olive2)}
   .mappick{margin-top:12px;background:var(--cream);border:1px solid var(--sand);border-radius:12px;padding:10px 8px 8px;max-width:280px;box-shadow:0 8px 22px rgba(61,58,54,.08)}
   .mappick .lab{font-size:12px;color:var(--grey);padding:0 8px 6px}
-  .mappick a{display:block;padding:10px 12px;border-radius:8px;color:var(--dark);text-decoration:none;font-family:Poppins,sans-serif;font-weight:500;font-size:14.5px}
+  .mappick a{display:block;padding:10px 12px;border-radius:8px;color:var(--dark);text-decoration:none;font-family:var(--sans);font-weight:500;font-size:14.5px}
   .mappick a:hover{background:#fff}
+
+  .langsw{position:relative;display:flex;justify-content:flex-end;margin:0 0 10px;z-index:15}
+  .langbtn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--sand);border-radius:20px;padding:5px 10px 5px 8px;cursor:pointer;font-family:var(--sans);font-weight:500;font-size:12px;color:var(--dark);box-shadow:0 2px 8px rgba(61,58,54,.05)}
+  .langbtn:hover,.langbtn[aria-expanded="true"]{border-color:var(--olive)}
+  .langbtn svg{width:15px;height:15px;stroke:var(--olive);fill:none;stroke-width:1.7;flex:0 0 auto}
+  .langmenu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--sand);border-radius:14px;box-shadow:0 10px 28px rgba(61,58,54,.14);padding:6px;min-width:188px}
+  .langmenu button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:none;border:0;border-radius:10px;padding:8px 10px;cursor:pointer;font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--dark);text-align:left}
+  .langmenu button .ln{color:var(--grey);font-weight:400;font-size:12.5px}
+  .langmenu button.on{background:var(--cream2);color:var(--olive)}
+  .langmenu button:hover{background:var(--cream)}
+  html[lang="ja"] .eyebrow,html[lang="zh-CN"] .eyebrow,html[lang="ja"] .tag,html[lang="zh-CN"] .tag,html[lang="ja"] .price .rl,html[lang="zh-CN"] .price .rl{letter-spacing:0}
+  html[lang="ja"] .steps span,html[lang="zh-CN"] .steps span{letter-spacing:0}
+  @media (max-width:360px){
+    .langbtn{font-size:11.5px;padding:4px 9px 4px 7px}
+    .btn{font-size:13.5px;letter-spacing:0}
+  }
 </style>
 </head>
 <body>
@@ -255,6 +271,101 @@
 <script>
 (function(){
   'use strict';
+  const I18N = {"de":{"doc_title":"Anmelden – Serdar Tennis","lang_label":"Sprache wählen","season_eyb":"Sommersaison 2027","signup":"Anmelden","season_range":"{start} – {end} · {weeks}","weeks20":"20 Wochen","step_club":"Verein","step_slot":"Termin","step_book":"Buchung","step_data":"Daten","steps_aria":"Fortschritt","where":"Wo möchtest du spielen?","price_from_htv":"Mitglieder ab {mem}, Gäste ab {guest}","price_from":"ab {price}","per_person":"pro Person","pp":"p. P.","free_n":"{n} freie Plätze","free_1":"1 freier Platz","fact_max":"Bis 4 Personen pro Gruppe","fact_dur":"60 Min. pro Training","fact_until":"Anmeldung bis {date}","more":"Mehr Infos","season_info":"Saison: {start} – {end} · 20 Trainings je Wochentag. Sommerpause: {bfrom} – {bto}.","back_club":"Verein ändern","slot_hint":"Dein fester Termin für die ganze Saison.","free_short":"{n} frei","taken":"belegt","free":"frei","excl_only":"nur mit Einladung","exclusive":"Exklusiv","morning":"Vormittag","afternoon":"Nachmittag","oclock":"Uhr","min60":"60 Min.","excl_booked":"Exklusiv gebucht","full_tag":"Voll","sold_out":"Ausgebucht","all_free":"Alle {n} Plätze frei","n_of_free":"{free} von {max} Plätzen frei","waitlist":"Warteliste","on_waitlist":"Auf der Warteliste","waitlist_email":"E-Mail für die Warteliste","waitlist_save":"Eintragen","kids":"Kinder","adults":"Erwachsene","lvl_Anfänger":"Anfänger","lvl_Mittel":"Mittel","lvl_Fortgeschritten":"Fortgeschritten","back_slot":"Anderer Termin","how_book":"Wie möchtest du buchen?","mode_group":"Platz in der Gruppe","mode_group_d":"Ein Platz für dich. Noch {n} frei.","place_one":"Platz","place_few":"Plätze","place_many":"Plätze","mode_excl":"Gruppe exklusiv buchen","mode_excl_d":"Der Termin gehört nur euch. Mitspieler lädst du per Link ein. Allein = Privatstunde.","mode_excl_off":"Nur bei leeren Terminen möglich.","we_are":"Wir sind …","size_1":"Allein","size_2":"Zu zweit","size_3":"Zu dritt","size_4":"Zu viert","member_q":"Mitglied im {club}?","yes":"Ja","no":"Nein","will_check":"Wird geprüft.","next":"Weiter","back":"Zurück","price_title":"Preis pro Person & Training","private":"Privatstunde","pers":"{n} Pers.","group_now":"Gruppe jetzt: {n}","person_one":"Person","person_few":"Personen","person_many":"Personen","season_now":"Saison aktuell","per_person_weeks":"pro Person · {n} Wochen","with_full":"mit voller Gruppe","final_price":"Dein endgültiger Preis richtet sich nach der Gruppengröße zum Saisonstart ({date}).","fee_member":"Für Mitglieder keine Platzgebühr.","fee_1":"Inkl. {fee} Platzgebühr.","fee_n":"Inkl. {fee} Platzgebühr, geteilt durch die Gruppe.","divided":"{price} ÷ {n} Personen","per_training":"Pro Training","season":"Saison","season_share":"Saison (dein Anteil)","now_for":"Jetzt für {n} Personen","each_pays":"Jede Person meldet sich über deinen Link selbst an und zahlt ihren Anteil.","your_data":"Deine Daten","first_name":"Vorname","last_name":"Nachname","email":"E-Mail","phone":"Telefon","birth_year":"Geburtsjahr","year":"Jahr","parent_box":"Unter 18 – Angaben eines Elternteils","parent_name":"Name Elternteil","parent_email":"E-Mail Elternteil","level":"Spielniveau","optional":"(optional)","rain":"Regen: Es gelten die Nachhol-Regeln der {agb}.","agb":"AGB","accept_agb":"Ich akzeptiere die {agb}.","privacy":"Datenschutzerklärung","accept_privacy":"Ich habe die {privacy} gelesen.","accept_parent":"Ich bin erziehungsberechtigt und einverstanden.","submit":"Zahlungspflichtig anmelden","art_group":"Gruppe","art_excl":"Exklusiv zu {n}","art_excl_n":"Exklusiv · {n} Personen","art_invite":"Einladung","err_fields":"Bitte prüfe die markierten Felder.","err_checks":"Bitte bestätige die Kästchen.","err_check":"Bitte bestätige das markierte Kästchen.","err_taken":"Dieser Termin wurde gerade belegt. Bitte wähle einen anderen.","err_excl_email":"Mit dieser E-Mail gibt es schon eine exklusive Buchung.","thanks":"Danke, {name}!","status_ok":"E-Mail bestätigt","status_pending":"Vorläufig","confirm_mail":"Wir haben dir eine E-Mail geschickt. Ohne Bestätigung wird der Platz nach 24 Stunden frei.","sum_slot":"Termin","sum_club":"Verein","sum_type":"Art","next_steps":"Nächste Schritte","step_confirm_mail":"E-Mail bestätigen","step_approve_group":"Serdar bestätigt eure Gruppe","step_approve_priv":"Serdar bestätigt deine Privatstunde","step_invoice":"Rechnung per E-Mail","step_first":"Erstes Training: {day}, {date}, {time} Uhr","invite_friends":"Mitspieler einladen","group_code":"Gruppencode","share_wa":"Per WhatsApp teilen","copy_link":"Link kopieren","link_copied":"Link kopiert ✓","reserved_until":"Offene Plätze bleiben bis {date} reserviert. Danach sind sie für alle frei.","view_invite":"Einladung ansehen","group_prog":"Gruppe: {reg} von {size} angemeldet","attending":"Dabei:","place":"Ort","directions_with":"Wegbeschreibung mit","apple_maps":"Apple Karten","google_maps":"Google Maps","add_calendar":"Zum Kalender hinzufügen","bring":"Was mitbringen: Sportkleidung, Tennisschuhe, Getränk, Schläger.","summer_break":"Sommerpause: {bfrom} – {bto}.","questions":"Fragen?","ask_ai":"KI fragen","back_overview":"Zur Terminübersicht","closed_title":"Die Anmeldung ist geschlossen.","closed_hint":"Anmeldungen waren bis zum Saisonstart am {date} möglich.","invite_eyb":"Einladung · Sommersaison 2027","youre_in":"Du bist dabei!","youre_invited":"Du bist eingeladen","invitation":"Einladung","to_signup":"Zur Anmeldeseite","invite_404":"Einladung nicht gefunden","invite_404_h":"Dieser Einladungslink ist ungültig oder abgelaufen.","to_register":"Zur Anmeldung","signup_closed":"Anmeldung geschlossen.","invite_expired":"Einladung abgelaufen.","seats_open":"Die offenen Plätze sind jetzt für alle frei.","see_free":"Freie Termine ansehen","group_full":"Die Gruppe ist voll.","see_other":"Andere Termine ansehen","invites_you":"{name} lädt dich ein.","signed_until":"{reg} von {size} angemeldet · Anmeldung bis {date}","wa_text":"Hallo! Ich habe bei Serdar Tennis einen festen Termin für uns gebucht: {day} {time} Uhr, {club}. Bitte melde dich bis {date} hier an: {url}","ics_summary":"Tennistraining Serdar Tennis"},"en":{"doc_title":"Sign up – Serdar Tennis","lang_label":"Choose language","season_eyb":"Summer season 2027","signup":"Sign up","season_range":"{start} – {end} · {weeks}","weeks20":"20 weeks","step_club":"Club","step_slot":"Time","step_book":"Booking","step_data":"Details","steps_aria":"Progress","where":"Where would you like to play?","price_from_htv":"Members from {mem}, guests from {guest}","price_from":"from {price}","per_person":"per person","pp":"pp","free_n":"{n} places left","free_1":"1 place left","fact_max":"Up to 4 people per group","fact_dur":"60 min. per session","fact_until":"Registration until {date}","more":"More info","season_info":"Season: {start} – {end} · 20 sessions on each weekday. Summer break: {bfrom} – {bto}.","back_club":"Change club","slot_hint":"Your fixed weekly time for the whole season.","free_short":"{n} free","taken":"taken","free":"free","excl_only":"by invitation only","exclusive":"Exclusive","morning":"Morning","afternoon":"Afternoon","oclock":"","min60":"60 min.","excl_booked":"Booked exclusively","full_tag":"Full","sold_out":"Fully booked","all_free":"All {n} places free","n_of_free":"{free} of {max} places free","waitlist":"Waitlist","on_waitlist":"You’re on the waitlist","waitlist_email":"Email for the waitlist","waitlist_save":"Join","kids":"Children","adults":"Adults","lvl_Anfänger":"Beginner","lvl_Mittel":"Intermediate","lvl_Fortgeschritten":"Advanced","back_slot":"Another time","how_book":"How would you like to book?","mode_group":"A place in the group","mode_group_d":"One place for you. {n} still free.","place_one":"place","place_few":"places","place_many":"places","mode_excl":"Book the group exclusively","mode_excl_d":"The slot is just for you and your group. Invite partners with a link. On your own = a private lesson.","mode_excl_off":"Only possible when the slot is empty.","we_are":"We are …","size_1":"Just me","size_2":"Two of us","size_3":"Three of us","size_4":"Four of us","member_q":"Member of {club}?","yes":"Yes","no":"No","will_check":"This will be checked.","next":"Continue","back":"Back","price_title":"Price per person & training","private":"Private lesson","pers":"{n} pers.","group_now":"Group now: {n}","person_one":"person","person_few":"people","person_many":"people","season_now":"Season, current","per_person_weeks":"per person · {n} weeks","with_full":"with a full group","final_price":"Your final price depends on the group size at the start of the season ({date}).","fee_member":"No court fee for members.","fee_1":"Incl. {fee} court fee.","fee_n":"Incl. {fee} court fee, shared by the group.","divided":"{price} ÷ {n} people","per_training":"Per session","season":"Season","season_share":"Season (your share)","now_for":"Now for {n} people","each_pays":"Each person signs up through your link and pays their own share.","your_data":"Your details","first_name":"First name","last_name":"Last name","email":"Email","phone":"Phone","birth_year":"Year of birth","year":"Year","parent_box":"Under 18 – parent or guardian details","parent_name":"Parent’s name","parent_email":"Parent’s email","level":"Playing level","optional":"(optional)","rain":"Rain: the make-up rules in the {agb} apply.","agb":"AGB (Deutsch)","accept_agb":"I accept the {agb}.","privacy":"Privacy policy (Deutsch)","accept_privacy":"I have read the {privacy}.","accept_parent":"I am the parent or legal guardian and I agree.","submit":"Zahlungspflichtig anmelden · Register with obligation to pay","art_group":"Group","art_excl":"Exclusive for {n}","art_excl_n":"Exclusive · {n} people","art_invite":"Invitation","err_fields":"Please check the highlighted fields.","err_checks":"Please tick the boxes.","err_check":"Please tick the highlighted box.","err_taken":"This time has just been taken. Please choose another one.","err_excl_email":"There is already an exclusive booking with this email address.","thanks":"Thank you, {name}!","status_ok":"Email confirmed","status_pending":"Pending","confirm_mail":"We’ve sent you an email. Without confirmation, the place will be released after 24 hours.","sum_slot":"Time","sum_club":"Club","sum_type":"Type","next_steps":"Next steps","step_confirm_mail":"Confirm your email","step_approve_group":"Serdar confirms your group","step_approve_priv":"Serdar confirms your private lesson","step_invoice":"Invoice by email","step_first":"First session: {day}, {date}, {time}","invite_friends":"Invite your partners","group_code":"Group code","share_wa":"Share on WhatsApp","copy_link":"Copy link","link_copied":"Link copied ✓","reserved_until":"Open places stay reserved until {date}. After that they become available to everyone.","view_invite":"View invitation","group_prog":"Group: {reg} of {size} signed up","attending":"Signed up:","place":"Location","directions_with":"Directions with","apple_maps":"Apple Maps","google_maps":"Google Maps","add_calendar":"Add to calendar","bring":"What to bring: sportswear, tennis shoes, a drink, a racket.","summer_break":"Summer break: {bfrom} – {bto}.","questions":"Questions?","ask_ai":"Ask the AI","back_overview":"Back to the timetable","closed_title":"Registration is closed.","closed_hint":"Sign-up was possible until the season start on {date}.","invite_eyb":"Invitation · Summer season 2027","youre_in":"You’re in!","youre_invited":"You’re invited","invitation":"Invitation","to_signup":"Go to sign-up","invite_404":"Invitation not found","invite_404_h":"This invitation link is invalid or has expired.","to_register":"Go to sign-up","signup_closed":"Registration closed.","invite_expired":"Invitation expired.","seats_open":"The remaining places are now open to everyone.","see_free":"See available times","group_full":"The group is full.","see_other":"See other times","invites_you":"{name} has invited you.","signed_until":"{reg} of {size} signed up · please register by {date}","wa_text":"Hi! I’ve booked a weekly time for us at Serdar Tennis: {day} {time}, {club}. Please sign up by {date} here: {url}","ics_summary":"Tennis training – Serdar Tennis"},"tr":{"doc_title":"Kayıt – Serdar Tennis","lang_label":"Dil seç","season_eyb":"2027 yaz sezonu","signup":"Kayıt","season_range":"{start} – {end} · {weeks}","weeks20":"20 hafta","step_club":"Kulüp","step_slot":"Saat","step_book":"Rezervasyon","step_data":"Bilgiler","steps_aria":"İlerleme","where":"Nerede oynamak istersin?","price_from_htv":"Üyeler {mem}’den, misafirler {guest}’ten itibaren","price_from":"{price}’ten itibaren","per_person":"kişi başı","pp":"kişi başı","free_n":"{n} yer boş","free_1":"1 yer boş","fact_max":"Grupta en fazla 4 kişi","fact_dur":"Antrenman 60 dk.","fact_until":"Son kayıt: {date}","more":"Daha fazla bilgi","season_info":"Sezon: {start} – {end} · Her hafta günü için 20 antrenman. Yaz tatili: {bfrom} – {bto}.","back_club":"Kulübü değiştir","slot_hint":"Tüm sezon boyunca sabit antrenman saatin.","free_short":"{n} boş","taken":"dolu","free":"boş","excl_only":"yalnızca davetle","exclusive":"Özel","morning":"Sabah","afternoon":"Öğleden sonra","oclock":"","min60":"60 dk.","excl_booked":"Özel olarak ayrıldı","full_tag":"Dolu","sold_out":"Yer kalmadı","all_free":"Tüm {n} yer boş","n_of_free":"{max} yerden {free} boş","waitlist":"Bekleme listesi","on_waitlist":"Bekleme listesine alındın","waitlist_email":"Bekleme listesi için e-posta","waitlist_save":"Kaydet","kids":"Çocuklar","adults":"Yetişkinler","lvl_Anfänger":"Başlangıç","lvl_Mittel":"Orta","lvl_Fortgeschritten":"İleri","back_slot":"Başka saat","how_book":"Nasıl kayıt olmak istersin?","mode_group":"Grupta yer","mode_group_d":"Senin için bir yer. {n} daha boş.","place_one":"yer","place_few":"yer","place_many":"yer","mode_excl":"Grubu özel ayırt","mode_excl_d":"Bu saat yalnızca size ait. Arkadaşlarını bir bağlantıyla davet edersin. Tek başına = özel ders.","mode_excl_off":"Yalnızca boş saatlerde mümkün.","we_are":"Kaç kişiyiz?","size_1":"Tek","size_2":"İki kişi","size_3":"Üç kişi","size_4":"Dört kişi","member_q":"{club} üyesi misin?","yes":"Evet","no":"Hayır","will_check":"Kontrol edilecek.","next":"Devam","back":"Geri","price_title":"Kişi başı antrenman ücreti","private":"Özel ders","pers":"{n} kişi","group_now":"Şu anki grup: {n}","person_one":"kişi","person_few":"kişi","person_many":"kişi","season_now":"Sezon, güncel","per_person_weeks":"kişi başı · {n} hafta","with_full":"grup dolu olursa","final_price":"Kesin fiyat, sezon başındaki ({date}) grup büyüklüğüne göre belirlenir.","fee_member":"Üyelerden kort ücreti alınmaz.","fee_1":"{fee} kort ücreti dahil.","fee_n":"{fee} kort ücreti dahil, grup içinde paylaşılır.","divided":"{price} ÷ {n} kişi","per_training":"Antrenman başı","season":"Sezon","season_share":"Sezon (senin payın)","now_for":"Şimdi {n} kişi için","each_pays":"Herkes senin bağlantın üzerinden kendi kaydını yapar ve kendi payını öder.","your_data":"Bilgilerin","first_name":"Ad","last_name":"Soyad","email":"E-posta","phone":"Telefon","birth_year":"Doğum yılı","year":"Yıl","parent_box":"18 yaş altı – ebeveyn bilgileri","parent_name":"Ebeveynin adı","parent_email":"Ebeveynin e-postası","level":"Seviye","optional":"(isteğe bağlı)","rain":"Yağmur: Telafi kuralları {agb} içinde geçerlidir.","agb":"AGB (Deutsch)","accept_agb":"{agb}’yi kabul ediyorum.","privacy":"Gizlilik bildirimi (Deutsch)","accept_privacy":"{privacy} metnini okudum.","accept_parent":"Velisi olarak onaylıyorum.","submit":"Zahlungspflichtig anmelden · Ücret yükümlülüğüyle kayıt ol","art_group":"Grup","art_excl":"{n} kişilik özel grup","art_excl_n":"Özel · {n} kişi","art_invite":"Davet","err_fields":"Lütfen işaretli alanları kontrol et.","err_checks":"Lütfen kutuları onayla.","err_check":"Lütfen işaretli kutuyu onayla.","err_taken":"Bu saat az önce doldu. Lütfen başka bir saat seç.","err_excl_email":"Bu e-posta ile zaten özel bir rezervasyon var.","thanks":"Teşekkürler, {name}!","status_ok":"E-posta onaylandı","status_pending":"Geçici","confirm_mail":"Sana bir e-posta gönderdik. Onaylanmazsa yer 24 saat sonra açılır.","sum_slot":"Saat","sum_club":"Kulüp","sum_type":"Tür","next_steps":"Sonraki adımlar","step_confirm_mail":"E-postanı onayla","step_approve_group":"Serdar grubunuzu onaylar","step_approve_priv":"Serdar özel dersini onaylar","step_invoice":"Fatura e-posta ile gelir","step_first":"İlk antrenman: {day}, {date}, {time}","invite_friends":"Oyuncu arkadaşlarını davet et","group_code":"Grup kodu","share_wa":"WhatsApp ile paylaş","copy_link":"Bağlantıyı kopyala","link_copied":"Bağlantı kopyalandı ✓","reserved_until":"Açık yerler {date} tarihine kadar sizin için ayrılır. Sonra herkese açılır.","view_invite":"Daveti gör","group_prog":"Grup: {size} kişiden {reg} kayıt oldu","attending":"Kayıtlı:","place":"Yer","directions_with":"Yol tarifi:","apple_maps":"Apple Haritalar","google_maps":"Google Maps","add_calendar":"Takvime ekle","bring":"Yanında getirmen gerekenler: spor kıyafeti, tenis ayakkabısı, içecek, raket.","summer_break":"Yaz tatili: {bfrom} – {bto}.","questions":"Soruların mı var?","ask_ai":"AI’ye sor","back_overview":"Saatlere dön","closed_title":"Kayıtlar kapanmıştır.","closed_hint":"Kayıt, sezon başlangıcına ({date}) kadar açıktı.","invite_eyb":"Davet · 2027 yaz sezonu","youre_in":"Kaydın alındı!","youre_invited":"Davetlisin","invitation":"Davet","to_signup":"Kayıt sayfasına git","invite_404":"Davet bulunamadı","invite_404_h":"Bu davet bağlantısı geçersiz veya süresi dolmuş.","to_register":"Kayıt ol","signup_closed":"Kayıtlar kapandı.","invite_expired":"Davetin süresi doldu.","seats_open":"Kalan yerler artık herkese açık.","see_free":"Boş saatlere bak","group_full":"Grup dolu.","see_other":"Diğer saatlere bak","invites_you":"{name} seni davet etti.","signed_until":"{size} kişiden {reg} kayıt oldu · son tarih {date}","wa_text":"Merhaba! Serdar Tennis’te bizim için sabit bir antrenman saati ayırdım: {day} {time}, {club}. Lütfen {date} tarihine kadar buradan kayıt ol: {url}","ics_summary":"Tenis antrenmanı – Serdar Tennis"},"ja":{"doc_title":"お申し込み – Serdar Tennis","lang_label":"言語を選択","season_eyb":"2027年 夏シーズン","signup":"お申し込み","season_range":"{start} – {end} · {weeks}","weeks20":"20週","step_club":"クラブ","step_slot":"時間","step_book":"予約","step_data":"情報","steps_aria":"手順","where":"どこでプレーしますか？","price_from_htv":"会員は{mem}から、一般は{guest}から","price_from":"{price}から","per_person":"1人あたり","pp":"/人","free_n":"空き{n}名","free_1":"空き1名","fact_max":"1グループ最大4名","fact_dur":"レッスンは60分","fact_until":"申込締切：{date}","more":"詳しく見る","season_info":"シーズン：{start} – {end} · 各曜日20回。夏休み：{bfrom} – {bto}。","back_club":"クラブを変更","slot_hint":"シーズンを通して毎週同じ時間のレッスンです。","free_short":"空き{n}","taken":"予約済","free":"空き","excl_only":"招待者のみ","exclusive":"貸切","morning":"午前","afternoon":"午後","oclock":"","min60":"60分","excl_booked":"貸切済み","full_tag":"満席","sold_out":"満席です","all_free":"{n}名すべて空いています","n_of_free":"{max}名中{free}名空き","waitlist":"キャンセル待ち","on_waitlist":"キャンセル待ちに登録しました","waitlist_email":"キャンセル待ち用のメールアドレス","waitlist_save":"登録する","kids":"子ども","adults":"大人","lvl_Anfänger":"初級","lvl_Mittel":"中級","lvl_Fortgeschritten":"上級","back_slot":"別の時間","how_book":"どのように予約しますか？","mode_group":"グループの空きに参加","mode_group_d":"あなた1名分の席です。残り{n}空いています。","place_one":"名","place_few":"名","place_many":"名","mode_excl":"グループを貸切予約","mode_excl_d":"この時間はあなたたちのグループだけのものになります。仲間はリンクで招待できます。1人の場合は個人レッスンです。","mode_excl_off":"空きの時間帯でのみ予約できます。","we_are":"人数は…","size_1":"1人","size_2":"2人","size_3":"3人","size_4":"4人","member_q":"{club}の会員ですか？","yes":"はい","no":"いいえ","will_check":"後ほど確認します。","next":"次へ","back":"戻る","price_title":"1人・1回あたりの料金","private":"個人レッスン","pers":"{n}人","group_now":"現在のグループ：{n}","person_one":"人","person_few":"人","person_many":"人","season_now":"シーズン料金（現在）","per_person_weeks":"1人あたり · {n}週","with_full":"グループが満員の場合","final_price":"最終料金は、シーズン開始時（{date}）の人数で決まります。","fee_member":"会員のコート代は不要です。","fee_1":"コート代 {fee} を含みます。","fee_n":"コート代 {fee} を含み、グループで分担します。","divided":"{price} ÷ {n}人","per_training":"1回あたり","season":"シーズン","season_share":"シーズン（あなたの分）","now_for":"今の{n}人分","each_pays":"各人があなたのリンクから申し込み、自分の分を支払います。","your_data":"お客様情報","first_name":"名","last_name":"姓","email":"メールアドレス","phone":"電話番号","birth_year":"生まれ年","year":"年","parent_box":"18歳未満 – 保護者の情報","parent_name":"保護者の氏名","parent_email":"保護者のメールアドレス","level":"レベル","optional":"（任意）","rain":"雨天時は、{agb}の振替規定が適用されます。","agb":"AGB（ドイツ語）","accept_agb":"{agb}に同意します。","privacy":"プライバシーポリシー（ドイツ語）","accept_privacy":"{privacy}を読みました。","accept_parent":"保護者として同意します。","submit":"Zahlungspflichtig anmelden · 支払義務付きで申し込む","art_group":"グループ","art_excl":"{n}名で貸切","art_excl_n":"貸切 · {n}名","art_invite":"招待","err_fields":"赤字の項目をご確認ください。","err_checks":"チェックボックスをオンにしてください。","err_check":"チェックボックスをオンにしてください。","err_taken":"この時間は先ほど埋まりました。別の時間をお選びください。","err_excl_email":"このメールアドレスでは、すでに貸切予約があります。","thanks":"{name}さん、ありがとうございます！","status_ok":"メール確認済み","status_pending":"仮予約","confirm_mail":"確認メールをお送りしました。24時間以内に確認されない場合、席は取り消されます。","sum_slot":"時間","sum_club":"クラブ","sum_type":"種別","next_steps":"次のステップ","step_confirm_mail":"メールを確認する","step_approve_group":"Serdarがグループを承認します","step_approve_priv":"Serdarが個人レッスンを承認します","step_invoice":"請求書をメールでお送りします","step_first":"初回レッスン：{day} {date} {time}","invite_friends":"仲間を招待","group_code":"グループコード","share_wa":"WhatsAppで共有","copy_link":"リンクをコピー","link_copied":"コピーしました ✓","reserved_until":"空きは{date}までグループのために確保されます。その後は一般に開放されます。","view_invite":"招待を見る","group_prog":"グループ：{size}名中{reg}名が申し込み済み","attending":"参加:","place":"場所","directions_with":"経路案内：","apple_maps":"Appleマップ","google_maps":"Google マップ","add_calendar":"カレンダーに追加","bring":"持ち物：スポーツウェア、テニスシューズ、飲み物、ラケット。","summer_break":"夏休み：{bfrom} – {bto}。","questions":"ご質問は？","ask_ai":"AIに質問","back_overview":"時間割に戻る","closed_title":"申し込みは終了しました。","closed_hint":"申し込みはシーズン開始日（{date}）まで受け付けていました。","invite_eyb":"招待 · 2027年 夏シーズン","youre_in":"登録が完了しました！","youre_invited":"招待されています","invitation":"招待","to_signup":"申し込みページへ","invite_404":"招待が見つかりません","invite_404_h":"この招待リンクは無効か、期限切れです。","to_register":"申し込みへ","signup_closed":"申し込みは終了しています。","invite_expired":"招待の期限が切れました。","seats_open":"残りの席は、現在だれでも予約できます。","see_free":"空き時間を見る","group_full":"グループは満員です。","see_other":"ほかの時間を見る","invites_you":"{name}さんから招待が届いています。","signed_until":"{size}名中{reg}名が申し込み済み · {date}までにお申し込みください","wa_text":"こんにちは！Serdar Tennisで、毎週のレッスン時間を確保しました：{day} {time}、{club}。{date}までこちらから申し込んでください：{url}","ics_summary":"テニスレッスン – Serdar Tennis"},"zh":{"doc_title":"报名 – Serdar Tennis","lang_label":"选择语言","season_eyb":"2027夏季学期","signup":"报名","season_range":"{start} – {end} · {weeks}","weeks20":"20周","step_club":"俱乐部","step_slot":"时段","step_book":"预订","step_data":"信息","steps_aria":"进度","where":"想在哪里打球？","price_from_htv":"会员{mem}起，非会员{guest}起","price_from":"{price}起","per_person":"每人","pp":"/人","free_n":"剩余{n}个名额","free_1":"剩余1个名额","fact_max":"每组最多4人","fact_dur":"每次训练60分钟","fact_until":"报名截止：{date}","more":"更多信息","season_info":"学期：{start} – {end} · 每个训练日共20次课。暑假：{bfrom} – {bto}。","back_club":"更换俱乐部","slot_hint":"整个学期每周固定同一时段。","free_short":"剩{n}","taken":"已占","free":"空闲","excl_only":"仅限受邀","exclusive":"包场","morning":"上午","afternoon":"下午","oclock":"","min60":"60分钟","excl_booked":"已包场","full_tag":"已满","sold_out":"名额已满","all_free":"{n}个名额全部空闲","n_of_free":"{max}个名额中剩{free}个","waitlist":"候补名单","on_waitlist":"已加入候补名单","waitlist_email":"候补名单邮箱","waitlist_save":"登记","kids":"儿童","adults":"成人","lvl_Anfänger":"初级","lvl_Mittel":"中级","lvl_Fortgeschritten":"高级","back_slot":"其他时段","how_book":"想如何预订？","mode_group":"加入小组","mode_group_d":"为你保留一个名额。还剩{n}空闲。","place_one":"个名额","place_few":"个名额","place_many":"个名额","mode_excl":"包场预订","mode_excl_d":"此时段只属于你们。可用链接邀请同伴。单独报名即为私教课。","mode_excl_off":"仅在时段完全空闲时可包场。","we_are":"我们是…","size_1":"1人","size_2":"2人","size_3":"3人","size_4":"4人","member_q":"是{club}的会员吗？","yes":"是","no":"否","will_check":"我们会进行核实。","next":"继续","back":"返回","price_title":"每人每次课费用","private":"私教课","pers":"{n}人","group_now":"当前小组：{n}","person_one":"人","person_few":"人","person_many":"人","season_now":"学期费用（当前）","per_person_weeks":"每人 · {n}周","with_full":"小组满员时","final_price":"最终价格按学期开始时（{date}）的人数确定。","fee_member":"会员无需支付场地费。","fee_1":"含{fee}场地费。","fee_n":"含{fee}场地费，由小组成员分摊。","divided":"{price} ÷ {n}人","per_training":"每次课","season":"学期","season_share":"学期（你的份额）","now_for":"现在{n}人合计","each_pays":"每个人通过你的链接自行报名，并支付各自的费用。","your_data":"你的信息","first_name":"名","last_name":"姓","email":"电子邮箱","phone":"电话","birth_year":"出生年份","year":"年份","parent_box":"未满18岁 – 监护人信息","parent_name":"监护人姓名","parent_email":"监护人邮箱","level":"水平","optional":"（选填）","rain":"遇雨：适用{agb}中的补课规定。","agb":"AGB（德文）","accept_agb":"我接受{agb}。","privacy":"隐私声明（德文）","accept_privacy":"我已阅读{privacy}。","accept_parent":"我是监护人，并表示同意。","submit":"Zahlungspflichtig anmelden · 付费报名（具有付款义务）","art_group":"小组","art_excl":"{n}人包场","art_excl_n":"包场 · {n}人","art_invite":"邀请","err_fields":"请检查标出的栏目。","err_checks":"请勾选这些方框。","err_check":"请勾选标出的方框。","err_taken":"此时段刚刚被预订。请另选一个。","err_excl_email":"此邮箱已有一笔包场预订。","thanks":"谢谢，{name}！","status_ok":"邮箱已确认","status_pending":"待确认","confirm_mail":"我们已向你发送邮件。若24小时内未确认，名额将被释放。","sum_slot":"时段","sum_club":"俱乐部","sum_type":"类型","next_steps":"接下来","step_confirm_mail":"确认邮箱","step_approve_group":"Serdar将确认你们的小组","step_approve_priv":"Serdar将确认你的私教课","step_invoice":"账单将通过邮件发送","step_first":"第一次课：{day}，{date}，{time}","invite_friends":"邀请同伴","group_code":"小组代码","share_wa":"用 WhatsApp 分享","copy_link":"复制链接","link_copied":"已复制 ✓","reserved_until":"剩余名额保留至{date}。之后将向所有人开放。","view_invite":"查看邀请","group_prog":"小组：{size}人中已有{reg}人报名","attending":"已报名：","place":"地点","directions_with":"路线导航：","apple_maps":"Apple 地图","google_maps":"Google 地图","add_calendar":"添加到日历","bring":"请携带：运动服装、网球鞋、饮料、球拍。","summer_break":"暑假：{bfrom} – {bto}。","questions":"有问题吗？","ask_ai":"问AI","back_overview":"返回时段一览","closed_title":"报名已经截止。","closed_hint":"报名开放至学期开始日（{date}）。","invite_eyb":"邀请 · 2027夏季学期","youre_in":"你已报名成功！","youre_invited":"你收到了邀请","invitation":"邀请","to_signup":"前往报名页","invite_404":"未找到邀请","invite_404_h":"此邀请链接无效或已过期。","to_register":"去报名","signup_closed":"报名已截止。","invite_expired":"邀请已过期。","seats_open":"剩余名额现已向所有人开放。","see_free":"查看空闲时段","group_full":"小组已满。","see_other":"查看其他时段","invites_you":"{name}邀请了你。","signed_until":"{size}人中已有{reg}人报名 · 请在{date}前完成报名","wa_text":"你好！我在 Serdar Tennis 为我们预订了每周固定时段：{day} {time}，{club}。请在{date}前通过这里报名：{url}","ics_summary":"网球训练 – Serdar Tennis"},"uk":{"doc_title":"Запис – Serdar Tennis","lang_label":"Обрати мову","season_eyb":"Літній сезон 2027","signup":"Запис","season_range":"{start} – {end} · {weeks}","weeks20":"20 тижнів","step_club":"Клуб","step_slot":"Час","step_book":"Бронювання","step_data":"Дані","steps_aria":"Прогрес","where":"Де хочете грати?","price_from_htv":"Для членів від {mem}, для гостей від {guest}","price_from":"від {price}","per_person":"з особи","pp":"/ ос.","free_n":"{n} вільних місць","free_1":"1 вільне місце","fact_max":"У групі щонайбільше 4 особи","fact_dur":"Тренування 60 хв.","fact_until":"Реєстрація до {date}","more":"Докладніше","season_info":"Сезон: {start} – {end} · 20 тренувань на кожен день тижня. Літня перерва: {bfrom} – {bto}.","back_club":"Змінити клуб","slot_hint":"Ваш постійний час на весь сезон.","free_short":"{n} вільно","taken":"зайнято","free":"вільно","excl_only":"лише за запрошенням","exclusive":"Ексклюзив","morning":"Ранок","afternoon":"День","oclock":"","min60":"60 хв.","excl_booked":"Заброньовано ексклюзивно","full_tag":"Повно","sold_out":"Місць немає","all_free":"Усі {n} місць вільні","n_of_free":"{free} з {max} місць вільні","waitlist":"Лист очікування","on_waitlist":"Вас додано до листа очікування","waitlist_email":"Е-пошта для листа очікування","waitlist_save":"Записатися","kids":"Діти","adults":"Дорослі","lvl_Anfänger":"Початковий","lvl_Mittel":"Середній","lvl_Fortgeschritten":"Просунутий","back_slot":"Інший час","how_book":"Як хочете забронювати?","mode_group":"Місце в групі","mode_group_d":"Одне місце для вас. Ще {n} вільно.","place_one":"місце","place_few":"місця","place_many":"місць","mode_excl":"Забронювати групу ексклюзивно","mode_excl_d":"Цей час лише для вашої групи. Партнерів запрошуєте за посиланням. Наодинці = індивідуальне заняття.","mode_excl_off":"Можливо лише коли час повністю вільний.","we_are":"Нас буде …","size_1":"Наодинці","size_2":"Удвох","size_3":"Утрьох","size_4":"Учотирьох","member_q":"Ви член клубу {club}?","yes":"Так","no":"Ні","will_check":"Ми це перевіримо.","next":"Далі","back":"Назад","price_title":"Ціна за особу і тренування","private":"Індивідуальне заняття","pers":"{n} ос.","group_now":"Зараз у групі: {n}","person_one":"особа","person_few":"особи","person_many":"осіб","season_now":"Сезон, зараз","per_person_weeks":"з особи · {n} тижнів","with_full":"якщо група повна","final_price":"Остаточна ціна залежить від розміру групи на початок сезону ({date}).","fee_member":"Для членів клубу немає плати за корт.","fee_1":"Включено {fee} за корт.","fee_n":"Включено {fee} за корт, ділиться на групу.","divided":"{price} ÷ {n} осіб","per_training":"За тренування","season":"Сезон","season_share":"Сезон (ваша частка)","now_for":"Зараз для {n} осіб","each_pays":"Кожна людина реєструється за вашим посиланням і сплачує свою частку.","your_data":"Ваші дані","first_name":"Ім’я","last_name":"Прізвище","email":"Е-пошта","phone":"Телефон","birth_year":"Рік народження","year":"Рік","parent_box":"До 18 років – дані одного з батьків","parent_name":"Ім’я батька або матері","parent_email":"Е-пошта батька або матері","level":"Рівень гри","optional":"(необов’язково)","rain":"Дощ: діють правила перенесення з {agb}.","agb":"AGB (німецькою)","accept_agb":"Я приймаю {agb}.","privacy":"Політика конфіденційності (німецькою)","accept_privacy":"Я ознайомився(-лась) з документом {privacy}.","accept_parent":"Я є законним представником і даю згоду.","submit":"Zahlungspflichtig anmelden · Реєстрація з обов’язком оплати","art_group":"Група","art_excl":"Ексклюзив для {n}","art_excl_n":"Ексклюзив · {n} осіб","art_invite":"Запрошення","err_fields":"Будь ласка, перевірте позначені поля.","err_checks":"Будь ласка, підтвердіть позначки.","err_check":"Будь ласка, підтвердіть позначену клітинку.","err_taken":"Цей час щойно зайняли. Будь ласка, оберіть інший.","err_excl_email":"На цю е-пошту вже є ексклюзивне бронювання.","thanks":"Дякуємо, {name}!","status_ok":"Е-пошту підтверджено","status_pending":"Попередньо","confirm_mail":"Ми надіслали вам лист. Без підтвердження місце звільниться за 24 години.","sum_slot":"Час","sum_club":"Клуб","sum_type":"Тип","next_steps":"Наступні кроки","step_confirm_mail":"Підтвердити е-пошту","step_approve_group":"Serdar підтвердить вашу групу","step_approve_priv":"Serdar підтвердить ваше індивідуальне заняття","step_invoice":"Рахунок надійде е-поштою","step_first":"Перше тренування: {day}, {date}, {time}","invite_friends":"Запросити партнерів","group_code":"Код групи","share_wa":"Поділитися у WhatsApp","copy_link":"Скопіювати посилання","link_copied":"Посилання скопійовано ✓","reserved_until":"Вільні місця зарезервовано до {date}. Потім їх відкриють для всіх.","view_invite":"Переглянути запрошення","group_prog":"Група: записалось {reg} з {size}","attending":"У групі:","place":"Місце","directions_with":"Маршрут у","apple_maps":"Apple Карти","google_maps":"Google Maps","add_calendar":"Додати до календаря","bring":"Що взяти з собою: спортивний одяг, тенісне взуття, напій, ракетку.","summer_break":"Літня перерва: {bfrom} – {bto}.","questions":"Є запитання?","ask_ai":"Запитати ШІ","back_overview":"До розкладу","closed_title":"Реєстрацію завершено.","closed_hint":"Запис був можливий до початку сезону, {date}.","invite_eyb":"Запрошення · Літній сезон 2027","youre_in":"Ви в групі!","youre_invited":"Вас запрошено","invitation":"Запрошення","to_signup":"На сторінку запису","invite_404":"Запрошення не знайдено","invite_404_h":"Це посилання недійсне або вже не чинне.","to_register":"Записатися","signup_closed":"Реєстрацію закрито.","invite_expired":"Строк запрошення минув.","seats_open":"Вільні місця тепер відкриті для всіх.","see_free":"Переглянути вільний час","group_full":"Група вже повна.","see_other":"Інші години","invites_you":"{name} запрошує вас.","signed_until":"Записалось {reg} з {size} · реєстрація до {date}","wa_text":"Привіт! Я забронював(-ла) для нас постійний час у Serdar Tennis: {day} {time}, {club}. Будь ласка, зареєструйся до {date} тут: {url}","ics_summary":"Тенісне тренування – Serdar Tennis"}};
+  /* i18n: German AGB and Datenschutzerklärung remain legally binding;
+     other languages are an aid. The payment button keeps the German legal phrase. */
+  const LANGS = ['de','en','tr','ja','zh','uk'];
+  const LANG_META = {
+    de:{locale:'de-DE', html:'de', label:'DE', name:'Deutsch'},
+    en:{locale:'en-GB', html:'en', label:'EN', name:'English'},
+    tr:{locale:'tr-TR', html:'tr', label:'TR', name:'Türkçe'},
+    ja:{locale:'ja-JP', html:'ja', label:'日本語', name:'日本語'},
+    zh:{locale:'zh-CN', html:'zh-CN', label:'中文', name:'简体中文'},
+    uk:{locale:'uk-UA', html:'uk', label:'УКР', name:'Українська'}
+  };
+  const LANG_KEY = 'serdartennis_lang';
+  function normLang(s){
+    if(!s) return null;
+    s = String(s).toLowerCase().replace(/_/g,'-');
+    const base = s.split('-')[0];
+    if(LANG_META[base]) return base;
+    return null;
+  }
+  function detectLang(){
+    const q = (location.search.match(/[?&]lang=([a-zA-Z-]+)/)||[])[1];
+    const fromQ = normLang(q);
+    if(fromQ) return fromQ;
+    try{ const saved = localStorage.getItem(LANG_KEY); if(saved && LANG_META[saved]) return saved; }catch(e){}
+    const nav = [].concat(navigator.languages||[], navigator.language||[]);
+    for(let i=0;i<nav.length;i++){ const k = normLang(nav[i]); if(k) return k; }
+    return 'de';
+  }
+  let LANG = detectLang();
+  let LOCALE = LANG_META[LANG].locale;
+  function setLang(lang, persist){
+    if(!LANG_META[lang]) lang = 'de';
+    LANG = lang;
+    LOCALE = LANG_META[lang].locale;
+    document.documentElement.lang = LANG_META[lang].html;
+    if(persist!==false){ try{ localStorage.setItem(LANG_KEY, lang); }catch(e){} }
+    try{
+      const u = new URL(location.href);
+      u.searchParams.set('lang', lang);
+      history.replaceState(history.state, '', u.pathname+u.search+u.hash);
+    }catch(e){}
+  }
+  function t(key, vars){
+    const pack = I18N[LANG]||I18N.de;
+    let s = pack[key]; if(s==null) s = I18N.de[key]; if(s==null) return key;
+    if(vars) s = s.replace(/\{(\w+)\}/g, (_,k) => vars[k]==null?'':vars[k]);
+    return s;
+  }
+  function ukForm(n){
+    const n10 = n%10, n100 = n%100;
+    if(n10===1 && n100!==11) return 'one';
+    if(n10>=2 && n10<=4 && (n100<12||n100>14)) return 'few';
+    return 'many';
+  }
+  function plural(n, key){
+    let form = 'many';
+    if(LANG==='uk') form = ukForm(n);
+    else if(n===1) form = 'one';
+    return n + ' ' + t(key+'_'+form);
+  }
+  function weekdayName(d, width, loc){
+    loc = loc||LOCALE;
+    const dt = new Date(Date.UTC(2027,3,25+d));
+    let s = new Intl.DateTimeFormat(loc, {weekday:width, timeZone:'UTC'}).format(dt);
+    if(width==='short') s = s.replace(/\.$/,'');
+    return s;
+  }
+  const dayLong = (d, loc) => weekdayName(d, 'long', loc);
+  const dayShort = (d, loc) => weekdayName(d, 'short', loc);
+  function fmt(ts, loc){
+    loc = loc||LOCALE;
+    return new Intl.DateTimeFormat(loc, {day:'2-digit', month:'2-digit', year:'numeric'}).format(new Date(ts));
+  }
+  function fmtLong(ts, loc){
+    loc = loc||LOCALE;
+    return new Intl.DateTimeFormat(loc, {day:'numeric', month:'long', year:'numeric'}).format(new Date(ts));
+  }
+  function fmtU(ts, loc){
+    loc = loc||LOCALE;
+    return new Intl.DateTimeFormat(loc, {day:'numeric', month:'long', year:'numeric', timeZone:'UTC'}).format(new Date(ts));
+  }
+  function fmtUShort(ts, loc){
+    loc = loc||LOCALE;
+    return new Intl.DateTimeFormat(loc, {day:'2-digit', month:'2-digit', year:'numeric', timeZone:'UTC'}).format(new Date(ts));
+  }
+  const money = (c, short, loc) => {
+    c = Math.round(c)/100;
+    const opt = {style:'currency', currency:'EUR', currencyDisplay:'narrowSymbol'};
+    if(short){ opt.minimumFractionDigits=0; opt.maximumFractionDigits=2; }
+    return new Intl.NumberFormat(loc||LOCALE, opt).format(c);
+  };
+  const eur = c => money(c, false);
+  const eurS = c => money(c, Math.round(c)%100===0);
+
   const BASE_URL = 'https://akdagserdar47.wixsite.com/serdartennis';
   const AGB_URL = BASE_URL + '/agb', DS_URL = BASE_URL + '/datenschutz';
   const PHONE = '+4915901007838', PHONE_TXT = '+49 1590 100 7838', MAIL = 'info.serdartennis@gmail.com';
@@ -268,26 +379,19 @@
     htv:{name:'Heerdter TV', short:'HTV', days:[3,4,5,6], addr:'Am Heerdter Hof 38, 40549 Düsseldorf'},
     wet:{name:'SV Union Wetten', short:'SVW', days:[1,2], addr:'Kapellener Straße 29, 47625 Kevelaer-Wetten'}
   };
-  const DAYS = {1:'Montag',2:'Dienstag',3:'Mittwoch',4:'Donnerstag',5:'Freitag',6:'Samstag'};
-  const DS = {1:'Mo',2:'Di',3:'Mi',4:'Do',5:'Fr',6:'Sa'};
   const LEVELS = ['Anfänger','Mittel','Fortgeschritten'];
   const TODAY = (location.search.match(/[?&]today=(\d{4}-\d{2}-\d{2})/)||[])[1];
   const now = () => TODAY ? new Date(TODAY+'T12:00:00').getTime() : Date.now();
   const closed = () => now() >= CLOSE_TS;
   const pad = n => (n<10?'0':'')+n;
-  const fmt = ts => { const d = new Date(ts); return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear(); };
-  const fmtU = ts => { const d = new Date(ts); return pad(d.getUTCDate())+'.'+pad(d.getUTCMonth()+1)+'.'+d.getUTCFullYear(); };
   const cn = c => `<span translate="no" class="notranslate">${CLUBS[c].name}</span>`;
   const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const eur = c => { c = Math.round(c); const e = Math.floor(c/100), r = c%100; return String(e).replace(/\B(?=(\d{3})+(?!\d))/g,'.') + ',' + pad(r) + ' €'; };
-  const eurS = c => c%100 ? eur(c) : String(c/100).replace(/\B(?=(\d{3})+(?!\d))/g,'.') + ' €';
   const T = (club, member) => (club==='htv' && member) ? MEMBER : GUEST;
   const minor = jahr => jahr && (2027 - (+jahr)) < 18;
   const short = b => b.vorname + ' ' + (b.nachname||'').charAt(0).toUpperCase() + '.';
-  const plural = (n, one, many) => n + ' ' + (n===1 ? one : many);
 
   const SLOTS = [];
-  const add = (club, d, hours) => hours.forEach(h => SLOTS.push({id:`${club}-${d}-${h}`, club, d, h, t:`${pad(h)}:00–${pad(h+1)}:00`, part: h<12?'Vormittag':'Nachmittag'}));
+  const add = (club, d, hours) => hours.forEach(h => SLOTS.push({id:`${club}-${d}-${h}`, club, d, h, t:`${pad(h)}:00–${pad(h+1)}:00`, part: h<12?'am':'pm'}));
   const PM = [14,15,16,17,18,19,20];
   const SAT = [10,11,14,15,16,17]; /* Samstag nur 10–12 und 14–18 */
   [1,2].forEach(d => add('wet', d, PM));
@@ -317,16 +421,23 @@
   }
   function groupTag(list){
     if(!list.length) return '';
-    const kids = list.filter(b => minor(b.jahr)).length, age = kids*2 > list.length ? 'Kinder' : 'Erwachsene';
+    const kids = list.filter(b => minor(b.jahr)).length, age = kids*2 > list.length ? t('kids') : t('adults');
     const cnt = {}; list.forEach(b => { if(b.level) cnt[b.level] = (cnt[b.level]||0)+1; });
     const lvl = Object.keys(cnt).sort((a,b) => cnt[b]-cnt[a])[0];
-    return (lvl ? lvl+' · ' : '') + age;
+    return (lvl ? t('lvl_'+lvl)+' · ' : '') + age;
   }
   const byCode = code => { const lead = DB.book.find(b => b.mode==='excl' && b.code===code && active(b)); if(!lead) return null; const o = occ(lead.slot); return {lead, s:slotById(lead.slot), o, members:o.list.filter(b => b.code===code)}; };
   function genCode(){ const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let c; do{ c=''; for(let i=0;i<6;i++) c += A[Math.floor(Math.random()*A.length)]; }while(DB.book.some(b => b.code===c)); return c; }
   const base = () => location.href.split('#')[0].split('?')[0];
-  const keep = () => TODAY ? '&today='+TODAY : '';
-  const inviteUrl = code => base() + '?invite=' + code + keep();
+  function homeUrl(extra){
+    const p = new URLSearchParams();
+    if(extra) Object.keys(extra).forEach(k => { if(extra[k]!=null) p.set(k, extra[k]); });
+    if(TODAY) p.set('today', TODAY);
+    p.set('lang', LANG);
+    const q = p.toString();
+    return base() + (q ? '?'+q : '');
+  }
+  const inviteUrl = code => homeUrl({invite:code});
   function dots(filled, reserved, total){ let h = '<span class="dots" aria-hidden="true">'; for(let i=0;i<(total||MAX);i++) h += `<i class="dot${i<filled?' x':(i<filled+(reserved||0)?' res':'')}"></i>`; return h+'</span>'; }
   function isAppleOS(){
     const ua = navigator.userAgent||'';
@@ -334,14 +445,14 @@
   }
   function mapLinks(addr){
     const enc = encodeURIComponent(addr);
-    const apple = {name:'Apple Karten', href:'https://maps.apple.com/?daddr='+enc+'&dirflg=d'};
-    const google = {name:'Google Maps', href:'https://www.google.com/maps/dir/?api=1&destination='+enc};
+    const apple = {name:t('apple_maps'), href:'https://maps.apple.com/?daddr='+enc+'&dirflg=d'};
+    const google = {name:t('google_maps'), href:'https://www.google.com/maps/dir/?api=1&destination='+enc};
     return isAppleOS() ? [apple, google] : [google, apple];
   }
   function mapChooser(club){
     const addr = CLUBS[club].addr;
-    const links = mapLinks(addr).map(l => `<a href="${l.href}" target="_blank" rel="noopener">${l.name}</a>`).join('');
-    return `<button type="button" class="addr" data-act="maps" data-club="${club}">${esc(addr)}</button><div class="mappick" id="mappick" hidden><div class="lab">Wegbeschreibung mit</div>${links}</div>`;
+    const links = mapLinks(addr).map(l => `<a href="${l.href}" target="_blank" rel="noopener" translate="no">${l.name}</a>`).join('');
+    return `<button type="button" class="addr" data-act="maps" data-club="${club}" translate="no">${esc(addr)}</button><div class="mappick" id="mappick" hidden><div class="lab">${t('directions_with')}</div>${links}</div>`;
   }
   const okIcon = '<div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>';
 
@@ -364,195 +475,214 @@
   });
 
   const header = (eyebrow, title, sub) => `<header><div class="eyebrow">${eyebrow}</div><h1>${title}</h1>${sub?`<p class="sub">${sub}</p>`:''}</header>`;
-  const SUB = '26. April – 9. Oktober 2027 · 20 Wochen';
-  const STEPS = ['Verein','Termin','Buchung','Daten'];
+  const seasonSub = () => t('season_range', {start:fmtU(SEASON_START), end:fmtU(SEASON_END), weeks:t('weeks20')});
+  const closeLong = () => fmtLong(CLOSE_TS);
+  const closeShort = () => fmt(CLOSE_TS);
+  const breakFrom = () => fmtU(BREAK_FROM);
+  const breakTo = () => fmtU(BREAK_TO);
   function stepper(){
-    return '<nav class="steps" aria-label="Fortschritt">' + STEPS.map((l,i) => { const n=i+1; return `<div class="${n<=S.step?'on ':''}${n===S.step?'cur':''}"${n===S.step?' aria-current="step"':''}><i></i><span>${n}. ${l}</span></div>`; }).join('') + '</nav>';
+    const labels = [t('step_club'), t('step_slot'), t('step_book'), t('step_data')];
+    return '<nav class="steps" aria-label="'+esc(t('steps_aria'))+'">' + labels.map((l,i) => { const n=i+1; return `<div class="${n<=S.step?'on ':''}${n===S.step?'cur':''}"${n===S.step?' aria-current="step"':''}><i></i><span>${n}. ${l}</span></div>`; }).join('') + '</nav>';
+  }
+  function langSwitcher(){
+    const meta = LANG_META[LANG];
+    const items = LANGS.map(k => {
+      const m = LANG_META[k];
+      return `<button type="button" role="option" class="${k===LANG?'on':''}" data-act="lang" data-lang="${k}" aria-selected="${k===LANG}"><span>${m.label}</span><span class="ln">${m.name}</span></button>`;
+    }).join('');
+    return `<div class="langsw"><button type="button" class="langbtn" data-act="langtoggle" aria-haspopup="listbox" aria-expanded="false" aria-label="${esc(t('lang_label'))}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>${meta.label}</span></button><div class="langmenu" id="langmenu" hidden role="listbox">${items}</div></div>`;
   }
   const footer = extra => extra ? `<footer>${extra}</footer>` : '';
   const backBtn = (to, txt) => `<button class="back" data-back="${to}">← ${txt}</button>`;
-  const slotLine = s => `<span><span class="tm">${DAYS[s.d]} ${s.t}</span><span class="st">${cn(s.club)} · 60 Min.</span></span>`;
+  const slotLine = s => `<span><span class="tm">${dayLong(s.d)} ${s.t}</span><span class="st">${cn(s.club)} · ${t('min60')}</span></span>`;
   /* KI fragen: öffnet die Website, dort antwortet der Smart Chat. */
-  const contact = () => `<div class="card block"><h3>Fragen?</h3><div class="links"><a href="mailto:${MAIL}" target="_top">E-Mail</a><a href="${BASE_URL}" target="_top">KI fragen</a></div></div>`;
+  const contact = () => `<div class="card block"><h3>${t('questions')}</h3><div class="links"><a href="mailto:${MAIL}" target="_top">${t('email')}</a><a href="${BASE_URL}" target="_top">${t('ask_ai')}</a></div></div>`;
 
   function vClosed(){
-    return `<section class="view"><div class="card closed"><h2>Die Anmeldung ist geschlossen.</h2><p class="hint">Anmeldungen waren bis zum Saisonstart am ${fmt(CLOSE_TS)} möglich.</p></div>${contact()}</section>`;
+    return `<section class="view"><div class="card closed"><h2>${t('closed_title')}</h2><p class="hint">${t('closed_hint',{date:closeLong()})}</p></div>${contact()}</section>`;
   }
   function vClub(){
-    let h = `<section class="view"><h2>Wo möchtest du spielen?</h2><div class="clubs">`;
+    let h = `<section class="view"><h2>${t('where')}</h2><div class="clubs">`;
     ['htv','wet'].forEach(c => {
       const free = SLOTS.filter(s => s.club===c).reduce((a,s) => a+occ(s.id).free, 0);
-      const price = c==='htv' ? 'Mitglieder ab 12,50 €, Gäste ab 15 €' : 'ab 15 €';
-      h += `<button class="card club" data-club="${c}"><span class="mono" translate="no">${CLUBS[c].short}</span><span><span class="t">${cn(c)}</span><span class="d">${CLUBS[c].days.map(d => DS[d]).join(', ')} · ${price} pro Person</span><span class="free">${free} freie Plätze</span></span><span class="chev">›</span></button>`;
+      const price = c==='htv' ? t('price_from_htv',{mem:eurS(MEMBER[4]), guest:eurS(GUEST[4])}) : t('price_from',{price:eurS(GUEST[4])});
+      const freeTxt = free===1 ? t('free_1') : t('free_n',{n:free});
+      h += `<button class="card club" data-club="${c}"><span class="mono" translate="no">${CLUBS[c].short}</span><span><span class="t">${cn(c)}</span><span class="d">${CLUBS[c].days.map(d => dayShort(d)).join(', ')} · ${price} ${t('per_person')}</span><span class="free">${freeTxt}</span></span><span class="chev">›</span></button>`;
     });
-    return h + `</div><div class="facts"><span>Bis 4 Personen pro Gruppe</span><span>60 Min. pro Training</span><span>Anmeldung bis ${CLOSE}</span></div><details class="more"><summary>Mehr Infos</summary><p>Saison: 26. April – 9. Oktober 2027 · 20 Trainings je Wochentag. Sommerpause: 19. Juli – 15. August 2027.</p></details></section>`;
+    return h + `</div><div class="facts"><span>${t('fact_max')}</span><span>${t('fact_dur')}</span><span>${t('fact_until',{date:closeShort()})}</span></div><details class="more"><summary>${t('more')}</summary><p>${t('season_info',{start:fmtU(SEASON_START), end:fmtU(SEASON_END), bfrom:breakFrom(), bto:breakTo()})}</p></details></section>`;
   }
   function slotCard(s){
     const o = occ(s.id), tag = groupTag(o.list);
     const lvl = tag ? `<span class="tag lvl">${tag}</span>` : '';
     let st, right, locked = false;
-    if(o.excl){ st = 'Exklusiv gebucht'; right = '<span class="tag ex">Exklusiv</span>'; locked = true; }
+    if(o.excl){ st = t('excl_booked'); right = `<span class="tag ex">${t('exclusive')}</span>`; locked = true; }
     else if(o.free===0){
-      st = 'Ausgebucht';
-      right = dots(o.taken)+'<span class="tag full">Voll</span>';
-      if(S.wlDone===s.id) right += '<span class="tiny">Auf der Warteliste</span>';
-      else right += `<button type="button" class="linkbtn" data-wl="${s.id}">Warteliste</button>`;
+      st = t('sold_out');
+      right = dots(o.taken)+`<span class="tag full">${t('full_tag')}</span>`;
+      if(S.wlDone===s.id) right += `<span class="tiny">${t('on_waitlist')}</span>`;
+      else right += `<button type="button" class="linkbtn" data-wl="${s.id}">${t('waitlist')}</button>`;
       locked = true;
     } else {
-      st = o.taken===0 ? `Alle ${MAX} Plätze frei` : `${o.free} von ${MAX} Plätzen frei`;
+      st = o.taken===0 ? t('all_free',{n:MAX}) : t('n_of_free',{free:o.free, max:MAX});
       right = dots(o.taken);
     }
-    const inner = `<span><span class="tm">${DS[s.d]} ${s.t}</span><span class="st${locked?'':' good'}">${st}</span>${lvl}</span><span class="r">${right}</span>`;
+    const inner = `<span><span class="tm">${dayShort(s.d)} ${s.t}</span><span class="st${locked?'':' good'}">${st}</span>${lvl}</span><span class="r">${right}</span>`;
     if(locked){
-      let h = `<div class="card slot off" aria-label="${DAYS[s.d]} ${s.t}, ${st}">${inner}</div>`;
-      if(S.wl===s.id) h += `<div class="card wlbox"><div class="f"><label for="wlmail">E-Mail für die Warteliste</label><input id="wlmail" type="email" inputmode="email" autocomplete="email"></div><button type="button" class="linkbtn" data-act="wlsave">Eintragen</button></div>`;
+      let h = `<div class="card slot off" aria-label="${dayLong(s.d)} ${s.t}, ${st}">${inner}</div>`;
+      if(S.wl===s.id) h += `<div class="card wlbox"><div class="f"><label for="wlmail">${t('waitlist_email')}</label><input id="wlmail" type="email" inputmode="email" autocomplete="email"></div><button type="button" class="linkbtn" data-act="wlsave">${t('waitlist_save')}</button></div>`;
       return h;
     }
-    return `<button class="card slot" data-slot="${s.id}" aria-label="${DAYS[s.d]} ${s.t}, ${st}">${inner}</button>`;
+    return `<button class="card slot" data-slot="${s.id}" aria-label="${dayLong(s.d)} ${s.t}, ${st}">${inner}</button>`;
   }
   function vSlots(){
     const days = CLUBS[S.club].days;
     if(days.indexOf(S.day)<0) S.day = days[0];
-    let h = `<section class="view">${backBtn(1,'Verein ändern')}<h2>${cn(S.club)}</h2><p class="hint">Dein fester Termin für die ganze Saison.</p>`;
+    let h = `<section class="view">${backBtn(1,t('back_club'))}<h2>${cn(S.club)}</h2><p class="hint">${t('slot_hint')}</p>`;
     h += `<div class="days" style="--n:${days.length}" role="tablist">` + days.map(d => { const free = SLOTS.filter(s => s.club===S.club && s.d===d).reduce((a,s) => a+occ(s.id).free, 0);
-      return `<button class="dayb${d===S.day?' on':''}" role="tab" aria-selected="${d===S.day}" data-day="${d}"><span class="n">${days.length>2?DS[d]:DAYS[d]}</span><span class="c">${free} frei</span></button>`; }).join('') + '</div>';
-    h += `<div class="legend"><span>${dots(1,0,1)} belegt</span><span><span class="dots"><i class="dot"></i></span> frei</span><span><span class="tag ex">Exklusiv</span> nur mit Einladung</span></div>`;
+      return `<button class="dayb${d===S.day?' on':''}" role="tab" aria-selected="${d===S.day}" data-day="${d}"><span class="n">${days.length>2?dayShort(d):dayLong(d)}</span><span class="c">${t('free_short',{n:free})}</span></button>`; }).join('') + '</div>';
+    h += `<div class="legend"><span>${dots(1,0,1)} ${t('taken')}</span><span><span class="dots"><i class="dot"></i></span> ${t('free')}</span><span><span class="tag ex">${t('exclusive')}</span> ${t('excl_only')}</span></div>`;
     const parts = {};
     SLOTS.filter(s => s.club===S.club && s.d===S.day).forEach(s => (parts[s.part] = parts[s.part]||[]).push(s));
-    Object.keys(parts).forEach(p => {
-      const ss = parts[p];
-      h += `<div class="part"><h3>${p} <small>${ss[0].t.slice(0,5)}–${ss[ss.length-1].t.slice(-5)} Uhr</small></h3><div class="slots">`;
+    ['am','pm'].forEach(p => {
+      const ss = parts[p]; if(!ss) return;
+      const clock = t('oclock');
+      h += `<div class="part"><h3>${t(p==='am'?'morning':'afternoon')} <small>${ss[0].t.slice(0,5)}–${ss[ss.length-1].t.slice(-5)}${clock?' '+clock:''}</small></h3><div class="slots">`;
       ss.forEach(s => { h += slotCard(s); });
       h += '</div></div>';
     });
     return h + '</section>';
   }
-  const feeNote = (club, member, n) => (club==='htv' && member) ? 'Für Mitglieder keine Platzgebühr.' : n===1 ? 'Inkl. 10 € Platzgebühr.' : 'Inkl. 10 € Platzgebühr, geteilt durch die Gruppe.';
-  const ptab = (tab, hi) => '<div class="ptab" aria-label="Preis pro Person und Training">' + [1,2,3,4].map(n => `<div class="${n===hi?'on':''}">${n} Pers.<b>${eurS(tab[n])}</b></div>`).join('') + '</div>';
+  const feeNote = (club, member, n) => (club==='htv' && member) ? t('fee_member') : n===1 ? t('fee_1',{fee:eurS(1000)}) : t('fee_n',{fee:eurS(1000)});
+  const ptab = (tab, hi) => '<div class="ptab" aria-label="'+esc(t('price_title'))+'">' + [1,2,3,4].map(n => `<div class="${n===hi?'on':''}">${t('pers',{n})}<b>${eurS(tab[n])}</b></div>`).join('') + '</div>';
   function priceBox(st, size, excl){
     const tab = T(st.club, st.member), pp = tab[size], fee = feeNote(st.club, st.member, size);
     if(excl){
-      const title = size===1 ? 'Privatstunde' : 'Preis pro Person &amp; Training';
+      const title = size===1 ? t('private') : t('price_title');
       const row = size>1
-        ? `<div class="row"><span>${eur(tab[1])} ÷ ${size} Personen</span><b>${eur(pp)} p. P.</b></div>`
-        : `<div class="row"><span>Pro Training</span><b>${eur(pp)}</b></div>`;
-      const note = (size>1 ? 'Jede Person meldet sich über deinen Link selbst an und zahlt ihren Anteil. ' : '') + fee;
+        ? `<div class="row"><span>${t('divided',{price:eur(tab[1]), n:size})}</span><b>${eur(pp)} ${t('pp')}</b></div>`
+        : `<div class="row"><span>${t('per_training')}</span><b>${eur(pp)}</b></div>`;
+      const note = (size>1 ? t('each_pays')+' ' : '') + fee;
       return `<div class="price" id="price"><div class="rl">${title}</div>${ptab(tab,size)}${row}`+
-        `<div class="line"></div><div class="tot"><span>Saison${size>1?' (dein Anteil)':''}<small>20 Wochen</small></span><b>${eur(pp*WEEKS)}</b></div>`+
-        (size>1 ? `<div class="row"><span>Jetzt für ${size} Personen</span><b>${eur(tab[1]*WEEKS)}</b></div>` : '')+
+        `<div class="line"></div><div class="tot"><span>${size>1?t('season_share'):t('season')}<small>${t('weeks20')}</small></span><b>${eur(pp*WEEKS)}</b></div>`+
+        (size>1 ? `<div class="row"><span>${t('now_for',{n:size})}</span><b>${eur(tab[1]*WEEKS)}</b></div>` : '')+
         `<div class="note">${note}</div></div>`;
     }
-    return `<div class="price" id="price"><div class="rl">Preis pro Person &amp; Training</div>${ptab(tab,size)}`+
-      `<div class="row"><span>Gruppe jetzt: ${plural(size,'Person','Personen')}</span><b>${eur(pp)} p. P.</b></div>`+
-      `<div class="line"></div><div class="tot"><span>Saison aktuell<small>pro Person · 20 Wochen</small></span><b>${eur(pp*WEEKS)}</b></div>`+
-      (size<MAX ? `<div class="tot sm"><span>mit voller Gruppe</span><b>${eur(tab[MAX]*WEEKS)}</b></div>` : '')+
-      `<div class="note">Dein endgültiger Preis richtet sich nach der Gruppengröße zum Saisonstart (26. April 2027). ${fee}</div></div>`;
+    return `<div class="price" id="price"><div class="rl">${t('price_title')}</div>${ptab(tab,size)}`+
+      `<div class="row"><span>${t('group_now',{n:plural(size,'person')})}</span><b>${eur(pp)} ${t('pp')}</b></div>`+
+      `<div class="line"></div><div class="tot"><span>${t('season_now')}<small>${t('per_person_weeks',{n:WEEKS})}</small></span><b>${eur(pp*WEEKS)}</b></div>`+
+      (size<MAX ? `<div class="tot sm"><span>${t('with_full')}</span><b>${eur(tab[MAX]*WEEKS)}</b></div>` : '')+
+      `<div class="note">${t('final_price',{date:fmtU(SEASON_START)})} ${fee}</div></div>`;
   }
   function memberBlock(st, k){
-    return `<div class="q"><div class="lbl">Mitglied im <span translate="no">Heerdter TV</span>?</div><div class="seg" data-k="${k}"><button type="button" data-v="1" class="${st.member?'on':''}">Ja</button><button type="button" data-v="0" class="${!st.member?'on':''}">Nein</button></div><p class="tiny">Wird geprüft.</p></div>`;
+    return `<div class="q"><div class="lbl">${t('member_q',{club:cn('htv')})}</div><div class="seg" data-k="${k}"><button type="button" data-v="1" class="${st.member?'on':''}">${t('yes')}</button><button type="button" data-v="0" class="${!st.member?'on':''}">${t('no')}</button></div><p class="tiny">${t('will_check')}</p></div>`;
   }
   function vMode(){
     const s = slotById(S.slot), o = occ(S.slot), canEx = o.taken===0;
     if(!canEx) S.mode = 'group';
-    let h = `<section class="view">${backBtn(2,'Anderer Termin')}<h2>Wie möchtest du buchen?</h2><div class="card chosen">${slotLine(s)}<span class="r">${dots(o.taken)}</span></div><div class="modes">`;
-    h += `<div role="radio" tabindex="0" aria-checked="${S.mode==='group'}" class="card mode${S.mode==='group'?' on':''}" data-mode="group"><span class="h"><span class="radio"></span><span class="t">Platz in der Gruppe</span></span><span class="d">Ein Platz für dich. Noch ${plural(o.free,'Platz','Plätze')} frei.</span></div>`;
-    h += `<div role="radio" tabindex="${canEx?0:-1}" aria-checked="${S.mode==='excl'}" class="card mode${S.mode==='excl'?' on':''}${canEx?'':' dis'}" data-mode="excl"${canEx?'':' aria-disabled="true"'}><span class="h"><span class="radio"></span><span class="t">Gruppe exklusiv buchen</span></span>`+
-      `<span class="d">${canEx?'Der Termin gehört nur euch. Mitspieler lädst du per Link ein. Allein = Privatstunde.':'Nur bei leeren Terminen möglich.'}</span>`+
-      (S.mode==='excl' ? `<div class="inner"><div class="lbl">Wir sind …</div><div class="seg" data-k="size">${[1,2,3,4].map(n => `<button type="button" data-v="${n}" class="${S.size===n?'on':''}">${['Allein','Zu zweit','Zu dritt','Zu viert'][n-1]}</button>`).join('')}</div></div>` : '') + '</div></div>';
+    let h = `<section class="view">${backBtn(2,t('back_slot'))}<h2>${t('how_book')}</h2><div class="card chosen">${slotLine(s)}<span class="r">${dots(o.taken)}</span></div><div class="modes">`;
+    h += `<div role="radio" tabindex="0" aria-checked="${S.mode==='group'}" class="card mode${S.mode==='group'?' on':''}" data-mode="group"><span class="h"><span class="radio"></span><span class="t">${t('mode_group')}</span></span><span class="d">${t('mode_group_d',{n:plural(o.free,'place')})}</span></div>`;
+    h += `<div role="radio" tabindex="${canEx?0:-1}" aria-checked="${S.mode==='excl'}" class="card mode${S.mode==='excl'?' on':''}${canEx?'':' dis'}" data-mode="excl"${canEx?'':' aria-disabled="true"'}><span class="h"><span class="radio"></span><span class="t">${t('mode_excl')}</span></span>`+
+      `<span class="d">${canEx?t('mode_excl_d'):t('mode_excl_off')}</span>`+
+      (S.mode==='excl' ? `<div class="inner"><div class="lbl">${t('we_are')}</div><div class="seg" data-k="size">${[1,2,3,4].map(n => `<button type="button" data-v="${n}" class="${S.size===n?'on':''}">${t('size_'+n)}</button>`).join('')}</div></div>` : '') + '</div></div>';
     if(S.club==='htv') h += memberBlock(S,'member');
     const size = S.mode==='excl' ? S.size : Math.min(MAX, o.taken+1);
-    return h + priceBox(S, size, S.mode==='excl') + `<button class="btn" data-act="toDetails">Weiter</button></section>`;
+    return h + priceBox(S, size, S.mode==='excl') + `<button class="btn" data-act="toDetails">${t('next')}</button></section>`;
   }
   function form(st){
     const inp = (id,label,type,ac,extra) => `<div class="f"><label for="${id}">${label}</label><input id="${id}" name="${id}" type="${type}" autocomplete="${ac}" ${extra||''} value="${esc(st.f[id])}"></div>`;
     const years = []; for(let y=2022;y>=1930;y--) years.push(y);
     const kid = minor(st.f.jahr);
-    let h = `<div class="card form"><div class="grid2">${inp('vorname','Vorname','text','given-name','autocapitalize="words"')}${inp('nachname','Nachname','text','family-name','autocapitalize="words"')}</div>`+
-      inp('email','E-Mail','email','email','inputmode="email" autocapitalize="off"')+
-      `<div class="grid2">${inp('tel','Telefon','tel','tel','inputmode="tel"')}<div class="f"><label for="jahr">Geburtsjahr</label><select id="jahr" name="jahr" autocomplete="bday-year" class="${st.f.jahr?'':'empty'}"><option value="">Jahr</option>${years.map(y => `<option${String(y)===String(st.f.jahr)?' selected':''}>${y}</option>`).join('')}</select></div></div>`;
-    if(kid) h += `<div class="parentbox"><div class="lab">Unter 18 – Angaben eines Elternteils</div>${inp('parent','Name Elternteil','text','name','autocapitalize="words"')}${inp('parentEmail','E-Mail Elternteil','email','email','inputmode="email" autocapitalize="off"')}</div>`;
-    h += `<div class="q"><div class="lbl">Spielniveau <span class="opt">(optional)</span></div><div class="seg three" data-k="level">${LEVELS.map(l => `<button type="button" data-v="${l}" class="${st.level===l?'on':''}">${l}</button>`).join('')}</div></div>`;
-    h += `<p class="rain">Regen: Es gelten die Nachhol-Regeln der <a href="${AGB_URL}" target="_blank" rel="noopener">AGB</a>.</p>`;
+    const agb = `<a href="${AGB_URL}" target="_blank" rel="noopener">${t('agb')}</a>`;
+    const privacy = `<a href="${DS_URL}" target="_blank" rel="noopener">${t('privacy')}</a>`;
+    let h = `<div class="card form"><div class="grid2">${inp('vorname',t('first_name'),'text','given-name','autocapitalize="words"')}${inp('nachname',t('last_name'),'text','family-name','autocapitalize="words"')}</div>`+
+      inp('email',t('email'),'email','email','inputmode="email" autocapitalize="off"')+
+      `<div class="grid2">${inp('tel',t('phone'),'tel','tel','inputmode="tel"')}<div class="f"><label for="jahr">${t('birth_year')}</label><select id="jahr" name="jahr" autocomplete="bday-year" class="${st.f.jahr?'':'empty'}"><option value="">${t('year')}</option>${years.map(y => `<option${String(y)===String(st.f.jahr)?' selected':''}>${y}</option>`).join('')}</select></div></div>`;
+    if(kid) h += `<div class="parentbox"><div class="lab">${t('parent_box')}</div>${inp('parent',t('parent_name'),'text','name','autocapitalize="words"')}${inp('parentEmail',t('parent_email'),'email','email','inputmode="email" autocapitalize="off"')}</div>`;
+    h += `<div class="q"><div class="lbl">${t('level')} <span class="opt">${t('optional')}</span></div><div class="seg three" data-k="level">${LEVELS.map(l => `<button type="button" data-v="${l}" class="${st.level===l?'on':''}">${t('lvl_'+l)}</button>`).join('')}</div></div>`;
+    h += `<p class="rain">${t('rain',{agb})}</p>`;
     h += `<div class="hp" aria-hidden="true"><label>Website<input id="website" tabindex="-1" autocomplete="off"></label></div>`;
-    h += `<div class="legal"><label class="chk" id="c-agb"><input type="checkbox" id="agb"${st.agb?' checked':''}><span>Ich akzeptiere die <a href="${AGB_URL}" target="_blank" rel="noopener">AGB</a>.</span></label>`+
-      `<label class="chk" id="c-ds"><input type="checkbox" id="ds"${st.ds?' checked':''}><span>Ich habe die <a href="${DS_URL}" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen.</span></label>`+
-      (kid ? `<label class="chk" id="c-pc"><input type="checkbox" id="pc"${st.pc?' checked':''}><span>Ich bin erziehungsberechtigt und einverstanden.</span></label>` : '') + '</div></div>';
+    h += `<div class="legal"><label class="chk" id="c-agb"><input type="checkbox" id="agb"${st.agb?' checked':''}><span>${t('accept_agb',{agb})}</span></label>`+
+      `<label class="chk" id="c-ds"><input type="checkbox" id="ds"${st.ds?' checked':''}><span>${t('accept_privacy',{privacy})}</span></label>`+
+      (kid ? `<label class="chk" id="c-pc"><input type="checkbox" id="pc"${st.pc?' checked':''}><span>${t('accept_parent')}</span></label>` : '') + '</div></div>';
     return h;
   }
   function vDetails(){
     const s = slotById(S.slot), o = occ(S.slot), ex = S.mode==='excl', size = ex ? S.size : Math.min(MAX, o.taken+1);
     const pp = T(S.club, S.member)[size]*WEEKS;
-    const art = ex ? (S.size===1?'Privatstunde':'Exklusiv zu '+S.size) : 'Gruppe';
-    return `<section class="view">${backBtn(3,'Zurück')}<h2>Deine Daten</h2>` + form(S) +
-      `<p class="hint" style="margin-top:14px"><b>${DS[s.d]} ${s.t}</b> · ${cn(s.club)} · ${art} · <b>${eurS(pp)}</b> p. P.</p>`+
-      `<div class="err" id="err" role="alert"></div><button class="btn" data-act="submit">Zahlungspflichtig anmelden</button></section>`;
+    const art = ex ? (S.size===1?t('private'):t('art_excl',{n:S.size})) : t('art_group');
+    return `<section class="view">${backBtn(3,t('back'))}<h2>${t('your_data')}</h2>` + form(S) +
+      `<p class="hint" style="margin-top:14px"><b>${dayShort(s.d)} ${s.t}</b> · ${cn(s.club)} · ${art} · <b>${eurS(pp)}</b> ${t('pp')}</p>`+
+      `<div class="err" id="err" role="alert"></div><button class="btn" data-act="submit">${t('submit')}</button></section>`;
   }
   function icsHref(b){
     const s = slotById(b.slot), dates = trainingDates(s.d), stamp = new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
     const dt = (t,h) => { const d = new Date(t); return `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(h)}0000`; };
-    const ev = dates.map((t,i) => ['BEGIN:VEVENT',`UID:${b.id}-${i}@serdartennis`,`DTSTAMP:${stamp}`,`DTSTART:${dt(t,s.h)}`,`DTEND:${dt(t,s.h+1)}`,`SUMMARY:Tennistraining Serdar Tennis`,`LOCATION:${CLUBS[s.club].name}\\, ${CLUBS[s.club].addr.replace(/,/g,'\\,')}`,'END:VEVENT'].join('\r\n'));
+    const ev = dates.map((tm,i) => ['BEGIN:VEVENT',`UID:${b.id}-${i}@serdartennis`,`DTSTAMP:${stamp}`,`DTSTART:${dt(tm,s.h)}`,`DTEND:${dt(tm,s.h+1)}`,`SUMMARY:${t('ics_summary').replace(/,/g,'\\,')}`,`LOCATION:${CLUBS[s.club].name}\\, ${CLUBS[s.club].addr.replace(/,/g,'\\,')}`,'END:VEVENT'].join('\r\n'));
     const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Serdar Tennis//Anmeldung//DE','CALSCALE:GREGORIAN'].concat(ev).concat(['END:VCALENDAR']).join('\r\n');
     return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
   }
   function shareBox(g){
     const s = g.s, url = inviteUrl(g.lead.code);
-    const text = `Hallo! Ich habe bei Serdar Tennis einen festen Termin für uns gebucht: ${DAYS[s.d]} ${s.t} Uhr, ${CLUBS[s.club].name}. Bitte melde dich bis ${fmt(deadline(g.lead))} hier an: ${url}`;
-    return `<div class="card share"><h2 style="font-size:18px">Mitspieler einladen</h2>`+
-      `<div class="code"><span>Gruppencode</span><b>${esc(g.lead.code)}</b></div><div class="linkbox">${esc(url)}</div>`+
-      `<div class="btns2"><a class="btn wa" href="https://wa.me/?text=${encodeURIComponent(text)}" target="_blank" rel="noopener" data-act="wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.5 3.9c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>Per WhatsApp teilen</a>`+
-      `<button class="btn light" data-act="copy" data-url="${esc(url)}">Link kopieren</button></div>`+
-      `<p class="tiny">Offene Plätze bleiben bis ${fmt(deadline(g.lead))} reserviert. Danach sind sie für alle frei. <a href="${esc(url)}" style="color:var(--olive)">Einladung ansehen</a></p></div>`;
+    const clock = t('oclock');
+    const text = t('wa_text',{day:dayLong(s.d), time:s.t+(clock?' '+clock:''), club:CLUBS[s.club].name, date:fmt(deadline(g.lead)), url});
+    return `<div class="card share"><h2 style="font-size:18px">${t('invite_friends')}</h2>`+
+      `<div class="code"><span>${t('group_code')}</span><b>${esc(g.lead.code)}</b></div><div class="linkbox">${esc(url)}</div>`+
+      `<div class="btns2"><a class="btn wa" href="https://wa.me/?text=${encodeURIComponent(text)}" target="_blank" rel="noopener" data-act="wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.5 3.9c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>${t('share_wa')}</a>`+
+      `<button class="btn light" data-act="copy" data-url="${esc(url)}">${t('copy_link')}</button></div>`+
+      `<p class="tiny">${t('reserved_until',{date:fmt(deadline(g.lead))})} <a href="${esc(url)}" style="color:var(--olive)">${t('view_invite')}</a></p></div>`;
   }
   function progress(g){
     const reg = g.members.length, size = g.lead.groupSize, pending = Math.max(0,size-reg);
-    return `<div class="card prog"><div class="top"><b>Gruppe: ${reg} von ${size} angemeldet</b>${dots(reg, pending, size)}</div><div class="bar"><i style="width:${Math.round(reg/size*100)}%"></i></div>`+
-      `<div class="names">Dabei: ${g.members.map(b => esc(short(b))).join(', ')}</div></div>`;
+    return `<div class="card prog"><div class="top"><b>${t('group_prog',{reg, size})}</b>${dots(reg, pending, size)}</div><div class="bar"><i style="width:${Math.round(reg/size*100)}%"></i></div>`+
+      `<div class="names">${t('attending')} ${g.members.map(b => esc(short(b))).join(', ')}</div></div>`;
   }
   function confirmation(b, opts){
     const s = slotById(b.slot), first = trainingDates(s.d)[0], ex = b.mode==='excl', g = (ex||b.mode==='invite') ? byCode(b.code) : null;
-    const steps = [`<li class="${b.confirmed?'done':''}">E-Mail bestätigen</li>`];
-    if(ex && b.groupSize>1) steps.push('<li>Serdar bestätigt eure Gruppe</li>');
-    if(ex && b.groupSize===1) steps.push('<li>Serdar bestätigt deine Privatstunde</li>');
-    steps.push('<li>Rechnung per E-Mail</li>', `<li>Erstes Training: ${DAYS[s.d]}, ${fmtU(first)}, ${pad(s.h)}:00 Uhr</li>`);
-    let h = `<div class="card done">${okIcon}<h2>Danke, ${esc(b.vorname)}!</h2><p class="hint">${DAYS[s.d]}, ${s.t} · ${cn(s.club)}</p><span class="status${b.confirmed?' ok':''}">${b.confirmed?'E-Mail bestätigt':'Vorläufig'}</span>`+
-      (b.confirmed ? '' : `<p class="tiny" style="margin-top:10px">Wir haben dir eine E-Mail geschickt. Ohne Bestätigung wird der Platz nach 24 Stunden frei.</p>`)+
-      `<div class="sum"><div><span>Termin</span><span>${DAYS[s.d]} ${s.t}</span></div><div><span>Verein</span><span>${cn(s.club)}</span></div><div><span>Art</span><span>${ex?(b.groupSize===1?'Privatstunde':'Exklusiv · '+b.groupSize+' Personen'):(b.mode==='invite'?'Einladung':'Gruppe')}</span></div></div></div>`;
-    h += `<div class="card block"><h3>Nächste Schritte</h3><ol class="nsteps">${steps.join('')}</ol></div>`;
+    const steps = [`<li class="${b.confirmed?'done':''}">${t('step_confirm_mail')}</li>`];
+    if(ex && b.groupSize>1) steps.push(`<li>${t('step_approve_group')}</li>`);
+    if(ex && b.groupSize===1) steps.push(`<li>${t('step_approve_priv')}</li>`);
+    steps.push(`<li>${t('step_invoice')}</li>`, `<li>${t('step_first',{day:dayLong(s.d), date:fmtU(first), time:pad(s.h)+':00'})}</li>`);
+    const art = ex?(b.groupSize===1?t('private'):t('art_excl_n',{n:b.groupSize})):(b.mode==='invite'?t('art_invite'):t('art_group'));
+    let h = `<div class="card done">${okIcon}<h2>${t('thanks',{name:esc(b.vorname)})}</h2><p class="hint">${dayLong(s.d)}, ${s.t} · ${cn(s.club)}</p><span class="status${b.confirmed?' ok':''}">${b.confirmed?t('status_ok'):t('status_pending')}</span>`+
+      (b.confirmed ? '' : `<p class="tiny" style="margin-top:10px">${t('confirm_mail')}</p>`)+
+      `<div class="sum"><div><span>${t('sum_slot')}</span><span>${dayLong(s.d)} ${s.t}</span></div><div><span>${t('sum_club')}</span><span>${cn(s.club)}</span></div><div><span>${t('sum_type')}</span><span>${art}</span></div></div></div>`;
+    h += `<div class="card block"><h3>${t('next_steps')}</h3><ol class="nsteps">${steps.join('')}</ol></div>`;
     if(g && ex && g.o.pending && opts.share){ h += progress(g) + shareBox(g); }
-    h += `<div class="card block"><h3>Ort</h3><p>${cn(s.club)}<br>${mapChooser(s.club)}</p><div class="links"><a href="${icsHref(b)}" download="serdar-tennis-training.ics">Zum Kalender hinzufügen</a></div>`+
-      `<details class="more"><summary>Mehr Infos</summary><p>Was mitbringen: Sportkleidung, Tennisschuhe, Getränk, Schläger.</p><p>Sommerpause: 19. Juli – 15. August 2027.</p></details></div>` + contact();
+    h += `<div class="card block"><h3>${t('place')}</h3><p>${cn(s.club)}<br>${mapChooser(s.club)}</p><div class="links"><a href="${icsHref(b)}" download="serdar-tennis-training.ics">${t('add_calendar')}</a></div>`+
+      `<details class="more"><summary>${t('more')}</summary><p>${t('bring')}</p><p>${t('summer_break',{bfrom:breakFrom(), bto:breakTo()})}</p></details></div>` + contact();
     return h;
   }
-  function vDone(){ return `<section class="view">` + confirmation(S.last, {share:true}) + `<button class="btn light" data-act="again">Zur Terminübersicht</button></section>`; }
+  function vDone(){ return `<section class="view">` + confirmation(S.last, {share:true}) + `<button class="btn light" data-act="again">${t('back_overview')}</button></section>`; }
 
   function vInvite(){
-    if(IV.done) return header('Einladung · Sommersaison 2027','Du bist dabei!',SUB) + `<section class="view">` + confirmation(IV.done, {share:false}) + `<a class="btn light" href="${base()}${TODAY?'?today='+TODAY:''}">Zur Anmeldeseite</a></section>` + footer();
+    const sub = seasonSub();
+    if(IV.done) return header(t('invite_eyb'), t('youre_in'), sub) + `<section class="view">` + confirmation(IV.done, {share:false}) + `<a class="btn light" href="${homeUrl()}">${t('to_signup')}</a></section>` + footer();
     const g = byCode(IV.code||'');
-    let h = header('Einladung · Sommersaison 2027', !g ? 'Einladung' : 'Du bist eingeladen', SUB);
-    if(!g) return h + `<section class="view"><div class="card done"><h2>Einladung nicht gefunden</h2><p class="hint">Dieser Einladungslink ist ungültig oder abgelaufen.</p><a class="btn" href="${base()}${TODAY?'?today='+TODAY:''}">Zur Anmeldung</a></div></section>` + footer();
+    let h = header(t('invite_eyb'), !g ? t('invitation') : t('youre_invited'), sub);
+    if(!g) return h + `<section class="view"><div class="card done"><h2>${t('invite_404')}</h2><p class="hint">${t('invite_404_h')}</p><a class="btn" href="${homeUrl()}">${t('to_register')}</a></div></section>` + footer();
     const s = g.s, size = g.lead.groupSize;
-    const chosen = `<div class="card chosen">${slotLine(s)}<span class="r"><span class="tag ex">Exklusiv</span></span></div>`;
-    if(closed()) return h + `<section class="view">${chosen}<div class="card closed" style="margin-top:16px"><h2>Anmeldung geschlossen.</h2></div>${contact()}</section>` + footer();
-    if(g.o.released) return h + `<section class="view">${chosen}<div class="card done" style="margin-top:16px"><h2>Einladung abgelaufen.</h2><p class="hint">Die offenen Plätze sind jetzt für alle frei.</p></div><a class="btn" href="${base()}${TODAY?'?today='+TODAY:''}">Freie Termine ansehen</a></section>` + footer();
-    if(!g.o.pending) return h + `<section class="view">${chosen}` + progress(g) + `<div class="card done" style="margin-top:16px"><h2>Die Gruppe ist voll.</h2></div><a class="btn" href="${base()}${TODAY?'?today='+TODAY:''}">Andere Termine ansehen</a></section>` + footer();
-    h += `<section class="view"><p class="hint" style="margin-top:0">${esc(short(g.lead))} lädt dich ein.</p>${chosen}<p class="small hint">${g.members.length} von ${size} angemeldet · Anmeldung bis ${fmt(deadline(g.lead))}</p>` + progress(g);
+    const chosen = `<div class="card chosen">${slotLine(s)}<span class="r"><span class="tag ex">${t('exclusive')}</span></span></div>`;
+    if(closed()) return h + `<section class="view">${chosen}<div class="card closed" style="margin-top:16px"><h2>${t('signup_closed')}</h2></div>${contact()}</section>` + footer();
+    if(g.o.released) return h + `<section class="view">${chosen}<div class="card done" style="margin-top:16px"><h2>${t('invite_expired')}</h2><p class="hint">${t('seats_open')}</p></div><a class="btn" href="${homeUrl()}">${t('see_free')}</a></section>` + footer();
+    if(!g.o.pending) return h + `<section class="view">${chosen}` + progress(g) + `<div class="card done" style="margin-top:16px"><h2>${t('group_full')}</h2></div><a class="btn" href="${homeUrl()}">${t('see_other')}</a></section>` + footer();
+    h += `<section class="view"><p class="hint" style="margin-top:0">${t('invites_you',{name:esc(short(g.lead))})}</p>${chosen}<p class="small hint">${t('signed_until',{reg:g.members.length, size, date:fmt(deadline(g.lead))})}</p>` + progress(g);
     if(s.club==='htv') h += memberBlock(IV,'ivmember');
     h += priceBox({club:s.club, member:IV.member}, size, true);
-    return h + `<h2 style="margin-top:22px">Deine Daten</h2>` + form(IV) + `<div class="err" id="err" role="alert"></div><button class="btn" data-act="ivsubmit">Zahlungspflichtig anmelden</button></section>` + footer();
+    return h + `<h2 style="margin-top:22px">${t('your_data')}</h2>` + form(IV) + `<div class="err" id="err" role="alert"></div><button class="btn" data-act="ivsubmit">${t('submit')}</button></section>` + footer();
   }
 
   function vAdmin(){
     document.title = 'Buchungen – Serdar Tennis';
     if(sessionStorage.getItem('st_admin')!=='1') return header('Admin','Anmelden','Nur für Serdar') + `<section class="view"><div class="card form"><div class="f"><label for="pw">Passwort</label><input id="pw" type="password" autocomplete="current-password"></div><p class="tiny">Passwort: demo (Platzhalter, kein echter Schutz)</p><div class="err" id="err"></div><button class="btn" data-act="login">Öffnen</button></div></section>`;
-    let h = header('Admin · Sommersaison 2027','Buchungen','Stand '+fmt(now())) + '<div class="adm">';
+    let h = header('Admin · Sommersaison 2027','Buchungen','Stand '+fmt(now(),'de-DE')) + '<div class="adm">';
     ['htv','wet'].forEach(c => {
       const slots = SLOTS.filter(s => s.club===c), empty = [];
       let reg=0, res=0; slots.forEach(s => { const o = occ(s.id); reg += o.taken; res += o.pending; });
       h += `<h2 class="u" style="margin-top:26px">${cn(c)}</h2><div class="kpis"><div class="card kpi"><b>${DB.book.filter(b => b.club===c && active(b)).length}</b><span>Anmeldungen</span></div><div class="card kpi"><b>${reg}/${slots.length*MAX}</b><span>Plätze belegt</span></div><div class="card kpi"><b>${res}</b><span>reserviert</span></div></div>`;
       slots.forEach(s => {
         const all = DB.book.filter(b => b.slot===s.id), o = occ(s.id);
-        if(!all.length){ empty.push(`${DS[s.d]} ${s.t.slice(0,5)}`); return; }
-        h += `<div class="card slotbox"><div class="sh"><span class="tm">${DS[s.d]} ${s.t}</span>${o.excl?`<span class="tag ex">Exklusiv</span>${dots(o.taken,o.pending,o.lead.groupSize)}`:dots(o.taken)}<span class="st" style="margin:0">${o.excl?`${o.taken} von ${o.lead.groupSize}`:o.free===0?'voll':o.free+' frei'}${groupTag(o.list)?' · '+groupTag(o.list):''}</span></div>`;
+        if(!all.length){ empty.push(`${dayShort(s.d,'de-DE')} ${s.t.slice(0,5)}`); return; }
+        h += `<div class="card slotbox"><div class="sh"><span class="tm">${dayShort(s.d,'de-DE')} ${s.t}</span>${o.excl?`<span class="tag ex">Exklusiv</span>${dots(o.taken,o.pending,o.lead.groupSize)}`:dots(o.taken)}<span class="st" style="margin:0">${o.excl?`${o.taken} von ${o.lead.groupSize}`:o.free===0?'voll':o.free+' frei'}${groupTag(o.list)?' · '+groupTag(o.list):''}</span></div>`;
         all.forEach(b => {
           const gone = !active(b), kid = minor(b.jahr);
           const st = b.released ? 'freigegeben' : expired(b) ? 'verfallen (E-Mail nicht bestätigt)' : b.confirmed ? 'E-Mail bestätigt' : `vorläufig · E-Mail offen (noch ${Math.max(0,Math.ceil((b.ts+24*HOUR-now())/HOUR))} h)`;
@@ -563,15 +693,15 @@
             `<div class="bk2">${st}${b.mode==='excl'?(b.approved?' · von Serdar bestätigt':' · <b>Freigabe durch Serdar offen</b>'):''}</div>`+
             (gone ? '' : `<div class="acts">${b.mode==='excl'&&!b.approved?`<button type="button" class="linkbtn" data-adm="approve" data-id="${b.id}">Bestätigen</button>`:''}<button type="button" class="linkbtn" data-adm="release" data-id="${b.id}">Platz freigeben</button></div>`)+'</div>';
         });
-        if(o.lead && !o.released) for(let i=0;i<o.pending;i++) h += `<div class="bk pend">Reserviert für Einladung · bis ${fmt(deadline(o.lead))}</div>`;
+        if(o.lead && !o.released) for(let i=0;i<o.pending;i++) h += `<div class="bk pend">Reserviert für Einladung · bis ${fmt(deadline(o.lead),'de-DE')}</div>`;
         if(o.released) h += `<div class="bk pend">Einladungsfrist abgelaufen · offene Plätze freigegeben</div>`;
         h += '</div>';
       });
       if(empty.length) h += `<p class="emptyl"><b style="font-weight:500">Noch ohne Anmeldung (${empty.length}):</b> ${empty.join(' · ')}</p>`;
       const w = DB.wait.filter(x => slotById(x.slot).club===c);
-      h += `<div class="card block" style="margin-top:12px"><h3>Warteliste</h3>${w.length ? w.map(x => { const s = slotById(x.slot); return `<div class="bk"><b>${DS[s.d]} ${s.t}</b> · ${esc(x.email)} · ${fmt(x.ts)}</div>`; }).join('') : '<p class="hint">Leer</p>'}</div>`;
+      h += `<div class="card block" style="margin-top:12px"><h3>Warteliste</h3>${w.length ? w.map(x => { const s = slotById(x.slot); return `<div class="bk"><b>${dayShort(s.d,'de-DE')} ${s.t}</b> · ${esc(x.email)} · ${fmt(x.ts,'de-DE')}</div>`; }).join('') : '<p class="hint">Leer</p>'}</div>`;
     });
-    return h + `</div>` + footer(`<a href="${base()}">Zur Anmeldeseite</a> · <a href="#" data-act="logout">Abmelden</a> · `);
+    return h + `</div>` + footer(`<a href="${homeUrl()}">Zur Anmeldeseite</a> · <a href="#" data-act="logout">Abmelden</a> · `);
   }
 
   function postHeight(){
@@ -580,10 +710,13 @@
     try{ window.parent.postMessage({type:'st-height', height:h}, '*'); }catch(e){}
   }
   function render(){
-    if(ADMIN){ app.innerHTML = vAdmin(); requestAnimationFrame(postHeight); return; }
-    if(INVITE){ app.innerHTML = vInvite(); requestAnimationFrame(postHeight); return; }
+    document.documentElement.lang = LANG_META[LANG].html;
+    const sw = langSwitcher();
+    if(ADMIN){ app.innerHTML = sw + vAdmin(); requestAnimationFrame(postHeight); return; }
+    document.title = t('doc_title');
+    if(INVITE){ app.innerHTML = sw + vInvite(); requestAnimationFrame(postHeight); return; }
     const body = S.step===5 ? vDone() : (closed() ? vClosed() : S.step===1?vClub():S.step===2?vSlots():S.step===3?vMode():vDetails());
-    app.innerHTML = header('Sommersaison 2027','Anmelden',SUB) + (S.step<5 && !closed()?stepper():'') + body + footer();
+    app.innerHTML = sw + header(t('season_eyb'), t('signup'), seasonSub()) + (S.step<5 && !closed()?stepper():'') + body + footer();
     requestAnimationFrame(postHeight);
   }
 
@@ -602,8 +735,8 @@
     const chk = ['agb','ds'].concat(kid?['pc']:[]).filter(k => !st[k]);
     ['agb','ds','pc'].forEach(k => { const el = document.getElementById('c-'+k); if(el) el.classList.toggle('bad', chk.indexOf(k)>-1); });
     let msg = '';
-    if(bad.length) msg = 'Bitte prüfe die markierten Felder.';
-    else if(chk.length) msg = 'Bitte bestätige ' + (chk.length>1 ? 'die Kästchen.' : 'das markierte Kästchen.');
+    if(bad.length) msg = t('err_fields');
+    else if(chk.length) msg = chk.length>1 ? t('err_checks') : t('err_check');
     document.getElementById('err').textContent = msg;
     if(msg){ const f = document.querySelector('.bad input, input.bad, select.bad'); if(f) f.focus(); return false; }
     return true;
@@ -614,8 +747,8 @@
     if(closed()) { render(); return; }
     if(!validate(S)) return;
     const o = occ(S.slot), err = document.getElementById('err'), p = person(S);
-    if(S.mode==='excl' ? o.taken>0 : o.free<1){ err.textContent = 'Dieser Termin wurde gerade belegt. Bitte wähle einen anderen.'; return; }
-    if(S.mode==='excl' && DB.book.some(b => b.mode==='excl' && active(b) && b.email===p.email)){ err.textContent = 'Mit dieser E-Mail gibt es schon eine exklusive Buchung.'; return; }
+    if(S.mode==='excl' ? o.taken>0 : o.free<1){ err.textContent = t('err_taken'); return; }
+    if(S.mode==='excl' && DB.book.some(b => b.mode==='excl' && active(b) && b.email===p.email)){ err.textContent = t('err_excl_email'); return; }
     const size = S.mode==='excl' ? S.size : Math.min(MAX, o.taken+1);
     const b = Object.assign({id:'b'+Date.now(), slot:S.slot, club:S.club, mode:S.mode, member:S.club==='htv'&&S.member, confirmed:false, ts:now(), pp:T(S.club,S.member)[size]}, p);
     if(S.mode==='excl'){ b.groupSize = S.size; b.code = genCode(); b.approved = false; }
@@ -632,7 +765,7 @@
     IV.done = b; render(); window.scrollTo(0,0);
   }
   function copy(url, el){
-    const ok = () => { el.textContent = 'Link kopiert ✓'; setTimeout(() => { el.textContent = 'Link kopieren'; }, 2000); };
+    const ok = () => { el.textContent = t('link_copied'); setTimeout(() => { el.textContent = t('copy_link'); }, 2000); };
     const fb = () => { const ta = document.createElement('textarea'); ta.value = url; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta); ok(); };
     if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(ok, fb); else fb();
   }
@@ -649,6 +782,9 @@
   });
   app.addEventListener('click', e => {
     const t = e.target, a = t.closest('[data-act]'), act = a && a.getAttribute('data-act');
+    if(!t.closest('.langsw')){ const menu=document.getElementById('langmenu'); if(menu && !menu.hidden){ menu.hidden=true; const b=document.querySelector('.langbtn'); if(b) b.setAttribute('aria-expanded','false'); } }
+    if(act==='langtoggle'){ const menu = document.getElementById('langmenu'), btn = a; const open = menu && menu.hidden; if(menu){ menu.hidden = !open; } if(btn) btn.setAttribute('aria-expanded', open?'true':'false'); return; }
+    if(act==='lang'){ if(S.step===4 || INVITE) grab(INVITE?IV:S); setLang(a.getAttribute('data-lang')); render(); return; }
     if(act==='maps'){ e.preventDefault(); const box = document.getElementById('mappick'); if(box) box.hidden = !box.hidden; return; }
     if(act==='login'){ if(document.getElementById('pw').value==='demo'){ sessionStorage.setItem('st_admin','1'); render(); } else document.getElementById('err').textContent = 'Falsches Passwort.'; return; }
     if(act==='logout'){ e.preventDefault(); sessionStorage.removeItem('st_admin'); render(); return; }
@@ -675,11 +811,12 @@
     if(act==='ivsubmit'){ ivSubmit(); return; }
   });
 
+  setLang(LANG);
   if(!ADMIN && !INVITE){ try{ history.replaceState({step:1}, '', location.pathname+location.search); }catch(e){} }
   window.addEventListener('resize', postHeight);
   if(window.ResizeObserver) try{ new ResizeObserver(postHeight).observe(document.body); }catch(e){}
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(postHeight).catch(()=>{});
-  window.__ST = { get S(){ return S; }, get IV(){ return IV; }, get DB(){ return DB; }, setDB(d){ DB = d; save(); }, render, go, occ, T, MEMBER, GUEST, WEEKS, MAX, eur, eurS, feeNote, ptab, priceBox, slotById, SLOTS, save, KEY, CLUBS, mapLinks, isAppleOS, postHeight };
+  window.__ST = { get S(){ return S; }, get IV(){ return IV; }, get DB(){ return DB; }, setDB(d){ DB = d; save(); }, get LANG(){ return LANG; }, get LOCALE(){ return LOCALE; }, setLang, t, render, go, occ, T, MEMBER, GUEST, WEEKS, MAX, eur, eurS, feeNote, ptab, priceBox, slotById, SLOTS, save, KEY, CLUBS, mapLinks, isAppleOS, postHeight };
   render();
 })();
 </script>
