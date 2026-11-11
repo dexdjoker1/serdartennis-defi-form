@@ -534,11 +534,11 @@
   const okIcon = '<div class="ok"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>';
 
   const blank = () => ({vorname:'',nachname:'',email:'',tel:'',birthDate:'',parent:''});
-  const S = {step:1, club:null, day:null, slot:null, mode:'group', size:2, member:true, level:'', f:blank(), agb:false, ds:false, pc:false, last:null, wl:null, wlDone:null};
+  const S = {step:1, club:null, day:null, slot:null, mode:'group', size:2, member:false, level:'', f:blank(), agb:false, ds:false, pc:false, last:null, wl:null, wlDone:null};
   const INVITE = (location.search.match(/[?&]invite=([A-Za-z0-9]+)/)||[])[1];
   const CONFIRM = (location.search.match(/[?&]confirm=([A-Za-z0-9.-]+)/)||[])[1];
   const CF = {state:CONFIRM?'loading':null, data:null};
-  const IV = {code: INVITE ? INVITE.toUpperCase() : null, member:true, level:'', f:blank(), agb:false, ds:false, pc:false, done:null};
+  const IV = {code: INVITE ? INVITE.toUpperCase() : null, member:false, level:'', f:blank(), agb:false, ds:false, pc:false, done:null};
   const app = document.getElementById('app');
   window.__S = S; window.__IV = IV;
 
