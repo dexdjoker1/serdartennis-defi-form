@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galerie</title>
+<style>
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAABPoAAwAAAAAJQgAABOXAAQBBgAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcMAZgAIEsCrtwrh8BNgIkA4NUC4FsAAQgBYMSByAbehwjkpPahJL9ZQKdIprqdwIbkoaimXu4WxI9+UJZbpd40u69Or4cJb+qf+LwfT5lr44iGRlS2xFER0aI7xGSzPrP632d+5Kve5M1K6ukEg+sereDUbQsZ2b/Qiz5A7/N/2P21gaCBSJCX0XoSypggAqtCNi1GfkGxirtrd3666JfRPkit/+yfb65/assJERD4VE6bd5J4UqB0EXTXDCZ+fHX2qL2pVXIq8bFi5qn80kOIaIw+X/6e37r7PvkgwTRB8ogwKbxkEoCizl+Uzd/juaizWWdFxBHUgr1P0A4+PnmfO3lM/tR5QdhhsbNsZCXu15fr/ch8Cn3CdMO0o7SYdoxCvvd5r7MH3EGAI7RTlgUSk5tOoa6gH3XKT3PWebh/y1ikTew+fGvKwEBYAwTz2vRklUWAqEDwH8hNzRoIhKf4HWfFXXTxTuQGY1MwEC6lqU8+AFqk+QBVoZQGqjLXWbGsKEG5Gh50ZK1uAPv+fi6/5yFb7mqbmJoHjUe3QQwSlWFYqL9HKNTti92sTHQ5Su0wQzWUBBihjV2OOPn72cylEM3jMNjaNUoePipEMc1RufSrD8AMybtMG5Yi2Tyc/45+3z+LIEMxGq7wkewRYrXc7JhgG2ZKGBqMzkNESiQ+l/P81qhlm0a1P+RLD1suBt9Q6Don6PD1sNKRLp0jAJU7T9yG0tu1r57adYNXR9GkniAmBNGfLzw7RVElTjZ92JbNu0zqjEBQ02oO5i/rkcHmWwXqPWWQSO0LovHGHvtb3KvwAb2C3zQJNjzMCPBcT0e0/W+AXvrzFDw6CFIVS6GIfrYBL1rs+lxCkOcpxFK1c3WK2gMkyCnk4nF4+DJneAhwgLUVF2LHbMqU20J2GI3lSRVLAkGuci375dD0N2/IEnem/8EhUuC5KmN99ij2P1wtXavyyaonPDJ2wesFYz4gb7Mf0oKuPg5iBFHs2HrMvLN3ohGcZx7zFG+cNGh78WSIz5mKzZP6Xxq9+3Li0Osc0TtJ6xzB/QTrV2SNUHj2t4pQZWNYJvuNTeX2iFJVr2lVWxbk6tjs2s5bnHbEauawQRkVxDX4zDpBm9DFaFx/en/9r6nJG/ng93nHimQ6Bxx740LEvjM31H8FuEMdzgTBrGhIZ+JZ46IA3fkcC+E8GedrDznO/NzGBdTvigBgyn0pN7AWTZMnrT/FlNIfNVpPuanpvlrXfxOvITuuc13TCOEYc0CLjbIfBT2LDaae5tYWXnPGmiwPhFMbCZtxZFQD0PDRN4ynDHhQBXHFcuuRziV2hnTxbbY/aRzks9ogrnvVD9S3GPWbq38a91wH3Fujo0Lm+F0yS6g67/clhJ9akReCySg/OFpen0+iqUrhsXpkspO4P0S1mhGTCv9yxzZ/PCtrD/w4N0JeVT4p/IKX/SrNTPEFRUvczr0iDyR7deVpCMgc5swIiaKIfShj+JI9QXqOVwmE3f8ifnr9TprhsogytTSdVGLVRQBAS/gQNUMvphCycl1BcZGm1+rHn/wp6b35LxzR64mL/hZgsxmTrEopu87MgbbK40/YfSL9aXOtZ+RVNyyf+pppayxAhr8TfXz8hG8fcnoqkdebmuwvyVlmngs6cB91ivIehcnDdlLE8E6R5jSVdI0q6LyyqzWp3CapKY3ex541lSsDm46FoeB2K54fr2HYDLcD91i4jDfIBPNEBwVcCKzSRozmSRmmRtaFmRWI3Re0fNNKnSMkgaVyIhAQKy0KxLKZLh4VS++r7iyhmQXSQAP99HVet6FmcW3ulgJ50jCR+UHK9aYJDSPjSdNAPmkLWRSjmN+mDOhXNWEO0rCRoW1AoaSYAouFrIrOeDWeuVAf1jxWUny5kpck0hbqFNN53eRe1HSrfybT6Q4ZDCd5lb3UrT6Sc4RT6288u44VXBMgGI0NiFR1sCqUpLHkHJJB27AgGZkN4AKDbgeM/ZnVMda09UQtc7eAPWBqlUlD3l2KOmHR4BlP5wju+0NHKYNBEkOOSS89hJBkItFt4PySwv5Ijw8NvW7Q6oYlcTCht1n28ExeXfVoAHxPoewYuZL6caRDtTgtyJTzvDbLHiuNRt3/IpTjTp9jqGvS0uKzSJ4zYZwwrmiuK38quH5PWY8spZly2Ony7vUmhSSppUh4eqK08zBotmynwWzX3fhqROAalfjAixgKPbNvzNYcHa5UXIGjSPVCKdmRM4iFofsim3RjWajwj11viqmktrBTLKHoOtJ7HA1GTZVgHeBtulkL/+kgVD6HX88jPikLfKTtOfDcbjwlOR/ze7/TYag1+JDXrOEvoYN7djB6TuYA9t7D+JODpfgKhiq39d78WrY23sBuzgEcBUMt/b1Yq42z+ZVYO6m6x3ZqG8+v6A8sNPhVbzXTyoKvy2NKsbx1GhxT21ZQD4/3xLQVO5fvI9IePqmIlqH5anQ+ugO41n6oeRLO5axiftqliGpsUQrkZRoc/NOF5bXv2fs+tjo9WmpSs3a+maaKmvTZEmRRKIrysvTRZOkxZI97/klykLUKgTMSoVV585rofOsfDSvVpk404MjU3KN6VxeaWa6GjMG0XGx/C2bX45ZPhsV44WYd6JdzLITSxPOr0+ftBLUGaIcxAUXBm84qnDHT9cTqyyesFpXU/Lh/TVb7M5wD2AehAvcpf2H7zAkhXliMC6dPq4zW00wcZZS2k+abgfNWF2yYdy1frxKz7T0k/qIVENd8YYnKjc+AeqUm/eG7t3sOnwOfLCzZZOevwmM/lEI3nr/UuRnrvHWFejYnvvT021nz/U8FJuH56bl0fZJBJnkYorcKMdRBDn6T5YLuOL+H96ZKgHrEYu6sUrZjND+oFIZwqAxn/aRbldTZ0e5qtBT7dLJU1u+dQG7Z6CmWu6k0nUsHl/3ou803yDLYZqq6MpGT6NP3VjkIxbNlZGjpGnimuMmLOmZ5EwscxxInjrJa/NPl3SVTLgnAk8/T3kB4i3i0/I8DFFTgWbUcJsHdnQ2jTYGGsZGv6Ow2XION4fPJnReHDnzABZyg0govw562g1EpqCcxapSSpG6Wk6uq81AWui81rs6VtncGFg0cPCKlMNmC0UcJleAZOeI2OBbF1Q3EWLWdXwCiiu1TGZJHV2jIUivJJPFKHjSyTHwxGJ7O0OpbGOI7WIex+j47+YijbpIzXhIJr+ZsfSMJItJFXPZbBGPwkCzs+DDmQkyl+Xoqi/AkfkOOtulrB8caJpouXJtgLhYozUrnAjTyBo4cuk2k83lM5lcIYuRI+RA2uA7a63v/LQE9G3qSuzCfNcOJaILz7/JhXfXoP6VbQ3lZb0Ol09ut+/JjGJTBoeII5ISiUOhDIuLIXW8HeNX6oXJk1r9IUcBMl1dqqD/OfqkgUjL1erVSk5/rQrV/TXYSgrDRm5ibUoiizZV0Dp3DY02r9S5brX27BwetcmxMQZzakvD8SLDIeeuse9+HN+nIq1g0TTCa/jknnhpGn57Gnw/tCFjaNefq/Nz7+7Cn+0487eGEL3SwkWYRc5MacYqRurIoOfTOfx8zX80ohoJBBO17/abk8SMi7QnbngA+8A4N6O3ty63YytnG3WULI4ZoTslKN1lRjhZOmrjLLbqXFubfUZvnHXC0sqSVn+0slJ/eElb9/Pqzy5he3ttbXtXXfkL5fCybPlx/eOVoKY91/c0wU8rjbhLa/Vrqe5VIHzZXZiBcC0shlMsYTptLIGmoihC+X11V1eYzNA9pdBXzImudxrn5GD2trNNGCeMrqy68el4d64npCfAy6eLWIX3Vh45WhvK7V3NLndof2rKdsIjeOkfJuvFQbL+QU4mlKZa4OW6L+qbulagfbLKxidXH1Zdf/hkrP7YB/6TCQ66cz5cc18n27WP3JDiP2+wzDkdORRTWfmcwTzncELcD8rtsSCMSomE4bKweDwri0T8sSutCA8EJ+m2BrauNdS96pXfyEJs3KfsLWRHU/1z9ZDbVbltlVQmbl6Tar8o89gl6S76VfP4/q/A2QMRwkj3qn9+I4JYc1B1nWrd0pbejtasNgq5JasV/u/fQhGZIvYSbGTKtpSE4pE4UUxRSo5KyOUY6smymhGXv+lgzEQmPigtVuyIF8VoUzlqAZJlqUfyIGGlcVXulq82wosr56VyhUgsV0jPe5ZLc7v6OGrVNo68q3QZrq38t3Lqv5W9twm3CMCdW723sjjw/dj383B9dW9XnCfu8PCW7i3w5d5HY4+Ovmf5sHR279ejXx991/yhHupXHj/5k/un/z95dA93Nxdea81ue7+G9RbiLgI24Q43tXe3t/xlg2cuR73uGov6zAWuB3+1PJib/oLlpcnv1o3MD3Zqtg6upA4rh+G7y/bPXU2AqRL2N6FSrpFyRe0hePKXzFSupEkqHNBeIqfKRCmpqYLkNBmVmqYQph7EyiyjwWMwUzjShDBhn1YrHGiSJprJV9Xuz9whSZM6SZhctglT0uR6r1wgYAokSLcLU4X2dUs0zhHHBuO+S2OEHFSnUaO6HO1m5b4NpaOVDk23BO3TmQKabZk20pMBE59NFOw3UT5j0PxuSL1Ze5RyEVOFEe7bqB51lGu2SST9Wh3a34sWqHtE4p78qVQ/JZ9Fl3DbQXjVdm3iGq+ZF+totrR4t2GaMzfawEA1kZfUHlIep6NbUtK2tzbIvGNRRqRzlDKFbslM42jAijy1RVcf6XGJ1yk2JrNKibqpQoEkK1soEVLdn7n/my9NY4Gjuq5Sk5MP/YoFBDcBKqqrLyfiJ416jZbbnobZHzviBs/1x/9Ps1tceXT1p/W/xMDLnx7O6DNgXKT29DSgbqpAIM7KEooF1FFsthOCWzRXlEoTVDAvLjuycuBdSudLiyYIPCn0ki6NDo8Ct0tk/Vqtor9fotFYqthPMrd/QJKf3ClMSpUz1AVFOTmaIrVaJX3h8X95arC/NY6R8rDYTXVrkqY6F+4S97VKpWw98aLMQ/UUXTJlsiUtMlF/4SUKXi5MTklmA15Go+EVBA+iEfWGx/+FFGTX44MScvLWuQluHbweWE3mFmI9vEp82kubt1bd/lCVgAgQEl1Zli4qby3zKxzB+ONTdmyO7Tl3K6/IFvqTbyNBCF9eDY09gRG0lVw4EyJsFo57xnuaQY0neCTzujSaoJyJVClQN8UnQPAXpEB6344Te57Hn3oOvxfoBYRZ/D77gH1g/xx+wrZYubjbuWBbgPbG0/bTey+vvxpztOFUxam9V2KurQcdfn0zeU97zAdbj0wMTA3Ag6bfmvc2/oD+0LyzEWpnfwpJJgSqgkzpKqMuD20jcNmxAYVBAcYkBg2VeytoYiY2wBgSULg14T0MoR3NM+pUxCBToAqfHPITfNThmfWAiRySjGePJRraCZj3ErZmIMQOy6SJFd5yGspI+oCgQCybS2jrxqQLBEe1QOYbDGi894XasOgtmTxXpNV4LPrkrucbG7LKAZnV2thY3QwcO1bEHrmZ4dv7R/Ulcy5XA2UDh7NndpZShxXSJ0xGKhrO1ZdCJBlN9kMKPU9VzkIcYjHilBvGy6svikS7T3uwJLqQz6cLSJgXdnRHSusKVLDWNT09NaXXT0273Tl1j9SAR3t6J9DsbHsbolXUkhFNJuV2uTAlJKpyQblFpOLkNZislhZbUMlo8moKThkbK4wsjJVxMhNxEc8vbkwao3Dd2RvdyVB3rA3TBgyvmTavNrCu7Kr+ywoXb+7OuG3qry55Vb3/+qhKd925uyE/dWopkzPt70FbOy73Yau1hejG0PCNaKFuf1Yub29vPdeOrZyZ1JKzOGbWzjuF72wMD934TuHdnRa5WSe+/Wk70QbgrQUAVgSAABHA61uqCJt3kLew1w+Q6V/xWKxuc9M0V5DHsR/FM2MvC0LBJ/sMqNB8zj4sIF4nzE3BifDeKXnXgDce1WyCbnDc1wBAOsK+2wzi/Ye3Y8PfXX6PheZna9tvC/D+OwNwMblvRRAJ7SUT798q6wdY3djv+KCaMyXidk86wguA7/xn3o44LD7nX/j4fAUA3v49GQGA916O2z8f/7MsX7xExld6/41w/x2QHjciSX8gaBmJilr3M2ffAq8PhtVIPu22NIFxOPtAwYBzX/I+V20f/ej8QdycAv+KSEo6XyDuC8mNYKxKUlzEimW0R2ZD1PVBS4JrUHZNBAsA4sTwyaj7hDWW0rbAXltJe94WzYDQA4DrBWjrAKI9j8nboGdLat9On2NRJ7cmNCpGrRBiQP9DzYaWAKYVop4SfgFs6JyUeoTER90PRvvZ2X2vrhMSzwbVi4DgliRajqbvigCVHSu1/sb2qPYyqfP+NJkZ0rUJ6FN722BZEIm83RKcKHVDNocvjl+x4JMroFiBmfjtUyn7W90YihDITwPjd/quCY1CWDjQfIDtaTiqzHz+FrpYpAKL671FfY7ZYouRtg8kiHJxT4roGuJJsDEmKS8AraaEauF/0rzFIxjADsAHOkAAfRfwuoIAMtu9HOIFY26It3D3hvjgenlFX3iIn+CFO/WH2SYi9Rp0alLJyaVF2UBF3mkYRTehgmkIaEPeUKf5kTYxrQqzcmJNoFWo686aIJYmhLao9WbZMifuVAmKGr0MSXlBawNopDnUQ6tjT6OdFEXNqvFqtUIVDHMqzGlNTgvOmlPr/r3ZNJErIqHGhmFCcDAdCRlZesogHqKxjTxD9YHG9d8VVAA=) format('woff2')}
+  :root{--dark:#3D3A36;--olive:#5E6D55;--cream:#F3E8D8;--sand:#D9CDB8;--tan:#B39B72;--grey:#7A746C}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--dark);font-family:'Avenir Next','Avenir','Segoe UI',Montserrat,Helvetica,Arial,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow:hidden}
+  html,body{scrollbar-width:none;-ms-overflow-style:none}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
+  .wrap{max-width:960px;margin:0 auto;padding:20px 16px}
+  .eyebrow{font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--tan)}
+  h2{font-family:Poppins,sans-serif;font-weight:600;font-size:22px;line-height:30px;margin:4px 0 0}
+  h2:after{content:"";display:block;width:40px;height:2px;background:var(--olive);margin-top:10px}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px;margin-top:20px}
+  .t{position:relative;display:block;border:0;padding:0;border-radius:12px;overflow:hidden;background:var(--sand);cursor:zoom-in;box-shadow:0 4px 18px rgba(61,58,54,.08);-webkit-tap-highlight-color:transparent}
+  .t img{display:block;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.001);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .t img.ok{opacity:1}
+  .t:after{content:"";position:absolute;inset:0;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(61,58,54,.06);background:linear-gradient(180deg,rgba(61,58,54,0) 60%,rgba(61,58,54,.18));opacity:0;transition:opacity .3s}
+  .t:hover img{transform:scale(1.05)}
+  .t:hover:after{opacity:1}
+  .t:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
+  .more{display:none}
+.langsw{position:relative;display:flex;justify-content:flex-end;margin:0 0 10px;z-index:40}
+.langbtn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:20px;padding:5px 10px 5px 8px;cursor:pointer;font-family:Poppins,'Avenir Next',Avenir,Montserrat,Helvetica,Arial,sans-serif;font-weight:600;font-size:12px;line-height:1.2;color:var(--dark,#3D3A36);box-shadow:0 2px 8px rgba(61,58,54,.05)}
+.langbtn:hover,.langbtn[aria-expanded="true"]{border-color:var(--olive,#5E6D55)}
+.langbtn svg{width:15px;height:15px;stroke:var(--olive,#5E6D55);fill:none;stroke-width:1.7;flex:0 0 auto}
+.langmenu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:14px;box-shadow:0 10px 28px rgba(61,58,54,.14);padding:6px;min-width:188px}
+.langmenu[hidden]{display:none}
+.langmenu button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:none;border:0;border-radius:10px;padding:7px 10px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:500;color:var(--dark,#3D3A36);text-align:left}
+.langmenu button .ln{color:#1A1A1A;font-weight:400;font-size:12.5px}
+.langmenu button.on{background:var(--cream,#F3E8D8);color:var(--olive,#5E6D55)}
+.langmenu button:hover{background:var(--cream,#F3E8D8)}
+@media (max-width:640px){.langbtn{font-size:11.5px;padding:4px 9px 4px 7px}}
+  .wrap>.langsw{margin:0 0 8px}
+
+
+  /* Lightbox, inside the iframe */
+  .lb{position:fixed;inset:0;z-index:10;background:rgba(43,41,38,.96);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;touch-action:pan-y}
+  .lb.on{opacity:1;visibility:visible}
+  .lb figure{position:absolute;inset:56px 72px 52px;display:flex;align-items:center;justify-content:center}
+  .lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.35);transition:opacity .2s}
+  .lb img.ld{opacity:0}
+  .lb .cap{position:absolute;left:16px;right:16px;bottom:14px;text-align:center;color:#F3E8D8;font-size:14px;line-height:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lb .cnt{position:absolute;left:18px;top:18px;font-family:Poppins,sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;color:var(--tan)}
+  .lb button{position:absolute;border:0;background:rgba(243,232,216,.12);color:#F3E8D8;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+  .lb button:hover{background:rgba(243,232,216,.24)}
+  .lb button:focus-visible{outline:2px solid var(--tan);outline-offset:2px}
+  .lb svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .lb .x{top:8px;right:10px}
+  .lb .pv{left:14px;top:50%;margin-top:-22px}
+  .lb .nx{right:14px;top:50%;margin-top:-22px}
+
+  @media (max-width:640px){
+    .wrap{padding:12px 10px}
+    h2{font-size:20px}
+    .grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:8px;margin-top:16px}
+    .t,.t:after{border-radius:10px}
+    .t:nth-child(n+9){display:none}
+    .t:nth-child(8) .more{display:flex;position:absolute;inset:0;z-index:1;align-items:center;justify-content:center;background:rgba(61,58,54,.55);color:#fff;font-family:Poppins,sans-serif;font-weight:600;font-size:22px;letter-spacing:1px}
+    .lb figure{inset:56px 8px 64px}
+    .lb .pv,.lb .nx{top:auto;bottom:8px;margin-top:0}
+    .lb .pv{left:10px}.lb .nx{right:10px}
+    .lb .cap{left:64px;right:64px;bottom:19px;font-size:13px;white-space:normal;line-height:17px;max-height:34px}
+  }
+  @media (max-width:350px){h2{font-size:18px}.grid{grid-auto-rows:140px}}
+  @media (prefers-reduced-motion:reduce){.t img,.lb,.lb img{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <div class="eyebrow" data-i18n="eyebrow">Galerie</div>
+  <h2 data-i18n="title">Eindrücke</h2>
+  <div class="grid" id="grid"><button class="t" type="button" data-i="0" aria-label="Foto 1 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_13a453af6a594c6fa91886bbf0b15ae6~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Training mit Serdar auf dem Hartplatz" width="600" height="600"></button><button class="t" type="button" data-i="1" aria-label="Foto 2 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_7d80185ccc0c417e96d40a3fbebedf87~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Serdar beim Aufschlag in der Halle" width="600" height="600"></button><button class="t" type="button" data-i="2" aria-label="Foto 3 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_05f6e41c8e604582ab791fc1a0379f79~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Kind mit Tennisschläger auf dem Sandplatz" width="600" height="600"></button><button class="t" type="button" data-i="3" aria-label="Foto 4 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_4e4613f032f0414fa1858b6749b23ef2~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Trainer und Kind klatschen sich am Netz ab" width="600" height="600"></button><button class="t" type="button" data-i="4" aria-label="Foto 5 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_8aed9b3d68ce4a23a1eb621d13f0f4ce~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Ballwurf-Übung mit Serdar" width="600" height="600"></button><button class="t" type="button" data-i="5" aria-label="Foto 6 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_0582fc6a6ff84e1db4d4050b8a258ee4~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Trainer hilft einem Kind am Netz" width="600" height="600"></button><button class="t" type="button" data-i="6" aria-label="Foto 7 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_5ed5a93a14b64ccb88807835d096fce1~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Kleine Spielerin auf dem Sandplatz" width="600" height="600"></button><button class="t" type="button" data-i="7" aria-label="Foto 8 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_6c2a70a30ded4f298100984a794df0f4~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Trainer mit Tennisschläger auf dem Sandplatz" width="600" height="600"></button><button class="t" type="button" data-i="8" aria-label="Foto 9 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_e8535392b3464d72be6e6fd93c4a3e61~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Kind und Trainer beim Tennistraining auf dem Sandplatz" width="600" height="600"></button><button class="t" type="button" data-i="9" aria-label="Foto 10 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_de1f9ad265264c9ea9a8048115f435db~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Trainer mit Kindern an der Bank am Platzrand" width="600" height="600"></button><button class="t" type="button" data-i="10" aria-label="Foto 11 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_52a8d552476044bbb0af2ecf94f5c2d0~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Selfie mit Serdar auf dem Sandplatz" width="600" height="600"></button><button class="t" type="button" data-i="11" aria-label="Foto 12 vergrößern"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/95dc47_515d361c6dc045948432bdee96bd87b6~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_80,enc_auto/foto.jpg" alt="Tennistraining auf dem Hartplatz" width="600" height="600"></button></div>
+</div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ansehen" aria-hidden="true">
+  <div class="cnt" id="cnt"></div>
+  <figure><img id="big" alt=""></figure>
+  <div class="cap" id="cap"></div>
+  <button class="pv" id="pv" type="button" aria-label="Vorheriges Foto"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="nx" id="nx" type="button" aria-label="Nächstes Foto"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <button class="x" id="x" type="button" aria-label="Schließen"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<script>
+/* ST i18n core (shared pattern with anmelden.html) */
+var ST_LANGS=['de','en','tr','ja','zh','uk'];
+var LANG_META={
+  de:{locale:'de-DE',html:'de',label:'DE',name:'Deutsch'},
+  en:{locale:'en-GB',html:'en',label:'EN',name:'English'},
+  tr:{locale:'tr-TR',html:'tr',label:'TR',name:'Türkçe'},
+  ja:{locale:'ja-JP',html:'ja',label:'日本語',name:'日本語'},
+  zh:{locale:'zh-CN',html:'zh-CN',label:'中文',name:'简体中文'},
+  uk:{locale:'uk-UA',html:'uk',label:'УКР',name:'Українська'}
+};
+var LANG_KEY='serdartennis_lang';
+function normLang(s){ if(!s) return null; s=String(s).toLowerCase().replace(/_/g,'-'); var b=s.split('-')[0]; return LANG_META[b]?b:null; }
+function detectLang(){
+  var q=(location.search.match(/[?&]lang=([a-zA-Z-]+)/)||[])[1]; var fq=normLang(q); if(fq) return fq;
+  try{ var sv=localStorage.getItem(LANG_KEY); if(sv&&LANG_META[sv]) return sv; }catch(e){}
+  var nav=[].concat(navigator.languages||[],navigator.language||[]);
+  for(var i=0;i<nav.length;i++){ var k=normLang(nav[i]); if(k) return k; }
+  return 'de';
+}
+var LANG=detectLang(), LOCALE=LANG_META[LANG].locale;
+document.documentElement.lang=LANG_META[LANG].html;
+function setLang(l,persist){
+  if(!LANG_META[l]) l='de'; LANG=l; LOCALE=LANG_META[l].locale; document.documentElement.lang=LANG_META[l].html;
+  if(persist!==false){ try{ localStorage.setItem(LANG_KEY,l); }catch(e){} }
+  try{ var u=new URL(location.href); u.searchParams.set('lang',l); history.replaceState(history.state,'',u.pathname+u.search+u.hash); }catch(e){}
+}
+function T(key,vars){
+  var p=I18N[LANG]||I18N.de, s=p[key]; if(s==null) s=I18N.de[key]; if(s==null) return key;
+  if(vars) s=s.replace(/\{(\w+)\}/g,function(_,k){ return vars[k]==null?'':vars[k]; });
+  return s;
+}
+function stEsc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function eurFmt(cents,min){ var v=cents/100; return new Intl.NumberFormat(LOCALE,{style:'currency',currency:'EUR',currencyDisplay:'narrowSymbol',minimumFractionDigits:min==null?2:min,maximumFractionDigits:min==null?2:(v%1?2:min)}).format(v); }
+function dateFmt(y,m,d,opt){ return new Intl.DateTimeFormat(LOCALE,Object.assign({timeZone:'UTC'},opt)).format(new Date(Date.UTC(y,m-1,d))); }
+function applyStatic(root){
+  (root||document).querySelectorAll('[data-i18n]').forEach(function(e){ e.textContent=T(e.getAttribute('data-i18n')); });
+  (root||document).querySelectorAll('[data-i18n-html]').forEach(function(e){ e.innerHTML=T(e.getAttribute('data-i18n-html')); });
+}
+var ST_ON_LANG=function(){};
+function mountLangSwitcher(host){
+  var w=document.createElement('div'); w.className='langsw';
+  function build(){
+    var m=LANG_META[LANG];
+    w.innerHTML='<button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-label="'+stEsc(T('lang_label'))+'"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>'+m.label+'</span></button><div class="langmenu" hidden role="listbox">'+
+      ST_LANGS.map(function(k){ var x=LANG_META[k]; return '<button type="button" role="option" class="'+(k===LANG?'on':'')+'" data-lang="'+k+'" aria-selected="'+(k===LANG)+'" lang="'+x.html+'"><span>'+x.label+'</span><span class="ln">'+x.name+'</span></button>'; }).join('')+'</div>';
+  }
+  function close(){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); if(mn&&!mn.hidden){ mn.hidden=true; b.setAttribute('aria-expanded','false'); } }
+  w.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=e.target.closest('[data-lang]');
+    if(o){ var l=o.getAttribute('data-lang'); close(); if(l!==LANG){ setLang(l); build(); ST_ON_LANG(); } return; }
+    if(e.target.closest('.langbtn')){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); mn.hidden=!mn.hidden; b.setAttribute('aria-expanded',String(!mn.hidden)); }
+  });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  window.addEventListener('storage',function(e){ if(e.key===LANG_KEY&&LANG_META[e.newValue]&&e.newValue!==LANG){ setLang(e.newValue,false); build(); ST_ON_LANG(); } });
+  build(); host.insertBefore(w,host.firstChild);
+  return {rebuild:build};
+}
+var stLastH=0;
+function stPostHeight(){ try{ var h=Math.ceil(document.documentElement.scrollHeight); if(Math.abs(h-stLastH)<2) return; stLastH=h; window.parent.postMessage({type:'st-height',height:h},'*'); }catch(e){} }
+function stFit(sel,ratio){
+  document.querySelectorAll(sel).forEach(function(e){
+    e.style.fontSize=''; if(!e.offsetParent) return; var fs=parseFloat(getComputedStyle(e).fontSize), min=fs*(ratio||0.85);
+    while(e.scrollWidth>e.clientWidth+0.5 && fs>min){ fs-=0.25; e.style.fontSize=fs+'px'; }
+  });
+}
+var I18N={"de": {"lang_label": "Sprache wählen", "eyebrow": "Galerie", "title": "Eindrücke", "zoom": "Foto {n} vergrößern", "view": "Foto ansehen", "prev": "Vorheriges Foto", "next": "Nächstes Foto", "close": "Schließen"}, "en": {"lang_label": "Choose language", "eyebrow": "Gallery", "title": "Impressions", "zoom": "Enlarge photo {n}", "view": "View photo", "prev": "Previous photo", "next": "Next photo", "close": "Close"}, "tr": {"lang_label": "Dil seçin", "eyebrow": "Galeri", "title": "İzlenimler", "zoom": "{n}. fotoğrafı büyüt", "view": "Fotoğrafı görüntüle", "prev": "Önceki fotoğraf", "next": "Sonraki fotoğraf", "close": "Kapat"}, "ja": {"lang_label": "言語を選択", "eyebrow": "ギャラリー", "title": "トレーニングの様子", "zoom": "写真{n}を拡大", "view": "写真を表示", "prev": "前の写真", "next": "次の写真", "close": "閉じる"}, "zh": {"lang_label": "选择语言", "eyebrow": "相册", "title": "精彩瞬间", "zoom": "放大照片{n}", "view": "查看照片", "prev": "上一张", "next": "下一张", "close": "关闭"}, "uk": {"lang_label": "Обрати мову", "eyebrow": "Галерея", "title": "Враження", "zoom": "Збільшити фото {n}", "view": "Переглянути фото", "prev": "Попереднє фото", "next": "Наступне фото", "close": "Закрити"}};
+var ALT={"de": ["Training mit Serdar auf dem Hartplatz", "Serdar beim Aufschlag in der Halle", "Kind mit Tennisschläger auf dem Sandplatz", "Trainer und Kind klatschen sich am Netz ab", "Ballwurf-Übung mit Serdar", "Trainer hilft einem Kind am Netz", "Kleine Spielerin auf dem Sandplatz", "Trainer mit Tennisschläger auf dem Sandplatz", "Kind und Trainer beim Tennistraining auf dem Sandplatz", "Trainer mit Kindern an der Bank am Platzrand", "Selfie mit Serdar auf dem Sandplatz", "Tennistraining auf dem Hartplatz"], "en": ["Training with Serdar on the hard court", "Serdar serving indoors", "Child with a tennis racket on the clay court", "Coach and child high-fiving at the net", "Ball-throwing drill with Serdar", "Coach helping a child at the net", "Young player on the clay court", "Coach with a tennis racket on the clay court", "Child and coach during tennis training on the clay court", "Coach with children at the bench by the court", "Selfie with Serdar on the clay court", "Tennis training on the hard court"], "tr": ["Sert kortta Serdar ile antrenman", "Serdar salonda servis atarken", "Toprak kortta tenis raketli bir çocuk", "Antrenör ve çocuk filede çak yapıyor", "Serdar ile top atma alıştırması", "Antrenör filede bir çocuğa yardım ediyor", "Toprak kortta küçük bir oyuncu", "Toprak kortta raketiyle antrenör", "Toprak kortta tenis antrenmanında çocuk ve antrenör", "Kort kenarındaki bankta çocuklarla antrenör", "Toprak kortta Serdar ile selfie", "Sert kortta tenis antrenmanı"], "ja": ["ハードコートでSerdarとトレーニング", "屋内でサーブを打つSerdar", "クレーコートでラケットを持つ子ども", "ネット際でハイタッチするコーチと子ども", "Serdarとのボール投げ練習", "ネット際で子どもをサポートするコーチ", "クレーコートの小さな選手", "クレーコートでラケットを持つコーチ", "クレーコートでテニスの練習をする子どもとコーチ", "コート脇のベンチで子どもたちと一緒のコーチ", "クレーコートでSerdarと自撮り", "ハードコートでのテニス練習"], "zh": ["与Serdar在硬地场训练", "Serdar在室内发球", "红土场上拿着网球拍的孩子", "教练和孩子在网前击掌", "与Serdar一起做抛球练习", "教练在网前帮助孩子", "红土场上的小球员", "红土场上拿着网球拍的教练", "孩子和教练在红土场上进行网球训练", "教练和孩子们在场边长椅旁", "在红土场上与Serdar自拍", "硬地场上的网球训练"], "uk": ["Тренування із Serdar на харді", "Serdar подає в залі", "Дитина з тенісною ракеткою на ґрунтовому корті", "Тренер і дитина плескають долонями біля сітки", "Вправа з кидком м’яча із Serdar", "Тренер допомагає дитині біля сітки", "Юна тенісистка на ґрунтовому корті", "Тренер із ракеткою на ґрунтовому корті", "Дитина і тренер на тренуванні на ґрунтовому корті", "Тренер із дітьми біля лавки на краю корту", "Селфі із Serdar на ґрунтовому корті", "Тенісне тренування на харді"]};
+function ALT_T(i){ return (ALT[LANG]||ALT.de)[i]||ALT.de[i]; }
+(function(){
+  function render(){
+    applyStatic(); document.title=T('eyebrow');
+    document.querySelectorAll('#grid .t').forEach(function(t){ var i=+t.getAttribute('data-i'); t.setAttribute('aria-label',T('zoom',{n:i+1})); var im=t.querySelector('img'); if(im) im.alt=ALT_T(i); });
+    var lb=document.getElementById('lb'); lb.setAttribute('aria-label',T('view'));
+    document.getElementById('pv').setAttribute('aria-label',T('prev')); document.getElementById('nx').setAttribute('aria-label',T('next')); document.getElementById('x').setAttribute('aria-label',T('close'));
+    if(window.__stGalCur!=null && lb.classList.contains('on')){ var c=window.__stGalCur(); document.getElementById('cap').innerHTML=stEsc(ALT_T(c)).replace(/Serdar/g,'<span translate="no">Serdar</span>'); document.getElementById('big').alt=ALT_T(c); }
+    stPostHeight();
+  }
+  ST_ON_LANG=render; mountLangSwitcher(document.getElementById('wrap')); render();
+  window.addEventListener('resize',stPostHeight); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(stPostHeight);
+})();
+(function(){
+  var P=[{"id": "95dc47_13a453af6a594c6fa91886bbf0b15ae6~mv2.jpeg", "alt": "Training mit Serdar auf dem Hartplatz"}, {"id": "95dc47_7d80185ccc0c417e96d40a3fbebedf87~mv2.jpeg", "alt": "Serdar beim Aufschlag in der Halle"}, {"id": "95dc47_05f6e41c8e604582ab791fc1a0379f79~mv2.jpeg", "alt": "Kind mit Tennisschläger auf dem Sandplatz"}, {"id": "95dc47_4e4613f032f0414fa1858b6749b23ef2~mv2.jpeg", "alt": "Trainer und Kind klatschen sich am Netz ab"}, {"id": "95dc47_8aed9b3d68ce4a23a1eb621d13f0f4ce~mv2.jpeg", "alt": "Ballwurf-Übung mit Serdar"}, {"id": "95dc47_0582fc6a6ff84e1db4d4050b8a258ee4~mv2.jpeg", "alt": "Trainer hilft einem Kind am Netz"}, {"id": "95dc47_5ed5a93a14b64ccb88807835d096fce1~mv2.jpeg", "alt": "Kleine Spielerin auf dem Sandplatz"}, {"id": "95dc47_6c2a70a30ded4f298100984a794df0f4~mv2.jpeg", "alt": "Trainer mit Tennisschläger auf dem Sandplatz"}, {"id": "95dc47_e8535392b3464d72be6e6fd93c4a3e61~mv2.jpeg", "alt": "Kind und Trainer beim Tennistraining auf dem Sandplatz"}, {"id": "95dc47_de1f9ad265264c9ea9a8048115f435db~mv2.jpeg", "alt": "Trainer mit Kindern an der Bank am Platzrand"}, {"id": "95dc47_52a8d552476044bbb0af2ecf94f5c2d0~mv2.jpeg", "alt": "Selfie mit Serdar auf dem Sandplatz"}, {"id": "95dc47_515d361c6dc045948432bdee96bd87b6~mv2.jpeg", "alt": "Tennistraining auf dem Hartplatz"}];
+  var B='https://static.wixstatic.com/media/';
+  function big(i){return B+P[i].id+'/v1/fit/w_1600,h_1600,q_85,enc_auto/foto.jpg';}
+  var grid=document.getElementById('grid'),lb=document.getElementById('lb'),img=document.getElementById('big'),
+      cap=document.getElementById('cap'),cnt=document.getElementById('cnt'),cur=0,last=null,pre={};
+  var tiles=grid.querySelectorAll('.t');
+  for(var k=0;k<tiles.length;k++){
+    (function(t){
+      var im=t.querySelector('img');
+      if(im.complete&&im.naturalWidth) im.className='ok'; else im.onload=function(){im.className='ok';};
+      t.addEventListener('click',function(){last=t;open(+t.getAttribute('data-i'));});
+    })(tiles[k]);
+  }
+  // mobile "+N" badge on the last visible tile
+  var m=document.createElement('span');m.className='more';m.setAttribute('aria-hidden','true');m.textContent='+'+(P.length-8);
+  if(tiles[7]) tiles[7].appendChild(m);
+  function load(i){ if(!pre[i]){ var x=new Image(); x.src=big(i); pre[i]=x; } }
+  function show(i){
+    cur=(i+P.length)%P.length;
+    img.className='ld';
+    var s=big(cur); load(cur);
+    var done=function(){ if(img.getAttribute('src')===s) img.className=''; };
+    img.onload=done; img.src=s; img.alt=ALT_T(cur); if(img.complete) done();
+    cap.innerHTML=stEsc(ALT_T(cur)).replace(/Serdar/g,'<span translate="no">Serdar</span>');
+    cnt.textContent=(cur+1)+' / '+P.length;
+    load((cur+1)%P.length); load((cur-1+P.length)%P.length);
+  }
+  window.__stGalCur=function(){return cur;};
+  function open(i){ show(i); lb.classList.add('on'); lb.setAttribute('aria-hidden','false'); document.getElementById('x').focus(); }
+  function close(){ lb.classList.remove('on'); lb.setAttribute('aria-hidden','true'); if(last) last.focus(); }
+  document.getElementById('x').onclick=close;
+  document.getElementById('pv').onclick=function(e){e.stopPropagation();show(cur-1);};
+  document.getElementById('nx').onclick=function(e){e.stopPropagation();show(cur+1);};
+  lb.addEventListener('click',function(e){ if(e.target===lb||e.target.tagName==='FIGURE') close(); });
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('on')) return;
+    if(e.key==='Escape'){close();}
+    else if(e.key==='ArrowLeft'){show(cur-1);}
+    else if(e.key==='ArrowRight'){show(cur+1);}
+    else if(e.key==='Tab'){ // keep focus inside the lightbox
+      var f=[document.getElementById('pv'),document.getElementById('nx'),document.getElementById('x')],a=f.indexOf(document.activeElement);
+      e.preventDefault(); f[(a+(e.shiftKey?-1:1)+f.length)%f.length].focus();
+    }
+  });
+  var sx=null,sy=0;
+  lb.addEventListener('touchstart',function(e){ if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;} },{passive:true});
+  lb.addEventListener('touchend',function(e){
+    if(sx===null) return; var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy; sx=null;
+    if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)) show(cur+(dx<0?1:-1));
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

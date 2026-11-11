@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Defi Liga – Playoffs</title><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet"><style>html,body{margin:0;background:transparent;font-family:'Nunito Sans','Avenir',Arial,sans-serif}
+.br{display:grid;grid-template-columns:repeat(3,1fr);column-gap:48px;padding:4px 4px 8px}
+.c{display:flex;flex-direction:column}
+h4{margin:0 0 14px;color:#5E6D55;font:700 13px/1.3 Montserrat,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;text-align:left}
+.b{flex:1;display:flex;flex-direction:column}
+.p{flex:1;display:flex;flex-direction:column;justify-content:space-around;position:relative}
+.m{margin:7px 0;background:#D9CDB8;border:1px solid #D9CDB8;border-radius:4px;padding:16px 18px;box-sizing:border-box;min-height:64px;display:flex;flex-direction:column;justify-content:center}
+.m h3{margin:0;color:#3D3A36;font:700 16px/1.35 Montserrat,Arial,sans-serif}
+.m p{margin:6px 0 0;color:#1A1A1A;font-size:14px;font-weight:400;line-height:1.4}
+.f{border:2px solid #5E6D55}
+.c1 .p::after,.c2 .p::after{content:'';position:absolute;right:-24px;top:25%;height:50%;width:24px;border:1px solid #5E6D55;border-left:none;box-sizing:border-box}
+.c1 .p::before,.c2 .p::before{content:'';position:absolute;right:-48px;top:50%;width:24px;height:1px;background:#5E6D55}
+@media(max-width:620px){.br{grid-template-columns:1fr;row-gap:26px}.p{justify-content:flex-start}.c1 .p::after,.c2 .p::after,.c1 .p::before,.c2 .p::before{display:none}.m{margin:0 0 10px;border-left:3px solid #5E6D55;padding:14px 16px}.m h3{font-size:16px}.m p{font-size:16px}.f{border:2px solid #5E6D55}}
+.langsw{position:relative;display:flex;justify-content:flex-end;margin:0 0 10px;z-index:40}
+.langbtn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:20px;padding:5px 10px 5px 8px;cursor:pointer;font-family:Poppins,'Avenir Next',Avenir,Montserrat,Helvetica,Arial,sans-serif;font-weight:600;font-size:12px;line-height:1.2;color:var(--dark,#3D3A36);box-shadow:0 2px 8px rgba(61,58,54,.05)}
+.langbtn:hover,.langbtn[aria-expanded="true"]{border-color:var(--olive,#5E6D55)}
+.langbtn svg{width:15px;height:15px;stroke:var(--olive,#5E6D55);fill:none;stroke-width:1.7;flex:0 0 auto}
+.langmenu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:14px;box-shadow:0 10px 28px rgba(61,58,54,.14);padding:6px;min-width:188px}
+.langmenu[hidden]{display:none}
+.langmenu button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:none;border:0;border-radius:10px;padding:7px 10px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:500;color:var(--dark,#3D3A36);text-align:left}
+.langmenu button .ln{color:#1A1A1A;font-weight:400;font-size:12.5px}
+.langmenu button.on{background:var(--cream,#F3E8D8);color:var(--olive,#5E6D55)}
+.langmenu button:hover{background:var(--cream,#F3E8D8)}
+@media (max-width:640px){.langbtn{font-size:11.5px;padding:4px 9px 4px 7px}}
+.langsw{margin:0 4px 10px}</style></head><body><div id="top"></div><div class="br"><div class="c c1"><h4 id="hQF"></h4><div class="b"><div class="p"><div class="m"><h3 data-r="1,8"></h3></div><div class="m"><h3 data-r="4,5"></h3></div></div><div class="p"><div class="m"><h3 data-r="2,7"></h3></div><div class="m"><h3 data-r="3,6"></h3></div></div></div></div><div class="c c2"><h4 id="hSF"></h4><div class="b"><div class="p"><div class="m"><h3 data-w="1,2"></h3></div><div class="m"><h3 data-w="3,4"></h3></div></div></div></div><div class="c c3"><h4 data-k="f"></h4><div class="b"><div class="p"><div class="m f"><h3 id="fin"></h3><p data-k="prize"></p></div></div></div></div></div>
+<script>
+(function(){
+/* ST i18n core (shared pattern with anmelden.html) */
+var ST_LANGS=['de','en','tr','ja','zh','uk'];
+var LANG_META={
+  de:{locale:'de-DE',html:'de',label:'DE',name:'Deutsch'},
+  en:{locale:'en-GB',html:'en',label:'EN',name:'English'},
+  tr:{locale:'tr-TR',html:'tr',label:'TR',name:'Türkçe'},
+  ja:{locale:'ja-JP',html:'ja',label:'日本語',name:'日本語'},
+  zh:{locale:'zh-CN',html:'zh-CN',label:'中文',name:'简体中文'},
+  uk:{locale:'uk-UA',html:'uk',label:'УКР',name:'Українська'}
+};
+var LANG_KEY='serdartennis_lang';
+function normLang(s){ if(!s) return null; s=String(s).toLowerCase().replace(/_/g,'-'); var b=s.split('-')[0]; return LANG_META[b]?b:null; }
+function detectLang(){
+  var q=(location.search.match(/[?&]lang=([a-zA-Z-]+)/)||[])[1]; var fq=normLang(q); if(fq) return fq;
+  try{ var sv=localStorage.getItem(LANG_KEY); if(sv&&LANG_META[sv]) return sv; }catch(e){}
+  var nav=[].concat(navigator.languages||[],navigator.language||[]);
+  for(var i=0;i<nav.length;i++){ var k=normLang(nav[i]); if(k) return k; }
+  return 'de';
+}
+var LANG=detectLang(), LOCALE=LANG_META[LANG].locale;
+document.documentElement.lang=LANG_META[LANG].html;
+function setLang(l,persist){
+  if(!LANG_META[l]) l='de'; LANG=l; LOCALE=LANG_META[l].locale; document.documentElement.lang=LANG_META[l].html;
+  if(persist!==false){ try{ localStorage.setItem(LANG_KEY,l); }catch(e){} }
+  try{ var u=new URL(location.href); u.searchParams.set('lang',l); history.replaceState(history.state,'',u.pathname+u.search+u.hash); }catch(e){}
+}
+function T(key,vars){
+  var p=I18N[LANG]||I18N.de, s=p[key]; if(s==null) s=I18N.de[key]; if(s==null) return key;
+  if(vars) s=s.replace(/\{(\w+)\}/g,function(_,k){ return vars[k]==null?'':vars[k]; });
+  return s;
+}
+function stEsc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function eurFmt(cents,min){ var v=cents/100; return new Intl.NumberFormat(LOCALE,{style:'currency',currency:'EUR',currencyDisplay:'narrowSymbol',minimumFractionDigits:min==null?2:min,maximumFractionDigits:min==null?2:(v%1?2:min)}).format(v); }
+function dateFmt(y,m,d,opt){ return new Intl.DateTimeFormat(LOCALE,Object.assign({timeZone:'UTC'},opt)).format(new Date(Date.UTC(y,m-1,d))); }
+function applyStatic(root){
+  (root||document).querySelectorAll('[data-i18n]').forEach(function(e){ e.textContent=T(e.getAttribute('data-i18n')); });
+  (root||document).querySelectorAll('[data-i18n-html]').forEach(function(e){ e.innerHTML=T(e.getAttribute('data-i18n-html')); });
+}
+var ST_ON_LANG=function(){};
+function mountLangSwitcher(host){
+  var w=document.createElement('div'); w.className='langsw';
+  function build(){
+    var m=LANG_META[LANG];
+    w.innerHTML='<button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-label="'+stEsc(T('lang_label'))+'"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>'+m.label+'</span></button><div class="langmenu" hidden role="listbox">'+
+      ST_LANGS.map(function(k){ var x=LANG_META[k]; return '<button type="button" role="option" class="'+(k===LANG?'on':'')+'" data-lang="'+k+'" aria-selected="'+(k===LANG)+'" lang="'+x.html+'"><span>'+x.label+'</span><span class="ln">'+x.name+'</span></button>'; }).join('')+'</div>';
+  }
+  function close(){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); if(mn&&!mn.hidden){ mn.hidden=true; b.setAttribute('aria-expanded','false'); } }
+  w.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=e.target.closest('[data-lang]');
+    if(o){ var l=o.getAttribute('data-lang'); close(); if(l!==LANG){ setLang(l); build(); ST_ON_LANG(); } return; }
+    if(e.target.closest('.langbtn')){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); mn.hidden=!mn.hidden; b.setAttribute('aria-expanded',String(!mn.hidden)); }
+  });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  window.addEventListener('storage',function(e){ if(e.key===LANG_KEY&&LANG_META[e.newValue]&&e.newValue!==LANG){ setLang(e.newValue,false); build(); ST_ON_LANG(); } });
+  build(); host.insertBefore(w,host.firstChild);
+  return {rebuild:build};
+}
+var stLastH=0;
+function stPostHeight(){ try{ var h=Math.ceil(document.documentElement.scrollHeight); if(Math.abs(h-stLastH)<2) return; stLastH=h; window.parent.postMessage({type:'st-height',height:h},'*'); }catch(e){} }
+function stFit(sel,ratio){
+  document.querySelectorAll(sel).forEach(function(e){
+    e.style.fontSize=''; if(!e.offsetParent) return; var fs=parseFloat(getComputedStyle(e).fontSize), min=fs*(ratio||0.85);
+    while(e.scrollWidth>e.clientWidth+0.5 && fs>min){ fs-=0.25; e.style.fontSize=fs+'px'; }
+  });
+}
+var I18N={"de": {"lang_label": "Sprache wählen", "title": "Defi Liga – Playoffs", "qf": "Viertelfinale", "sf": "Halbfinale", "f": "Finale", "rank": "Platz {a} vs Platz {b}", "w": "Sieger VF {a} vs Sieger VF {b}", "final": "Finale bei „{fest}“", "prize": "Pokal und Medaillen"}, "en": {"lang_label": "Choose language", "title": "Defi Liga – Playoffs", "qf": "Quarter-finals", "sf": "Semi-finals", "f": "Final", "rank": "Rank {a} vs Rank {b}", "w": "Winner QF {a} vs Winner QF {b}", "final": "Final at “{fest}”", "prize": "Trophy and medals"}, "tr": {"lang_label": "Dil seçin", "title": "Defi Liga – Play-off", "qf": "Çeyrek final", "sf": "Yarı final", "f": "Final", "rank": "{a}. sıra – {b}. sıra", "w": "ÇF {a} galibi – ÇF {b} galibi", "final": "Final “{fest}” etkinliğinde", "prize": "Kupa ve madalyalar"}, "ja": {"lang_label": "言語を選択", "title": "Defi Liga – プレーオフ", "qf": "準々決勝", "sf": "準決勝", "f": "決勝", "rank": "{a}位 vs {b}位", "w": "準々決勝{a}の勝者 vs 準々決勝{b}の勝者", "final": "「{fest}」で決勝", "prize": "トロフィーとメダル"}, "zh": {"lang_label": "选择语言", "title": "Defi Liga – 季后赛", "qf": "四分之一决赛", "sf": "半决赛", "f": "决赛", "rank": "第{a}名 vs 第{b}名", "w": "1/4决赛{a}胜者 vs 1/4决赛{b}胜者", "final": "决赛在“{fest}”举行", "prize": "奖杯和奖牌"}, "uk": {"lang_label": "Обрати мову", "title": "Defi Liga – плей-оф", "qf": "Чвертьфінал", "sf": "Півфінал", "f": "Фінал", "rank": "Місце {a} vs місце {b}", "w": "Переможець ЧФ {a} vs переможець ЧФ {b}", "final": "Фінал на «{fest}»", "prize": "Кубок і медалі"}};
+function render(){
+  document.title=T('title');
+  var sep=(LANG==='ja')?'・':' · ', sep2=(LANG==='zh')?' · ':sep;
+  var sept=stEsc(dateFmt(2027,9,1,{month:'long'}));
+  if(LANG==='uk'||LANG==='tr') sept=sept; 
+  document.getElementById('hQF').innerHTML=stEsc(T('qf'))+sep2+sept;
+  document.getElementById('hSF').innerHTML=stEsc(T('sf'))+sep2+sept;
+  document.querySelectorAll('[data-k]').forEach(function(e){ e.textContent=T(e.getAttribute('data-k')); });
+  document.querySelectorAll('[data-r]').forEach(function(e){ var v=e.getAttribute('data-r').split(','); e.textContent=T('rank',{a:v[0],b:v[1]}); });
+  document.querySelectorAll('[data-w]').forEach(function(e){ var v=e.getAttribute('data-w').split(','); e.textContent=T('w',{a:v[0],b:v[1]}); });
+  document.getElementById('fin').innerHTML=T('final',{fest:'<span translate="no">Hot in Heerdt</span>'});
+  stPostHeight();
+}
+ST_ON_LANG=render; mountLangSwitcher(document.getElementById('top')); render();
+window.addEventListener('resize',stPostHeight); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(stPostHeight);
+})();
+</script></body></html>

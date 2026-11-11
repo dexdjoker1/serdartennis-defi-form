@@ -118,7 +118,7 @@ textarea:focus{outline:0;border-color:var(--olive);box-shadow:0 0 0 3px rgba(94,
 textarea{font-size:16px;min-height:44px}}
 </style>
  </head><body><div class="wrap" id="app"><div class="box"><aside class="side"><div id="sideA"><div class="eyebrow" translate="no">Defi Liga 2027</div><h3 data-i18n="join">Mach mit!</h3><ul>
-<li data-x="a1">Für Mitglieder vom Heerdter TV ab 18 Jahren.</li><li data-x="a2">Startgeld: 50 €.</li><li data-i18n="a3">Die Liga geht von Mai bis Juli 2027.</li><li data-i18n="a4">Ich melde mich per E-Mail bei dir.</li></ul></div>
+<li data-x="a1">Für Mitglieder vom Heerdter TV ab 18 Jahren.</li><li data-x="a2">Startgeld: 50 €.</li><li data-i18n="a3">Die Liga geht von Mai bis September 2027.</li><li data-i18n="a4">Ich melde mich per E-Mail bei dir.</li></ul></div>
 <div id="sideE" class="hide" style="display:flex;flex-direction:column;flex:1"><div class="eyebrow" translate="no">Defi Liga 2027</div><h3 data-i18n="report">Ergebnis melden</h3><ul><li data-i18n="e1">Der Gewinner meldet das Ergebnis.</li>
 <li data-i18n="e2">3 Punkte für einen Sieg, 1 Punkt für eine Niederlage.</li><li data-i18n="e3">Du hast gefordert und gewinnst? Dann bekommst du 4 Punkte.</li></ul><div class="pts" id="ptsSide">
 <div class="rl" data-i18n="pts_for">Punkte für dieses Match</div><div class="pv">Trag das Ergebnis ein.</div></div></div></aside><main class="main"><div class="tabs" role="tablist">
@@ -220,7 +220,7 @@ function stFit(sel,ratio){
   });
 }
 var I18N={
-de:{lang_label:'Sprache wählen',join:'Mach mit!',a1:'Für Mitglieder vom {club} ab 18 Jahren.',a2:'Startgeld: {fee}.',a3:'Die Liga geht von Mai bis Juli 2027.',a4:'Ich melde mich per E-Mail bei dir.',
+de:{lang_label:'Sprache wählen',join:'Mach mit!',a1:'Für Mitglieder vom {club} ab 18 Jahren.',a2:'Startgeld: {fee}.',a3:'Die Liga geht von Mai bis September 2027.',a4:'Ich melde mich per E-Mail bei dir.',
  report:'Ergebnis melden',e1:'Der Gewinner meldet das Ergebnis.',e2:'3 Punkte für einen Sieg, 1 Punkt für eine Niederlage.',e3:'Du hast gefordert und gewinnst? Dann bekommst du 4 Punkte.',pts_for:'Punkte für dieses Match',enter:'Trag das Ergebnis ein.',
  tab_e_full:'Ergebnis melden',tab_e:'Ergebnis',tab_a:'Anmelden',fee_b:'Startgeld: <b>{fee}</b>.',
  vn:'Vorname',nn:'Nachname',em:'E-Mail',gj:'Geburtsjahr',gj_ph:'z. B. 1990',an:'Anmerkungen (freiwillig)',member:'Ich bin Mitglied im {club}.',privacy:'Datenschutzerklärung',ds:'Ich habe die {privacy} gelesen und bin einverstanden.',btn_a:'Jetzt anmelden',
@@ -230,7 +230,7 @@ de:{lang_label:'Sprache wählen',join:'Mach mit!',a1:'Für Mitglieder vom {club}
  err_age:'Die Defi Liga ist für Spieler ab 18 Jahren.',err_fill:'Bitte füll alle Felder richtig aus.',err_mem:'Die Defi Liga ist für Mitglieder vom Heerdter TV.',err_ds:'Bitte bestätige die Datenschutzerklärung.',err_fail:'Das hat leider nicht geklappt. Bitte versuch es später noch einmal.',
  err_same:'Forderer und Gegner müssen zwei verschiedene Spieler sein.',err_pick:'Bitte wähle beide Spieler und das Datum.',err_mtb:'Ein Match-Tiebreak gibt es nur bei 1:1 Sätzen.',err_sets:'Bitte das Ergebnis Satz für Satz eintragen.',err_win:'Bitte wähle den Sieger passend zum Ergebnis.',err_em:'Bitte deine E-Mail richtig eintragen.',err_wa:'Nur in der WhatsApp-Gruppe angekündigte Matches zählen.',
  pt1:'{n} Punkt',ptn:'{n} Punkte'},
-en:{lang_label:'Choose language',join:'Join in!',a1:'For {club} members aged 18 and over.',a2:'Entry fee: {fee}.',a3:'The league runs from May to July 2027.',a4:'I’ll get in touch with you by email.',
+en:{lang_label:'Choose language',join:'Join in!',a1:'For {club} members aged 18 and over.',a2:'Entry fee: {fee}.',a3:'The league runs from May to September 2027.',a4:'I’ll get in touch with you by email.',
  report:'Report a result',e1:'The winner reports the result.',e2:'3 points for a win, 1 point for a loss.',e3:'You made the challenge and won? Then you get 4 points.',pts_for:'Points for this match',enter:'Enter the result.',
  tab_e_full:'Report result',tab_e:'Result',tab_a:'Sign up',fee_b:'Entry fee: <b>{fee}</b>.',
  vn:'First name',nn:'Last name',em:'Email',gj:'Year of birth',gj_ph:'e.g. 1990',an:'Notes (optional)',member:'I am a member of {club}.',privacy:'Privacy policy (Deutsch)',ds:'I have read the {privacy} and agree to it.',btn_a:'Sign up now',
@@ -240,7 +240,7 @@ en:{lang_label:'Choose language',join:'Join in!',a1:'For {club} members aged 18 
  err_age:'The Defi Liga is for players aged 18 and over.',err_fill:'Please fill in all fields correctly.',err_mem:'The Defi Liga is for Heerdter TV members.',err_ds:'Please confirm the privacy policy.',err_fail:'Sorry, that didn’t work. Please try again later.',
  err_same:'Challenger and opponent must be two different players.',err_pick:'Please select both players and the date.',err_mtb:'A match tiebreak is only played at one set all.',err_sets:'Please enter the result set by set.',err_win:'Please select the winner that matches the result.',err_em:'Please enter your email correctly.',err_wa:'Only matches announced in the WhatsApp group count.',
  pt1:'{n} point',ptn:'{n} points'},
-tr:{lang_label:'Dil seçin',join:'Siz de katılın!',a1:'18 yaş ve üzeri {club} üyeleri için.',a2:'Katılım ücreti: {fee}.',a3:'Lig, Mayıs’tan Temmuz 2027’ye kadar sürer.',a4:'Size e-postayla dönüş yapacağım.',
+tr:{lang_label:'Dil seçin',join:'Siz de katılın!',a1:'18 yaş ve üzeri {club} üyeleri için.',a2:'Katılım ücreti: {fee}.',a3:'Lig, Mayıs’tan Eylül 2027’ye kadar sürer.',a4:'Size e-postayla dönüş yapacağım.',
  report:'Sonuç bildirin',e1:'Sonucu kazanan bildirir.',e2:'Galibiyet 3 puan, mağlubiyet 1 puan.',e3:'Meydan okuyan sizseniz ve kazanırsanız 4 puan alırsınız.',pts_for:'Bu maçın puanları',enter:'Sonucu girin.',
  tab_e_full:'Sonuç bildir',tab_e:'Sonuç',tab_a:'Kayıt',fee_b:'Katılım ücreti: <b>{fee}</b>.',
  vn:'Ad',nn:'Soyad',em:'E-posta',gj:'Doğum yılı',gj_ph:'ör. 1990',an:'Notlar (isteğe bağlı)',member:'{club} üyesiyim.',privacy:'Gizlilik politikası (Deutsch)',ds:'{privacy} metnini okudum ve kabul ediyorum.',btn_a:'Şimdi kaydolun',
@@ -250,7 +250,7 @@ tr:{lang_label:'Dil seçin',join:'Siz de katılın!',a1:'18 yaş ve üzeri {club
  err_age:'Defi Liga 18 yaş ve üzeri oyuncular içindir.',err_fill:'Lütfen tüm alanları doğru doldurun.',err_mem:'Defi Liga, Heerdter TV üyeleri içindir.',err_ds:'Lütfen gizlilik politikasını onaylayın.',err_fail:'Maalesef olmadı. Lütfen daha sonra tekrar deneyin.',
  err_same:'Meydan okuyan ve rakip iki farklı oyuncu olmalıdır.',err_pick:'Lütfen iki oyuncuyu ve tarihi seçin.',err_mtb:'Match tiebreak yalnızca setler 1-1 olduğunda oynanır.',err_sets:'Lütfen sonucu set set girin.',err_win:'Lütfen sonuca uygun kazananı seçin.',err_em:'Lütfen e-posta adresinizi doğru girin.',err_wa:'Yalnızca WhatsApp grubunda duyurulan maçlar sayılır.',
  pt1:'{n} puan',ptn:'{n} puan'},
-ja:{lang_label:'言語を選択',join:'ぜひご参加ください！',a1:'18歳以上の{club}会員が対象です。',a2:'参加費：{fee}',a3:'リーグ期間は2027年5月〜7月です。',a4:'こちらからメールでご連絡します。',
+ja:{lang_label:'言語を選択',join:'ぜひご参加ください！',a1:'18歳以上の{club}会員が対象です。',a2:'参加費：{fee}',a3:'リーグ期間は2027年5月〜9月です。',a4:'こちらからメールでご連絡します。',
  report:'結果を報告',e1:'結果は勝者が報告します。',e2:'勝利で3ポイント、敗戦で1ポイント。',e3:'チャレンジした側が勝った場合は4ポイントです。',pts_for:'この試合のポイント',enter:'結果を入力してください。',
  tab_e_full:'結果を報告',tab_e:'結果',tab_a:'参加登録',fee_b:'参加費：<b>{fee}</b>。',
  vn:'名',nn:'姓',em:'メールアドレス',gj:'生まれた年',gj_ph:'例：1990',an:'備考（任意）',member:'{club}の会員です。',privacy:'プライバシーポリシー（ドイツ語）',ds:'{privacy}を読み、同意します。',btn_a:'今すぐ登録',
@@ -260,7 +260,7 @@ ja:{lang_label:'言語を選択',join:'ぜひご参加ください！',a1:'18歳
  err_age:'Defi Ligaは18歳以上の選手が対象です。',err_fill:'すべての項目を正しく入力してください。',err_mem:'Defi LigaはHeerdter TV会員が対象です。',err_ds:'プライバシーポリシーへの同意にチェックを入れてください。',err_fail:'申し訳ありません、送信できませんでした。しばらくしてからもう一度お試しください。',
  err_same:'挑戦者と対戦相手には別々の選手を選んでください。',err_pick:'両方の選手と日付を選択してください。',err_mtb:'マッチタイブレークはセットカウント1-1の場合のみです。',err_sets:'結果をセットごとに入力してください。',err_win:'結果に合った勝者を選択してください。',err_em:'メールアドレスを正しく入力してください。',err_wa:'WhatsAppグループで告知された試合のみが有効です。',
  pt1:'{n}ポイント',ptn:'{n}ポイント'},
-zh:{lang_label:'选择语言',join:'快来参加！',a1:'面向年满18岁的{club}会员。',a2:'报名费：{fee}。',a3:'联赛时间为2027年5月至7月。',a4:'我会通过电子邮件联系你。',
+zh:{lang_label:'选择语言',join:'快来参加！',a1:'面向年满18岁的{club}会员。',a2:'报名费：{fee}。',a3:'联赛时间为2027年5月至9月。',a4:'我会通过电子邮件联系你。',
  report:'提交比赛结果',e1:'由胜者提交结果。',e2:'胜一场得3分，负一场得1分。',e3:'你发起挑战并获胜？那么你得4分。',pts_for:'本场比赛积分',enter:'请输入比赛结果。',
  tab_e_full:'提交结果',tab_e:'结果',tab_a:'报名',fee_b:'报名费：<b>{fee}</b>。',
  vn:'名',nn:'姓',em:'电子邮箱',gj:'出生年份',gj_ph:'例如 1990',an:'备注（选填）',member:'我是{club}的会员。',privacy:'隐私声明（德文）',ds:'我已阅读并同意{privacy}。',btn_a:'立即报名',
@@ -270,7 +270,7 @@ zh:{lang_label:'选择语言',join:'快来参加！',a1:'面向年满18岁的{cl
  err_age:'Defi Liga仅面向年满18岁的选手。',err_fill:'请正确填写所有字段。',err_mem:'Defi Liga仅面向Heerdter TV会员。',err_ds:'请确认隐私声明。',err_fail:'抱歉，提交失败。请稍后再试。',
  err_same:'挑战者和对手必须是两名不同的选手。',err_pick:'请选择两名选手和日期。',err_mtb:'只有盘数1:1时才进行抢十。',err_sets:'请逐盘填写比分。',err_win:'请选择与比分相符的胜者。',err_em:'请正确填写你的电子邮箱。',err_wa:'只有在WhatsApp群里公布过的比赛才计入成绩。',
  pt1:'{n}分',ptn:'{n}分'},
-uk:{lang_label:'Обрати мову',join:'Долучайтеся!',a1:'Для членів {club} віком від 18 років.',a2:'Стартовий внесок: {fee}.',a3:'Ліга триває з травня по липень 2027 року.',a4:'Я зв’яжуся з вами електронною поштою.',
+uk:{lang_label:'Обрати мову',join:'Долучайтеся!',a1:'Для членів {club} віком від 18 років.',a2:'Стартовий внесок: {fee}.',a3:'Ліга триває з травня по вересень 2027 року.',a4:'Я зв’яжуся з вами електронною поштою.',
  report:'Повідомити результат',e1:'Результат повідомляє переможець.',e2:'3 очки за перемогу, 1 очко за поразку.',e3:'Ви кинули виклик і перемогли? Тоді отримуєте 4 очки.',pts_for:'Очки за цей матч',enter:'Введіть результат.',
  tab_e_full:'Повідомити результат',tab_e:'Результат',tab_a:'Реєстрація',fee_b:'Стартовий внесок: <b>{fee}</b>.',
  vn:'Ім’я',nn:'Прізвище',em:'Ел. пошта',gj:'Рік народження',gj_ph:'напр. 1990',an:'Примітки (необов’язково)',member:'Я член клубу {club}.',privacy:'Політика конфіденційності (німецькою)',ds:'Я ознайомився/ознайомилася з документом «{privacy}» і погоджуюся.',btn_a:'Зареєструватися',

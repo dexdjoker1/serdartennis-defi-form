@@ -67,6 +67,7 @@
     .line{margin:14px 0}
     .note{display:flex;align-items:center;align-self:stretch;height:44px;border-radius:10px;line-height:1.3;font-size:12.5px}
   }
+  .tight .seg{gap:5px}.tight .seg button,.tight .seg button.on{padding:0 2px;font-size:12px;letter-spacing:-.1px}
   @media (max-width:350px){h2{font-size:18px}.basis{font-size:12px}.seg button,.seg button.on{font-size:12.5px}}
 </style>
 </head>
@@ -227,6 +228,7 @@ uk:{lang_label:'Обрати мову',eyebrow:'Калькулятор варт�
       document.getElementById('pp').textContent = eur(r.pp);
       document.getElementById('tot').textContent = eur(r.total);
       document.getElementById('note').textContent = r.member ? T('fee_none') : T('fee_incl',{fee:eurFmt(1000,0)});
+      fitBox();
       stPostHeight();
       res.classList.remove('out');
     }
@@ -238,6 +240,12 @@ uk:{lang_label:'Обрати мову',eyebrow:'Калькулятор варт�
       s[g.getAttribute('data-k')] = b.getAttribute('data-v'); render(true);
     });
   });
+  // only kicks in when the box would be wider than the frame (e.g. German at 300 px)
+  function fitBox(){
+    var box=document.querySelector('.box'); document.body.classList.remove('tight');
+    if(box.scrollWidth>box.clientWidth+0.5) document.body.classList.add('tight');
+  }
+  window.addEventListener('resize',function(){ fitBox(); requestAnimationFrame(function(){ fitBox(); stPostHeight(); }); }); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){fitBox(); stPostHeight();}); if(document.fonts&&document.fonts.addEventListener) document.fonts.addEventListener('loadingdone',function(){fitBox(); stPostHeight();}); if(window.ResizeObserver){ var stRO=new ResizeObserver(function(){ fitBox(); stPostHeight(); }); document.querySelectorAll('.seg button,.box h2,.box .info').forEach(function(e){ stRO.observe(e); }); }
   ST_ON_LANG=function(){ render(false); };
   mountLangSwitcher(document.getElementById('wrap'));
   render(false);
