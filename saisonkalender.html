@@ -18,27 +18,41 @@
   h2:after{content:"";display:block;width:40px;height:2px;background:var(--olive);margin-top:10px}
   .stat{text-align:right}
   .stat b{font-family:Poppins,sans-serif;font-weight:600;font-size:34px;color:var(--olive);line-height:1}
-  .stat span{display:block;font-size:13px;color:var(--grey);margin-top:2px}
+  .stat span{display:block;font-size:13px;font-weight:400;color:#1A1A1A;margin-top:2px}
   /* Desktop timeline */
   .tl{position:relative;margin-top:26px;padding-left:96px}
   .months{position:relative;height:22px;border-bottom:1px solid var(--sand)}
-  .months div{position:absolute;top:0;height:22px;font-family:Poppins,sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--grey);padding-left:6px;border-left:1px solid var(--sand)}
+  .months div{position:absolute;top:0;height:22px;font-family:Poppins,sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1A1A1A;padding-left:6px;border-left:1px solid var(--sand)}
   .grid{position:absolute;left:96px;right:0;top:0;bottom:0;pointer-events:none}
   .grid i{position:absolute;top:22px;bottom:0;border-left:1px dashed rgba(217,205,184,.7)}
   .row{position:relative;height:78px}
   .rlabel{position:absolute;left:-96px;top:0;width:88px;height:78px;display:flex;align-items:center;font-family:Poppins,sans-serif;font-weight:600;font-size:13px}
   .bar{position:absolute;top:24px;height:30px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:400;white-space:nowrap;overflow:hidden}
   .b-train{background:var(--olive);color:#fff}
-  .b-pause{background:repeating-linear-gradient(45deg,var(--cream),var(--cream) 6px,#EADCC6 6px,#EADCC6 12px);color:var(--grey);border:1px solid var(--sand)}
+  .b-pause{background:repeating-linear-gradient(45deg,var(--cream),var(--cream) 6px,#EADCC6 6px,#EADCC6 12px);color:#1A1A1A;border:1px solid var(--sand)}
   .b-liga{background:var(--tan);color:#fff}
   .b-play{background:var(--dark);color:#fff}
-  .cap{position:absolute;font-size:12px;color:var(--grey);white-space:nowrap;line-height:1.35;text-align:center;background:#fff;padding:0 3px}
+  .cap{position:absolute;font-size:12px;font-weight:400;color:#1A1A1A;white-space:nowrap;line-height:1.35;text-align:center;background:#fff;padding:0 3px}
   .cap.t{top:4px}.cap.bt{top:58px}
   .cap strong{font-family:Poppins,sans-serif;font-weight:600;color:var(--dark)}
   .flag{position:absolute;top:22px;z-index:1;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fff,0 2px 8px rgba(61,58,54,.2)}
-  .legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;padding-top:14px;border-top:1px solid var(--sand);font-size:13px;color:var(--grey)}
+  .legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;padding-top:14px;border-top:1px solid var(--sand);font-size:13px;font-weight:400;color:#1A1A1A}
   .legend span{display:inline-flex;align-items:center;gap:8px}
   .legend i{display:inline-block;width:18px;height:10px;border-radius:5px}
+  .legend em{font-style:normal}
+  .legend em span{display:inline}
+  .langsw{margin:0 0 8px}
+.langsw{position:relative;display:flex;justify-content:flex-end;margin:0 0 10px;z-index:40}
+.langbtn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:20px;padding:5px 10px 5px 8px;cursor:pointer;font-family:Poppins,'Avenir Next',Avenir,Montserrat,Helvetica,Arial,sans-serif;font-weight:600;font-size:12px;line-height:1.2;color:var(--dark,#3D3A36);box-shadow:0 2px 8px rgba(61,58,54,.05)}
+.langbtn:hover,.langbtn[aria-expanded="true"]{border-color:var(--olive,#5E6D55)}
+.langbtn svg{width:15px;height:15px;stroke:var(--olive,#5E6D55);fill:none;stroke-width:1.7;flex:0 0 auto}
+.langmenu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:14px;box-shadow:0 10px 28px rgba(61,58,54,.14);padding:6px;min-width:188px}
+.langmenu[hidden]{display:none}
+.langmenu button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:none;border:0;border-radius:10px;padding:7px 10px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:500;color:var(--dark,#3D3A36);text-align:left}
+.langmenu button .ln{color:#1A1A1A;font-weight:400;font-size:12.5px}
+.langmenu button.on{background:var(--cream,#F3E8D8);color:var(--olive,#5E6D55)}
+.langmenu button:hover{background:var(--cream,#F3E8D8)}
+@media (max-width:640px){.langbtn{font-size:11.5px;padding:4px 9px 4px 7px}}
   /* Mobile list */
   .vl{display:none}
   @media (max-width:640px){
@@ -53,63 +67,141 @@
     .vl:before{content:"";position:absolute;left:61px;top:8px;bottom:8px;width:2px;background:var(--sand)}
     .it{display:grid;grid-template-columns:44px 20px 1fr;column-gap:8px;height:52px;position:relative;white-space:nowrap}
     .it.pause{height:62px}.it.last{height:38px}
-    .mo{font-family:Poppins,sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--grey);padding-top:3px;text-align:right}
+    .mo{font-family:Poppins,sans-serif;font-weight:600;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1A1A1A;padding-top:3px;text-align:right}
     .dot{width:14px;height:14px;border-radius:50%;margin:3px 0 0 3px;position:relative;z-index:1;box-shadow:0 0 0 3px #fff}
     .txt{padding-bottom:0;overflow:hidden;text-overflow:ellipsis}
-    .txt b{display:block;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;line-height:1.3}
-    .txt span{display:block;font-size:12px;color:var(--grey);line-height:1.35;margin-top:2px;letter-spacing:-0.1px}
+    .txt b{display:block;overflow:hidden;text-overflow:ellipsis;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;line-height:1.3}
+    .txt span span{display:inline;margin:0;font-size:inherit}
+    .txt > span{display:block;overflow:hidden;text-overflow:ellipsis;font-size:12px;font-weight:400;color:#1A1A1A;line-height:1.35;margin-top:2px;letter-spacing:-0.1px}
     .it.pause .txt{background:repeating-linear-gradient(45deg,var(--cream),var(--cream) 6px,#EFE3D0 6px,#EFE3D0 12px);border-radius:8px;padding:6px 10px;height:50px;margin-top:-6px}
   }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="wrap">
   <div class="box">
     <div class="head">
       <div>
-        <div class="eyebrow">Saisonkalender</div>
-        <h2>Sommersaison 2027</h2>
+        <div class="eyebrow" data-i18n="eyebrow">Saisonkalender</div>
+        <h2 data-i18n="title">Sommersaison 2027</h2>
       </div>
-      <div class="stat"><b>20</b><span>Trainingswochen</span></div>
+      <div class="stat"><b>20</b><span data-i18n="weeks_lbl">Trainingswochen</span></div>
     </div>
 
     <div class="tl" id="tl">
       <div class="grid" id="grid"></div>
       <div class="months" id="months"></div>
-      <div class="row" id="rowTrain"><div class="rlabel">Training</div></div>
-      <div class="row" id="rowLiga" style="height:94px"><div class="rlabel">Defi Liga</div></div>
+      <div class="row" id="rowTrain"><div class="rlabel" data-i18n="r_train">Training</div></div>
+      <div class="row" id="rowLiga" style="height:94px"><div class="rlabel" translate="no">Defi Liga</div></div>
     </div>
     <div class="legend">
-      <span><i style="background:var(--olive)"></i>Training, 1x pro Woche</span>
-      <span><i style="background:var(--tan)"></i>Defi Liga</span>
-      <span><i style="background:var(--dark)"></i>Playoffs der Top 8</span>
-      <span><i style="background:var(--gold);width:10px;height:10px"></i>Finale beim Vereinsfest Hot in Heerdt</span>
+      <span><i style="background:var(--olive)"></i><em data-i18n="lg_train">Training, 1x pro Woche</em></span>
+      <span><i style="background:var(--tan)"></i><em translate="no">Defi Liga</em></span>
+      <span><i style="background:var(--dark)"></i><em data-i18n="lg_play">Playoffs der Top 8</em></span>
+      <span><i style="background:var(--gold);width:10px;height:10px"></i><em id="lgFinal">Finale beim Vereinsfest Hot in Heerdt</em></span>
     </div>
 
-    <div class="vl">
-      <div class="it"><div class="mo">Apr</div><div><div class="dot" style="background:var(--olive)"></div></div><div class="txt"><b>26. April</b><span>Start Training</span></div></div>
-      <div class="it"><div class="mo">Mai</div><div><div class="dot" style="background:var(--tan)"></div></div><div class="txt"><b>Anfang Mai</b><span>Start Defi Liga</span></div></div>
-      <div class="it pause"><div class="mo">Jul</div><div><div class="dot" style="background:var(--sand)"></div></div><div class="txt"><b>19. Juli bis 15. August</b><span>Sommerpause</span></div></div>
-      <div class="it"><div class="mo">Aug</div><div><div class="dot" style="background:var(--olive)"></div></div><div class="txt"><b>16. August</b><span>Weiter (5. Ferienwoche)</span></div></div>
-      <div class="it"><div class="mo">Sep</div><div><div class="dot" style="background:var(--dark)"></div></div><div class="txt"><b>Playoffs der Top 8</b><span>Letzte 2 Septemberwochen</span></div></div>
-      <div class="it"><div class="mo">&nbsp;</div><div><div class="dot" style="background:var(--gold)"></div></div><div class="txt"><b>Finale</b><span>Vereinsfest Hot in Heerdt</span></div></div>
-      <div class="it last"><div class="mo">Okt</div><div><div class="dot" style="background:var(--olive)"></div></div><div class="txt"><b>7. Oktober</b><span>Saisonende</span></div></div>
-    </div>
+    <div class="vl" id="vl"></div>
   </div>
 </div>
 <script>
 (function(){
+/* ST i18n core (shared pattern with anmelden.html) */
+var ST_LANGS=['de','en','tr','ja','zh','uk'];
+var LANG_META={
+  de:{locale:'de-DE',html:'de',label:'DE',name:'Deutsch'},
+  en:{locale:'en-GB',html:'en',label:'EN',name:'English'},
+  tr:{locale:'tr-TR',html:'tr',label:'TR',name:'Türkçe'},
+  ja:{locale:'ja-JP',html:'ja',label:'日本語',name:'日本語'},
+  zh:{locale:'zh-CN',html:'zh-CN',label:'中文',name:'简体中文'},
+  uk:{locale:'uk-UA',html:'uk',label:'УКР',name:'Українська'}
+};
+var LANG_KEY='serdartennis_lang';
+function normLang(s){ if(!s) return null; s=String(s).toLowerCase().replace(/_/g,'-'); var b=s.split('-')[0]; return LANG_META[b]?b:null; }
+function detectLang(){
+  var q=(location.search.match(/[?&]lang=([a-zA-Z-]+)/)||[])[1]; var fq=normLang(q); if(fq) return fq;
+  try{ var sv=localStorage.getItem(LANG_KEY); if(sv&&LANG_META[sv]) return sv; }catch(e){}
+  var nav=[].concat(navigator.languages||[],navigator.language||[]);
+  for(var i=0;i<nav.length;i++){ var k=normLang(nav[i]); if(k) return k; }
+  return 'de';
+}
+var LANG=detectLang(), LOCALE=LANG_META[LANG].locale;
+document.documentElement.lang=LANG_META[LANG].html;
+function setLang(l,persist){
+  if(!LANG_META[l]) l='de'; LANG=l; LOCALE=LANG_META[l].locale; document.documentElement.lang=LANG_META[l].html;
+  if(persist!==false){ try{ localStorage.setItem(LANG_KEY,l); }catch(e){} }
+  try{ var u=new URL(location.href); u.searchParams.set('lang',l); history.replaceState(history.state,'',u.pathname+u.search+u.hash); }catch(e){}
+}
+function T(key,vars){
+  var p=I18N[LANG]||I18N.de, s=p[key]; if(s==null) s=I18N.de[key]; if(s==null) return key;
+  if(vars) s=s.replace(/\{(\w+)\}/g,function(_,k){ return vars[k]==null?'':vars[k]; });
+  return s;
+}
+function stEsc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function eurFmt(cents,min){ var v=cents/100; return new Intl.NumberFormat(LOCALE,{style:'currency',currency:'EUR',currencyDisplay:'narrowSymbol',minimumFractionDigits:min==null?2:min,maximumFractionDigits:min==null?2:(v%1?2:min)}).format(v); }
+function dateFmt(y,m,d,opt){ return new Intl.DateTimeFormat(LOCALE,Object.assign({timeZone:'UTC'},opt)).format(new Date(Date.UTC(y,m-1,d))); }
+function applyStatic(root){
+  (root||document).querySelectorAll('[data-i18n]').forEach(function(e){ e.textContent=T(e.getAttribute('data-i18n')); });
+  (root||document).querySelectorAll('[data-i18n-html]').forEach(function(e){ e.innerHTML=T(e.getAttribute('data-i18n-html')); });
+}
+var ST_ON_LANG=function(){};
+function mountLangSwitcher(host){
+  var w=document.createElement('div'); w.className='langsw';
+  function build(){
+    var m=LANG_META[LANG];
+    w.innerHTML='<button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-label="'+stEsc(T('lang_label'))+'"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>'+m.label+'</span></button><div class="langmenu" hidden role="listbox">'+
+      ST_LANGS.map(function(k){ var x=LANG_META[k]; return '<button type="button" role="option" class="'+(k===LANG?'on':'')+'" data-lang="'+k+'" aria-selected="'+(k===LANG)+'" lang="'+x.html+'"><span>'+x.label+'</span><span class="ln">'+x.name+'</span></button>'; }).join('')+'</div>';
+  }
+  function close(){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); if(mn&&!mn.hidden){ mn.hidden=true; b.setAttribute('aria-expanded','false'); } }
+  w.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=e.target.closest('[data-lang]');
+    if(o){ var l=o.getAttribute('data-lang'); close(); if(l!==LANG){ setLang(l); build(); ST_ON_LANG(); } return; }
+    if(e.target.closest('.langbtn')){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); mn.hidden=!mn.hidden; b.setAttribute('aria-expanded',String(!mn.hidden)); }
+  });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  window.addEventListener('storage',function(e){ if(e.key===LANG_KEY&&LANG_META[e.newValue]&&e.newValue!==LANG){ setLang(e.newValue,false); build(); ST_ON_LANG(); } });
+  build(); host.insertBefore(w,host.firstChild);
+  return {rebuild:build};
+}
+var stLastH=0;
+function stPostHeight(){ try{ var h=Math.ceil(document.documentElement.scrollHeight); if(Math.abs(h-stLastH)<2) return; stLastH=h; window.parent.postMessage({type:'st-height',height:h},'*'); }catch(e){} }
+function stFit(sel,ratio){
+  document.querySelectorAll(sel).forEach(function(e){
+    e.style.fontSize=''; if(!e.offsetParent) return; var fs=parseFloat(getComputedStyle(e).fontSize), min=fs*(ratio||0.85);
+    while(e.scrollWidth>e.clientWidth+0.5 && fs>min){ fs-=0.25; e.style.fontSize=fs+'px'; }
+  });
+}
+var I18N={
+de:{lang_label:'Sprache wählen',eyebrow:'Saisonkalender',title:'Sommersaison 2027',weeks_lbl:'Trainingswochen',r_train:'Training',lg_train:'Training, 1x pro Woche',lg_play:'Playoffs der Top 8',lg_final:'Finale beim Vereinsfest {fest}',
+ wk:'{n} Wochen',pause_s:'Sommerpause',pause:'Pause',range:'{a} bis {b}',cap_start:'<strong>{d}</strong> Start',cap_resume:'<strong>{d}</strong> weiter',cap_end:'<strong>{d}</strong> Ende',cap_liga:'Start <strong>Anfang Mai</strong>',cap_play:'<strong>Playoffs</strong>',cap_final:'<strong>Finale</strong>',
+ m_start:'Start Training',m_early_may:'Anfang Mai',m_liga:'Start Defi Liga',m_resume:'Weiter (5. Ferienwoche)',m_play:'Letzte 2 Septemberwochen',m_final:'Finale',m_fest:'Vereinsfest {fest}',m_end:'Saisonende'},
+en:{lang_label:'Choose language',eyebrow:'Season calendar',title:'Summer season 2027',weeks_lbl:'training weeks',r_train:'Training',lg_train:'Training, once a week',lg_play:'Top 8 playoffs',lg_final:'Final at the club festival {fest}',
+ wk:'{n} weeks',pause_s:'Summer break',pause:'Break',range:'{a} to {b}',cap_start:'<strong>{d}</strong> start',cap_resume:'<strong>{d}</strong> resumes',cap_end:'<strong>{d}</strong> end',cap_liga:'Start <strong>early May</strong>',cap_play:'<strong>Playoffs</strong>',cap_final:'<strong>Final</strong>',
+ m_start:'Training starts',m_early_may:'Early May',m_liga:'Defi Liga starts',m_resume:'Resumes (5th holiday week)',m_play:'Last 2 weeks of September',m_final:'Final',m_fest:'Club festival {fest}',m_end:'End of season'},
+tr:{lang_label:'Dil seçin',eyebrow:'Sezon takvimi',title:'2027 Yaz Sezonu',weeks_lbl:'antrenman haftası',r_train:'Antrenman',lg_train:'Antrenman, haftada 1 kez',lg_play:'İlk 8 play-off',lg_final:'Final, {fest} kulüp şenliğinde',
+ wk:'{n} hafta',pause_s:'Yaz arası',pause:'Ara',range:'{a} – {b}',cap_start:'<strong>{d}</strong> başlangıç',cap_resume:'<strong>{d}</strong> devam',cap_end:'<strong>{d}</strong> bitiş',cap_liga:'Başlangıç <strong>Mayıs başı</strong>',cap_play:'<strong>Play-off</strong>',cap_final:'<strong>Final</strong>',
+ m_start:'Antrenman başlıyor',m_early_may:'Mayıs başı',m_liga:'Defi Liga başlıyor',m_resume:'Devam (tatilin 5. haftası)',m_play:'Eylül’ün son 2 haftası',m_final:'Final',m_fest:'{fest} kulüp şenliği',m_end:'Sezon sonu'},
+ja:{lang_label:'言語を選択',eyebrow:'シーズンカレンダー',title:'2027年 夏シーズン',weeks_lbl:'トレーニング週数',r_train:'トレーニング',lg_train:'トレーニング（週1回）',lg_play:'上位8名のプレーオフ',lg_final:'クラブ祭「{fest}」で決勝',
+ wk:'{n}週間',pause_s:'夏季休業',pause:'休止',range:'{a}〜{b}',cap_start:'<strong>{d}</strong> 開始',cap_resume:'<strong>{d}</strong> 再開',cap_end:'<strong>{d}</strong> 終了',cap_liga:'<strong>5月上旬</strong> 開始',cap_play:'<strong>プレーオフ</strong>',cap_final:'<strong>決勝</strong>',
+ m_start:'トレーニング開始',m_early_may:'5月上旬',m_liga:'Defi Liga開始',m_resume:'再開（夏休み5週目）',m_play:'9月の最後の2週間',m_final:'決勝',m_fest:'クラブ祭「{fest}」',m_end:'シーズン終了'},
+zh:{lang_label:'选择语言',eyebrow:'赛季日历',title:'2027年夏季赛季',weeks_lbl:'个训练周',r_train:'训练',lg_train:'训练，每周1次',lg_play:'前8名季后赛',lg_final:'决赛在俱乐部节日{fest}上举行',
+ wk:'{n}周',pause_s:'夏季停课',pause:'暂停',range:'{a}至{b}',cap_start:'<strong>{d}</strong> 开始',cap_resume:'<strong>{d}</strong> 恢复',cap_end:'<strong>{d}</strong> 结束',cap_liga:'<strong>5月初</strong> 开始',cap_play:'<strong>季后赛</strong>',cap_final:'<strong>决赛</strong>',
+ m_start:'训练开始',m_early_may:'5月初',m_liga:'Defi Liga开赛',m_resume:'恢复训练（暑假第5周）',m_play:'9月最后两周',m_final:'决赛',m_fest:'俱乐部节日 {fest}',m_end:'赛季结束'},
+uk:{lang_label:'Обрати мову',eyebrow:'Календар сезону',title:'Літній сезон 2027',weeks_lbl:'тижнів тренувань',r_train:'Тренування',lg_train:'Тренування, 1 раз на тиждень',lg_play:'Плей-оф для топ-8',lg_final:'Фінал на клубному святі {fest}',
+ wk:'{n} тижнів',pause_s:'Літня перерва',pause:'Перерва',range:'з {a} по {b}',cap_start:'<strong>{d}</strong> старт',cap_resume:'<strong>{d}</strong> продовження',cap_end:'<strong>{d}</strong> кінець',cap_liga:'Старт <strong>на початку травня</strong>',cap_play:'<strong>Плей-оф</strong>',cap_final:'<strong>Фінал</strong>',
+ m_start:'Початок тренувань',m_early_may:'Початок травня',m_liga:'Старт Defi Liga',m_resume:'Далі (5-й тиждень канікул)',m_play:'Останні 2 тижні вересня',m_final:'Фінал',m_fest:'Клубне свято {fest}',m_end:'Кінець сезону'}
+};
+
   var Y = 2027, START = Date.UTC(Y,3,1), END = Date.UTC(Y,10,1);
   var SPAN = END - START;
   function p(m,d){ return (Date.UTC(Y,m-1,d) - START) / SPAN * 100; }
   function el(tag, cls, css, html){ var e=document.createElement(tag); if(cls) e.className=cls; if(css) e.style.cssText=css; if(html!=null) e.innerHTML=html; return e; }
-  var names = ['April','Mai','Juni','Juli','August','September','Oktober'];
+  var FEST='<span translate="no">Hot in Heerdt</span>';
+  function dm(m,d){ return stEsc(dateFmt(Y,m,d,{day:'numeric',month:'long'})); }
+  function mon(m,o){ return stEsc(dateFmt(Y,m,1,{month:o||'long'}).replace(/\.$/,'')); }
   var months = document.getElementById('months'), grid = document.getElementById('grid');
-  names.forEach(function(n,i){
-    var l = p(4+i,1), r = p(5+i,1);
-    months.appendChild(el('div','', 'left:'+l+'%;width:'+(r-l)+'%', n));
-    if(i>0) grid.appendChild(el('i','', 'left:'+l+'%'));
-  });
   function bar(row, cls, a, b, txt){
     var l = p(a[0],a[1]), r = p(b[0],b[1]+1);
     row.appendChild(el('div','bar '+cls,'left:'+l+'%;width:'+(r-l)+'%', txt||''));
@@ -119,23 +211,59 @@
     var tr = align==='r' ? 'transform:translateX(-100%);' : align==='c' ? 'transform:translateX(-50%);' : '';
     row.appendChild(el('div','cap '+pos, 'left:'+x+'%;'+tr, html));
   }
-  var T = document.getElementById('rowTrain'), L = document.getElementById('rowLiga');
-  bar(T,'b-train',[4,26],[7,18],'12 Wochen');
-  bar(T,'b-pause',[7,19],[8,15],'Sommerpause');
-  bar(T,'b-train',[8,16],[10,7],'8 Wochen');
-  cap(T,'t',[4,26],'<strong>26. April</strong> Start');
-  cap(T,'bt',[7,19],'19. Juli bis 15. August');
-  cap(T,'t',[8,16],'<strong>16. August</strong> weiter');
-  cap(T,'bt',[10,8],'<strong>7. Oktober</strong> Ende','r');
-  bar(L,'b-liga',[5,3],[7,18],'Defi Liga');
-  bar(L,'b-pause',[7,19],[8,15],'Pause');
-  bar(L,'b-liga',[8,16],[9,16],'Defi Liga');
-  bar(L,'b-play',[9,17],[9,30],'Top 8');
-  cap(L,'bt',[5,3],'Start <strong>Anfang Mai</strong>');
-  cap(L,'t',[9,24],'<strong>Playoffs</strong>','c');
-  var fx = p(10,6);
-  L.appendChild(el('div','flag','left:calc('+fx+'% - 17px)','<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>'));
-  cap(L,'bt',[10,6],'<strong>Finale</strong><br>Hot in Heerdt','c');
+  var T_ = document.getElementById('rowTrain'), L = document.getElementById('rowLiga');
+  function clear(row){ Array.prototype.slice.call(row.children).forEach(function(c){ if(!c.classList.contains('rlabel')) row.removeChild(c); }); }
+  function render(){
+    applyStatic();
+    months.innerHTML=''; grid.innerHTML=''; clear(T_); clear(L);
+    for(var i=0;i<7;i++){
+      var l = p(4+i,1), r = p(5+i,1);
+      months.appendChild(el('div','', 'left:'+l+'%;width:'+(r-l)+'%', mon(4+i)));
+      if(i>0) grid.appendChild(el('i','', 'left:'+l+'%'));
+    }
+    var DL='<span translate="no">Defi Liga</span>';
+    bar(T_,'b-train',[4,26],[7,18],stEsc(T('wk',{n:12})));
+    bar(T_,'b-pause',[7,19],[8,15],stEsc(T('pause_s')));
+    bar(T_,'b-train',[8,16],[10,7],stEsc(T('wk',{n:8})));
+    cap(T_,'t',[4,26],T('cap_start',{d:dm(4,26)}));
+    cap(T_,'bt',[7,19],T('range',{a:dm(7,19),b:dm(8,15)}));
+    cap(T_,'t',[8,16],T('cap_resume',{d:dm(8,16)}));
+    cap(T_,'bt',[10,8],T('cap_end',{d:dm(10,7)}),'r');
+    bar(L,'b-liga',[5,3],[7,18],DL);
+    bar(L,'b-pause',[7,19],[8,15],stEsc(T('pause')));
+    bar(L,'b-liga',[8,16],[9,16],DL);
+    bar(L,'b-play',[9,17],[9,30],'Top 8');
+    cap(L,'bt',[5,3],T('cap_liga'));
+    cap(L,'t',[9,24],T('cap_play'),'c');
+    var fx = p(10,6);
+    L.appendChild(el('div','flag','left:calc('+fx+'% - 17px)','<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>'));
+    cap(L,'bt',[10,6],T('cap_final')+'<br>'+FEST,'c');
+    document.getElementById('lgFinal').innerHTML=T('lg_final',{fest:FEST});
+    function it(cls,mo,dot,b,sp){ return '<div class="it'+(cls?' '+cls:'')+'"><div class="mo">'+mo+'</div><div><div class="dot" style="background:var(--'+dot+')"></div></div><div class="txt"><b>'+b+'</b><span>'+sp+'</span></div></div>'; }
+    document.getElementById('vl').innerHTML=
+      it('',mon(4,'short'),'olive',dm(4,26),stEsc(T('m_start')))+
+      it('',mon(5,'short'),'tan',stEsc(T('m_early_may')),T('m_liga').replace('Defi Liga',DL))+
+      it('pause',mon(7,'short'),'sand',T('range',{a:dm(7,19),b:dm(8,15)}),stEsc(T('pause_s')))+
+      it('',mon(8,'short'),'olive',dm(8,16),stEsc(T('m_resume')))+
+      it('',mon(9,'short'),'dark',stEsc(T('lg_play')),stEsc(T('m_play')))+
+      it('','&nbsp;','gold',stEsc(T('m_final')),T('m_fest',{fest:FEST}))+
+      it('last',mon(10,'short'),'olive',dm(10,7),stEsc(T('m_end')));
+    fitList();
+    stPostHeight();
+  }
+  function fitList(){
+    var vl=document.getElementById('vl'); if(!vl||!vl.offsetParent) return;
+    vl.querySelectorAll('.txt > b, .txt > span').forEach(function(e){
+      e.style.fontSize=''; var fs=parseFloat(getComputedStyle(e).fontSize), min=fs*0.8;
+      while(e.scrollWidth>e.clientWidth+0.5 && fs>min){ fs-=0.25; e.style.fontSize=fs+'px'; }
+    });
+  }
+  var fitT=null; window.addEventListener('resize',function(){ clearTimeout(fitT); fitT=setTimeout(fitList,100); });
+  ST_ON_LANG=render;
+  mountLangSwitcher(document.getElementById('wrap'));
+  render();
+  window.addEventListener('resize',stPostHeight);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(stPostHeight);
 })();
 </script>
 </body>

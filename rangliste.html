@@ -53,16 +53,32 @@
   /* Matches */
   .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
   .card{background:#fff;border:1px solid var(--sand);border-radius:10px;padding:16px 18px;box-shadow:0 2px 8px rgba(61,58,54,.06)}
-  .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--grey);margin-bottom:10px}
+  .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:400;color:#1A1A1A;margin-bottom:10px}
   .tag{background:var(--cream);color:var(--dark);border-radius:20px;padding:3px 10px;font-size:12px;font-weight:400}
   .vs{font-family:Poppins,sans-serif;font-weight:600;font-size:16px;line-height:1.35}
-  .vs span{color:var(--grey);font-weight:400;font-size:14px;margin:0 4px}
+  .vs span{color:#1A1A1A;font-weight:400;font-size:14px;margin:0 4px}
   .res{font-family:Poppins,sans-serif;font-weight:600;color:var(--olive);font-size:15px;margin:6px 0 8px;letter-spacing:.5px}
+  .vs .pn{color:inherit;font-weight:inherit;font-size:inherit;margin:0}
   .win{font-size:14px;color:var(--tan);font-weight:400}
-  .none{color:var(--grey);font-size:15px;padding:12px 0}
+  .none{color:#1A1A1A;font-weight:400;font-size:15px;padding:12px 0}
   /* Empty */
-  .empty{border:1.5px dashed var(--sand);border-radius:12px;padding:48px 24px;text-align:center;color:var(--grey);font-size:18px;line-height:1.5;background:var(--cream)}
+  .empty{border:1.5px dashed var(--sand);border-radius:12px;padding:48px 24px;text-align:center;color:#1A1A1A;font-weight:400;font-size:18px;line-height:1.5;background:var(--cream)}
   .thead .c{font-size:inherit}
+.langsw{position:relative;display:flex;justify-content:flex-end;margin:0 0 10px;z-index:40}
+.langbtn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:20px;padding:5px 10px 5px 8px;cursor:pointer;font-family:Poppins,'Avenir Next',Avenir,Montserrat,Helvetica,Arial,sans-serif;font-weight:600;font-size:12px;line-height:1.2;color:var(--dark,#3D3A36);box-shadow:0 2px 8px rgba(61,58,54,.05)}
+.langbtn:hover,.langbtn[aria-expanded="true"]{border-color:var(--olive,#5E6D55)}
+.langbtn svg{width:15px;height:15px;stroke:var(--olive,#5E6D55);fill:none;stroke-width:1.7;flex:0 0 auto}
+.langmenu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:14px;box-shadow:0 10px 28px rgba(61,58,54,.14);padding:6px;min-width:188px}
+.langmenu[hidden]{display:none}
+.langmenu button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:none;border:0;border-radius:10px;padding:7px 10px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:500;color:var(--dark,#3D3A36);text-align:left}
+.langmenu button .ln{color:#1A1A1A;font-weight:400;font-size:12.5px}
+.langmenu button.on{background:var(--cream,#F3E8D8);color:var(--olive,#5E6D55)}
+.langmenu button:hover{background:var(--cream,#F3E8D8)}
+@media (max-width:640px){.langbtn{font-size:11.5px;padding:4px 9px 4px 7px}}
+  #lsw{max-width:960px;margin:0 auto;padding:16px 16px 0}
+  #lsw .langsw{margin:0}
+  .wrap{padding-top:12px}
+  @media (max-width:500px){#lsw{padding:12px 10px 0}.wrap{padding-top:10px}}
   .mo{display:none}
   @media (max-width:500px){
     .d{display:none} .mo{display:inline}
@@ -79,64 +95,162 @@
 </style>
 </head>
 <body>
+<div id="lsw"></div>
 <div class="wrap" id="app"></div>
 <script>
 (function(){
-  var EMPTY = 'Die Saison hat noch nicht begonnen. Die Rangliste erscheint nach den ersten Spielen.';
+/* ST i18n core (shared pattern with anmelden.html) */
+var ST_LANGS=['de','en','tr','ja','zh','uk'];
+var LANG_META={
+  de:{locale:'de-DE',html:'de',label:'DE',name:'Deutsch'},
+  en:{locale:'en-GB',html:'en',label:'EN',name:'English'},
+  tr:{locale:'tr-TR',html:'tr',label:'TR',name:'Türkçe'},
+  ja:{locale:'ja-JP',html:'ja',label:'日本語',name:'日本語'},
+  zh:{locale:'zh-CN',html:'zh-CN',label:'中文',name:'简体中文'},
+  uk:{locale:'uk-UA',html:'uk',label:'УКР',name:'Українська'}
+};
+var LANG_KEY='serdartennis_lang';
+function normLang(s){ if(!s) return null; s=String(s).toLowerCase().replace(/_/g,'-'); var b=s.split('-')[0]; return LANG_META[b]?b:null; }
+function detectLang(){
+  var q=(location.search.match(/[?&]lang=([a-zA-Z-]+)/)||[])[1]; var fq=normLang(q); if(fq) return fq;
+  try{ var sv=localStorage.getItem(LANG_KEY); if(sv&&LANG_META[sv]) return sv; }catch(e){}
+  var nav=[].concat(navigator.languages||[],navigator.language||[]);
+  for(var i=0;i<nav.length;i++){ var k=normLang(nav[i]); if(k) return k; }
+  return 'de';
+}
+var LANG=detectLang(), LOCALE=LANG_META[LANG].locale;
+document.documentElement.lang=LANG_META[LANG].html;
+function setLang(l,persist){
+  if(!LANG_META[l]) l='de'; LANG=l; LOCALE=LANG_META[l].locale; document.documentElement.lang=LANG_META[l].html;
+  if(persist!==false){ try{ localStorage.setItem(LANG_KEY,l); }catch(e){} }
+  try{ var u=new URL(location.href); u.searchParams.set('lang',l); history.replaceState(history.state,'',u.pathname+u.search+u.hash); }catch(e){}
+}
+function T(key,vars){
+  var p=I18N[LANG]||I18N.de, s=p[key]; if(s==null) s=I18N.de[key]; if(s==null) return key;
+  if(vars) s=s.replace(/\{(\w+)\}/g,function(_,k){ return vars[k]==null?'':vars[k]; });
+  return s;
+}
+function stEsc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function eurFmt(cents,min){ var v=cents/100; return new Intl.NumberFormat(LOCALE,{style:'currency',currency:'EUR',currencyDisplay:'narrowSymbol',minimumFractionDigits:min==null?2:min,maximumFractionDigits:min==null?2:(v%1?2:min)}).format(v); }
+function dateFmt(y,m,d,opt){ return new Intl.DateTimeFormat(LOCALE,Object.assign({timeZone:'UTC'},opt)).format(new Date(Date.UTC(y,m-1,d))); }
+function applyStatic(root){
+  (root||document).querySelectorAll('[data-i18n]').forEach(function(e){ e.textContent=T(e.getAttribute('data-i18n')); });
+  (root||document).querySelectorAll('[data-i18n-html]').forEach(function(e){ e.innerHTML=T(e.getAttribute('data-i18n-html')); });
+}
+var ST_ON_LANG=function(){};
+function mountLangSwitcher(host){
+  var w=document.createElement('div'); w.className='langsw';
+  function build(){
+    var m=LANG_META[LANG];
+    w.innerHTML='<button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-label="'+stEsc(T('lang_label'))+'"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>'+m.label+'</span></button><div class="langmenu" hidden role="listbox">'+
+      ST_LANGS.map(function(k){ var x=LANG_META[k]; return '<button type="button" role="option" class="'+(k===LANG?'on':'')+'" data-lang="'+k+'" aria-selected="'+(k===LANG)+'" lang="'+x.html+'"><span>'+x.label+'</span><span class="ln">'+x.name+'</span></button>'; }).join('')+'</div>';
+  }
+  function close(){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); if(mn&&!mn.hidden){ mn.hidden=true; b.setAttribute('aria-expanded','false'); } }
+  w.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=e.target.closest('[data-lang]');
+    if(o){ var l=o.getAttribute('data-lang'); close(); if(l!==LANG){ setLang(l); build(); ST_ON_LANG(); } return; }
+    if(e.target.closest('.langbtn')){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); mn.hidden=!mn.hidden; b.setAttribute('aria-expanded',String(!mn.hidden)); }
+  });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  window.addEventListener('storage',function(e){ if(e.key===LANG_KEY&&LANG_META[e.newValue]&&e.newValue!==LANG){ setLang(e.newValue,false); build(); ST_ON_LANG(); } });
+  build(); host.insertBefore(w,host.firstChild);
+  return {rebuild:build};
+}
+var stLastH=0;
+function stPostHeight(){ try{ var h=Math.ceil(document.documentElement.scrollHeight); if(Math.abs(h-stLastH)<2) return; stLastH=h; window.parent.postMessage({type:'st-height',height:h},'*'); }catch(e){} }
+function stFit(sel,ratio){
+  document.querySelectorAll(sel).forEach(function(e){
+    e.style.fontSize=''; if(!e.offsetParent) return; var fs=parseFloat(getComputedStyle(e).fontSize), min=fs*(ratio||0.85);
+    while(e.scrollWidth>e.clientWidth+0.5 && fs>min){ fs-=0.25; e.style.fontSize=fs+'px'; }
+  });
+}
+var I18N={
+de:{lang_label:'Sprache wählen',empty:'Die Saison hat noch nicht begonnen. Die Rangliste erscheint nach den ersten Spielen.',none:'Keine Spiele in dieser Runde.',vs:'vs.',winner:'Sieger: {name}',
+ h_rank:'Platz',h_rank_s:'Pl.',h_name:'Name',h_played:'Spiele',h_wins:'Siege',h_wins_s:'Siege',h_losses:'Niederl.',h_pts:'Punkte',all:'Alle Runden',matches:'Spiele',walkover:'kampflos',
+ rd:'{n}. {name}',Test:'Test',Viertelfinale:'Viertelfinale',Halbfinale:'Halbfinale',Finale:'Finale'},
+en:{lang_label:'Choose language',empty:'The season hasn’t started yet. The ranking will appear after the first matches.',none:'No matches in this round.',vs:'vs',winner:'Winner: {name}',
+ h_rank:'Rank',h_rank_s:'#',h_name:'Name',h_played:'Played',h_wins:'Wins',h_wins_s:'Wins',h_losses:'Losses',h_pts:'Points',all:'All rounds',matches:'Matches',walkover:'walkover',
+ rd:'{n}. {name}',Test:'Test',Viertelfinale:'Quarter-final',Halbfinale:'Semi-final',Finale:'Final'},
+tr:{lang_label:'Dil seçin',empty:'Sezon henüz başlamadı. Sıralama ilk maçlardan sonra görünecek.',none:'Bu turda maç yok.',vs:'–',winner:'Kazanan: {name}',
+ h_rank:'Sıra',h_rank_s:'Sıra',h_name:'Ad',h_played:'Maç',h_wins:'Galibiyet',h_wins_s:'Galib.',h_losses:'Mağlubiyet',h_pts:'Puan',all:'Tüm turlar',matches:'Maçlar',walkover:'hükmen',
+ rd:'{n}. {name}',Test:'Test',Viertelfinale:'Çeyrek final',Halbfinale:'Yarı final',Finale:'Final'},
+ja:{lang_label:'言語を選択',empty:'シーズンはまだ始まっていません。ランキングは最初の試合の後に表示されます。',none:'このラウンドの試合はありません。',vs:'vs',winner:'勝者：{name}',
+ h_rank:'順位',h_rank_s:'順位',h_name:'名前',h_played:'試合',h_wins:'勝',h_wins_s:'勝',h_losses:'敗',h_pts:'ポイント',all:'全ラウンド',matches:'試合',walkover:'不戦勝',
+ rd:'R{n}・{name}',Test:'テスト',Viertelfinale:'準々決勝',Halbfinale:'準決勝',Finale:'決勝'},
+zh:{lang_label:'选择语言',empty:'赛季尚未开始。首批比赛结束后将显示排名。',none:'本轮暂无比赛。',vs:'vs',winner:'胜者：{name}',
+ h_rank:'排名',h_rank_s:'排名',h_name:'姓名',h_played:'场次',h_wins:'胜',h_wins_s:'胜',h_losses:'负',h_pts:'积分',all:'全部轮次',matches:'比赛',walkover:'不战而胜',
+ rd:'第{n}轮·{name}',Test:'测试',Viertelfinale:'四分之一决赛',Halbfinale:'半决赛',Finale:'决赛'},
+uk:{lang_label:'Обрати мову',empty:'Сезон ще не почався. Рейтинг з’явиться після перших матчів.',none:'У цьому раунді матчів немає.',vs:'vs',winner:'Переможець: {name}',
+ h_rank:'Місце',h_rank_s:'№',h_name:'Ім’я',h_played:'Матчі',h_wins:'Перемоги',h_wins_s:'Перем.',h_losses:'Поразки',h_pts:'Очки',all:'Усі раунди',matches:'Матчі',walkover:'без гри',
+ rd:'{n}. {name}',Test:'Тест',Viertelfinale:'Чвертьфінал',Halbfinale:'Півфінал',Finale:'Фінал'}
+};
+
+  function rname(r){
+    var m=/^(\d+)\.\s*(.+)$/.exec(String(r||'').trim()), w=m?m[2]:String(r||'').trim();
+    var MONTHS=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    var mi=MONTHS.indexOf(w), name;
+    if(mi>=0) name=new Intl.DateTimeFormat(LOCALE,{month:'long',timeZone:'UTC'}).format(new Date(Date.UTC(2027,mi,1)));
+    else if(I18N.de[w]!=null && /^[A-Z]/.test(w)) name=T(w);
+    else name=w;
+    return m?T('rd',{n:m[1],name:name}):name;
+  }
+  function resText(v){ return String(v||'').trim().toLowerCase()==='kampflos' ? T('walkover') : v; }
   var app = document.getElementById('app');
   var state = { standings: [], matches: [], rounds: [], round: 'all' };
 
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   function fmtDate(v){
     if(!v) return '';
-    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(v));
-    if(m) return m[3]+'.'+m[2]+'.'+m[1];
-    var d = new Date(v); if(isNaN(d)) return '';
-    var p = function(n){ return (n<10?'0':'')+n; };
-    return p(d.getDate())+'.'+p(d.getMonth()+1)+'.'+d.getFullYear();
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(v)), d;
+    if(m) d = new Date(Date.UTC(+m[1],+m[2]-1,+m[3]));
+    else { d = new Date(v); if(isNaN(d)) return ''; d = new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())); }
+    return new Intl.DateTimeFormat(LOCALE,{day:'2-digit',month:'2-digit',year:'numeric',timeZone:'UTC'}).format(d);
   }
   function post(msg){ try{ window.parent.postMessage(msg, '*'); }catch(e){} }
   var lastH = 0, heightTimer = null;
   function sendHeight(force){
-    var h = Math.ceil(app.getBoundingClientRect().height);
+    var h = Math.ceil(app.getBoundingClientRect().bottom + (window.scrollY||0)); // incl. language switcher row
     if(!force && Math.abs(h - lastH) < 8) return;
     lastH = h;
     post({ type:'height', h: h });
+    stPostHeight();
   }
   function sendHeightSoon(){
     if(heightTimer) clearTimeout(heightTimer);
     heightTimer = setTimeout(function(){ sendHeight(true); }, 120);
   }
 
-  function renderEmpty(){ app.innerHTML = '<div class="empty">'+EMPTY+'</div>'; sendHeight(); }
+  function renderEmpty(){ app.innerHTML = '<div class="empty">'+stEsc(T('empty'))+'</div>'; sendHeight(); }
 
   function renderMatches(){
     var list = state.matches.filter(function(m){ return state.round === 'all' || (m.runde||'').trim() === state.round; });
     var el = document.getElementById('cards');
-    if(!list.length){ el.innerHTML = '<div class="none">Keine Spiele in dieser Runde.</div>'; return; }
+    if(!list.length){ el.innerHTML = '<div class="none">'+stEsc(T('none'))+'</div>'; return; }
     el.innerHTML = list.map(function(m){
-      return '<div class="card"><div class="meta"><span>'+fmtDate(m.datum)+'</span>'+(m.runde?'<span class="tag">'+esc(m.runde)+'</span>':'')+'</div>'+
-        '<div class="vs">'+esc(m.spieler1)+'<span>vs.</span>'+esc(m.spieler2)+'</div>'+
-        '<div class="res">'+esc(m.ergebnis)+'</div>'+
-        (m.sieger?'<div class="win">Sieger: '+esc(m.sieger)+'</div>':'')+'</div>';
+      return '<div class="card"><div class="meta"><span>'+fmtDate(m.datum)+'</span>'+(m.runde?'<span class="tag">'+esc(rname(m.runde))+'</span>':'')+'</div>'+
+        '<div class="vs"><span translate="no" class="pn">'+esc(m.spieler1)+'</span><span>'+esc(T('vs'))+'</span><span translate="no" class="pn">'+esc(m.spieler2)+'</span></div>'+
+        '<div class="res">'+esc(resText(m.ergebnis))+'</div>'+
+        (m.sieger?'<div class="win">'+T('winner',{name:'<span translate="no">'+esc(m.sieger)+'</span>'})+'</div>':'')+'</div>';
     }).join('');
   }
 
   function render(){
     if(!state.standings.length && !state.matches.length){ renderEmpty(); return; }
-    var h = '<div class="grid thead"><div class="c"><span class="d">Platz</span><span class="mo">Pl.</span></div><div>Name</div><div class="c hide-m">Spiele</div><div class="c">Siege</div><div class="c hide-m">Niederl.</div><div class="c">Punkte</div></div>';
+    var h = '<div class="grid thead"><div class="c"><span class="d">'+esc(T('h_rank'))+'</span><span class="mo">'+esc(T('h_rank_s'))+'</span></div><div>'+esc(T('h_name'))+'</div><div class="c hide-m">'+esc(T('h_played'))+'</div><div class="c"><span class="d">'+esc(T('h_wins'))+'</span><span class="mo">'+esc(T('h_wins_s'))+'</span></div><div class="c hide-m">'+esc(T('h_losses'))+'</div><div class="c">'+esc(T('h_pts'))+'</div></div>';
     h += state.standings.map(function(r){
       var cls = r.platz >= 1 && r.platz <= 3 ? ' m'+r.platz : '';
-      return '<div class="grid row'+cls+'"><div><div class="badge">'+esc(r.platz)+'</div></div><div class="name">'+esc(r.name)+'</div>'+
+      return '<div class="grid row'+cls+'"><div><div class="badge">'+esc(r.platz)+'</div></div><div class="name" translate="no">'+esc(r.name)+'</div>'+
         '<div class="c hide-m">'+esc(r.spiele)+'</div><div class="c">'+esc(r.siege)+'</div><div class="c hide-m">'+esc(r.niederlagen)+'</div><div class="pts">'+esc(r.punkte)+'</div></div>';
     }).join('');
     if(state.matches.length){
-      var label = state.round === 'all' ? 'Alle Runden' : state.round;
-      h += '<div class="bar"><h2>Spiele</h2><div class="dd" id="rundeDd">'+
+      var label = state.round === 'all' ? T('all') : rname(state.round);
+      h += '<div class="bar"><h2>'+esc(T('matches'))+'</h2><div class="dd" id="rundeDd">'+
         '<button type="button" class="dd-btn" id="rundeBtn" aria-haspopup="listbox" aria-expanded="false">'+esc(label)+'</button>'+
         '<div class="dd-menu" id="rundeMenu" role="listbox" hidden>'+
-        '<button type="button" class="dd-opt" data-v="all" aria-selected="'+(state.round==='all'?'true':'false')+'">Alle Runden</button>'+
-        state.rounds.map(function(r){ return '<button type="button" class="dd-opt" data-v="'+esc(r)+'" aria-selected="'+(state.round===r?'true':'false')+'">'+esc(r)+'</button>'; }).join('')+
+        '<button type="button" class="dd-opt" data-v="all" aria-selected="'+(state.round==='all'?'true':'false')+'">'+esc(T('all'))+'</button>'+
+        state.rounds.map(function(r){ return '<button type="button" class="dd-opt" data-v="'+esc(r)+'" aria-selected="'+(state.round===r?'true':'false')+'">'+esc(rname(r))+'</button>'; }).join('')+
         '</div></div></div><div class="cards" id="cards"></div>';
     }
     app.innerHTML = h;
@@ -150,7 +264,7 @@
         var t = e.target.closest('.dd-opt'); if(!t) return;
         e.preventDefault(); e.stopPropagation();
         state.round = t.getAttribute('data-v') || 'all';
-        btn.textContent = state.round === 'all' ? 'Alle Runden' : state.round;
+        btn.textContent = state.round === 'all' ? T('all') : rname(state.round);
         Array.prototype.forEach.call(menu.querySelectorAll('.dd-opt'), function(o){ o.setAttribute('aria-selected', o.getAttribute('data-v')===state.round ? 'true' : 'false'); });
         close(); renderMatches();
       });
@@ -173,6 +287,8 @@
 
   var DEMO = {"type": "defiData", "standings": [{"platz": 1, "name": "Player A", "spiele": "4", "siege": "4", "niederlagen": "0", "punkte": "14"}, {"platz": 2, "name": "Player B", "spiele": "3", "siege": "3", "niederlagen": "0", "punkte": "9"}, {"platz": 3, "name": "Player C", "spiele": "3", "siege": "2", "niederlagen": "1", "punkte": "9"}, {"platz": 3, "name": "Player D", "spiele": "5", "siege": "2", "niederlagen": "3", "punkte": "9"}, {"platz": 5, "name": "Player E", "spiele": "3", "siege": "2", "niederlagen": "1", "punkte": "8"}, {"platz": 6, "name": "Player F", "spiele": "3", "siege": "2", "niederlagen": "1", "punkte": "7"}, {"platz": 7, "name": "Player G", "spiele": "3", "siege": "1", "niederlagen": "2", "punkte": "6"}, {"platz": 7, "name": "Player H", "spiele": "3", "siege": "1", "niederlagen": "2", "punkte": "6"}, {"platz": 9, "name": "Player I", "spiele": "3", "siege": "1", "niederlagen": "2", "punkte": "5"}, {"platz": 10, "name": "Player J", "spiele": "2", "siege": "1", "niederlagen": "1", "punkte": "4"}, {"platz": 11, "name": "Player K", "spiele": "3", "siege": "0", "niederlagen": "3", "punkte": "3"}, {"platz": 12, "name": "Player L", "spiele": "3", "siege": "0", "niederlagen": "3", "punkte": "2"}], "matches": [{"datum": "2026-11-05", "spieler1": "Player A", "spieler2": "Player D", "ergebnis": "6:1 6:3", "sieger": "Player A", "runde": "Test"}, {"datum": "2027-07-25", "spieler1": "Player D", "spieler2": "Player A", "ergebnis": "3:6 7:5 8:10", "sieger": "Player A", "runde": "8. Finale"}, {"datum": "2027-07-20", "spieler1": "Player K", "spieler2": "Player F", "ergebnis": "3:6 6:4 5:10", "sieger": "Player F", "runde": "7. Halbfinale"}, {"datum": "2027-07-15", "spieler1": "Player C", "spieler2": "Player G", "ergebnis": "6:3 6:2", "sieger": "Player C", "runde": "7. Halbfinale"}, {"datum": "2027-07-10", "spieler1": "Player D", "spieler2": "Player B", "ergebnis": "1:6 6:7", "sieger": "Player B", "runde": "6. Viertelfinale"}, {"datum": "2027-07-05", "spieler1": "Player L", "spieler2": "Player I", "ergebnis": "4:6 6:3 6:10", "sieger": "Player I", "runde": "6. Viertelfinale"}, {"datum": "2027-06-30", "spieler1": "Player E", "spieler2": "Player H", "ergebnis": "6:4 6:3", "sieger": "Player E", "runde": "6. Viertelfinale"}, {"datum": "2027-06-26", "spieler1": "Player F", "spieler2": "Player B", "ergebnis": "6:7 6:4 5:10", "sieger": "Player B", "runde": "6. Viertelfinale"}, {"datum": "2027-06-21", "spieler1": "Player E", "spieler2": "Player D", "ergebnis": "6:7 0:6", "sieger": "Player D", "runde": "5. September"}, {"datum": "2027-06-16", "spieler1": "Player H", "spieler2": "Player L", "ergebnis": "kampflos", "sieger": "Player H", "runde": "5. September"}, {"datum": "2027-06-11", "spieler1": "Player A", "spieler2": "Player G", "ergebnis": "7:6 6:3", "sieger": "Player A", "runde": "4. August"}, {"datum": "2027-06-06", "spieler1": "Player I", "spieler2": "Player J", "ergebnis": "6:7 2:6", "sieger": "Player J", "runde": "4. August"}, {"datum": "2027-06-01", "spieler1": "Player C", "spieler2": "Player K", "ergebnis": "6:2 6:3", "sieger": "Player C", "runde": "3. Juli"}, {"datum": "2027-05-28", "spieler1": "Player H", "spieler2": "Player B", "ergebnis": "1:6 2:6", "sieger": "Player B", "runde": "3. Juli"}, {"datum": "2027-05-23", "spieler1": "Player C", "spieler2": "Player E", "ergebnis": "5:7 7:5 7:10", "sieger": "Player E", "runde": "3. Juli"}, {"datum": "2027-05-18", "spieler1": "Player J", "spieler2": "Player A", "ergebnis": "4:6 6:4 10:12", "sieger": "Player A", "runde": "2. Juni"}, {"datum": "2027-05-13", "spieler1": "Player G", "spieler2": "Player K", "ergebnis": "6:1 6:0", "sieger": "Player G", "runde": "2. Juni"}, {"datum": "2027-05-08", "spieler1": "Player L", "spieler2": "Player F", "ergebnis": "6:7 7:5 10:12", "sieger": "Player F", "runde": "1. Mai"}, {"datum": "2027-05-04", "spieler1": "Player I", "spieler2": "Player D", "ergebnis": "3:6 6:3 8:10", "sieger": "Player D", "runde": "1. Mai"}], "rounds": ["Test", "1. Mai", "2. Juni", "3. Juli", "4. August", "5. September", "6. Viertelfinale", "7. Halbfinale", "8. Finale"]};
   window.onmessage({data:DEMO});
+  ST_ON_LANG=function(){ render(); };
+  mountLangSwitcher(document.getElementById('lsw'));
   window.addEventListener('resize', sendHeightSoon);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ sendHeight(true); });
   setTimeout(function(){ sendHeight(true); }, 50);

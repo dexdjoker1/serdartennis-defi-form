@@ -27,7 +27,7 @@ transition:.2s}
 .tabs button:focus-visible{outline:0;box-shadow:0 0 0 3px rgba(94,109,85,.3)}
 .grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 14px}
 .f{display:flex;flex-direction:column;min-width:0}
-.f label,.lab{font-size:13.5px;font-weight:400;color:var(--grey);margin-bottom:5px;height:18px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.f label,.lab{font-size:13.5px;font-weight:400;color:#1A1A1A;margin-bottom:5px;height:18px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 input[type=date],input[type=email],input[type=number],input[type=text],select{font:inherit;font-size:15px;font-weight:400;color:var(--dark);background:#fff;border:1px solid var(--sand);
 border-radius:8px;height:42px;padding:0 12px;width:100%;min-width:0;-moz-appearance:textfield}
 input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
@@ -50,8 +50,8 @@ select{appearance:none;-webkit-appearance:none;padding-right:34px;cursor:pointer
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23777' stroke-width='1.6'/%3E%3C/svg%3E");
 background-repeat:no-repeat;background-position:right 12px center}
 select.bad{border-color:var(--err)}
-.note{font-size:12.5px;line-height:1.4;color:var(--grey);margin-top:10px}
-.hint{font-size:12.5px;color:var(--grey);margin-top:6px;height:16px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.note{font-size:12.5px;font-weight:400;line-height:1.4;color:#1A1A1A;margin-top:10px}
+.hint{font-size:12.5px;font-weight:400;color:#1A1A1A;margin-top:6px;height:16px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .seg{display:flex;gap:8px}
 .seg button{flex:1;min-width:0;font:inherit;font-size:14px;font-weight:400;color:var(--dark);background:var(--cream);border:1px solid var(--sand);border-radius:8px;height:42px;
 cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 8px;transition:.2s}
@@ -69,8 +69,21 @@ height:48px;cursor:pointer;transition:.2s}
 .done .ok{width:64px;height:64px;border-radius:50%;background:var(--olive);margin:0 auto 16px;position:relative}
 .done .ok:after{content:"";position:absolute;left:24px;top:14px;width:13px;height:26px;border:solid #fff;border-width:0 4px 4px 0;transform:rotate(45deg)}
 .done h4{font-family:Poppins,sans-serif;font-weight:600;font-size:22px;margin-bottom:8px}
-.done p{font-size:16px;line-height:1.5;color:var(--grey);max-width:420px;margin:0 auto 22px}
+.done p{font-size:16px;font-weight:400;line-height:1.5;color:#1A1A1A;max-width:420px;margin:0 auto 22px}
 .mnote{display:none}
+.langsw{position:relative;display:flex;justify-content:flex-end;margin:0 0 10px;z-index:40}
+.langbtn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:20px;padding:5px 10px 5px 8px;cursor:pointer;font-family:Poppins,'Avenir Next',Avenir,Montserrat,Helvetica,Arial,sans-serif;font-weight:600;font-size:12px;line-height:1.2;color:var(--dark,#3D3A36);box-shadow:0 2px 8px rgba(61,58,54,.05)}
+.langbtn:hover,.langbtn[aria-expanded="true"]{border-color:var(--olive,#5E6D55)}
+.langbtn svg{width:15px;height:15px;stroke:var(--olive,#5E6D55);fill:none;stroke-width:1.7;flex:0 0 auto}
+.langmenu{position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--sand,#D9CDB8);border-radius:14px;box-shadow:0 10px 28px rgba(61,58,54,.14);padding:6px;min-width:188px}
+.langmenu[hidden]{display:none}
+.langmenu button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:none;border:0;border-radius:10px;padding:7px 10px;cursor:pointer;font-family:inherit;font-size:13.5px;font-weight:500;color:var(--dark,#3D3A36);text-align:left}
+.langmenu button .ln{color:#1A1A1A;font-weight:400;font-size:12.5px}
+.langmenu button.on{background:var(--cream,#F3E8D8);color:var(--olive,#5E6D55)}
+.langmenu button:hover{background:var(--cream,#F3E8D8)}
+@media (max-width:640px){.langbtn{font-size:11.5px;padding:4px 9px 4px 7px}}
+.wrap>.langsw{margin:0 0 8px}
+
 @media (max-width:640px){.wrap{padding:10px 8px 6px}
 .box{grid-template-columns:1fr}
 .side{display:none}
@@ -104,44 +117,193 @@ textarea:focus{outline:0;border-color:var(--olive);box-shadow:0 0 0 3px rgba(94,
 @media (max-width:640px){#formA{padding-bottom:43px}
 textarea{font-size:16px;min-height:44px}}
 </style>
- </head><body><div class="wrap" id="app"><div class="box"><aside class="side"><div id="sideA"><div class="eyebrow">Defi Liga 2027</div><h3>Mach mit!</h3><ul>
-<li>Für Mitglieder vom Heerdter TV ab 18 Jahren.</li><li>Startgeld: 50 €.</li><li>Die Liga geht von Mai bis Juli 2027.</li><li>Ich melde mich per E-Mail bei dir.</li></ul></div>
-<div id="sideE" class="hide" style="display:flex;flex-direction:column;flex:1"><div class="eyebrow">Defi Liga 2027</div><h3>Ergebnis melden</h3><ul><li>Der Gewinner meldet das Ergebnis.</li>
-<li>3 Punkte für einen Sieg, 1 Punkt für eine Niederlage.</li><li>Du hast gefordert und gewinnst? Dann bekommst du 4 Punkte.</li></ul><div class="pts" id="ptsSide">
-<div class="rl">Punkte für dieses Match</div><div class="pv">Trag das Ergebnis ein.</div></div></div></aside><main class="main"><div class="tabs" role="tablist">
-<button type="button" role="tab" data-tab="e" class="on" aria-selected="true">Ergebnis<span class="d"> melden</span></button>
-<button type="button" role="tab" data-tab="a" aria-selected="false">Anmelden</button></div><form id="formA" novalidate autocomplete="on">
-<div class="mnote">Für Mitglieder vom Heerdter TV ab 18 Jahren. Startgeld: <b>50 €</b>. Ich melde mich per E-Mail bei dir.</div><div class="grid2"><div class="f"><label for="a_vn">Vorname
-</label><input type="text" id="a_vn" name="vorname" autocomplete="given-name" maxlength="60"></div><div class="f"><label for="a_nn">Nachname</label>
-<input type="text" id="a_nn" name="nachname" autocomplete="family-name" maxlength="60"></div></div><div class="grid2 eg mt"><div class="f"><label for="a_em">E-Mail</label>
-<input type="email" id="a_em" name="email" autocomplete="email" maxlength="120"></div><div class="f"><label for="a_gj">Geburtsjahr</label>
-<input type="number" id="a_gj" name="geburtsjahr" inputmode="numeric" placeholder="z. B. 1990" min="1920" max="2010"></div></div><div class="f mt grow">
-<label for="a_an">Anmerkungen (freiwillig)</label><textarea id="a_an" name="anmerkungen" maxlength="300"></textarea></div><label class="chk mt"><input type="checkbox" id="a_mg">
-<span>Ich bin Mitglied im Heerdter TV.</span></label><label class="chk mt"><input type="checkbox" id="a_ds"><span>Ich habe die 
+ </head><body><div class="wrap" id="app"><div class="box"><aside class="side"><div id="sideA"><div class="eyebrow" translate="no">Defi Liga 2027</div><h3 data-i18n="join">Mach mit!</h3><ul>
+<li data-x="a1">Für Mitglieder vom Heerdter TV ab 18 Jahren.</li><li data-x="a2">Startgeld: 50 €.</li><li data-i18n="a3">Die Liga geht von Mai bis Juli 2027.</li><li data-i18n="a4">Ich melde mich per E-Mail bei dir.</li></ul></div>
+<div id="sideE" class="hide" style="display:flex;flex-direction:column;flex:1"><div class="eyebrow" translate="no">Defi Liga 2027</div><h3 data-i18n="report">Ergebnis melden</h3><ul><li data-i18n="e1">Der Gewinner meldet das Ergebnis.</li>
+<li data-i18n="e2">3 Punkte für einen Sieg, 1 Punkt für eine Niederlage.</li><li data-i18n="e3">Du hast gefordert und gewinnst? Dann bekommst du 4 Punkte.</li></ul><div class="pts" id="ptsSide">
+<div class="rl" data-i18n="pts_for">Punkte für dieses Match</div><div class="pv">Trag das Ergebnis ein.</div></div></div></aside><main class="main"><div class="tabs" role="tablist">
+<button type="button" role="tab" data-tab="e" class="on" aria-selected="true"><span class="d" data-i18n="tab_e_full">Ergebnis melden</span><span class="mo" data-i18n="tab_e">Ergebnis</span></button>
+<button type="button" role="tab" data-tab="a" aria-selected="false" data-i18n="tab_a">Anmelden</button></div><form id="formA" novalidate autocomplete="on">
+<div class="mnote" id="mnoteA">Für Mitglieder vom Heerdter TV ab 18 Jahren. Startgeld: <b>50 €</b>. Ich melde mich per E-Mail bei dir.</div><div class="grid2"><div class="f"><label for="a_vn" data-i18n="vn">Vorname</label><input type="text" id="a_vn" name="vorname" autocomplete="given-name" maxlength="60"></div><div class="f"><label for="a_nn" data-i18n="nn">Nachname</label>
+<input type="text" id="a_nn" name="nachname" autocomplete="family-name" maxlength="60"></div></div><div class="grid2 eg mt"><div class="f"><label for="a_em" data-i18n="em">E-Mail</label>
+<input type="email" id="a_em" name="email" autocomplete="email" maxlength="120"></div><div class="f"><label for="a_gj" data-i18n="gj">Geburtsjahr</label>
+<input type="number" id="a_gj" name="geburtsjahr" inputmode="numeric" placeholder="z. B. 1990" data-i18n-ph="gj_ph" min="1920" max="2010"></div></div><div class="f mt grow">
+<label for="a_an" data-i18n="an">Anmerkungen (freiwillig)</label><textarea id="a_an" name="anmerkungen" maxlength="300"></textarea></div><label class="chk mt"><input type="checkbox" id="a_mg">
+<span data-x="member">Ich bin Mitglied im Heerdter TV.</span></label><label class="chk mt"><input type="checkbox" id="a_ds"><span data-x="ds">Ich habe die 
 <a href="https://akdagserdar47.wixsite.com/serdartennis/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
 <div class="hp" aria-hidden="true"><input type="text" id="a_hp" tabindex="-1" autocomplete="off"></div><div class="msg" id="a_msg" role="alert"></div>
-<button class="btn" type="submit" id="a_btn">Jetzt anmelden</button></form><form id="formE" class="hide" novalidate autocomplete="on"><div class="mnote" id="ptsMob"><b>Punkte:</b>
-<span class="pv">Trag das Ergebnis ein.</span></div><div class="grid2 one"><div class="f"><label for="e_fo">Forderer<span class="d"> (hat gefordert)</span></label><select id="e_fo">
-<option value="">Bitte wählen</option></select></div><div class="f"><label for="e_ge">Gegner</label><select id="e_ge"><option value="">Bitte wählen</option></select></div></div>
-<div class="grid2 mt"><div class="f"><label for="e_da">Datum vom Match</label><input type="date" id="e_da" min="2026-01-01"></div><div class="f"><span class="lab">&nbsp;</span>
-<label class="chk" style="height:auto;margin:auto 0;white-space:normal;overflow:visible"><input type="checkbox" id="e_ng"><span>Gegner ist nicht gekommen</span></label></div></div>
-<div id="setsBox" class="mt"><div class="sets"><div class="f"><span class="lab">1. Satz</span><div class="score">
-<input type="number" inputmode="numeric" min="0" max="7" id="s1a" aria-label="1. Satz Forderer"><span>:</span>
-<input type="number" inputmode="numeric" min="0" max="7" id="s1b" aria-label="1. Satz Gegner"></div></div><div class="f"><span class="lab">2. Satz</span><div class="score">
-<input type="number" inputmode="numeric" min="0" max="7" id="s2a" aria-label="2. Satz Forderer"><span>:</span>
-<input type="number" inputmode="numeric" min="0" max="7" id="s2b" aria-label="2. Satz Gegner"></div></div><div class="f"><span class="lab"><span class="d">Match-</span>Tiebreak</span>
-<div class="score"><input type="number" inputmode="numeric" min="0" max="40" id="s3a" aria-label="Match-Tiebreak Forderer"><span>:</span>
-<input type="number" inputmode="numeric" min="0" max="40" id="s3b" aria-label="Match-Tiebreak Gegner"></div></div></div><div class="hint">Links Forderer, rechts Gegner.
-<span class="d"> Match-Tiebreak nur bei 1:1 Sätzen.</span></div></div><div class="f mt"><span class="lab">Sieger</span><div class="seg" id="e_si"><button type="button" data-v="a">Forderer
-</button><button type="button" data-v="b">Gegner</button></div></div><div class="f mt"><label for="e_em">Deine E-Mail</label>
+<button class="btn" type="submit" id="a_btn" data-i18n="btn_a">Jetzt anmelden</button></form><form id="formE" class="hide" novalidate autocomplete="on"><div class="mnote" id="ptsMob"><b data-i18n="points">Punkte:</b>
+<span class="pv">Trag das Ergebnis ein.</span></div><div class="grid2 one"><div class="f"><label for="e_fo"><span class="d" data-i18n="fo_full">Forderer (hat gefordert)</span><span class="mo" data-i18n="fo">Forderer</span></label><select id="e_fo">
+<option value="" data-i18n="choose">Bitte wählen</option></select></div><div class="f"><label for="e_ge" data-i18n="ge">Gegner</label><select id="e_ge"><option value="" data-i18n="choose">Bitte wählen</option></select></div></div>
+<div class="grid2 mt"><div class="f"><label for="e_da" data-i18n="date">Datum vom Match</label><input type="date" id="e_da" min="2026-01-01"></div><div class="f"><span class="lab">&nbsp;</span>
+<label class="chk" style="height:auto;margin:auto 0;white-space:normal;overflow:visible"><input type="checkbox" id="e_ng"><span data-i18n="noshow">Gegner ist nicht gekommen</span></label></div></div>
+<div id="setsBox" class="mt"><div class="sets"><div class="f"><span class="lab" data-i18n="set1">1. Satz</span><div class="score">
+<input type="number" inputmode="numeric" min="0" max="7" id="s1a" aria-label="1. Satz Forderer" data-aria="s1a"><span>:</span>
+<input type="number" inputmode="numeric" min="0" max="7" id="s1b" aria-label="1. Satz Gegner" data-aria="s1b"></div></div><div class="f"><span class="lab" data-i18n="set2">2. Satz</span><div class="score">
+<input type="number" inputmode="numeric" min="0" max="7" id="s2a" aria-label="2. Satz Forderer" data-aria="s2a"><span>:</span>
+<input type="number" inputmode="numeric" min="0" max="7" id="s2b" aria-label="2. Satz Gegner" data-aria="s2b"></div></div><div class="f"><span class="lab"><span class="d" data-i18n="mtb_full">Match-Tiebreak</span><span class="mo" data-i18n="mtb">Tiebreak</span></span>
+<div class="score"><input type="number" inputmode="numeric" min="0" max="40" id="s3a" aria-label="Match-Tiebreak Forderer" data-aria="s3a"><span>:</span>
+<input type="number" inputmode="numeric" min="0" max="40" id="s3b" aria-label="Match-Tiebreak Gegner" data-aria="s3b"></div></div></div><div class="hint"><span data-i18n="hint">Links Forderer, rechts Gegner.</span><span class="d" data-i18n="hint2"> Match-Tiebreak nur bei 1:1 Sätzen.</span></div></div><div class="f mt"><span class="lab" data-i18n="winner">Sieger</span><div class="seg" id="e_si"><button type="button" data-v="a">Forderer</button><button type="button" data-v="b">Gegner</button></div></div><div class="f mt"><label for="e_em" data-i18n="your_em">Deine E-Mail</label>
 <input type="email" id="e_em" autocomplete="email" maxlength="120"></div>
-<div class="note mt">Nur in der WhatsApp-Gruppe angekündigte Matches zählen. Alle Ergebnisse werden vor der Wertung geprüft.</div><label class="chk" style="margin-top:8px">
-<input type="checkbox" id="e_wa"><span>Das Match wurde vorher in der WhatsApp-Gruppe angekündigt.</span></label><label class="chk mt"><input type="checkbox" id="e_ds"><span>Ich habe die 
+<div class="note mt" data-i18n="note">Nur in der WhatsApp-Gruppe angekündigte Matches zählen. Alle Ergebnisse werden vor der Wertung geprüft.</div><label class="chk" style="margin-top:8px">
+<input type="checkbox" id="e_wa"><span data-i18n="wa">Das Match wurde vorher in der WhatsApp-Gruppe angekündigt.</span></label><label class="chk mt"><input type="checkbox" id="e_ds"><span data-x="ds">Ich habe die 
 <a href="https://akdagserdar47.wixsite.com/serdartennis/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und bin einverstanden.</span></label>
 <div class="hp" aria-hidden="true"><input type="text" id="e_hp" tabindex="-1" autocomplete="off"></div><div class="msg" id="e_msg" role="alert"></div>
-<button class="btn" type="submit" id="e_btn">Ergebnis senden</button></form><div class="done hide" id="done"><div class="ok"></div><h4 id="doneH">Danke!</h4><p id="doneP"></p>
+<button class="btn" type="submit" id="e_btn" data-i18n="btn_e">Ergebnis senden</button></form><div class="done hide" id="done"><div class="ok"></div><h4 id="doneH">Danke!</h4><p id="doneP"></p>
 <button class="btn light" type="button" id="again">Zurück</button></div></main></div></div> 
 <script>
+/* ST i18n core (shared pattern with anmelden.html) */
+var ST_LANGS=['de','en','tr','ja','zh','uk'];
+var LANG_META={
+  de:{locale:'de-DE',html:'de',label:'DE',name:'Deutsch'},
+  en:{locale:'en-GB',html:'en',label:'EN',name:'English'},
+  tr:{locale:'tr-TR',html:'tr',label:'TR',name:'Türkçe'},
+  ja:{locale:'ja-JP',html:'ja',label:'日本語',name:'日本語'},
+  zh:{locale:'zh-CN',html:'zh-CN',label:'中文',name:'简体中文'},
+  uk:{locale:'uk-UA',html:'uk',label:'УКР',name:'Українська'}
+};
+var LANG_KEY='serdartennis_lang';
+function normLang(s){ if(!s) return null; s=String(s).toLowerCase().replace(/_/g,'-'); var b=s.split('-')[0]; return LANG_META[b]?b:null; }
+function detectLang(){
+  var q=(location.search.match(/[?&]lang=([a-zA-Z-]+)/)||[])[1]; var fq=normLang(q); if(fq) return fq;
+  try{ var sv=localStorage.getItem(LANG_KEY); if(sv&&LANG_META[sv]) return sv; }catch(e){}
+  var nav=[].concat(navigator.languages||[],navigator.language||[]);
+  for(var i=0;i<nav.length;i++){ var k=normLang(nav[i]); if(k) return k; }
+  return 'de';
+}
+var LANG=detectLang(), LOCALE=LANG_META[LANG].locale;
+document.documentElement.lang=LANG_META[LANG].html;
+function setLang(l,persist){
+  if(!LANG_META[l]) l='de'; LANG=l; LOCALE=LANG_META[l].locale; document.documentElement.lang=LANG_META[l].html;
+  if(persist!==false){ try{ localStorage.setItem(LANG_KEY,l); }catch(e){} }
+  try{ var u=new URL(location.href); u.searchParams.set('lang',l); history.replaceState(history.state,'',u.pathname+u.search+u.hash); }catch(e){}
+}
+function T(key,vars){
+  var p=I18N[LANG]||I18N.de, s=p[key]; if(s==null) s=I18N.de[key]; if(s==null) return key;
+  if(vars) s=s.replace(/\{(\w+)\}/g,function(_,k){ return vars[k]==null?'':vars[k]; });
+  return s;
+}
+function stEsc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function eurFmt(cents,min){ var v=cents/100; return new Intl.NumberFormat(LOCALE,{style:'currency',currency:'EUR',currencyDisplay:'narrowSymbol',minimumFractionDigits:min==null?2:min,maximumFractionDigits:min==null?2:(v%1?2:min)}).format(v); }
+function dateFmt(y,m,d,opt){ return new Intl.DateTimeFormat(LOCALE,Object.assign({timeZone:'UTC'},opt)).format(new Date(Date.UTC(y,m-1,d))); }
+function applyStatic(root){
+  (root||document).querySelectorAll('[data-i18n]').forEach(function(e){ e.textContent=T(e.getAttribute('data-i18n')); });
+  (root||document).querySelectorAll('[data-i18n-html]').forEach(function(e){ e.innerHTML=T(e.getAttribute('data-i18n-html')); });
+}
+var ST_ON_LANG=function(){};
+function mountLangSwitcher(host){
+  var w=document.createElement('div'); w.className='langsw';
+  function build(){
+    var m=LANG_META[LANG];
+    w.innerHTML='<button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-label="'+stEsc(T('lang_label'))+'"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>'+m.label+'</span></button><div class="langmenu" hidden role="listbox">'+
+      ST_LANGS.map(function(k){ var x=LANG_META[k]; return '<button type="button" role="option" class="'+(k===LANG?'on':'')+'" data-lang="'+k+'" aria-selected="'+(k===LANG)+'" lang="'+x.html+'"><span>'+x.label+'</span><span class="ln">'+x.name+'</span></button>'; }).join('')+'</div>';
+  }
+  function close(){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); if(mn&&!mn.hidden){ mn.hidden=true; b.setAttribute('aria-expanded','false'); } }
+  w.addEventListener('click',function(e){
+    e.stopPropagation();
+    var o=e.target.closest('[data-lang]');
+    if(o){ var l=o.getAttribute('data-lang'); close(); if(l!==LANG){ setLang(l); build(); ST_ON_LANG(); } return; }
+    if(e.target.closest('.langbtn')){ var mn=w.querySelector('.langmenu'), b=w.querySelector('.langbtn'); mn.hidden=!mn.hidden; b.setAttribute('aria-expanded',String(!mn.hidden)); }
+  });
+  document.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  window.addEventListener('storage',function(e){ if(e.key===LANG_KEY&&LANG_META[e.newValue]&&e.newValue!==LANG){ setLang(e.newValue,false); build(); ST_ON_LANG(); } });
+  build(); host.insertBefore(w,host.firstChild);
+  return {rebuild:build};
+}
+var stLastH=0;
+function stPostHeight(){ try{ var h=Math.ceil(document.documentElement.scrollHeight); if(Math.abs(h-stLastH)<2) return; stLastH=h; window.parent.postMessage({type:'st-height',height:h},'*'); }catch(e){} }
+function stFit(sel,ratio){
+  document.querySelectorAll(sel).forEach(function(e){
+    e.style.fontSize=''; if(!e.offsetParent) return; var fs=parseFloat(getComputedStyle(e).fontSize), min=fs*(ratio||0.85);
+    while(e.scrollWidth>e.clientWidth+0.5 && fs>min){ fs-=0.25; e.style.fontSize=fs+'px'; }
+  });
+}
+var I18N={
+de:{lang_label:'Sprache wählen',join:'Mach mit!',a1:'Für Mitglieder vom {club} ab 18 Jahren.',a2:'Startgeld: {fee}.',a3:'Die Liga geht von Mai bis Juli 2027.',a4:'Ich melde mich per E-Mail bei dir.',
+ report:'Ergebnis melden',e1:'Der Gewinner meldet das Ergebnis.',e2:'3 Punkte für einen Sieg, 1 Punkt für eine Niederlage.',e3:'Du hast gefordert und gewinnst? Dann bekommst du 4 Punkte.',pts_for:'Punkte für dieses Match',enter:'Trag das Ergebnis ein.',
+ tab_e_full:'Ergebnis melden',tab_e:'Ergebnis',tab_a:'Anmelden',fee_b:'Startgeld: <b>{fee}</b>.',
+ vn:'Vorname',nn:'Nachname',em:'E-Mail',gj:'Geburtsjahr',gj_ph:'z. B. 1990',an:'Anmerkungen (freiwillig)',member:'Ich bin Mitglied im {club}.',privacy:'Datenschutzerklärung',ds:'Ich habe die {privacy} gelesen und bin einverstanden.',btn_a:'Jetzt anmelden',
+ points:'Punkte:',fo_full:'Forderer (hat gefordert)',fo:'Forderer',ge:'Gegner',choose:'Bitte wählen',date:'Datum vom Match',noshow:'Gegner ist nicht gekommen',set1:'1. Satz',set2:'2. Satz',mtb_full:'Match-Tiebreak',mtb:'Tiebreak',
+ hint:'Links Forderer, rechts Gegner.',hint2:' Match-Tiebreak nur bei 1:1 Sätzen.',winner:'Sieger',your_em:'Deine E-Mail',note:'Nur in der WhatsApp-Gruppe angekündigte Matches zählen. Alle Ergebnisse werden vor der Wertung geprüft.',wa:'Das Match wurde vorher in der WhatsApp-Gruppe angekündigt.',btn_e:'Ergebnis senden',
+ thanks:'Danke!',sending:'Wird gesendet …',done_a_h:'Danke für deine Anmeldung!',done_e_h:'Danke, dein Ergebnis ist da!',done_a_p:'Ich melde mich per E-Mail bei dir.',done_e_p:'Ich prüfe das Ergebnis. Danach steht es in der Rangliste.',back:'Zurück',again:'Noch ein Ergebnis melden',
+ err_age:'Die Defi Liga ist für Spieler ab 18 Jahren.',err_fill:'Bitte füll alle Felder richtig aus.',err_mem:'Die Defi Liga ist für Mitglieder vom Heerdter TV.',err_ds:'Bitte bestätige die Datenschutzerklärung.',err_fail:'Das hat leider nicht geklappt. Bitte versuch es später noch einmal.',
+ err_same:'Forderer und Gegner müssen zwei verschiedene Spieler sein.',err_pick:'Bitte wähle beide Spieler und das Datum.',err_mtb:'Ein Match-Tiebreak gibt es nur bei 1:1 Sätzen.',err_sets:'Bitte das Ergebnis Satz für Satz eintragen.',err_win:'Bitte wähle den Sieger passend zum Ergebnis.',err_em:'Bitte deine E-Mail richtig eintragen.',err_wa:'Nur in der WhatsApp-Gruppe angekündigte Matches zählen.',
+ pt1:'{n} Punkt',ptn:'{n} Punkte'},
+en:{lang_label:'Choose language',join:'Join in!',a1:'For {club} members aged 18 and over.',a2:'Entry fee: {fee}.',a3:'The league runs from May to July 2027.',a4:'I’ll get in touch with you by email.',
+ report:'Report a result',e1:'The winner reports the result.',e2:'3 points for a win, 1 point for a loss.',e3:'You made the challenge and won? Then you get 4 points.',pts_for:'Points for this match',enter:'Enter the result.',
+ tab_e_full:'Report result',tab_e:'Result',tab_a:'Sign up',fee_b:'Entry fee: <b>{fee}</b>.',
+ vn:'First name',nn:'Last name',em:'Email',gj:'Year of birth',gj_ph:'e.g. 1990',an:'Notes (optional)',member:'I am a member of {club}.',privacy:'Privacy policy (Deutsch)',ds:'I have read the {privacy} and agree to it.',btn_a:'Sign up now',
+ points:'Points:',fo_full:'Challenger (made the challenge)',fo:'Challenger',ge:'Opponent',choose:'Please select',date:'Match date',noshow:'Opponent didn’t show up',set1:'Set 1',set2:'Set 2',mtb_full:'Match tiebreak',mtb:'Tiebreak',
+ hint:'Left: challenger, right: opponent.',hint2:' Match tiebreak only at one set all.',winner:'Winner',your_em:'Your email',note:'Only matches announced in the WhatsApp group count. All results are checked before they are counted.',wa:'The match was announced in the WhatsApp group beforehand.',btn_e:'Send result',
+ thanks:'Thank you!',sending:'Sending …',done_a_h:'Thank you for signing up!',done_e_h:'Thanks, your result has arrived!',done_a_p:'I’ll get in touch with you by email.',done_e_p:'I’ll check the result. After that, it will appear in the ranking.',back:'Back',again:'Report another result',
+ err_age:'The Defi Liga is for players aged 18 and over.',err_fill:'Please fill in all fields correctly.',err_mem:'The Defi Liga is for Heerdter TV members.',err_ds:'Please confirm the privacy policy.',err_fail:'Sorry, that didn’t work. Please try again later.',
+ err_same:'Challenger and opponent must be two different players.',err_pick:'Please select both players and the date.',err_mtb:'A match tiebreak is only played at one set all.',err_sets:'Please enter the result set by set.',err_win:'Please select the winner that matches the result.',err_em:'Please enter your email correctly.',err_wa:'Only matches announced in the WhatsApp group count.',
+ pt1:'{n} point',ptn:'{n} points'},
+tr:{lang_label:'Dil seçin',join:'Siz de katılın!',a1:'18 yaş ve üzeri {club} üyeleri için.',a2:'Katılım ücreti: {fee}.',a3:'Lig, Mayıs’tan Temmuz 2027’ye kadar sürer.',a4:'Size e-postayla dönüş yapacağım.',
+ report:'Sonuç bildirin',e1:'Sonucu kazanan bildirir.',e2:'Galibiyet 3 puan, mağlubiyet 1 puan.',e3:'Meydan okuyan sizseniz ve kazanırsanız 4 puan alırsınız.',pts_for:'Bu maçın puanları',enter:'Sonucu girin.',
+ tab_e_full:'Sonuç bildir',tab_e:'Sonuç',tab_a:'Kayıt',fee_b:'Katılım ücreti: <b>{fee}</b>.',
+ vn:'Ad',nn:'Soyad',em:'E-posta',gj:'Doğum yılı',gj_ph:'ör. 1990',an:'Notlar (isteğe bağlı)',member:'{club} üyesiyim.',privacy:'Gizlilik politikası (Deutsch)',ds:'{privacy} metnini okudum ve kabul ediyorum.',btn_a:'Şimdi kaydolun',
+ points:'Puanlar:',fo_full:'Meydan okuyan (maçı isteyen)',fo:'Meydan okuyan',ge:'Rakip',choose:'Lütfen seçin',date:'Maç tarihi',noshow:'Rakip gelmedi',set1:'1. set',set2:'2. set',mtb_full:'Match tiebreak',mtb:'Tiebreak',
+ hint:'Solda meydan okuyan, sağda rakip.',hint2:' Match tiebreak yalnızca setler 1-1 ise.',winner:'Kazanan',your_em:'E-posta adresiniz',note:'Yalnızca WhatsApp grubunda duyurulan maçlar sayılır. Tüm sonuçlar puanlamadan önce kontrol edilir.',wa:'Maç önceden WhatsApp grubunda duyuruldu.',btn_e:'Sonucu gönderin',
+ thanks:'Teşekkürler!',sending:'Gönderiliyor …',done_a_h:'Kaydınız için teşekkürler!',done_e_h:'Teşekkürler, sonucunuz ulaştı!',done_a_p:'Size e-postayla dönüş yapacağım.',done_e_p:'Sonucu kontrol edeceğim. Ardından sıralamada yer alacak.',back:'Geri',again:'Başka bir sonuç bildirin',
+ err_age:'Defi Liga 18 yaş ve üzeri oyuncular içindir.',err_fill:'Lütfen tüm alanları doğru doldurun.',err_mem:'Defi Liga, Heerdter TV üyeleri içindir.',err_ds:'Lütfen gizlilik politikasını onaylayın.',err_fail:'Maalesef olmadı. Lütfen daha sonra tekrar deneyin.',
+ err_same:'Meydan okuyan ve rakip iki farklı oyuncu olmalıdır.',err_pick:'Lütfen iki oyuncuyu ve tarihi seçin.',err_mtb:'Match tiebreak yalnızca setler 1-1 olduğunda oynanır.',err_sets:'Lütfen sonucu set set girin.',err_win:'Lütfen sonuca uygun kazananı seçin.',err_em:'Lütfen e-posta adresinizi doğru girin.',err_wa:'Yalnızca WhatsApp grubunda duyurulan maçlar sayılır.',
+ pt1:'{n} puan',ptn:'{n} puan'},
+ja:{lang_label:'言語を選択',join:'ぜひご参加ください！',a1:'18歳以上の{club}会員が対象です。',a2:'参加費：{fee}',a3:'リーグ期間は2027年5月〜7月です。',a4:'こちらからメールでご連絡します。',
+ report:'結果を報告',e1:'結果は勝者が報告します。',e2:'勝利で3ポイント、敗戦で1ポイント。',e3:'チャレンジした側が勝った場合は4ポイントです。',pts_for:'この試合のポイント',enter:'結果を入力してください。',
+ tab_e_full:'結果を報告',tab_e:'結果',tab_a:'参加登録',fee_b:'参加費：<b>{fee}</b>。',
+ vn:'名',nn:'姓',em:'メールアドレス',gj:'生まれた年',gj_ph:'例：1990',an:'備考（任意）',member:'{club}の会員です。',privacy:'プライバシーポリシー（ドイツ語）',ds:'{privacy}を読み、同意します。',btn_a:'今すぐ登録',
+ points:'ポイント：',fo_full:'挑戦者（チャレンジした側）',fo:'挑戦者',ge:'対戦相手',choose:'選択してください',date:'試合日',noshow:'相手が来なかった',set1:'第1セット',set2:'第2セット',mtb_full:'マッチタイブレーク',mtb:'タイブレーク',
+ hint:'左が挑戦者、右が対戦相手。',hint2:'マッチタイブレークはセットカウント1-1の場合のみ。',winner:'勝者',your_em:'あなたのメールアドレス',note:'WhatsAppグループで告知された試合のみが有効です。すべての結果は集計前に確認されます。',wa:'この試合は事前にWhatsAppグループで告知しました。',btn_e:'結果を送信',
+ thanks:'ありがとうございます！',sending:'送信中…',done_a_h:'ご登録ありがとうございます！',done_e_h:'ありがとうございます。結果を受け付けました！',done_a_p:'こちらからメールでご連絡します。',done_e_p:'結果を確認した後、ランキングに反映されます。',back:'戻る',again:'別の結果を報告',
+ err_age:'Defi Ligaは18歳以上の選手が対象です。',err_fill:'すべての項目を正しく入力してください。',err_mem:'Defi LigaはHeerdter TV会員が対象です。',err_ds:'プライバシーポリシーへの同意にチェックを入れてください。',err_fail:'申し訳ありません、送信できませんでした。しばらくしてからもう一度お試しください。',
+ err_same:'挑戦者と対戦相手には別々の選手を選んでください。',err_pick:'両方の選手と日付を選択してください。',err_mtb:'マッチタイブレークはセットカウント1-1の場合のみです。',err_sets:'結果をセットごとに入力してください。',err_win:'結果に合った勝者を選択してください。',err_em:'メールアドレスを正しく入力してください。',err_wa:'WhatsAppグループで告知された試合のみが有効です。',
+ pt1:'{n}ポイント',ptn:'{n}ポイント'},
+zh:{lang_label:'选择语言',join:'快来参加！',a1:'面向年满18岁的{club}会员。',a2:'报名费：{fee}。',a3:'联赛时间为2027年5月至7月。',a4:'我会通过电子邮件联系你。',
+ report:'提交比赛结果',e1:'由胜者提交结果。',e2:'胜一场得3分，负一场得1分。',e3:'你发起挑战并获胜？那么你得4分。',pts_for:'本场比赛积分',enter:'请输入比赛结果。',
+ tab_e_full:'提交结果',tab_e:'结果',tab_a:'报名',fee_b:'报名费：<b>{fee}</b>。',
+ vn:'名',nn:'姓',em:'电子邮箱',gj:'出生年份',gj_ph:'例如 1990',an:'备注（选填）',member:'我是{club}的会员。',privacy:'隐私声明（德文）',ds:'我已阅读并同意{privacy}。',btn_a:'立即报名',
+ points:'积分：',fo_full:'挑战者（发起挑战方）',fo:'挑战者',ge:'对手',choose:'请选择',date:'比赛日期',noshow:'对手未到场',set1:'第一盘',set2:'第二盘',mtb_full:'抢十决胜',mtb:'抢十',
+ hint:'左边为挑战者，右边为对手。',hint2:'仅在盘数1:1时进行抢十。',winner:'胜者',your_em:'你的电子邮箱',note:'只有在WhatsApp群里公布过的比赛才计入成绩。所有结果在计分前都会经过审核。',wa:'本场比赛已提前在WhatsApp群里公布。',btn_e:'提交结果',
+ thanks:'谢谢！',sending:'正在发送…',done_a_h:'感谢你的报名！',done_e_h:'谢谢，你的结果已收到！',done_a_p:'我会通过电子邮件联系你。',done_e_p:'我会核实结果，之后它将显示在排名中。',back:'返回',again:'再提交一个结果',
+ err_age:'Defi Liga仅面向年满18岁的选手。',err_fill:'请正确填写所有字段。',err_mem:'Defi Liga仅面向Heerdter TV会员。',err_ds:'请确认隐私声明。',err_fail:'抱歉，提交失败。请稍后再试。',
+ err_same:'挑战者和对手必须是两名不同的选手。',err_pick:'请选择两名选手和日期。',err_mtb:'只有盘数1:1时才进行抢十。',err_sets:'请逐盘填写比分。',err_win:'请选择与比分相符的胜者。',err_em:'请正确填写你的电子邮箱。',err_wa:'只有在WhatsApp群里公布过的比赛才计入成绩。',
+ pt1:'{n}分',ptn:'{n}分'},
+uk:{lang_label:'Обрати мову',join:'Долучайтеся!',a1:'Для членів {club} віком від 18 років.',a2:'Стартовий внесок: {fee}.',a3:'Ліга триває з травня по липень 2027 року.',a4:'Я зв’яжуся з вами електронною поштою.',
+ report:'Повідомити результат',e1:'Результат повідомляє переможець.',e2:'3 очки за перемогу, 1 очко за поразку.',e3:'Ви кинули виклик і перемогли? Тоді отримуєте 4 очки.',pts_for:'Очки за цей матч',enter:'Введіть результат.',
+ tab_e_full:'Повідомити результат',tab_e:'Результат',tab_a:'Реєстрація',fee_b:'Стартовий внесок: <b>{fee}</b>.',
+ vn:'Ім’я',nn:'Прізвище',em:'Ел. пошта',gj:'Рік народження',gj_ph:'напр. 1990',an:'Примітки (необов’язково)',member:'Я член клубу {club}.',privacy:'Політика конфіденційності (німецькою)',ds:'Я ознайомився/ознайомилася з документом «{privacy}» і погоджуюся.',btn_a:'Зареєструватися',
+ points:'Очки:',fo_full:'Ініціатор виклику',fo:'Ініціатор',ge:'Суперник',choose:'Виберіть',date:'Дата матчу',noshow:'Суперник не з’явився',set1:'1-й сет',set2:'2-й сет',mtb_full:'Матч-тайбрейк',mtb:'Тайбрейк',
+ hint:'Зліва ініціатор, справа суперник.',hint2:' Матч-тайбрейк лише за 1:1 за сетами.',winner:'Переможець',your_em:'Ваша ел. пошта',note:'Зараховуються лише матчі, оголошені в групі WhatsApp. Усі результати перевіряються перед зарахуванням.',wa:'Матч було заздалегідь оголошено в групі WhatsApp.',btn_e:'Надіслати результат',
+ thanks:'Дякуємо!',sending:'Надсилання…',done_a_h:'Дякуємо за реєстрацію!',done_e_h:'Дякуємо, ваш результат отримано!',done_a_p:'Я зв’яжуся з вами електронною поштою.',done_e_p:'Я перевірю результат. Після цього він з’явиться в рейтингу.',back:'Назад',again:'Повідомити ще один результат',
+ err_age:'Defi Liga — для гравців віком від 18 років.',err_fill:'Будь ласка, правильно заповніть усі поля.',err_mem:'Defi Liga — для членів Heerdter TV.',err_ds:'Будь ласка, підтвердьте політику конфіденційності.',err_fail:'На жаль, не вдалося. Спробуйте ще раз пізніше.',
+ err_same:'Ініціатор і суперник мають бути різними гравцями.',err_pick:'Виберіть обох гравців і дату.',err_mtb:'Матч-тайбрейк грається лише за рахунку 1:1 за сетами.',err_sets:'Введіть результат по сетах.',err_win:'Виберіть переможця відповідно до результату.',err_em:'Правильно введіть свою ел. пошту.',err_wa:'Зараховуються лише матчі, оголошені в групі WhatsApp.',
+ pt1:'{n} очко',ptn:'{n} очки',ptm:'{n} очок'}
+};
+function ptsWord(n){
+  if(LANG==='uk'){ var a=n%10,b=n%100; return T(a===1&&b!==11?'pt1':(a>=2&&a<=4&&(b<12||b>14)?'ptn':'ptm'),{n:n}); }
+  return T(n===1?'pt1':'ptn',{n:n});
+}
+
+function stI18n(){
+  applyStatic();
+  var CLUB='<span translate="no">Heerdter TV</span>', fee=stEsc(eurFmt(5000,0)), PRIV='<a href="https://akdagserdar47.wixsite.com/serdartennis/datenschutz" target="_blank" rel="noopener">'+stEsc(T('privacy'))+'</a>';
+  document.querySelectorAll('[data-x="a1"]').forEach(function(x){ x.innerHTML=T('a1',{club:CLUB}); });
+  document.querySelectorAll('[data-x="a2"]').forEach(function(x){ x.textContent=T('a2',{fee:eurFmt(5000,0)}); });
+  document.querySelectorAll('[data-x="member"]').forEach(function(x){ x.innerHTML=T('member',{club:CLUB}); });
+  document.querySelectorAll('[data-x="ds"]').forEach(function(x){ x.innerHTML=T('ds',{privacy:PRIV}); });
+  var mn=document.getElementById('mnoteA'); if(mn) mn.innerHTML=T('a1',{club:CLUB})+' '+T('fee_b',{fee:fee})+' '+stEsc(T('a4'));
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(x){ x.placeholder=T(x.getAttribute('data-i18n-ph')); });
+  var AR={s1a:['set1','fo'],s1b:['set1','ge'],s2a:['set2','fo'],s2b:['set2','ge'],s3a:['mtb_full','fo'],s3b:['mtb_full','ge']};
+  document.querySelectorAll('[data-aria]').forEach(function(x){ var k=AR[x.getAttribute('data-aria')]; x.setAttribute('aria-label',T(k[0])+' – '+T(k[1])); });
+  var dn=document.getElementById('done'), a=stDoneKind==='anmeldung';
+  if(dn.classList.contains('hide')||!stDoneKind){ document.getElementById('doneH').textContent=T('thanks'); document.getElementById('again').textContent=T('back'); }
+  else { document.getElementById('doneH').textContent=T(a?'done_a_h':'done_e_h'); document.getElementById('doneP').textContent=T(a?'done_a_p':'done_e_p'); document.getElementById('again').textContent=T(a?'back':'again'); }
+  stFit('.seg button'); stFit('.hint');
+  document.title='Defi Liga';
+}
+var stDoneKind='';
 !function(){var e=function(e){return document.getElementById(e)},t="e",n="",a=null,r=null,i=2027;function s(e){try{window.parent.postMessage(e,"*")}catch(e){}}function o(t){
 return(e(t).value||"").trim()}function u(e){var t=o(e);return""===t?null:Number(t)}function l(e){return/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)}function c(){
 var e=new Date,t=function(e){return(e<10?"0":"")+e};return e.getFullYear()+"-"+t(e.getMonth()+1)+"-"+t(e.getDate())}function d(t,n){return e(t).classList.toggle("bad",!!n),!n}
@@ -151,22 +313,22 @@ e("done").classList.add("hide")}function g(){return{a:o("e_fo"),b:o("e_ge")}}fun
 var n=u(t[0]),a=u(t[1]);e.push(null===n&&null===a?null:[n,a])}),e}function m(){if(e("e_ng").checked)return"a";for(var t=b(),n=0,a=0,r=0;r<2;r++){var i=t[r]
 ;if(!i||null===i[0]||null===i[1]||i[0]===i[1])return"";i[0]>i[1]?n++:a++}if(2===n)return"a";if(2===a)return"b";var s=t[2]
 ;return s&&null!==s[0]&&null!==s[1]&&s[0]!==s[1]?s[0]>s[1]?"a":"b":""}function h(){var t=g();if(!n)return null
-;var a="a"===n?t.a:t.b,r="a"===n?t.b:t.a,i=3+("a"===n?1:0),s=e("e_ng").checked?0:1;return{w:a||("a"===n?"Forderer":"Gegner"),wp:i,l:r||("a"===n?"Gegner":"Forderer"),lp:s}}
+;var a="a"===n?t.a:t.b,r="a"===n?t.b:t.a,i=3+("a"===n?1:0),s=e("e_ng").checked?0:1;return{w:a||("a"===n?T("fo"):T("ge")),wp:i,l:r||("a"===n?T("ge"):T("fo")),lp:s}}
 function v(e){return String(e).replace(/[&<>"']/g,function(e){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[e]})}function p(){
-var t=g(),a=e("e_si").querySelectorAll("button");a[0].textContent=t.a||"Forderer",a[1].textContent=t.b||"Gegner";var r=m();r&&(n=r),a.forEach(function(e){
+var t=g(),a=e("e_si").querySelectorAll("button");a[0].textContent=t.a||T("fo"),a[1].textContent=t.b||T("ge"),a[0].setAttribute("translate","no"),a[1].setAttribute("translate","no");var r=m();r&&(n=r),a.forEach(function(e){
 var t=e.getAttribute("data-v")===n;e.classList.toggle("on",t),e.setAttribute("aria-pressed",t)}),e("setsBox").style.visibility=e("e_ng").checked?"hidden":"visible"
-;var i=h(),s=i?"<b>"+v(i.w)+"</b>: "+i.wp+" Punkte &nbsp;·&nbsp; "+v(i.l)+": "+i.lp+(1===i.lp?" Punkt":" Punkte"):"Trag das Ergebnis ein."
+;var i=h(),s=i?"<b translate=\"no\">"+v(i.w)+"</b>: "+v(ptsWord(i.wp))+" &nbsp;·&nbsp; <span translate=\"no\">"+v(i.l)+"</span>: "+v(ptsWord(i.lp)):v(T("enter"))
 ;document.querySelectorAll(".pv").forEach(function(e){e.innerHTML=s})}function _(){var t=!0,n="";t=d("a_vn",!o("a_vn"))&&t,t=d("a_nn",!o("a_nn"))&&t,t=d("a_em",!l(o("a_em")))&&t
 ;var a=u("a_gj");return t=d("a_gj",!function(e){return null!==e&&e>=1920&&e<=2009&&Math.floor(e)===e}(a))&&t,
-t||(n=null!==a&&a>2009&&a<=i?"Die Defi Liga ist für Spieler ab 18 Jahren.":"Bitte füll alle Felder richtig aus."),t&&!e("a_mg").checked&&(d("a_mg",!0),t=!1,
-n="Die Defi Liga ist für Mitglieder vom Heerdter TV."),t&&!e("a_ds").checked&&(d("a_ds",!0),t=!1,n="Bitte bestätige die Datenschutzerklärung."),e("a_msg").textContent=n,t}
-function k(e,t,n,i){var o="r"+Date.now()+Math.floor(1e3*Math.random());a={rid:o,kind:e,btn:n,msgEl:i,label:n.textContent},n.disabled=!0,n.textContent="Wird gesendet …",
+t||(n=null!==a&&a>2009&&a<=i?T("err_age"):T("err_fill")),t&&!e("a_mg").checked&&(d("a_mg",!0),t=!1,
+n=T("err_mem")),t&&!e("a_ds").checked&&(d("a_ds",!0),t=!1,n=T("err_ds")),e("a_msg").textContent=n,t}
+function k(e,t,n,i){var o="r"+Date.now()+Math.floor(1e3*Math.random());a={rid:o,kind:e,btn:n,msgEl:i,label:n.textContent},n.disabled=!0,n.textContent=T("sending"),
 i.textContent="",s({type:"defiSubmit",kind:e,rid:o,data:t}),clearTimeout(r),r=setTimeout(function(){E({rid:o,ok:!1})},15e3)}function E(t){if(a&&t.rid===a.rid){clearTimeout(r)
 ;var i=a;a=null,i.btn.disabled=!1,i.btn.textContent=i.label,t.ok?(e("anmeldung"===i.kind?"formA":"formE").reset(),n="",y(),p(),e("formA").classList.add("hide"),
-e("formE").classList.add("hide"),e("doneH").textContent="anmeldung"===i.kind?"Danke für deine Anmeldung!":"Danke, dein Ergebnis ist da!",
-e("doneP").textContent="anmeldung"===i.kind?"Ich melde mich per E-Mail bei dir.":"Ich prüfe das Ergebnis. Danach steht es in der Rangliste.",
-e("again").textContent="anmeldung"===i.kind?"Zurück":"Noch ein Ergebnis melden",
-e("done").classList.remove("hide")):i.msgEl.textContent="Das hat leider nicht geklappt. Bitte versuch es später noch einmal."}}
+e("formE").classList.add("hide"),stDoneKind=i.kind,e("doneH").textContent=T("anmeldung"===i.kind?"done_a_h":"done_e_h"),
+e("doneP").textContent=T("anmeldung"===i.kind?"done_a_p":"done_e_p"),
+e("again").textContent=T("anmeldung"===i.kind?"back":"again"),
+e("done").classList.remove("hide")):i.msgEl.textContent=T("err_fail")}}
 document.querySelector(".tabs").addEventListener("click",function(e){var t=e.target.closest("button");t&&f(t.getAttribute("data-tab"))}),f("e"),["e_fo","e_ge"].forEach(function(t){
 e(t).addEventListener("change",function(){y(),p()})}),["s1a","s1b","s2a","s2b","s3a","s3b"].forEach(function(t){e(t).addEventListener("input",p)}),
 e("e_ng").addEventListener("change",function(){this.checked&&(n="a"),p()}),e("e_si").addEventListener("click",function(t){var a=t.target.closest("button")
@@ -178,20 +340,20 @@ e.disabled=!!e.value&&e.value===n})}e("again").addEventListener("click",function
 a||o("a_hp")||_()&&k("anmeldung",{vorname:o("a_vn"),nachname:o("a_nn"),email:o("a_em"),geburtsjahr:u("a_gj"),anmerkungen:o("a_an"),mitglied:!0,datenschutz:!0
 },e("a_btn"),e("a_msg"))}),e("formE").addEventListener("submit",function(t){if(t.preventDefault(),!a&&!o("e_hp")&&(p(),function(){var t=!0,a="",r=g(),i=e("e_ng").checked
 ;t=d("e_fo",!r.a)&&t,t=d("e_ge",!r.b||r.a.toLowerCase()===r.b.toLowerCase())&&t;var s=o("e_da"),u=c()
-;if((t=d("e_da",!s||s>u)&&t)||(a=r.a&&r.b&&r.a.toLowerCase()===r.b.toLowerCase()?"Forderer und Gegner müssen zwei verschiedene Spieler sein.":"Bitte wähle beide Spieler und das Datum."),
+;if((t=d("e_da",!s||s>u)&&t)||(a=r.a&&r.b&&r.a.toLowerCase()===r.b.toLowerCase()?T("err_same"):T("err_pick")),
 t&&!i){var f=b(),h=!1;if([0,1].forEach(function(e){var t=f[e],n=[["s1a","s1b"],["s2a","s2b"]][e],a=!t||null===t[0]||null===t[1]||t[0]===t[1]||t[0]>7||t[1]>7||t[0]<0||t[1]<0
 ;d(n[0],a),d(n[1],a),h=h||a}),!h){var v=f[0][0]>f[0][1]!=f[1][0]>f[1][1],p=f[2],_=v&&(!p||null===p[0]||null===p[1]||p[0]===p[1]);d("s3a",_),d("s3b",_),h=_,!v&&p&&(d("s3a",!0),
-d("s3b",!0),h=!0,a="Ein Match-Tiebreak gibt es nur bei 1:1 Sätzen.")}h&&(t=!1,a=a||"Bitte das Ergebnis Satz für Satz eintragen.")}if(t){var k=m()
-;(!n||k&&k!==n)&&(e("e_si").classList.add("bad"),t=!1,a="Bitte wähle den Sieger passend zum Ergebnis.")}
-return t&&((t=d("e_em",!l(o("e_em"))))||(a="Bitte deine E-Mail richtig eintragen.")),t&&!e("e_wa").checked&&(d("e_wa",!0),t=!1,
-a="Nur in der WhatsApp-Gruppe angekündigte Matches zählen."),t&&!e("e_ds").checked&&(d("e_ds",!0),t=!1,a="Bitte bestätige die Datenschutzerklärung."),e("e_msg").textContent=a,t
+d("s3b",!0),h=!0,a=T("err_mtb"))}h&&(t=!1,a=a||T("err_sets"))}if(t){var k=m()
+;(!n||k&&k!==n)&&(e("e_si").classList.add("bad"),t=!1,a=T("err_win"))}
+return t&&((t=d("e_em",!l(o("e_em"))))||(a=T("err_em"))),t&&!e("e_wa").checked&&(d("e_wa",!0),t=!1,
+a=T("err_wa")),t&&!e("e_ds").checked&&(d("e_ds",!0),t=!1,a=T("err_ds")),e("e_msg").textContent=a,t
 }())){var r=g(),i=e("e_ng").checked,s=h();k("ergebnis",{forderer:r.a,gegner:r.b,datum:o("e_da"),
 ergebnis:e("e_ng").checked?"kampflos (Gegner nicht gekommen)":b().filter(function(e){return e&&null!==e[0]&&null!==e[1]}).map(function(e){return e[0]+":"+e[1]}).join(" "),
 sieger:"a"===n?r.a:r.b,nichtGekommen:i?r.b:"",punkte:s.w+" "+s.wp+", "+s.l+" "+s.lp,email:o("e_em"),whatsapp:e("e_wa").checked,datenschutz:!0},e("e_btn"),e("e_msg"))}}),
 window.addEventListener("message",function(t){var n,a,r=t.data
 ;r&&"object"==typeof r&&("defiSubmitResult"===r.type?E(r):"defiPlayers"===r.type&&Array.isArray(r.players||r.names)?(n=r.players||r.names,a={},L=n.map(function(e){
 return String(e||"").trim().slice(0,80)}).filter(function(e){var t=e.toLowerCase();return!(!e||a[t]||(a[t]=1,0))}),["e_fo","e_ge"].forEach(function(t){var n=e(t).value
-;e(t).innerHTML='<option value="">Bitte wählen</option>'+L.map(function(e){return'<option value="'+v(e)+'">'+v(e)+"</option>"}).join(""),L.indexOf(n)>=0&&(e(t).value=n)}),y(),
-p()):"defiTab"!==r.type||"a"!==r.tab&&"e"!==r.tab||f(r.tab))}),e("e_da").max=c(),p(),s({type:"defiFormReady"})}();
+;e(t).innerHTML='<option value="" data-i18n="choose">'+v(T("choose"))+'</option>'+L.map(function(e){return'<option translate="no" value="'+v(e)+'">'+v(e)+"</option>"}).join(""),L.indexOf(n)>=0&&(e(t).value=n)}),y(),
+p()):"defiTab"!==r.type||"a"!==r.tab&&"e"!==r.tab||f(r.tab))}),e("e_da").max=c(),stI18n(),p(),stFit(".seg button"),stFit(".hint"),ST_ON_LANG=function(){stI18n(),p(),stFit(".seg button"),stFit(".hint")},mountLangSwitcher(e("app")),stPostHeight(),window.addEventListener("resize",stPostHeight),s({type:"defiFormReady"})}();
 </script>
  </body></html> 
