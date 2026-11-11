@@ -800,7 +800,8 @@
   function confirmation(b, opts){
     const s = slotById(b.slot), first = trainingDates(s.d)[0], ex = b.mode==='excl';
     const g = ex ? {s, lead:{code:b.code, groupSize:b.groupSize, reservedUntil:b.reservedUntil}, members:[b.pub], o:{pending:Math.max(0,(b.groupSize||1)-1)}} : null;
-    const steps = [`<li class="${b.confirmed?'done':''}">${t('step_confirm_mail')}</li>`];
+    const steps = [];
+    if (b.emailSent !== false || b.confirmed) steps.push(`<li class="${b.confirmed?'done':''}">${t('step_confirm_mail')}</li>`);
     if(ex && b.groupSize>1) steps.push(`<li>${t('step_approve_group')}</li>`);
     if(ex && b.groupSize===1) steps.push(`<li>${t('step_approve_priv')}</li>`);
     steps.push(`<li>${t('step_invoice')}</li>`, `<li>${t('step_first',{day:dayLong(s.d), date:fmtU(first), time:pad(s.h)+':00'})}</li>`);
