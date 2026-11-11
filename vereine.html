@@ -82,7 +82,7 @@
       <div class="row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 6.5A6.5 6.5 0 1 0 17 17.5M4 10.5h9M4 13.5h9"/></svg><div><div class="k" data-i18n="price">Preis</div><div class="t"><span class="pl"><b data-i18n="mem">Mitglieder</b> <span class="p50">50 €</span></span><span class="pl"><b data-i18n="non">Nichtmitglieder</b> <span class="pfee">50 € + 10 € Platzgebühr</span></span><span class="small" data-i18n="per">pro Training, geteilt durch die Gruppe</span></div></div></div>
       <div class="row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16V11l2-5h10l2 5v5M3 16h18v3H3zM7 19v1.5M17 19v1.5M5 11h14"/></svg><div><div class="k" data-i18n="park">Parken</div><div class="t" data-i18n="park_t">Parkplätze am Eingang</div></div></div>
       <div class="acts">
-        <a class="btn" data-club="htv" href="https://akdagserdar47.wixsite.com/serdartennis/heerdter-tv" target="_top" data-i18n="signup">Hier anmelden</a>
+        <a class="btn" data-club="htv" href="https://akdagserdar47.wixsite.com/serdartennis/anmelden" target="_top" data-i18n="signup">Hier anmelden</a>
         <a class="mem" href="https://www.htv1896.de/sportverein/online-aufnahmeformular/" target="_blank" rel="noopener" data-i18n="become">Mitglied werden</a>
       </div>
     </div>
@@ -94,7 +94,7 @@
       <div class="row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 6.5A6.5 6.5 0 1 0 17 17.5M4 10.5h9M4 13.5h9"/></svg><div><div class="k" data-i18n="price">Preis</div><div class="t"><span class="pl"><b data-i18n="all">Für alle</b> <span class="pfee">50 € + 10 € Platzgebühr</span></span><span class="small" data-i18n="per">pro Training, geteilt durch die Gruppe</span></div></div></div>
       <div class="row"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16V11l2-5h10l2 5v5M3 16h18v3H3zM7 19v1.5M17 19v1.5M5 11h14"/></svg><div><div class="k" data-i18n="park">Parken</div><div class="t" data-i18n="park_t">Parkplätze am Eingang</div></div></div>
       <div class="acts">
-        <a class="btn" data-club="wet" href="https://akdagserdar47.wixsite.com/serdartennis/sv-union-wetten" target="_top" data-i18n="signup">Hier anmelden</a>
+        <a class="btn" data-club="wet" href="https://akdagserdar47.wixsite.com/serdartennis/anmelden" target="_top" data-i18n="signup">Hier anmelden</a>
         <a class="mem" href="https://www.sv-union-wetten.de/abteilungen/tennis" target="_blank" rel="noopener" data-i18n="become">Mitglied werden</a>
       </div>
     </div>
@@ -186,9 +186,9 @@ window.addEventListener('resize',function(){stFit('.btn',0.85); stFit('.mem',0.8
   var btns=document.querySelectorAll('a.btn[data-club]');
   for(var i=0;i<btns.length;i++){(function(b){
     b.addEventListener('click',function(ev){
-      ev.preventDefault(); acked=false;
-      try{window.parent.postMessage({type:'vereinGo',club:b.getAttribute('data-club')},'*');}catch(x){}
-      setTimeout(function(){ if(!acked){ try{window.top.location.href=b.href;}catch(x){ window.open(b.href,'_blank'); } } },700);
+      ev.preventDefault();
+      // All sign-ups go to /anmelden (old Wix forms removed).
+      try{window.top.location.href=b.href;}catch(x){ window.open(b.href,'_blank'); }
     });
   })(btns[i]);}
 })();
