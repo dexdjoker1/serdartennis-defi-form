@@ -101,6 +101,9 @@
   </div>
 </div>
 <script>
+(function(){ if(/[?&]first=wet\b/.test(location.search)){ var g=document.querySelector('.grid'), w=g&&g.querySelector('.card.w'); if(w) g.insertBefore(w,g.firstElementChild); } })();
+</script>
+<script>
 (function(){
 /* ST i18n core (shared pattern with anmelden.html) */
 var ST_LANGS=['de','en','tr','ja','zh','uk'];
