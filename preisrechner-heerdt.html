@@ -127,13 +127,11 @@ var LANG_META={
   zh:{locale:'zh-CN',html:'zh-CN',label:'中文',name:'简体中文'},
   uk:{locale:'uk-UA',html:'uk',label:'УКР',name:'Українська'}
 };
-var LANG_KEY='serdartennis_lang';
+var LANG_KEY='serdartennis_lang_v2';
 function normLang(s){ if(!s) return null; s=String(s).toLowerCase().replace(/_/g,'-'); var b=s.split('-')[0]; return LANG_META[b]?b:null; }
 function detectLang(){
   var q=(location.search.match(/[?&]lang=([a-zA-Z-]+)/)||[])[1]; var fq=normLang(q); if(fq) return fq;
   try{ var sv=localStorage.getItem(LANG_KEY); if(sv&&LANG_META[sv]) return sv; }catch(e){}
-  var nav=[].concat(navigator.languages||[],navigator.language||[]);
-  for(var i=0;i<nav.length;i++){ var k=normLang(nav[i]); if(k) return k; }
   return 'de';
 }
 var LANG=detectLang(), LOCALE=LANG_META[LANG].locale;
