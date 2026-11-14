@@ -302,6 +302,7 @@ function stI18n(){
   document.title='Defi Liga';
 }
 var stDoneKind='';
+var ST_T0=Date.now();
 !function(){var e=function(e){return document.getElementById(e)},t="e",n="",a=null,r=null,i=2027;function s(e){try{window.parent.postMessage(e,"*")}catch(e){}}function o(t){
 return(e(t).value||"").trim()}function u(e){var t=o(e);return""===t?null:Number(t)}function l(e){return/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)}function c(){
 var e=new Date,t=function(e){return(e<10?"0":"")+e};return e.getFullYear()+"-"+t(e.getMonth()+1)+"-"+t(e.getDate())}function d(t,n){return e(t).classList.toggle("bad",!!n),!n}
@@ -321,7 +322,7 @@ var t=e.getAttribute("data-v")===n;e.classList.toggle("on",t),e.setAttribute("ar
 t||(n=null!==a&&a>2009&&a<=i?T("err_age"):T("err_fill")),t&&!e("a_mg").checked&&(d("a_mg",!0),t=!1,
 n=T("err_mem")),t&&!e("a_ds").checked&&(d("a_ds",!0),t=!1,n=T("err_ds")),e("a_msg").textContent=n,t}
 function k(e,t,n,i){var o="r"+Date.now()+Math.floor(1e3*Math.random());a={rid:o,kind:e,btn:n,msgEl:i,label:n.textContent},n.disabled=!0,n.textContent=T("sending"),
-i.textContent="",s({type:"defiSubmit",kind:e,rid:o,data:t}),clearTimeout(r),r=setTimeout(function(){E({rid:o,ok:!1})},15e3)}function E(t){if(a&&t.rid===a.rid){clearTimeout(r)
+i.textContent="",(t.hp=(document.getElementById("anmeldung"===e?"a_hp":"e_hp")||{}).value||"",t.ms=Date.now()-ST_T0,s({type:"defiSubmit",kind:e,rid:o,data:t})),clearTimeout(r),r=setTimeout(function(){E({rid:o,ok:!1})},15e3)}function E(t){if(a&&t.rid===a.rid){clearTimeout(r)
 ;var i=a;a=null,i.btn.disabled=!1,i.btn.textContent=i.label,t.ok?(e("anmeldung"===i.kind?"formA":"formE").reset(),n="",y(),p(),e("formA").classList.add("hide"),
 e("formE").classList.add("hide"),stDoneKind=i.kind,e("doneH").textContent=T("anmeldung"===i.kind?"done_a_h":"done_e_h"),
 e("doneP").textContent=T("anmeldung"===i.kind?"done_a_p":"done_e_p"),
