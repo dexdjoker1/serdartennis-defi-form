@@ -151,7 +151,7 @@ textarea{font-size:16px;min-height:44px}}
 <div class="hp" aria-hidden="true"><input type="text" id="e_hp" tabindex="-1" autocomplete="off"></div><div class="msg" id="e_msg" role="alert"></div>
 <button class="btn" type="submit" id="e_btn" data-i18n="btn_e">Ergebnis senden</button></form><div class="done hide" id="done"><div class="ok"></div><h4 id="doneH">Danke!</h4><p id="doneP"></p>
 <button class="btn light" type="button" id="again">Zurück</button></div></main></div></div> 
-<script>
+<script src="liga.js?v=1"></script><script>
 /* ST i18n core (shared pattern with anmelden.html) */
 var ST_LANGS=['de','en','tr','ja','zh','uk'];
 var LANG_META={
@@ -284,14 +284,15 @@ function ptsWord(n){
   return T(n===1?'pt1':'ptn',{n:n});
 }
 
+stLigaWAAll(I18N,["note","wa","err_wa"]);
 function stI18n(){
   applyStatic();
-  var CLUB='<span translate="no">Heerdter TV</span>', fee=stEsc(eurFmt(5000,0)), PRIV='<a href="https://akdagserdar47.wixsite.com/serdartennis/datenschutz" target="_blank" rel="noopener">'+stEsc(T('privacy'))+'</a>';
-  document.querySelectorAll('[data-x="a1"]').forEach(function(x){ x.innerHTML=T('a1',{club:CLUB}); });
+  var CLUB='<span translate="no">'+ST_LIGA_CLUB[ST_LIGA]+'</span>', fee=stEsc(eurFmt(5000,0)), PRIV='<a href="https://akdagserdar47.wixsite.com/serdartennis/datenschutz" target="_blank" rel="noopener">'+stEsc(T('privacy'))+'</a>';
+  document.querySelectorAll('[data-x="a1"]').forEach(function(x){ x.innerHTML=(ST_LIGA==='wetten'?stEsc(stLX(LANG,'a1_wet')):T('a1',{club:CLUB})); });
   document.querySelectorAll('[data-x="a2"]').forEach(function(x){ x.textContent=T('a2',{fee:eurFmt(5000,0)}); });
   document.querySelectorAll('[data-x="member"]').forEach(function(x){ x.innerHTML=T('member',{club:CLUB}); });
   document.querySelectorAll('[data-x="ds"]').forEach(function(x){ x.innerHTML=T('ds',{privacy:PRIV}); });
-  var mn=document.getElementById('mnoteA'); if(mn) mn.innerHTML=T('a1',{club:CLUB})+' '+T('fee_b',{fee:fee})+' '+stEsc(T('a4'));
+  var mn=document.getElementById('mnoteA'); if(mn) mn.innerHTML=(ST_LIGA==='wetten'?stEsc(stLX(LANG,'a1_wet')):T('a1',{club:CLUB}))+' '+T('fee_b',{fee:fee})+' '+stEsc(T('a4'));
   document.querySelectorAll('[data-i18n-ph]').forEach(function(x){ x.placeholder=T(x.getAttribute('data-i18n-ph')); });
   var AR={s1a:['set1','fo'],s1b:['set1','ge'],s2a:['set2','fo'],s2b:['set2','ge'],s3a:['mtb_full','fo'],s3b:['mtb_full','ge']};
   document.querySelectorAll('[data-aria]').forEach(function(x){ var k=AR[x.getAttribute('data-aria')]; x.setAttribute('aria-label',T(k[0])+' – '+T(k[1])); });
@@ -319,10 +320,10 @@ var t=e.getAttribute("data-v")===n;e.classList.toggle("on",t),e.setAttribute("ar
 ;var i=h(),s=i?"<b translate=\"no\">"+v(i.w)+"</b>: "+v(ptsWord(i.wp))+" &nbsp;·&nbsp; <span translate=\"no\">"+v(i.l)+"</span>: "+v(ptsWord(i.lp)):v(T("enter"))
 ;document.querySelectorAll(".pv").forEach(function(e){e.innerHTML=s})}function _(){var t=!0,n="";t=d("a_vn",!o("a_vn"))&&t,t=d("a_nn",!o("a_nn"))&&t,t=d("a_em",!l(o("a_em")))&&t
 ;var a=u("a_gj");return t=d("a_gj",!function(e){return null!==e&&e>=1920&&e<=2009&&Math.floor(e)===e}(a))&&t,
-t||(n=null!==a&&a>2009&&a<=i?T("err_age"):T("err_fill")),t&&!e("a_mg").checked&&(d("a_mg",!0),t=!1,
+t||(n=null!==a&&a>2009&&a<=i?T("err_age"):T("err_fill")),t&&ST_LIGA!=="wetten"&&!e("a_mg").checked&&(d("a_mg",!0),t=!1,
 n=T("err_mem")),t&&!e("a_ds").checked&&(d("a_ds",!0),t=!1,n=T("err_ds")),e("a_msg").textContent=n,t}
 function k(e,t,n,i){var o="r"+Date.now()+Math.floor(1e3*Math.random());a={rid:o,kind:e,btn:n,msgEl:i,label:n.textContent},n.disabled=!0,n.textContent=T("sending"),
-i.textContent="",(t.hp=(document.getElementById("anmeldung"===e?"a_hp":"e_hp")||{}).value||"",t.ms=Date.now()-ST_T0,s({type:"defiSubmit",kind:e,rid:o,data:t})),clearTimeout(r),r=setTimeout(function(){E({rid:o,ok:!1})},15e3)}function E(t){if(a&&t.rid===a.rid){clearTimeout(r)
+i.textContent="",(t.hp=(document.getElementById("anmeldung"===e?"a_hp":"e_hp")||{}).value||"",t.ms=Date.now()-ST_T0,t.liga=ST_LIGA,s({type:"defiSubmit",kind:e,rid:o,data:t})),clearTimeout(r),r=setTimeout(function(){E({rid:o,ok:!1})},15e3)}function E(t){if(a&&t.rid===a.rid){clearTimeout(r)
 ;var i=a;a=null,i.btn.disabled=!1,i.btn.textContent=i.label,t.ok?(e("anmeldung"===i.kind?"formA":"formE").reset(),n="",y(),p(),e("formA").classList.add("hide"),
 e("formE").classList.add("hide"),stDoneKind=i.kind,e("doneH").textContent=T("anmeldung"===i.kind?"done_a_h":"done_e_h"),
 e("doneP").textContent=T("anmeldung"===i.kind?"done_a_p":"done_e_p"),
@@ -336,7 +337,7 @@ e.addEventListener("input",function(){e.classList.remove("bad")}),e.addEventList
 var t=e.form.querySelector(".msg");t&&(t.textContent="")}})});var L=[];function y(){var t=e("e_fo").value,n=e("e_ge").value
 ;Array.prototype.forEach.call(e("e_ge").options,function(e){e.disabled=!!e.value&&e.value===t}),Array.prototype.forEach.call(e("e_fo").options,function(e){
 e.disabled=!!e.value&&e.value===n})}e("again").addEventListener("click",function(){f(t)}),e("formA").addEventListener("submit",function(t){t.preventDefault(),
-a||o("a_hp")||_()&&k("anmeldung",{vorname:o("a_vn"),nachname:o("a_nn"),email:o("a_em"),geburtsjahr:u("a_gj"),anmerkungen:o("a_an"),mitglied:!0,datenschutz:!0
+a||o("a_hp")||_()&&k("anmeldung",{vorname:o("a_vn"),nachname:o("a_nn"),email:o("a_em"),geburtsjahr:u("a_gj"),anmerkungen:o("a_an"),mitglied:ST_LIGA!=="wetten",datenschutz:!0
 },e("a_btn"),e("a_msg"))}),e("formE").addEventListener("submit",function(t){if(t.preventDefault(),!a&&!o("e_hp")&&(p(),function(){var t=!0,a="",r=g(),i=e("e_ng").checked
 ;t=d("e_fo",!r.a)&&t,t=d("e_ge",!r.b||r.a.toLowerCase()===r.b.toLowerCase())&&t;var s=o("e_da"),u=c()
 ;if((t=d("e_da",!s||s>u)&&t)||(a=r.a&&r.b&&r.a.toLowerCase()===r.b.toLowerCase()?T("err_same"):T("err_pick")),
@@ -355,4 +356,4 @@ return String(e||"").trim().slice(0,80)}).filter(function(e){var t=e.toLowerCase
 ;e(t).innerHTML='<option value="" data-i18n="choose">'+v(T("choose"))+'</option>'+L.map(function(e){return'<option translate="no" value="'+v(e)+'">'+v(e)+"</option>"}).join(""),L.indexOf(n)>=0&&(e(t).value=n)}),y(),
 p()):"defiTab"!==r.type||"a"!==r.tab&&"e"!==r.tab||f(r.tab))}),e("e_da").max=c(),stI18n(),p(),stFit(".seg button"),stFit(".hint"),ST_ON_LANG=function(){stI18n(),p(),stFit(".seg button"),stFit(".hint")},mountLangSwitcher(e("app")),stPostHeight(),window.addEventListener("resize",stPostHeight),s({type:"defiFormReady"})}();
 </script>
- </body></html> 
+ <script>if(ST_LIGA==="wetten"){var m=document.getElementById("a_mg");if(m)m.closest("label").style.display="none";}</script></body></html> 

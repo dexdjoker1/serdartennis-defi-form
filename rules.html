@@ -46,7 +46,7 @@ html,body{background:transparent;font-family:Avenir,Montserrat,Helvetica,sans-se
 <div class="item"><div class="num">13</div><div class="title" data-k="t13"></div><div class="body" data-k="b13"></div></div>
 <div class="item"><div class="num">14</div><div class="title" data-k="t14"></div><div class="body" data-k="b14"></div></div>
 </div>
-<script>
+<script src="liga.js?v=1"></script><script>
 (function(){
 /* ST i18n core (shared pattern with anmelden.html) */
 var ST_LANGS=['de','en','tr','ja','zh','uk'];
@@ -206,12 +206,13 @@ t13:'Однакові очки',b13:'Спершу враховується бі�
 t14:'Пізніше приєднання',b14:'Приєднуєтеся під час сезону? Тоді ви починаєте з останнього місця.'}
 };
 
-var CLUB='<span translate="no">Heerdter TV</span>';
+stLigaWAAll(I18N,['b11']);
+var CLUB='<span translate="no">'+(ST_LIGA_CLUB[ST_LIGA]||'Heerdter TV')+'</span>';
 function render(){
   document.title=LANG==='de'?'Defi Liga Regeln':'Defi Liga';
   document.querySelectorAll('[data-k]').forEach(function(e){
     var k=e.getAttribute('data-k');
-    e.innerHTML=T(k,{club:CLUB,fee:stEsc(eurFmt(5000,0))}).replace(/WhatsApp/g,'<span translate="no">WhatsApp</span>');
+    e.innerHTML=(k==='b1'&&ST_LIGA!=='heerdt'?stLX(LANG,ST_LIGA==='wetten'?'b1_wet':'b1_all',{club:CLUB}):T(k,{club:CLUB,fee:stEsc(eurFmt(5000,0))})).replace(/WhatsApp/g,'<span translate="no">WhatsApp</span>');
   });
   stPostHeight();
 }
