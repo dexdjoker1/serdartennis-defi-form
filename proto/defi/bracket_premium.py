@@ -3,7 +3,7 @@ import re
 CSS = r'''<link rel="stylesheet" href="../../fonts/poppins.css"><style>
 :root{--ol:#5E6D55;--old:#3F4A39;--old2:#2E3729;--gold:#C9A45C;--gold2:#E6CC8F;--cream:#F3E8D8;--sand:#D9CDB8;--ink:#1A1A1A}
 html,body{font-family:Poppins,'Nunito Sans',Arial,sans-serif}
-.pb{max-width:900px;margin:0 auto;padding:4px 6px 10px;box-sizing:border-box}
+.pb{max-width:900px;margin:0 auto;padding:4px 10px 34px;box-sizing:border-box}
 .rounds{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
 .rd h4{display:flex;align-items:center;gap:10px;margin:0 0 14px;color:var(--old);font:600 12px/1.3 Poppins,sans-serif;letter-spacing:.16em;text-transform:uppercase}
 .rd h4:before{content:"";width:22px;height:2px;background:var(--gold);border-radius:2px;flex:0 0 auto}
