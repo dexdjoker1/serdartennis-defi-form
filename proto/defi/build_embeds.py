@@ -37,9 +37,10 @@ s = rep(s, '</body>', '<script>if(ST_LIGA==="wetten"){var m=document.getElementB
 # 2) Rangliste + Spiele
 s = common((R/'rangliste.html').read_text(encoding='utf8'))
 s = rep(s, "if(!d || d.type !== 'defiData') return;",
-           "if(!d || d.type !== 'defiData') return; if(d !== DEMO && d.liga !== ST_LIGA) return; /* nur Daten dieser Liga */")
+           "if(!d || d.type !== 'defiData') return; if(d !== DEMO && d !== DEMO_WET && d.liga !== ST_LIGA) return; /* nur Daten dieser Liga */")
+s = rep(s, "if(d !== DEMO && !(Array.isArray(d.matches)", "if(d !== DEMO && d !== DEMO_WET && !(Array.isArray(d.matches)")
 s = rep(s, "window.onmessage({data:DEMO});",
-           "if(ST_LIGA==='heerdt') window.onmessage({data:DEMO}); else render(); /* Wetten: noch leer */")
+           "var DEMO_WET = JSON.parse(JSON.stringify(DEMO)); DEMO_WET.liga = 'wetten'; /* eigene Wetten-Demo (Player A–L), gleiche Optik */\n  window.onmessage({data: ST_LIGA==='wetten' ? DEMO_WET : DEMO});")
 (OUT/'rangliste.html').write_text(s, encoding='utf8')
 
 # 3) Regeln (Hauptseite: liga=alle)

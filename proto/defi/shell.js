@@ -26,7 +26,7 @@ de:{pv:'VORSCHAU – nicht live. Formulare senden hier nichts.',pick:'Wähle dei
  er:'Rangliste',hra:'Rangliste &',hrb:'Spiele',pr:'Hier siehst du nur die Spieler und Spiele dieser Liga. Die Tabelle wird live aktualisiert.',
  eb:'Playoffs',hba:'Playoffs &',hbb:'Finale',
  sep_t:'Vorschau: getrennte Daten',sep_p:'Diese Seite lädt nur Daten mit <code>liga = {liga}</code>. Anmeldungen, Ergebnisse und Rangliste der anderen Liga erscheinen hier nie.',
- sep_w:'Wetten hat noch keine Spieler, darum ist die Rangliste leer.',sep_h:'Die Rangliste zeigt Demo-Daten (Player A–L).',log:'In der Vorschau ausprobiert (nichts gesendet): {kind} → Liga „{liga}“',k_a:'Anmeldung',k_e:'Ergebnis'},
+ sep_w:'Die Rangliste zeigt Demo-Daten (Player A–L).',sep_h:'Die Rangliste zeigt Demo-Daten (Player A–L).',log:'In der Vorschau ausprobiert (nichts gesendet): {kind} → Liga „{liga}“',k_a:'Anmeldung',k_e:'Ergebnis'},
 en:{pv:'PREVIEW – not live. Forms do not send anything here.',pick:'Choose your league',bh:'Heerdter TV · Düsseldorf · for members',bw:'SV Union Wetten · Kevelaer · open to all',
  hero_p:'Challenge, play, collect points. From {start} – at Heerdter TV and at SV Union Wetten.',
  e1:'01 · The idea',h1a:'What is the',h1b:'Defi Liga?',
@@ -47,7 +47,7 @@ en:{pv:'PREVIEW – not live. Forms do not send anything here.',pick:'Choose you
  er:'Ranking',hra:'Ranking &',hrb:'matches',pr:'Here you only see the players and matches of this league. The table is updated live.',
  eb:'Playoffs',hba:'Playoffs &',hbb:'final',
  sep_t:'Preview: separate data',sep_p:'This page only loads data with <code>liga = {liga}</code>. Sign-ups, results and ranking of the other league never appear here.',
- sep_w:'Wetten has no players yet, so the ranking is empty.',sep_h:'The ranking shows demo data (Player A–L).',log:'Tried in the preview (nothing sent): {kind} → league “{liga}”',k_a:'Sign-up',k_e:'Result'},
+ sep_w:'The ranking shows demo data (Player A–L).',sep_h:'The ranking shows demo data (Player A–L).',log:'Tried in the preview (nothing sent): {kind} → league “{liga}”',k_a:'Sign-up',k_e:'Result'},
 tr:{pv:'ÖNİZLEME – canlı değil. Formlar burada hiçbir şey göndermez.',pick:'Liginizi seçin',bh:'Heerdter TV · Düsseldorf · üyeler için',bw:'SV Union Wetten · Kevelaer · herkese açık',
  hero_p:'Meydan okuyun, oynayın, puan toplayın. {start} itibarıyla – Heerdter TV’de ve SV Union Wetten’de.',
  e1:'01 · Fikir',h1a:'Defi Liga',h1b:'nedir?',
@@ -68,7 +68,7 @@ tr:{pv:'ÖNİZLEME – canlı değil. Formlar burada hiçbir şey göndermez.',p
  er:'Sıralama',hra:'Sıralama ve',hrb:'maçlar',pr:'Burada yalnızca bu ligin oyuncularını ve maçlarını görürsünüz. Tablo canlı güncellenir.',
  eb:'Play-off',hba:'Play-off ve',hbb:'Final',
  sep_t:'Önizleme: ayrı veriler',sep_p:'Bu sayfa yalnızca <code>liga = {liga}</code> olan verileri yükler. Diğer ligin kayıtları, sonuçları ve sıralaması burada asla görünmez.',
- sep_w:'Wetten’de henüz oyuncu yok, bu yüzden sıralama boş.',sep_h:'Sıralama demo verileri gösterir (Player A–L).',log:'Önizlemede denendi (hiçbir şey gönderilmedi): {kind} → “{liga}” ligi',k_a:'Kayıt',k_e:'Sonuç'},
+ sep_w:'Sıralama demo verileri gösterir (Player A–L).',sep_h:'Sıralama demo verileri gösterir (Player A–L).',log:'Önizlemede denendi (hiçbir şey gönderilmedi): {kind} → “{liga}” ligi',k_a:'Kayıt',k_e:'Sonuç'},
 ja:{pv:'プレビュー – 公開されていません。ここではフォームは何も送信しません。',pick:'リーグを選んでください',bh:'Heerdter TV · デュッセルドルフ · 会員向け',bw:'SV Union Wetten · ケーヴェラー · どなたでも',
  hero_p:'挑戦して、プレーして、ポイントを集めよう。{start}から – Heerdter TVとSV Union Wettenで。',
  e1:'01 · コンセプト',h1a:'Defi Ligaとは',h1b:'？',
@@ -89,7 +89,7 @@ ja:{pv:'プレビュー – 公開されていません。ここではフォー�
  er:'ランキング',hra:'ランキングと',hrb:'試合',pr:'ここには、このリーグの選手と試合だけが表示されます。順位表はリアルタイムで更新されます。',
  eb:'プレーオフ',hba:'プレーオフと',hbb:'決勝',
  sep_t:'プレビュー：データは別々',sep_p:'このページは <code>liga = {liga}</code> のデータだけを読み込みます。もう一方のリーグの登録・結果・ランキングがここに表示されることはありません。',
- sep_w:'Wettenにはまだ選手がいないため、ランキングは空です。',sep_h:'ランキングにはデモデータ（Player A–L）が表示されています。',log:'プレビューで試しました（送信なし）：{kind} → 「{liga}」リーグ',k_a:'参加登録',k_e:'結果'},
+ sep_w:'ランキングにはデモデータ（Player A–L）が表示されています。',sep_h:'ランキングにはデモデータ（Player A–L）が表示されています。',log:'プレビューで試しました（送信なし）：{kind} → 「{liga}」リーグ',k_a:'参加登録',k_e:'結果'},
 zh:{pv:'预览 – 尚未上线。此处的表格不会发送任何内容。',pick:'选择你的联赛',bh:'Heerdter TV · 杜塞尔多夫 · 仅限会员',bw:'SV Union Wetten · 凯沃拉尔 · 对所有人开放',
  hero_p:'发起挑战，参加比赛，赢取积分。自{start}起 – 在Heerdter TV和SV Union Wetten。',
  e1:'01 · 理念',h1a:'什么是',h1b:'Defi Liga？',
@@ -110,7 +110,7 @@ zh:{pv:'预览 – 尚未上线。此处的表格不会发送任何内容。',pi
  er:'排名',hra:'排名与',hrb:'比赛',pr:'这里只显示本联赛的选手和比赛。排名表实时更新。',
  eb:'季后赛',hba:'季后赛与',hbb:'决赛',
  sep_t:'预览：数据分开',sep_p:'本页面只加载 <code>liga = {liga}</code> 的数据。另一个联赛的报名、结果和排名永远不会出现在这里。',
- sep_w:'Wetten还没有选手，所以排名为空。',sep_h:'排名显示的是演示数据（Player A–L）。',log:'在预览中试用（未发送）：{kind} → “{liga}”联赛',k_a:'报名',k_e:'结果'},
+ sep_w:'排名显示的是演示数据（Player A–L）。',sep_h:'排名显示的是演示数据（Player A–L）。',log:'在预览中试用（未发送）：{kind} → “{liga}”联赛',k_a:'报名',k_e:'结果'},
 uk:{pv:'ПОПЕРЕДНІЙ ПЕРЕГЛЯД – не опубліковано. Форми тут нічого не надсилають.',pick:'Оберіть свою лігу',bh:'Heerdter TV · Дюссельдорф · для членів клубу',bw:'SV Union Wetten · Кефелар · для всіх',
  hero_p:'Викликай, грай, збирай очки. З {start} – у Heerdter TV та в SV Union Wetten.',
  e1:'01 · Ідея',h1a:'Що таке',h1b:'Defi Liga?',
@@ -131,14 +131,14 @@ uk:{pv:'ПОПЕРЕДНІЙ ПЕРЕГЛЯД – не опубліковано.
  er:'Рейтинг',hra:'Рейтинг і',hrb:'матчі',pr:'Тут ви бачите лише гравців і матчі цієї ліги. Таблиця оновлюється в реальному часі.',
  eb:'Плей-оф',hba:'Плей-оф і',hbb:'фінал',
  sep_t:'Попередній перегляд: окремі дані',sep_p:'Ця сторінка завантажує лише дані з <code>liga = {liga}</code>. Реєстрації, результати й рейтинг іншої ліги тут ніколи не з’являються.',
- sep_w:'У Wetten ще немає гравців, тому рейтинг порожній.',sep_h:'Рейтинг показує демо-дані (Player A–L).',log:'Випробувано в попередньому перегляді (нічого не надіслано): {kind} → ліга «{liga}»',k_a:'Реєстрація',k_e:'Результат'}
+ sep_w:'Рейтинг показує демо-дані (Player A–L).',sep_h:'Рейтинг показує демо-дані (Player A–L).',log:'Випробувано в попередньому перегляді (нічого не надіслано): {kind} → ліга «{liga}»',k_a:'Реєстрація',k_e:'Результат'}
 };
 function T(k,v){ if(k==='__start') return D(2027,5,10,true); var s=(I[LANG]||I.de)[k]; if(s==null) s=I.de[k]; return s.replace(/\{(\w+)\}/g,function(_,x){ return v&&v[x]!=null?v[x]:''; }); }
 function D(y,m,d,wd){ return new Intl.DateTimeFormat(LOC[LANG],{weekday:wd?'long':undefined,day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(y,m-1,d))); }
 var PAGE=document.body.getAttribute('data-page'), LIGA=PAGE==='main'?'alle':PAGE;
 var CLUBS={heerdt:{name:'Heerdter TV',addr:'Am Heerdter Hof 38, 40549 Düsseldorf'},wetten:{name:'SV Union Wetten',addr:'Kapellener Straße 29, 47625 Kevelaer-Wetten'}};
-/* Vorschau-Datenbestand: EINE Sammlung, jede Zeile mit Feld liga. Wetten ist noch leer. */
-var MOCK_PLAYERS=[]; 'ABCDEFGHIJKL'.split('').forEach(function(c){ MOCK_PLAYERS.push({liga:'heerdt',name:'Player '+c}); });
+/* Vorschau-Datenbestand: EINE Sammlung, jede Zeile mit Feld liga (beide Ligen mit eigener Demo Player A–L). */
+var MOCK_PLAYERS=[]; 'ABCDEFGHIJKL'.split('').forEach(function(c){ MOCK_PLAYERS.push({liga:'heerdt',name:'Player '+c}); MOCK_PLAYERS.push({liga:'wetten',name:'Player '+c}); });
 function vars(){ return {start:D(2027,5,10),aug:D(2027,8,16),date:D(2027,9,25,true),liga:LIGA}; }
 function render(){
   document.documentElement.lang=LANG==='zh'?'zh-CN':LANG;
