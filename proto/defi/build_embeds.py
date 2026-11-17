@@ -1,5 +1,6 @@
 """Erzeugt die Vorschau-Kopien der Defi-Embeds aus den LIVE-Dateien (die Live-Dateien bleiben unverändert)."""
-import re, pathlib
+import re, pathlib, sys
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 R = pathlib.Path(__file__).resolve().parents[2]
 OUT = pathlib.Path(__file__).resolve().parent
 def rep(s, a, b, n=1):
@@ -56,5 +57,7 @@ s = rep(s, "e.innerHTML=T(k,{club:CLUB,fee:stEsc(eurFmt(5000,0))})",
 s = common((R/'bracket.html').read_text(encoding='utf8'))
 s = rep(s, "document.getElementById('fin').innerHTML=T('final',{fest:'<span translate=\"no\">Hot in Heerdt</span>'});",
            "document.getElementById('fin').innerHTML=ST_LIGA==='heerdt'?T('final',{fest:'<span translate=\"no\">Hot in Heerdt</span>'}):stEsc(stLX(LANG,ST_LIGA==='wetten'?'fin_wet':'fin_all',{date:stWetFinalDate(LOCALE)}));")
+import bracket_premium
+s = bracket_premium.apply(s, rep)
 (OUT/'bracket.html').write_text(s, encoding='utf8')
 print('ok')
