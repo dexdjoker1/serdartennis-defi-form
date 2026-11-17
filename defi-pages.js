@@ -148,7 +148,12 @@ function render(){
 }
 function post(m){ try{ window.parent.postMessage(m,'*'); }catch(e){} }
 /* Links in Wix: _top; falls der Browser blockiert, per Skript */
-document.addEventListener('click',function(e){ var a=e.target.closest('a[data-go]'); if(!a) return; e.preventDefault(); try{ window.top.location.href=a.href; }catch(x){ window.open(a.href,'_top'); } });
+/* Navigation: 1) Nachricht an den Wix-Seitencode (wixLocation.to), 2) Fallback: Top-Navigation, falls nach 600 ms noch hier. */
+document.addEventListener('click',function(e){ var a=e.target.closest('a[data-go]'); if(!a) return; e.preventDefault();
+  var to=a.getAttribute('data-go'), href=a.href;
+  post({type:'defiGo',to:to,path:(to==='main'?'/defi-liga':'/defi-liga-'+to)});
+  setTimeout(function(){ try{ window.top.location.href=href; }catch(x){ try{ window.open(href,'_top'); }catch(y){} } },600);
+});
 function setLang(l){ LANG=l; try{ localStorage.setItem(KEY,l); }catch(e){} render(); /* Unter-Embeds hören auf das storage-Event */ }
 var sw=document.querySelector('.lsw');
 if(sw){ sw.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>'+LANGS.map(function(l){ return '<button type="button" data-l="'+l+'">'+LBL[l]+'</button>'; }).join('');
