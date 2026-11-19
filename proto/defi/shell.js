@@ -19,7 +19,7 @@ de:{pv:'VORSCHAU – nicht live. Formulare senden hier nichts.',pick:'Wähle dei
  p18:'In der Playoff-Runde werden die ersten Begegnungen nach Ihrer Platzierung in der Liga festgelegt.',
  p19:'Spielen Sie mehr Matches, sammeln Sie mehr Punkte, steigen Sie in der Rangliste auf!',
  p20:'Alle Details zum Turnier können Sie weiter unten lesen.',
- e2:'02 · Die Regeln',h2a:'Die',h2b:'Regeln',ppm:'Punkte pro Match',w3:'3 – Sieg',l1:'1 – Niederlage',n0:'0 – Nicht gekommen',bon:'+1 – Forderungsbonus: Du hast gefordert und gewinnst? Dann bekommst du 3 + 1 = 4 Punkte.',
+ e2:'02 · Punkte',h2a:'',h2b:'Punktewertung',ppm:'Punkte pro Match',w3:'3 – Sieg',l1:'1 – Niederlage',n0:'0 – Nicht gekommen',bon:'+1 – Forderungsbonus: Du hast gefordert und gewinnst? Dann bekommst du 3 + 1 = 4 Punkte.',
  e3:'03 · Mitmachen',h3a:'So machst du',h3b:'mit',p3:'Anmeldung, Ergebnisse und Rangliste findest du auf der Seite deines Vereins.',
  e4:'04 · Playoffs',h4a:'Playoffs &',h4b:'Finale',
  p41:'Die Liga geht vom {start} bis Mitte Juli 2027. Dann machen wir Pause in den Sommerferien. Ab {aug} spielen wir die restlichen Matches. Mitte September ist die Liga zu Ende. Danach spielen die besten 8 jeder Liga die Playoffs.',
@@ -47,7 +47,7 @@ en:{pv:'PREVIEW – not live. Forms do not send anything here.',pick:'Choose you
  p18:'In the playoff round, the first pairings are determined by your ranking in the league.',
  p19:'Play more matches, collect more points, climb the ranking!',
  p20:'You can read all the details about the tournament below.',
- e2:'02 · The rules',h2a:'The',h2b:'rules',ppm:'Points per match',w3:'3 – Win',l1:'1 – Loss',n0:'0 – No-show',bon:'+1 – Challenge bonus: you challenged and you win? Then you get 3 + 1 = 4 points.',
+ e2:'02 · Points',h2a:'',h2b:'Scoring',ppm:'Points per match',w3:'3 – Win',l1:'1 – Loss',n0:'0 – No-show',bon:'+1 – Challenge bonus: you challenged and you win? Then you get 3 + 1 = 4 points.',
  e3:'03 · Join',h3a:'How to',h3b:'join',p3:'Sign-up, results and ranking are on your club’s page.',
  e4:'04 · Playoffs',h4a:'Playoffs &',h4b:'final',
  p41:'The league runs from {start} to mid-July 2027. Then we take a break for the summer holidays. From {aug} we play the remaining matches. The league ends in mid-September. After that, the best 8 of each league play the playoffs.',
@@ -75,7 +75,7 @@ tr:{pv:'ÖNİZLEME – canlı değil. Formlar burada hiçbir şey göndermez.',p
  p18:'Play-off turunda ilk eşleşmeler ligdeki sıralamanıza göre belirlenir.',
  p19:'Daha çok maç oynayın, daha çok puan toplayın, sıralamada yükselin !',
  p20:'Turnuva ile ilgili tüm detaylar aşağıda okuyabilirsiniz',
- e2:'02 · Kurallar',h2a:'',h2b:'Kurallar',ppm:'Maç başına puan',w3:'3 – Galibiyet',l1:'1 – Mağlubiyet',n0:'0 – Gelmedi',bon:'+1 – Meydan okuma bonusu: Siz meydan okudunuz ve kazandınız mı? O zaman 3 + 1 = 4 puan alırsınız.',
+ e2:'02 · Puanlama',h2a:'',h2b:'Puanlama',ppm:'Maç başına puan',w3:'3 – Galibiyet',l1:'1 – Mağlubiyet',n0:'0 – Gelmedi',bon:'+1 – Meydan okuma bonusu: Siz meydan okudunuz ve kazandınız mı? O zaman 3 + 1 = 4 puan alırsınız.',
  e3:'03 · Katılım',h3a:'Nasıl',h3b:'katılırsınız',p3:'Kayıt, sonuçlar ve sıralama kulübünüzün sayfasındadır.',
  e4:'04 · Play-off',h4a:'Play-off ve',h4b:'Final',
  p41:'Lig {start} tarihinden Temmuz 2027 ortasına kadar sürer. Sonra yaz tatili için ara veririz. {aug} tarihinden itibaren kalan maçları oynarız. Lig Eylül ortasında biter. Ardından her ligin en iyi 8 oyuncusu play-off oynar.',
@@ -103,7 +103,7 @@ ja:{pv:'プレビュー – 公開されていません。ここではフォー�
  p18:'プレーオフラウンドの最初の対戦カードは、リーグでの順位に応じて決まります。',
  p19:'もっと試合をして、もっとポイントを集めて、ランキングを上げてください！',
  p20:'トーナメントの詳細は、すべて下でお読みいただけます。',
- e2:'02 · ルール',h2a:'',h2b:'ルール',ppm:'1試合あたりのポイント',w3:'3 – 勝利',l1:'1 – 敗北',n0:'0 – 不参加',bon:'+1 – 挑戦ボーナス：自分から挑戦して勝った場合は 3 + 1 = 4ポイントです。',
+ e2:'02 · ポイント',h2a:'',h2b:'ポイント配点',ppm:'1試合あたりのポイント',w3:'3 – 勝利',l1:'1 – 敗北',n0:'0 – 不参加',bon:'+1 – 挑戦ボーナス：自分から挑戦して勝った場合は 3 + 1 = 4ポイントです。',
  e3:'03 · 参加',h3a:'参加',h3b:'方法',p3:'参加登録、試合結果、ランキングは、各クラブのページにあります。',
  e4:'04 · プレーオフ',h4a:'プレーオフと',h4b:'決勝',
  p41:'リーグは{start}から2027年7月中旬まで行います。その後、夏休み期間は休止します。{aug}から残りの試合を行います。リーグは9月中旬に終わります。その後、各リーグの上位8人がプレーオフを行います。',
@@ -131,7 +131,7 @@ zh:{pv:'预览 – 尚未上线。此处的表格不会发送任何内容。',pi
  p18:'季后赛轮次的首轮对阵根据您在联赛中的排名确定。',
  p19:'多比赛，多积分，提升排名！',
  p20:'您可以在下方阅读有关赛事的全部详情。',
- e2:'02 · 规则',h2a:'',h2b:'规则',ppm:'每场比赛积分',w3:'3 – 胜',l1:'1 – 负',n0:'0 – 未到场',bon:'+1 – 挑战奖励：你发起挑战并获胜？那你将获得 3 + 1 = 4 分。',
+ e2:'02 · 积分',h2a:'',h2b:'计分方式',ppm:'每场比赛积分',w3:'3 – 胜',l1:'1 – 负',n0:'0 – 未到场',bon:'+1 – 挑战奖励：你发起挑战并获胜？那你将获得 3 + 1 = 4 分。',
  e3:'03 · 参加',h3a:'如何',h3b:'参加',p3:'报名、比赛结果和排名都在你所在俱乐部的页面上。',
  e4:'04 · 季后赛',h4a:'季后赛与',h4b:'决赛',
  p41:'联赛从{start}持续到2027年7月中旬。随后暑假期间暂停。从{aug}起进行剩余的比赛。联赛于9月中旬结束。之后，每个联赛排名前8的选手进行季后赛。',
@@ -159,7 +159,7 @@ uk:{pv:'ПОПЕРЕДНІЙ ПЕРЕГЛЯД – не опубліковано.
  p18:'У раунді плей-оф перші пари визначаються відповідно до вашого місця в лізі.',
  p19:'Грайте більше матчів, набирайте більше очок, піднімайтеся в рейтингу!',
  p20:'Усі подробиці про турнір ви можете прочитати нижче.',
- e2:'02 · Правила',h2a:'',h2b:'Правила',ppm:'Очки за матч',w3:'3 – Перемога',l1:'1 – Поразка',n0:'0 – Неявка',bon:'+1 – Бонус за виклик: ви викликали й перемогли? Тоді отримуєте 3 + 1 = 4 очки.',
+ e2:'02 · Очки',h2a:'',h2b:'Підрахунок очок',ppm:'Очки за матч',w3:'3 – Перемога',l1:'1 – Поразка',n0:'0 – Неявка',bon:'+1 – Бонус за виклик: ви викликали й перемогли? Тоді отримуєте 3 + 1 = 4 очки.',
  e3:'03 · Участь',h3a:'Як',h3b:'долучитися',p3:'Реєстрація, результати й рейтинг – на сторінці вашого клубу.',
  e4:'04 · Плей-оф',h4a:'Плей-оф і',h4b:'фінал',
  p41:'Ліга триває з {start} до середини липня 2027 року. Потім ми робимо перерву на літні канікули. З {aug} граємо решту матчів. У середині вересня ліга завершується. Після цього найкращі 8 кожної ліги грають плей-оф.',
@@ -214,6 +214,7 @@ window.addEventListener('message',function(ev){
   if(d.type==='ready') f.contentWindow.postMessage({type:'defiData',liga:LIGA,standings:[],matches:[],rounds:[]},'*'); /* leer -> Heerdt behält Demo, Wetten bleibt leer */
   if(d.type==='defiPreviewSubmit'){ LOG.push({kind:d.kind,liga:d.liga}); renderLog(); }
   if(d.type==='defiSubmit'){ /* darf in der Vorschau nie passieren: wird ignoriert */ }
+  if(d.type==='defiScroll'&&d.to){ var el=document.querySelector(d.to); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
 });
 render();
 })();
