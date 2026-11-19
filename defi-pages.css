@@ -35,6 +35,6 @@ iframe{display:block;width:100%;max-width:960px;margin:14px auto 0;border:0;back
 .sep b{font-family:Poppins,sans-serif;color:var(--olive)}
 .sep code{background:var(--cream);padding:1px 5px;border-radius:4px}
 #log{margin-top:6px}
-@media (max-width:760px){h1{font-size:32px}h2{font-size:25px}.picks{grid-template-columns:1fr}.pts{grid-template-columns:1fr 1fr}.info{grid-template-columns:1fr}section{padding:40px 14px}}
+@media (max-width:760px){h1{font-size:32px}h2{font-size:25px}.picks{grid-template-columns:1fr}.pts{grid-template-columns:1fr}.info{grid-template-columns:1fr}section{padding:40px 14px}}
 html,body{overflow:hidden}
 .top{padding-top:18px}
